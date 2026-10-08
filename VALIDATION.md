@@ -71,25 +71,47 @@ proxy configuration.
 - Static checks: fixtures' versioned SHA-256 manifest matches all files. Wrapper
   shell syntax and Git whitespace checks pass.
 
-## CI and acceptance status at implementation commit
+## Confirmed CI evidence and artifact
 
-Existing CI retained with wrapper validation, JDK/SDK setup, Kotlin compilation,
-unit tests, lint, APK upload and device tests. SDK platform now 36; emulator matrix
-is API 23 and 36. No tests, lint or security validation have been weakened.
+Verified application/workflow source commit:
+`86200a360685fc74282c59a27b6654b7531df284`.
 
-Local device tests are not claimed: /dev/kvm is unavailable. Device tests run in
-GitHub Actions, including actual engine/storage checks and Compose selection →
-compression → preview → save/share. System activity-result dialogs are stubbed;
-engine, codecs and storage execute for real. The initial implementation source commit
-`83f79cfc98f7a76d012fcd624cecce258af14d8d` passed run 37757242876:
-https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37757242876
-The debug job and both device jobs succeeded. Each API emulator executed
-28 tests, including the complete Compose selection/save/share workflow.
-The confirmed APK artifact was `komprexo-debug-83f79cfc98f7a76d012fcd624cecce258af14d8d`,
-artifact ID 11540094992. The follow-up native IO guard adds one meaningful test
-per suite (27 JVM, expected 29 per device); final CI evidence will be recorded
-after those jobs complete. Acceptance for the final delivery is pending until
-that exact commit's workflow succeeds and its uploaded artifact is confirmed.
+https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37758485541
+
+GitHub returned completed / success. All three jobs succeeded:
+
+- debug: wrapper validation, Kotlin, JVM tests, lint, app/test APK assembly and upload.
+- device-test (23): 29 tests executed, BUILD SUCCESSFUL.
+- device-test (36): 29 tests executed, BUILD SUCCESSFUL.
+
+The CI report artifact was downloaded and inspected: JVM index records 27 tests,
+0 failures, 0 ignored. Local JUnit XML also records 27 tests, 0 failures/errors/skips.
+Device logs explicitly record 29 tests started/finished on each API emulator.
+System activity-result dialogs are stubbed in the Compose workflow check; codecs,
+engine, URI storage, preview state, original integrity and save/share execute for
+real. Local device tests are not claimed: /dev/kvm is unavailable.
+
+Confirmed debug APK artifact:
+`komprexo-debug-86200a360685fc74282c59a27b6654b7531df284`
+
+- Artifact ID: 11541153251, ZIP size 9226786 bytes, not expired at verification.
+- Download: https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37758485541/artifacts/11541153251
+- Upload path: app/build/outputs/apk/debug/app-debug.apk.
+- Retention: 14 days; expires 2026-10-22 16:44:11 Asia/Jakarta.
+- ZIP digest: sha256:d2a0d85464001707305b8eb8228ed9919e4f82af59f5da56bafc7db59b54bb93.
+- JVM/lint and both device report artifacts also exist on the run.
+
+The earlier implementation run 37757242876 also succeeded (26 JVM tests and
+28 device tests per API before adding the native ENOSPC test). No test/lint check
+was disabled to pass. Existing Gradle Wrapper and CI structure are retained, with
+SDK 36 and API 23/36 matrix coverage.
+
+Technical Phase 1 acceptance: PASS for the verified application/workflow source.
+This follow-up changes only delivery documentation; application, tests, resources,
+Gradle and workflow are identical to that verified source. The delivery commit
+SHA is obtained with git rev-parse HEAD and compared with origin/work. Its own
+CI will also be checked before the final execution report is delivered. This
+file does not fabricate a not-yet-existing delivery-run ID or self commit hash.
 
 ## Known limitations
 
@@ -117,3 +139,60 @@ that exact commit's workflow succeeds and its uploaded artifact is confirmed.
 No batch mode, website, backend, database, account, cloud storage, PDF features,
 AdMob, Billing, Play publication, production release, force push or branch merge.
 Stop after Phase 1. Phase 2 requires owner approval.
+
+## Delivery file inventory
+
+Compared with starting commit c9fef373d085b75a3944fd8bb5c6aa75dab3385a:
+
+### Files created (26)
+
+- app/src/androidTest/java/com/komprexo/app/CompressionDeviceTest.kt
+- app/src/androidTest/java/com/komprexo/app/LaunchTest.kt
+- app/src/androidTest/java/com/komprexo/app/WorkflowTest.kt
+- app/src/main/java/com/komprexo/app/compression/AndroidCompressionEngine.kt
+- app/src/main/java/com/komprexo/app/compression/BitmapCodec.kt
+- app/src/main/java/com/komprexo/app/compression/CompressionModels.kt
+- app/src/main/java/com/komprexo/app/storage/ImageStorage.kt
+- app/src/main/java/com/komprexo/app/ui/CompressionViewModel.kt
+- app/src/main/java/com/komprexo/app/ui/KomprexoScreen.kt
+- app/src/main/res/values-in/strings.xml
+- app/src/main/res/xml/data_extraction_rules.xml
+- app/src/main/res/xml/file_paths.xml
+- app/src/sharedTest/java/com/komprexo/app/EngineChecks.kt
+- app/src/test/assets/README.md
+- app/src/test/assets/alpha.png
+- app/src/test/assets/corrupt.jpg
+- app/src/test/assets/large.png
+- app/src/test/assets/noise.jpg
+- app/src/test/assets/noise.webp
+- app/src/test/assets/orientations.png
+- app/src/test/assets/rotated.jpg
+- app/src/test/assets/sha256.json
+- app/src/test/assets/unsupported.gif
+- app/src/test/java/com/komprexo/app/CompressionEngineTest.kt
+- docs/COMPRESSION_ENGINE.md
+- docs/PHASE0_VALIDATION.md
+
+### Files modified (9)
+
+- .github/workflows/android.yml
+- README.md
+- VALIDATION.md
+- app/build.gradle
+- app/src/main/AndroidManifest.xml
+- app/src/main/java/com/komprexo/app/MainActivity.kt
+- app/src/main/res/values/strings.xml
+- app/src/test/java/com/komprexo/app/MainActivityTest.kt
+- build.gradle
+
+### Files retired/replaced (2)
+
+- app/src/androidTest/java/com/komprexo/app/LaunchTest.java
+- app/src/main/res/layout/activity_main.xml
+
+The old XML launch layout and Java launch test were replaced by the required
+Compose screen and Compose launch/recreation test; Phase 0 identity/build checks
+remain covered. No repository, unrelated branch, release or deployment was made.
+
+Next recommended work: owner review and physical-device/OEM usability QA before
+approving a Phase 2 scope. No Phase 2 implementation is authorized or started.
