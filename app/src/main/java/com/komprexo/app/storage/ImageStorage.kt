@@ -18,7 +18,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.UUID
 
-class ImageStorage(private val context: Context, private val traceFactory: () -> DiagnosticTrace = { DiagnosticTrace() }) {
+class ImageStorage(internal val context: Context, private val traceFactory: () -> DiagnosticTrace = { DiagnosticTrace() }) {
     val cache = File(context.cacheDir, "images").apply { mkdirs() }
     private val shared = File(context.cacheDir, "shared").apply { mkdirs() }
     init {
@@ -26,7 +26,7 @@ class ImageStorage(private val context: Context, private val traceFactory: () ->
         val cutoff = System.currentTimeMillis() - 24 * 60 * 60 * 1000L
         listOf(cache, shared).forEach { root -> root.listFiles()?.filter { it.lastModified() < cutoff }?.forEach { it.deleteRecursively() } }
     }
-    suspend fun import(uri: Uri): ImageSource {
+    suspend fun import(uri: Uri, validatePreview: Boolean = true): ImageSource {
         val trace = traceFactory()
         val file = File(cache, "source-${UUID.randomUUID()}")
         try { return withContext(Dispatchers.IO) {
@@ -56,7 +56,7 @@ class ImageStorage(private val context: Context, private val traceFactory: () ->
             currentCoroutineContext().ensureActive()
             val source = BitmapCodec.inspect(file, trace).copy(declaredMime = trace.declaredMime)
             // Decode a sampled preview once to validate decodability before accepting selection.
-            BitmapCodec.decode(source, preview = true, trace = trace).recycle()
+            if (validatePreview) BitmapCodec.decode(source, preview = true, trace = trace).recycle()
             trace.move(ProcessingStage.READY)
             keep = true
             source

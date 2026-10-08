@@ -1,6 +1,8 @@
 # Komprexo
 
-Phase 1.6 — offline, single-image smart compression for native Android.
+Phase 2 — offline image tools for native Android.
+Compress one image or a sequential batch of up to 20; convert JPEG/PNG/WebP;
+resize without upscaling; edit smart presets; save copies or share multiple URIs.
 Select JPEG, PNG or supported WebP; set a maximum size; compare before/after;
 then save a copy or share a content URI. Originals remain untouched.
 
@@ -25,5 +27,6 @@ No tests, lint or wrapper validation are disabled. No merge or release is made.
 See [engine design](docs/COMPRESSION_ENGINE.md) for byte units, memory limits,
 quality search, format behavior, cancellation, metadata and temporary-file policy.
 See [actual validation](VALIDATION.md) for test counts and verified CI evidence.
-Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 1.6 does not add batch processing,
-services, accounts, telemetry, database, ads, billing or other excluded features.
+Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 2 adds no services, accounts, telemetry, database, ads, billing or subscriptions.
+See [Phase 2 contracts](docs/PHASE2_DESIGN.md) for presets, exact-dimension safety,
+queue limits, secure folder export and temporary-file ownership.

@@ -3,5 +3,7 @@
         <!-- Deliberately accessible fixture provider in the TEST APK only. -->
         <provider android:name="com.komprexo.app.GalleryFixtureProvider"
             android:authorities="com.komprexo.app.test.gallery" android:exported="true" />
+        <provider android:name="com.komprexo.app.DocumentsFixtureProvider"
+            android:authorities="com.komprexo.app.test.exports" android:exported="true" />
     </application>
 </manifest>

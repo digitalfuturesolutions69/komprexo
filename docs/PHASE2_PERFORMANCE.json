@@ -1,0 +1,15 @@
+{
+  "api": 28,
+  "images": 10,
+  "sourceBytesEach": 336391,
+  "sourceWidth": 640,
+  "sourceHeight": 480,
+  "maxHeapBytes": 536870912,
+  "elapsedMs": 1457,
+  "heapBeforeBytes": 232564632,
+  "heapAfterBytes": 234104416,
+  "outputBytes": 2046260,
+  "nativeConcurrency": 1,
+  "environment": "Linux x86_64; JDK17; native Robolectric API28; seeded noise.jpg; warm test process",
+  "excludes": "picker/import/export/UI; heap snapshots are not peak or native RSS"
+}

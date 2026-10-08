@@ -50,6 +50,10 @@ class DiagnosticTrace(private val emit: (DiagnosticEvent) -> Unit = {
             is OutOfMemoryError -> ExceptionCategory.MEMORY
             is IOException -> ExceptionCategory.IO
             is ImageProblem -> when (error.code) {
+                FailureCode.INVALID_DIMENSIONS -> ExceptionCategory.ARGUMENT
+                FailureCode.DEVICE_LIMIT -> ExceptionCategory.MEMORY
+                FailureCode.BATCH_LIMIT, FailureCode.BUSY, FailureCode.ALPHA_CONFIRMATION -> ExceptionCategory.STATE
+                FailureCode.OUTPUT_TOO_LARGE -> ExceptionCategory.OUTPUT
                 FailureCode.READ_PERMISSION -> ExceptionCategory.PERMISSION
                 FailureCode.INVALID_URI -> ExceptionCategory.INVALID_URI
                 FailureCode.READ_FAILED -> ExceptionCategory.READ

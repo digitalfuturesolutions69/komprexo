@@ -23,6 +23,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.komprexo.app.R
 import com.komprexo.app.compression.*
+import com.komprexo.app.processing.*
 import java.util.Locale
 
 import android.app.Activity
@@ -35,11 +36,13 @@ private val presets = listOf(100L * 1024, 200L * 1024, 300L * 1024, 500L * 1024,
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
+fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Unit)? = null) {
     val state by model.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val dark = isSystemInDarkTheme()
     SideEffect { (context as? MainActivity)?.applySystemBars(dark) }
+    var presetDialog by remember { mutableStateOf(false) }
+    var resizeSettings by remember { mutableStateOf(EditableSettings()) }
     var target by rememberSaveable { mutableLongStateOf(200L * 1024) }
     var custom by rememberSaveable { mutableStateOf("") }
     var formatName by rememberSaveable { mutableStateOf(OutputFormat.AUTO.name) }
@@ -47,6 +50,17 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
     var reviewing by rememberSaveable { mutableStateOf(false) }
     var before by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(state.result?.file) { reviewing = state.result != null; before = false }
+if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
+        title = { Text(stringResource(R.string.smart_presets)) },
+        text = { Column(Modifier.verticalScroll(rememberScrollState())) {
+            PresetChoices(resizeSettings, true) { settings ->
+                resizeSettings = settings
+                val options = settings.options(); target = options.targetBytes; formatName = options.format.name; modeName = options.mode.name
+            }
+            ResizeControls(resizeSettings, true) { resizeSettings = it }
+        } }, confirmButton = { TextButton(onClick = {
+            try { resizeSettings.resize(); presetDialog = false } catch (e: ImageProblem) { model.notice(e.code) }
+        }) { Text(stringResource(R.string.done)) } })
     val format = OutputFormat.valueOf(formatName)
     val mode = CompressionMode.valueOf(modeName)
     val bytes = if (target == 0L) custom.toLongOrNull()?.takeIf { it in 1..10240 }?.times(1024) else target
@@ -73,14 +87,17 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
                         } else if (state.busy) {
                             OutlinedButton(onClick = model::cancel, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.cancel)) }
                         } else {
-                            Button(modifier = Modifier.heightIn(min = 48.dp), enabled = state.source != null && bytes != null, onClick = { bytes?.let { model.compress(it, format, mode) } }) { Text(stringResource(R.string.compress)) }
+                            Button(modifier = Modifier.heightIn(min = 48.dp), enabled = state.source != null && bytes != null, onClick = { bytes?.let { try { model.compress(it, format, mode, resizeSettings.resize()) } catch (e: ImageProblem) { model.notice(e.code) } } }) { Text(stringResource(R.string.compress)) }
                             if (result != null) OutlinedButton(onClick = { reviewing = true }) { Text(stringResource(R.string.view_result)) }
                         }
                     }
                 }
             }) { padding ->
             Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
+                    if (onHome != null) TextButton(onClick = onHome, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.home)) }
+                }
                 Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
                 state.error?.let { Text(stringResource(errorString(it)), color = MaterialTheme.colorScheme.error) }
                 if (state.saved) Text(stringResource(R.string.saved))
@@ -110,6 +127,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
                         Text("${sizeLabel(it.bytes)} · ${it.width} × ${it.height}")
                         state.originalPreview?.let { image -> Image(image.asImageBitmap(), stringResource(R.string.original), Modifier.fillMaxWidth().height(96.dp)) }
                     }
+                    TextButton(onClick = { presetDialog = true }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.smart_presets)) }
                     Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium)
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         presets.forEach { value -> FilterChip(target == value, { target = value }, enabled = !state.busy, label = { Text(if (value >= 1024 * 1024) "${value / (1024 * 1024)} MB" else "${value / 1024} KB") }, modifier = Modifier.heightIn(min = 48.dp)) }
@@ -133,6 +151,12 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
 }
 fun sizeLabel(bytes: Long): String = if (bytes >= 1024 * 1024) String.format(Locale.getDefault(), "%.2f MB", bytes / (1024.0 * 1024)) else String.format(Locale.getDefault(), "%.1f KB", bytes / 1024.0)
 fun errorString(code: FailureCode): Int = when (code) {
+    FailureCode.INVALID_DIMENSIONS -> R.string.error_dimensions
+    FailureCode.DEVICE_LIMIT -> R.string.error_device_limit
+    FailureCode.BATCH_LIMIT -> R.string.error_batch_limit
+    FailureCode.BUSY -> R.string.error_busy
+    FailureCode.ALPHA_CONFIRMATION -> R.string.error_alpha_confirmation
+    FailureCode.OUTPUT_TOO_LARGE -> R.string.error_output_large
     FailureCode.INVALID_URI -> R.string.error_uri
     FailureCode.READ_PERMISSION -> R.string.error_permission
     FailureCode.READ_FAILED -> R.string.error_read

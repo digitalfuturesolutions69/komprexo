@@ -1,6 +1,7 @@
 package com.komprexo.app.compression
 
 import java.io.File
+import com.komprexo.app.processing.ResizeSpec
 import com.komprexo.app.diagnostics.AllocationFailure
 
 enum class OutputFormat(val mime: String, val extension: String) {
@@ -10,11 +11,11 @@ enum class OutputFormat(val mime: String, val extension: String) {
 enum class CompressionMode { BALANCED, QUALITY_FIRST }
 
 // Balanced remains the API default for existing callers; the UI recommends Quality-first.
-data class CompressionOptions(val format: OutputFormat = OutputFormat.AUTO, val mode: CompressionMode = CompressionMode.BALANCED)
+data class CompressionOptions(val format: OutputFormat = OutputFormat.AUTO, val mode: CompressionMode = CompressionMode.BALANCED, val resize: ResizeSpec = ResizeSpec.Original)
 data class CompressionRequest(val source: ImageSource, val maxBytes: Long, val options: CompressionOptions = CompressionOptions())
 data class ImageSource(val file: File, val bytes: Long, val width: Int, val height: Int, val mime: String, val orientation: Int, val declaredMime: String? = null)
 data class CompressionProgress(val attempts: Int, val width: Int, val height: Int)
-enum class FailureCode { INVALID_IMAGE, CORRUPT_IMAGE, INVALID_URI, READ_PERMISSION, READ_FAILED, DECODER_FAILED, ENCODER_FAILED, OUTPUT_INVALID, UNSUPPORTED_HEIF, UNSUPPORTED_FORMAT, INPUT_TOO_LARGE, INSUFFICIENT_MEMORY, UNREACHABLE_TARGET, FILE_ACCESS, STORAGE_FULL, CANCELLED, INTERRUPTED }
+enum class FailureCode { INVALID_DIMENSIONS, DEVICE_LIMIT, BATCH_LIMIT, BUSY, ALPHA_CONFIRMATION, OUTPUT_TOO_LARGE, INVALID_IMAGE, CORRUPT_IMAGE, INVALID_URI, READ_PERMISSION, READ_FAILED, DECODER_FAILED, ENCODER_FAILED, OUTPUT_INVALID, UNSUPPORTED_HEIF, UNSUPPORTED_FORMAT, INPUT_TOO_LARGE, INSUFFICIENT_MEMORY, UNREACHABLE_TARGET, FILE_ACCESS, STORAGE_FULL, CANCELLED, INTERRUPTED }
 data class CompressionFailure(val code: FailureCode)
 sealed interface CompressionResult {
     data class Success(val file: File, val originalBytes: Long, val bytes: Long, val width: Int, val height: Int,

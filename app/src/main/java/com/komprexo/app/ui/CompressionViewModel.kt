@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.komprexo.app.compression.*
+import com.komprexo.app.processing.ResizeSpec
 import com.komprexo.app.storage.ImageStorage
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,11 +50,11 @@ class CompressionViewModel(application: Application, private val saved: SavedSta
         }
     }
 
-    fun compress(maxBytes: Long, format: OutputFormat, mode: CompressionMode = CompressionMode.QUALITY_FIRST) {
+    fun compress(maxBytes: Long, format: OutputFormat, mode: CompressionMode = CompressionMode.QUALITY_FIRST, resize: ResizeSpec = ResizeSpec.Original) {
         val source = state.value.source ?: return
         if (state.value.busy) return
         launch {
-            val result = engine.compress(CompressionRequest(source, maxBytes, CompressionOptions(format, mode))) { progress ->
+            val result = engine.compress(CompressionRequest(source, maxBytes, CompressionOptions(format, mode, resize))) { progress ->
                 mutable.update { it.copy(progress = progress) }
             }
             when (result) {

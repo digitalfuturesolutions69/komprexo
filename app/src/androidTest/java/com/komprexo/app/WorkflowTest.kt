@@ -19,12 +19,14 @@ import androidx.test.platform.app.InstrumentationRegistry
 import com.komprexo.app.ui.CompressionViewModel
 import androidx.lifecycle.ViewModelProvider
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import java.io.File
 
 class WorkflowTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    @Before fun openAcceptedCompressionWorkflow() { compose.onNodeWithTag("homecompress").performClick() }
     @Test fun pickerCompressionPreviewSaveAndShare() {
         val instrumentation=InstrumentationRegistry.getInstrumentation()
         val context=instrumentation.targetContext

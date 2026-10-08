@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.SystemBarStyle
-import com.komprexo.app.ui.KomprexoScreen
+import com.komprexo.app.ui.KomprexoApp
 
 class MainActivity : ComponentActivity() {
     fun applySystemBars(dark: Boolean) {
@@ -20,6 +20,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { KomprexoScreen() }
+        setContent { KomprexoApp() }
     }
 }

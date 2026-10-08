@@ -14,11 +14,13 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.core.view.WindowInsetsControllerCompat
 import com.komprexo.app.ui.KomprexoScreen
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class AccessibilityTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    @Before fun openAcceptedCompressionWorkflow() { compose.onNodeWithTag("homecompress").performClick() }
     @Test fun customFieldIsConditionalAndHasTouchTarget() {
         compose.onNodeWithTag("customSize").assertDoesNotExist()
         compose.onNodeWithText("Custom").performScrollTo().assertHeightIsAtLeast(48.dp).performClick()

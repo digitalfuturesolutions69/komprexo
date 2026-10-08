@@ -1,6 +1,7 @@
 package com.komprexo.app.compression
 
 import com.komprexo.app.diagnostics.*
+import com.komprexo.app.processing.*
 import android.os.Build
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -23,7 +24,7 @@ class AndroidCompressionEngine(private val cache: File,
     private val encoder: BitmapEncodeBackend = platformEncoder,
     private val decoder: (ImageSource, CompressionMode, DiagnosticTrace) -> Bitmap = { source, mode, trace -> BitmapCodec.decode(source, mode = mode, trace = trace) }
 ) : CompressionEngine {
-    companion object { private val memoryGate = Mutex() }
+    companion object { internal val memoryGate = Mutex() }
     override suspend fun compress(request: CompressionRequest, progress: (CompressionProgress) -> Unit): CompressionResult {
         val trace = traceFactory().apply { mime(request.source.declaredMime) }
         var ownedDirectory: File? = null
@@ -42,6 +43,14 @@ class AndroidCompressionEngine(private val cache: File,
                 ownedDirectory = directory
                 if (!directory.mkdirs()) throw IOException("Cannot create output")
                 master = decoder(source, request.options.mode, trace)
+                if (request.options.resize != ResizeSpec.Original) {
+                    val desired = request.options.resize.resolve(source.visualDimensions())
+                    if (desired.width > master.width || desired.height > master.height) throw ImageProblem(FailureCode.DEVICE_LIMIT)
+                    if (desired.width != master.width || desired.height != master.height) {
+                        val resized = Bitmap.createScaledBitmap(master,desired.width,desired.height,true)
+                        master.recycle(); master = resized
+                    }
+                }
                 val alpha = master.hasAlpha()
                 val formats = if (request.options.mode == CompressionMode.QUALITY_FIRST && request.options.format == OutputFormat.AUTO) {
                     if (alpha) listOf(OutputFormat.PNG, OutputFormat.WEBP) else listOf(OutputFormat.JPEG, OutputFormat.WEBP)
