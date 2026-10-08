@@ -1,0 +1,130 @@
+[
+  {
+    "api": 23,
+    "theme": "light",
+    "bar": "status",
+    "background": [
+      254,
+      247,
+      255
+    ],
+    "foreground": [
+      102,
+      99,
+      102
+    ],
+    "contrast": 5.64
+  },
+  {
+    "api": 23,
+    "theme": "light",
+    "bar": "navigation",
+    "background": [
+      27,
+      27,
+      27
+    ],
+    "foreground": [
+      232,
+      232,
+      232
+    ],
+    "contrast": 14.06
+  },
+  {
+    "api": 23,
+    "theme": "dark",
+    "bar": "status",
+    "background": [
+      20,
+      18,
+      24
+    ],
+    "foreground": [
+      255,
+      255,
+      255
+    ],
+    "contrast": 18.59
+  },
+  {
+    "api": 23,
+    "theme": "dark",
+    "bar": "navigation",
+    "background": [
+      27,
+      27,
+      27
+    ],
+    "foreground": [
+      232,
+      232,
+      232
+    ],
+    "contrast": 14.06
+  },
+  {
+    "api": 36,
+    "theme": "light",
+    "bar": "status",
+    "background": [
+      254,
+      247,
+      255
+    ],
+    "foreground": [
+      102,
+      99,
+      102
+    ],
+    "contrast": 5.64
+  },
+  {
+    "api": 36,
+    "theme": "light",
+    "bar": "navigation",
+    "background": [
+      255,
+      254,
+      255
+    ],
+    "foreground": [
+      102,
+      102,
+      102
+    ],
+    "contrast": 5.71
+  },
+  {
+    "api": 36,
+    "theme": "dark",
+    "bar": "status",
+    "background": [
+      20,
+      18,
+      24
+    ],
+    "foreground": [
+      255,
+      255,
+      255
+    ],
+    "contrast": 18.59
+  },
+  {
+    "api": 36,
+    "theme": "dark",
+    "bar": "navigation",
+    "background": [
+      23,
+      23,
+      30
+    ],
+    "foreground": [
+      255,
+      255,
+      255
+    ],
+    "contrast": 17.83
+  }
+]

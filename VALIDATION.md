@@ -117,7 +117,47 @@ screenshots. Downloaded device reports confirm 36 tests, zero failures/skips on
 each API. Screenshot review then found poor icon contrast in the initial API23 dark-theme
 capture despite correct flags. The test now waits for that
 separate process and checks visible foreground pixels in both captured bars,
-in addition to flags. Final CI must pass these stronger visual checks too.
+in addition to flags. Those stronger checks now pass on both APIs; the delayed
+API23 dark capture confirms visible light icons. This was screenshot timing during
+a transition, not persistent incorrect icon styling in the updated application.
+
+Verified final implementation/test source: 03e6bd574110a13da3932cb0417d32e7be7e639d.
+https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37768885611
+GitHub returned completed / success. All three jobs succeeded:
+
+- debug: wrapper validation, Kotlin, 32 unit tests, lint, app/test APK build/upload.
+- device-test (23): 36 tests, 0 failures, 0 skipped; screenshot collection succeeds.
+- device-test (36): 36 tests, 0 failures, 0 skipped; screenshot collection succeeds.
+
+Downloaded report HTML confirms 32 JVM tests / zero failures or ignored, and
+36 device tests / zero failures or skipped on each API. Three added UI tests cover
+conditional Custom, compact/200% font controls and both theme/bar contrasts.
+The existing picker/save/share workflow additionally checks Before/After and
+persistent Save/Share at 200% font. Minimum 48 dp touch heights are asserted.
+
+System-bar screenshot pixel checks pass after a 350 ms SystemUI settling period
+(test-only; no production delay). Representative solid glyph/background contrast,
+calculated from the captured sRGB pixels, is 5.64:1 light status / 18.59:1 dark
+status on both APIs; API23 navigation 14.06:1 in both themes; API36 navigation
+5.71:1 light / 17.83:1 dark. These are sampled glyph colors, not a certification of
+every antialiased pixel or OEM. [Bar crops](docs/SYSTEM_BAR_EVIDENCE.png) and
+[color measurements](docs/SYSTEM_BAR_EVIDENCE.json) are retained. Full screenshots
+are in each device report artifact, including the result with accessible actions.
+
+Confirmed APK artifact:
+komprexo-debug-03e6bd574110a13da3932cb0417d32e7be7e639d
+https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37768885611/artifacts/11546687458
+Artifact ID11546687458; ZIP9236013 bytes; not expired at verification.
+ZIP SHA256: 1f5b2b2226a5d88e48799cbd9a2850a42de2c78b516d652d2fe59c7efec3dff7.
+APK upload path: app/build/outputs/apk/debug/app-debug.apk.
+Retention14 days; expires2026-10-22 11:17:29 UTC. Report artifacts also exist.
+
+Git transport and GitHub connector authentication are operational with supported
+environment access; no token was exposed, stored or replaced. Local/remote work
+were synchronized at the verified source commit. This delivery follow-up changes
+only documentation/evidence. Its SHA/synchronization and its own CI run are
+verified separately before the final execution report; this file does not invent
+a self commit hash or not-yet-existing run ID.
 
 CI retains Java17, SDK36, wrapper validation, unit tests, lint, app/test APK build,
 APK upload and contents:read permissions. Device matrix remains API23/API36,
@@ -143,5 +183,6 @@ Screenshots are collected only by instrumentation, not by the production app.
   save may leave a partial external document. Existing share cleanup rules remain.
 - Application ID is preserved provisionally pending final owner approval.
 
-Stop after FASE 1.5. Technical acceptance awaits final CI verification and owner
-physical-device review; no subsequent phase or publication is authorized.
+Stop after FASE 1.5. Technical implementation acceptance: PASS for the verified source/tests. Owner
+physical-device review and final approval remain pending. No subsequent phase or
+publication is authorized.
