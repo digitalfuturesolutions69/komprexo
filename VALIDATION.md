@@ -83,7 +83,28 @@ input-error label from the shared inspector. Output validation now classifies th
 as OUTPUT_INVALID; source errors remain unchanged. A new shared fault-vector
 check covers encoder false/exception, malformed output and encoder OOM, asserting
 cleanup and unchanged source bytes. Local69-test/lint/app+test APK build passes.
-Final source CI is pending this implementation follow-up push.
+Verified implementation commit: 9bde283fd1ff4b126589a664a45d16fed17f1eca.
+[CI run 37816432545](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37816432545)
+completed successfully in all five jobs. Downloaded reports confirm 69 JVM tests
+and 79 instrumentation tests on each of API 23, 26, 28 and 36 (316 device test
+executions), with zero failures, errors or skipped tests. All previous tests remain.
+CI lint: zero errors and 16 warnings (11 dependency update suggestions, 5 UseKtx).
+The API 36 screenshot at 200% font scaling was inspected: Save and Share remain
+visible in the persistent action area; content scrolls independently. Automated
+checks also cover minimum touch targets and normal-root activity recreation.
+
+[APK artifact](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37816432545/artifacts/11567826019):
+`komprexo-debug-9bde283fd1ff4b126589a664a45d16fed17f1eca`, uploaded and downloaded,
+not expired at verification; retention until 2026-10-22. APK size: 9,850,740 bytes.
+APK SHA256: e6208cc4da4a3a435ded2ecb7695461479cb4cf6200fcfd8e88cdff91cab2399.
+Android apksigner verification passed. Supported environment GitHub credentials
+successfully pushed the existing work branch; remote implementation HEAD matched.
+This delivery documentation is committed separately; its exact final HEAD CI and
+local/remote synchronization are reported in the execution response.
+
+Phase 2 automated acceptance: PASS. Phase 2 physical-device owner review remains
+required. Prior Samsung S9 and itel success is owner-reported Phase 1.6 evidence,
+not a physical Phase 2 test performed here. No merge, release or publication.
 
 Known limits:20 images/32MiB each/256MiB selected imports are initial safety limits,
 not monetization limits. Exact resize/converter dimensions can exceed heap or WebP
