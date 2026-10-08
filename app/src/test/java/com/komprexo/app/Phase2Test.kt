@@ -45,6 +45,7 @@ class Phase2Test {
     @Test fun folderExport() { checks.folderExport() }
     @Test fun partialExportAndPermissions() { checks.partialExportAndPermissions() }
     @Test fun exportStorageAndCancellation() { checks.exportStorageAndCancellation() }
+    @Test fun converterEncoderAndOutputFailures() { checks.converterEncoderAndOutputFailures() }
     @Test fun shareSafetyLimits() { checks.shareSafetyLimits() }
     @Test fun measuredBatch() { checks.measuredBatch() }
 }

@@ -159,7 +159,7 @@ class Phase2Checks(private val context: Context, private val fixture: (String)->
             val n=active.incrementAndGet();synchronized(peak) { peak.set(maxOf(peak.get(),n)) }
             try { Thread.sleep(10);BitmapCodec.decode(s,mode=CompressionMode.QUALITY_FIRST,trace=t) } finally { active.decrementAndGet() }
         }
-        val tasks=List(4) { async(Dispatchers.Default) { ImageTransformEngine(root,decoder).transform(TransformRequest(input,OutputFormat.PNG)) } }
+        val tasks=List(4) { async(Dispatchers.Default) { ImageTransformEngine(root,decoder=decoder).transform(TransformRequest(input,OutputFormat.PNG)) } }
         assertTrue(tasks.awaitAll().all { it is ProcessingResult.Success });assertEquals(1,peak.get())
     }
     fun transformCancellation()=runBlocking {
@@ -205,6 +205,20 @@ class Phase2Checks(private val context: Context, private val fixture: (String)->
         try { exportSequential(outputs,ExportWriter { if(n++==1) throw CancellationException();Uri.parse("content://fixture/$n") }) { accepted=it };fail("Cancellation swallowed") }
         catch(_: CancellationException) { }
         assertEquals(1,accepted.size);assertNotNull(accepted.first().destination)
+    }
+    fun converterEncoderAndOutputFailures()=runBlocking {
+        val input=source("noise.jpg");val original=input.file.readBytes()
+        val cases=listOf(
+            BitmapEncodeBackend { _,_,_,_ -> false } to FailureCode.ENCODER_FAILED,
+            BitmapEncodeBackend { _,_,_,_ -> throw IllegalStateException("synthetic codec failure") } to FailureCode.ENCODER_FAILED,
+            BitmapEncodeBackend { _,_,_,stream -> stream.write(byteArrayOf(0xff.toByte(),0xd8.toByte(),0xff.toByte(),0xd9.toByte()));true } to FailureCode.OUTPUT_INVALID,
+            BitmapEncodeBackend { _,_,_,_ -> throw OutOfMemoryError("synthetic codec memory") } to FailureCode.INSUFFICIENT_MEMORY)
+        for((encoder,expected) in cases) {
+            val result=ImageTransformEngine(root,encoder=encoder).transform(TransformRequest(input,OutputFormat.PNG)) as ProcessingResult.Failed
+            assertEquals(expected,result.code)
+            assertFalse(root.listFiles()!!.any { it.name.startsWith("transform-") })
+            assertArrayEquals(original,input.file.readBytes())
+        }
     }
     fun shareSafetyLimits()=runBlocking {
         val output=success("noise.jpg",OutputFormat.JPEG)

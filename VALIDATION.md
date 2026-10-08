@@ -24,8 +24,8 @@ Supported temporary caches/proxy credentials, no secrets stored in the repositor
 ./gradlew :app:compileDebugKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
 ```
 
-Actual completed local suite:68 tests, zero failures/errors/skips; all previous43
-retained.25 shared checks exercise converters, alpha confirmation, real decoding,
+Actual completed local suite:69 tests, zero failures/errors/skips; all previous43
+retained.26 shared checks exercise converters, alpha confirmation, real decoding,
 resize ratios/invalid dimensions/orientation/device limits, editable deterministic
 presets and enforced targets, sequential/partial/cancelled batches, duplicate
 output names, native/concurrent guards, temporary cleanup, folder and multi-share
@@ -38,7 +38,7 @@ these were corrected using AndroidX compatibility and plain wording, without
 suppressing lint. An instrumentation fixture chained a void Intent setter; that
 compilation error was corrected. Grouped result rendering required materializing
 its indexed iterable as a list. These failed build attempts are not claimed PASS.
-Final local build PASS: production/JVM/instrumentation Kotlin compilation,68 JVM
+Final local build PASS: production/JVM/instrumentation Kotlin compilation,69 JVM
 tests (0 failures/errors/skips), lint (0 errors;5 UseKtx suggestions, including2
 existing), and app/test APK assemblies. APK identity/permissions/signature checked:
 Komprexo / com.komprexo.app / min23 / target36; no Internet or storage permission.
@@ -73,8 +73,17 @@ passed debug. API23/26/28/36 each completed77 tests with one failure at recreati
 in a new synthetic-density UI fixture. That fixture changes the Compose root
 position of rememberSaveable relative to normal MainActivity.onCreate. Large-font
 controls had already passed before recreation; large-font access and normal-root
-activity recreation now have separate retained checks. Corrected CI is pending;
-this failed run is not claimed PASS.
+activity recreation now have separate retained checks. Corrected run https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37814406963
+for b0b5b664655b08981443f3072aa15149093c4964 passed all five jobs. Each API ran78
+checks, including retained large-font and normal-root recreation checks. The initial
+failed run is not claimed PASS.
+
+A final review found that malformed encoded conversion output could inherit an
+input-error label from the shared inspector. Output validation now classifies this
+as OUTPUT_INVALID; source errors remain unchanged. A new shared fault-vector
+check covers encoder false/exception, malformed output and encoder OOM, asserting
+cleanup and unchanged source bytes. Local69-test/lint/app+test APK build passes.
+Final source CI is pending this implementation follow-up push.
 
 Known limits:20 images/32MiB each/256MiB selected imports are initial safety limits,
 not monetization limits. Exact resize/converter dimensions can exceed heap or WebP

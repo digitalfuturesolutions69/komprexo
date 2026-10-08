@@ -13,6 +13,7 @@ import java.util.UUID
 /** Exact requested dimensions or an explicit device-limit failure. No file-size search.
  * Shares the compression engine's process-wide native allocation gate. */
 class ImageTransformEngine(private val cache: File,
+    private val encoder: BitmapEncodeBackend = BitmapEncodeBackend { bitmap,format,quality,stream -> bitmap.compress(format,quality,stream) },
     private val decoder: (ImageSource,DiagnosticTrace) -> Bitmap = { s,t -> BitmapCodec.decode(s,mode=CompressionMode.QUALITY_FIRST,trace=t) }
 ) : TransformEngine {
     override suspend fun transform(request: TransformRequest): ProcessingResult {
@@ -60,16 +61,22 @@ class ImageTransformEngine(private val cache: File,
                     val job = currentCoroutineContext()
                     file.outputStream().use { stream ->
                         val bounded = LimitedOutput(stream,MAX_TRANSFORM_BYTES) { job.isActive }
-                        val encoded = resized.compress(encoder,if(format==OutputFormat.PNG) 100 else 95,bounded)
+                        val encoded = this@ImageTransformEngine.encoder.encode(resized,encoder,if(format==OutputFormat.PNG) 100 else 95,bounded)
                         job.ensureActive(); bounded.failure?.let { throw it }
                         if (bounded.exceeded) throw ImageProblem(FailureCode.OUTPUT_TOO_LARGE)
                         if (!encoded) throw ImageProblem(FailureCode.ENCODER_FAILED)
                     }
                     trace.move(ProcessingStage.OUTPUT_VALIDATE)
-                    val inspected = BitmapCodec.inspect(file,trace)
-                    if (inspected.width != size.width || inspected.height != size.height || inspected.mime != format.mime) throw ImageProblem(FailureCode.OUTPUT_INVALID)
-                    // Real sampled decode, not just header parsing.
-                    BitmapCodec.decode(inspected,preview=true,trace=trace).recycle()
+                    try {
+                        val inspected = BitmapCodec.inspect(file,trace)
+                        if (inspected.width != size.width || inspected.height != size.height || inspected.mime != format.mime) throw ImageProblem(FailureCode.OUTPUT_INVALID)
+                        // Real sampled decode, not just header parsing.
+                        BitmapCodec.decode(inspected,preview=true,trace=trace).recycle()
+                    } catch(e: ImageProblem) {
+                        if(e.code in setOf(FailureCode.INSUFFICIENT_MEMORY,FailureCode.CANCELLED,FailureCode.FILE_ACCESS,FailureCode.STORAGE_FULL)) throw e
+                        trace.move(ProcessingStage.OUTPUT_VALIDATE)
+                        throw ImageProblem(FailureCode.OUTPUT_INVALID)
+                    }
                     ensureActive(); trace.move(ProcessingStage.READY)
                     keep=true
                     ProcessingResult.Success(ImageOutput(file,source.bytes,file.length(),size.width,size.height,format,alphaRemoved))

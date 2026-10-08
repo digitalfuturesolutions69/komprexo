@@ -35,14 +35,14 @@ suspend fun exportSequential(outputs: List<ImageOutput>, writer: ExportWriter, u
 }
 
 suspend fun ImageStorage.saveOutput(output: ImageOutput, uri: Uri) = withContext(Dispatchers.IO) {
-    if (uri.scheme != "content") throw ImageProblem(FailureCode.INVALID_URI)
+    if (uri.scheme != "content" || uri.authority.isNullOrEmpty()) throw ImageProblem(FailureCode.INVALID_URI)
     checkOutput(output)
     context.contentResolver.openOutputStream(uri,"w")?.use { destination -> output.file.inputStream().use { copyChecked(it,destination) } }
         ?: throw ImageProblem(FailureCode.FILE_ACCESS)
 }
 
 suspend fun ImageStorage.saveToFolder(outputs: List<ImageOutput>, tree: Uri, update: (List<ExportItem>) -> Unit = {}): List<ExportItem> = withContext(Dispatchers.IO) {
-    if (tree.scheme != "content" || !DocumentsContractCompat.isTreeUri(tree)) throw ImageProblem(FailureCode.INVALID_URI)
+    if (tree.scheme != "content" || tree.authority.isNullOrEmpty() || !DocumentsContractCompat.isTreeUri(tree)) throw ImageProblem(FailureCode.INVALID_URI)
     val parent = DocumentsContract.buildDocumentUriUsingTree(tree,DocumentsContract.getTreeDocumentId(tree))
     exportSequential(outputs,ExportWriter { output ->
         checkOutput(output)
