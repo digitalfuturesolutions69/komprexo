@@ -111,7 +111,13 @@ workflow failure, not a passing CI run. Screenshot evidence now copies through
 the instrumentation shell into /data/local/tmp before cleanup; the final workflow
 must verify this artifact collection too. No test/lint/security check was disabled.
 A result-mode Cancel action was also retained while Save/Share is busy.
-Final CI verification will be recorded after that complete workflow finishes.
+Corrected run https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37767892551
+for 51e3bf01f3531e3f9a43d96a0b90cf0ddb001ea3 passed all three jobs and collected
+screenshots. Downloaded device reports confirm 36 tests, zero failures/skips on
+each API. Screenshot review then found poor icon contrast in the initial API23 dark-theme
+capture despite correct flags. The test now waits for that
+separate process and checks visible foreground pixels in both captured bars,
+in addition to flags. Final CI must pass these stronger visual checks too.
 
 CI retains Java17, SDK36, wrapper validation, unit tests, lint, app/test APK build,
 APK upload and contents:read permissions. Device matrix remains API23/API36,

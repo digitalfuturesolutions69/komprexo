@@ -53,7 +53,7 @@ class AccessibilityTest {
                 }
             }
             compose.waitForIdle()
-            captureEvidence(if (dark) "dark-theme" else "light-theme")
+            captureEvidence(if (dark) "dark-theme" else "light-theme", darkTheme = dark)
             compose.activityRule.scenario.onActivity { activity ->
                 val controller = WindowInsetsControllerCompat(activity.window, activity.window.decorView)
                 assertEquals(!dark, controller.isAppearanceLightStatusBars)
