@@ -33,3 +33,35 @@ Restore workspace proxy connectivity and authorized Git push access, push the
 `work` task branch, and verify both Actions jobs and the artifact. Final owner
 approval of `com.komprexo.app` remains pending. No merge, release or deployment
 has been performed. Scope stops at Phase 0.
+
+## Recovery execution
+
+The original commit `2c3af9e24f1aa4c9d37c90bcd250814a4909f6d6` was found
+locally on `work` with a clean working tree. The GitHub connector initially
+reported no remote branches. With the supported execution network grant, Git
+transport successfully pushed the original commit to `origin/work`. The earlier
+proxy errors were from restricted command execution; no network policy bypass or
+replacement credential was used. `gh auth status` still reports its supplied
+credential invalid; Git transport and the GitHub connector work independently.
+
+The original Actions run 37752782518 failed in both jobs at SDK setup because
+`setup-android` attempted to install the retired `tools` package. Setup now
+explicitly requests `platform-tools`. Existing SDK, unit test, lint, APK and
+instrumentation checks remain enabled, with `contents: read` permissions.
+
+A Gradle 8.11.1 wrapper was obtained from the official Gradle v8.11.1 tag via the
+GitHub connector. Its JAR SHA-256 matches the published release checksum:
+`2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046`.
+The distribution ZIP checksum is pinned. Wrapper shell syntax and JAR checksum
+checks PASS. The wrapper downloaded and ran Gradle 8.11.1 successfully with the
+supported network grant and writable `/tmp` cache. Android SDK 35 / build tools
+35.0.0 installed successfully after redirecting the unwritable user cache.
+
+The existing activity was converted to Kotlin to satisfy explicit Kotlin
+compilation. A Robolectric JVM launch smoke test was added; the existing device
+launch/recreation test is retained. No Phase 1 feature or package rename occurred.
+
+Initial build attempts failed before tests: the default user cache is read-only,
+and the supplied Java 21 runtime lacks a compiler. Writable cache locations and
+a checksum-verified JDK 17 are being used for subsequent verification. Final
+results will be appended after CI/build execution. No APK PASS is claimed here.
