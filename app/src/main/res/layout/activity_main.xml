@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical"
+    android:gravity="center" android:background="#F6F5F0">
+    <TextView android:id="@+id/title" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="@string/app_name"
+        android:textSize="36sp" android:textStyle="bold" android:textColor="#183A30" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="12dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"
+        android:gravity="center" android:text="@string/foundation_message"
+        android:textSize="16sp" android:textColor="#475950" />
+</LinearLayout>
