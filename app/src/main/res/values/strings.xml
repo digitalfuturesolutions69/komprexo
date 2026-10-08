@@ -93,4 +93,6 @@
     <string name="successful_results">Successful results</string>
     <string name="failed_images">Failed images</string>
     <string name="cancelled_images">Cancelled images</string>
+    <string name="switch_tool">Switch tools</string>
+    <string name="switch_tool_warning">Switching tools clears the current Batch, Convert or Resize images, results and settings. Originals are preserved. Cancel to keep your current work.</string>
 </resources>

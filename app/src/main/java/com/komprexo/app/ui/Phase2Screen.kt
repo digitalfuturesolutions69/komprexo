@@ -61,22 +61,27 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
         try { context.startActivity(Intent.createChooser(intent,null)) }
         catch(_: ActivityNotFoundException) { model.notice(FailureCode.FILE_ACCESS) }
     } }
-    if(showSettings) AlertDialog(onDismissRequest={ showSettings=false },title={ Text(stringResource(R.string.tool_settings)) },
-        text={ Column(Modifier.heightIn(max=360.dp).verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(8.dp)) {
+    if(showSettings) ResponsiveSettingsDialog(stringResource(R.string.tool_settings),
+        onDismiss={ showSettings=false },onConfirm={ showSettings=false }) {
             if(state.workflow!=Workflow.CONVERT) PresetChoices(state.settings,!state.busy,if(batch) Preset.entries else Preset.entries.filter { it!=Preset.DOCUMENT },model::edit)
             if(batch) {
                 TargetControls(state.settings,!state.busy,model::edit)
-                FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
-                    CompressionMode.entries.forEach { mode -> FilterChip(state.settings.mode==mode,{ model.edit(state.settings.copy(mode=mode)) },enabled=!state.busy,
+                Text(stringResource(R.string.compression_settings),style=MaterialTheme.typography.titleMedium)
+                FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
+                    CompressionMode.entries.forEach { mode -> ChoiceChip(state.settings.mode==mode,{ model.edit(state.settings.copy(mode=mode)) },enabled=!state.busy,
                         label={ Text(stringResource(if(mode==CompressionMode.QUALITY_FIRST) R.string.quality_first else R.string.balanced)) },modifier=Modifier.heightIn(min=48.dp)) }
                 }
             }
             FormatControls(state.settings,!state.busy,state.workflow!=Workflow.CONVERT,false,model::edit)
             if(state.workflow!=Workflow.CONVERT) ResizeControls(state.settings,!state.busy,model::edit)
-        } },confirmButton={ TextButton({ showSettings=false },modifier=Modifier.heightIn(min=48.dp).testTag("settingsDone")) { Text(stringResource(R.string.done)) } })
-    Scaffold(contentWindowInsets=WindowInsets.safeDrawing,bottomBar={
+    }
+    Scaffold(contentWindowInsets=WindowInsets.safeDrawing,topBar={
+        WorkflowTopBar(stringResource(when(state.workflow) { Workflow.BATCH->R.string.home_batch;Workflow.CONVERT->R.string.home_convert;Workflow.RESIZE->R.string.home_resize }),!state.busy,onHome)
+    },bottomBar={
         Surface(shadowElevation=4.dp) {
-            FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal=16.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+            Column {
+            if(state.busy) ProcessingStatus(state.progress)
+            FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal=16.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
                 if(state.busy) OutlinedButton(model::cancel,modifier=Modifier.heightIn(min=48.dp).testTag("phase2Cancel")) { Text(stringResource(R.string.cancel)) }
                 else {
                     Button(model::start,enabled=state.selection.isNotEmpty() && (batch || state.selection.first().source!=null),modifier=Modifier.heightIn(min=48.dp).testTag("phase2Start")) { Text(stringResource(R.string.process_images)) }
@@ -89,21 +94,17 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
                     }
                 }
             }
+            }
         }
     }) { padding ->
         LazyColumn(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).padding(horizontal=16.dp).testTag("phase2List"),verticalArrangement=Arrangement.spacedBy(8.dp),contentPadding=PaddingValues(vertical=12.dp)) {
             item {
-                FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-                    Text(stringResource(when(state.workflow) { Workflow.BATCH->R.string.home_batch;Workflow.CONVERT->R.string.home_convert;Workflow.RESIZE->R.string.home_resize }),style=MaterialTheme.typography.headlineSmall)
-                    TextButton(onHome,enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp)) { Text(stringResource(R.string.home)) }
-                }
                 Button({ if(batch) picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) else single.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) },enabled=!state.busy,
-                    modifier=Modifier.heightIn(min=48.dp).testTag("phase2Select")) { Text(stringResource(if(batch) R.string.select_images else R.string.select_image)) }
+                    modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("phase2Select")) { Text(stringResource(if(batch) R.string.select_images else R.string.select_image)) }
                 Text(stringResource(R.string.selection_count,state.selection.size,if(batch) MAX_BATCH_IMAGES else 1),modifier=Modifier.testTag("selectionCount"))
                 if(state.selection.isNotEmpty()) TextButton(model::clear,enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp).testTag("clearSelection")) { Text(stringResource(R.string.clear_selection)) }
                 state.error?.let { Text(stringResource(errorString(it)),color=MaterialTheme.colorScheme.error) }
-                if(state.busy && state.progress==null) { LinearProgressIndicator(Modifier.fillMaxWidth());Text(stringResource(R.string.processing)) }
-                state.progress?.let { progress ->
+                state.progress?.takeIf { !state.busy }?.let { progress ->
                     LinearProgressIndicator(progress={ progress.percent/100f },modifier=Modifier.fillMaxWidth())
                     Text(stringResource(R.string.batch_progress,progress.completed,progress.failed,progress.total,progress.percent),modifier=Modifier.testTag("batchProgress"))
                     progress.current?.let { Text(stringResource(R.string.current_image,it,progress.total)) }
@@ -145,7 +146,7 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
                     Column(Modifier.padding(12.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
                         Row(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                             item.thumbnail?.let { Image(it.asImageBitmap(),stringResource(R.string.image_number,index+1),Modifier.size(80.dp)) }
-                            Column {
+                            Column(Modifier.weight(1f)) {
                                 Text(stringResource(R.string.image_number,index+1),style=MaterialTheme.typography.titleMedium)
                                 item.source?.let { source ->
                                     val visual=source.visualDimensions()
@@ -162,7 +163,7 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
                             else -> Unit
                         }
                         val output=(result as? ItemResult.Success)?.output
-                        if(output!=null && batch) FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                        if(output!=null && batch) FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
                             OutlinedButton({ saveOne(output) },enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp)) { Text(stringResource(R.string.save)) }
                             OutlinedButton({ share(listOf(output)) },enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp)) { Text(stringResource(R.string.share)) }
                         }

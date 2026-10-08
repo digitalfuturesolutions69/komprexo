@@ -41,8 +41,8 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
     val context = LocalContext.current
     val dark = isSystemInDarkTheme()
     SideEffect { (context as? MainActivity)?.applySystemBars(dark) }
-    var presetDialog by remember { mutableStateOf(false) }
-    var resizeSettings by remember { mutableStateOf(EditableSettings()) }
+    var presetDialog by rememberSaveable { mutableStateOf(false) }
+    var resizeSettings by rememberSaveable(stateSaver = EditableSettingsSaver) { mutableStateOf(EditableSettings()) }
     var target by rememberSaveable { mutableLongStateOf(200L * 1024) }
     var custom by rememberSaveable { mutableStateOf("") }
     var formatName by rememberSaveable { mutableStateOf(OutputFormat.AUTO.name) }
@@ -50,17 +50,16 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
     var reviewing by rememberSaveable { mutableStateOf(false) }
     var before by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(state.result?.file) { reviewing = state.result != null; before = false }
-if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
-        title = { Text(stringResource(R.string.smart_presets)) },
-        text = { Column(Modifier.verticalScroll(rememberScrollState())) {
-            PresetChoices(resizeSettings, true) { settings ->
-                resizeSettings = settings
-                val options = settings.options(); target = options.targetBytes; formatName = options.format.name; modeName = options.mode.name
-            }
-            ResizeControls(resizeSettings, true) { resizeSettings = it }
-        } }, confirmButton = { TextButton(onClick = {
+    if (presetDialog) ResponsiveSettingsDialog(stringResource(R.string.smart_presets),
+        onDismiss = { presetDialog = false }, onConfirm = {
             try { resizeSettings.resize(); presetDialog = false } catch (e: ImageProblem) { model.notice(e.code) }
-        }) { Text(stringResource(R.string.done)) } })
+        }) {
+        PresetChoices(resizeSettings, !state.busy) { settings ->
+            resizeSettings = settings
+            val options = settings.options(); target = options.targetBytes; formatName = options.format.name; modeName = options.mode.name
+        }
+        ResizeControls(resizeSettings, !state.busy) { resizeSettings = it }
+    }
     val format = OutputFormat.valueOf(formatName)
     val mode = CompressionMode.valueOf(modeName)
     val bytes = if (target == 0L) custom.toLongOrNull()?.takeIf { it in 1..10240 }?.times(1024) else target
@@ -71,9 +70,12 @@ if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
     MaterialTheme(colorScheme = if (dark) darkColorScheme(primary = Color(0xffa1d3bc)) else lightColorScheme(primary = Color(0xff356858))) {
         Scaffold(containerColor = MaterialTheme.colorScheme.background,
             contentWindowInsets = WindowInsets.safeDrawing,
+            topBar = { WorkflowTopBar(stringResource(R.string.app_name), !state.busy, onHome, stringResource(R.string.home_compress)) },
             bottomBar = {
                 Surface(shadowElevation = 4.dp) {
-                    FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Column {
+                    if(state.busy) ProcessingStatus()
+                    FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         val result = state.result
                         if (reviewing && result != null) {
                             Button(modifier = Modifier.heightIn(min = 48.dp).testTag("saveAction"), enabled = !state.busy, onClick = {
@@ -91,14 +93,12 @@ if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
                             if (result != null) OutlinedButton(onClick = { reviewing = true }) { Text(stringResource(R.string.view_result)) }
                         }
                     }
+                    }
                 }
             }) { padding ->
             Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
-                    if (onHome != null) TextButton(onClick = onHome, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.home)) }
-                }
-                Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
+                Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
+                Text(stringResource(R.string.selection_count, if(state.source != null) 1 else 0, 1))
                 state.error?.let { Text(stringResource(errorString(it)), color = MaterialTheme.colorScheme.error) }
                 if (state.saved) Text(stringResource(R.string.saved))
                 if (state.busy) {
@@ -114,9 +114,9 @@ if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
                     val rotated = source.orientation in 5..8
                     Text(stringResource(R.string.dimension_comparison, if (rotated) source.height else source.width, if (rotated) source.width else source.height, result.width, result.height, result.format.name))
                     Text(stringResource(if (result.meetsTarget) R.string.target_met else R.string.target_not_met, sizeLabel(result.maxBytes)))
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        FilterChip(before, { before = true }, label = { Text(stringResource(R.string.original)) }, modifier = Modifier.heightIn(min = 48.dp))
-                        FilterChip(!before, { before = false }, label = { Text(stringResource(R.string.after)) }, modifier = Modifier.heightIn(min = 48.dp))
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        ChoiceChip(before, { before = true }, label = { Text(stringResource(R.string.original)) }, modifier = Modifier.heightIn(min = 48.dp))
+                        ChoiceChip(!before, { before = false }, label = { Text(stringResource(R.string.after)) }, modifier = Modifier.heightIn(min = 48.dp))
                     }
                     val preview = if (before) state.originalPreview else state.outputPreview
                     preview?.let { Image(it.asImageBitmap(), stringResource(if (before) R.string.original else R.string.compressed), Modifier.fillMaxWidth().heightIn(min = 120.dp, max = 260.dp).testTag("comparisonPreview")) }
@@ -129,18 +129,18 @@ if (presetDialog) AlertDialog(onDismissRequest = { presetDialog = false },
                     }
                     TextButton(onClick = { presetDialog = true }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.smart_presets)) }
                     Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium)
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        presets.forEach { value -> FilterChip(target == value, { target = value }, enabled = !state.busy, label = { Text(if (value >= 1024 * 1024) "${value / (1024 * 1024)} MB" else "${value / 1024} KB") }, modifier = Modifier.heightIn(min = 48.dp)) }
-                        FilterChip(target == 0L, { target = 0L }, enabled = !state.busy, label = { Text(stringResource(R.string.custom)) }, modifier = Modifier.heightIn(min = 48.dp))
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        presets.forEach { value -> ChoiceChip(target == value, { target = value }, enabled = !state.busy, label = { Text(if (value >= 1024 * 1024) "${value / (1024 * 1024)} MB" else "${value / 1024} KB") }, modifier = Modifier.heightIn(min = 48.dp)) }
+                        ChoiceChip(target == 0L, { target = 0L }, enabled = !state.busy, label = { Text(stringResource(R.string.custom)) }, modifier = Modifier.heightIn(min = 48.dp))
                     }
                     if (target == 0L) OutlinedTextField(custom, { custom = it.take(5) }, enabled = !state.busy, modifier = Modifier.fillMaxWidth().testTag("customSize"), label = { Text(stringResource(R.string.custom_label)) }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), isError = bytes == null, supportingText = { Text(stringResource(R.string.custom_hint)) }, singleLine = true)
                     Text(stringResource(R.string.compression_settings), style = MaterialTheme.typography.titleMedium)
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        CompressionMode.entries.forEach { item -> FilterChip(mode == item, { modeName = item.name }, enabled = !state.busy, label = { Text(stringResource(if (item == CompressionMode.QUALITY_FIRST) R.string.quality_first else R.string.balanced)) }, modifier = Modifier.heightIn(min = 48.dp)) }
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        CompressionMode.entries.forEach { item -> ChoiceChip(mode == item, { modeName = item.name }, enabled = !state.busy, label = { Text(stringResource(if (item == CompressionMode.QUALITY_FIRST) R.string.quality_first else R.string.balanced)) }, modifier = Modifier.heightIn(min = 48.dp)) }
                     }
                     Text(stringResource(R.string.output_format))
-                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        OutputFormat.entries.forEach { item -> FilterChip(format == item, { formatName = item.name }, enabled = !state.busy, label = { Text(if (item == OutputFormat.AUTO) stringResource(R.string.auto_recommended) else item.name) }, modifier = Modifier.heightIn(min = 48.dp)) }
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutputFormat.entries.forEach { item -> ChoiceChip(format == item, { formatName = item.name }, enabled = !state.busy, label = { Text(if (item == OutputFormat.AUTO) stringResource(R.string.auto_recommended) else item.name) }, modifier = Modifier.heightIn(min = 48.dp)) }
                     }
                     if (format == OutputFormat.JPEG) Text(stringResource(R.string.jpeg_alpha))
                 }

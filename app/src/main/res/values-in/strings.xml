@@ -93,4 +93,6 @@
     <string name="successful_results">Hasil berhasil</string>
     <string name="failed_images">Gambar gagal</string>
     <string name="cancelled_images">Gambar dibatalkan</string>
+    <string name="switch_tool">Pindah alat</string>
+    <string name="switch_tool_warning">Berpindah alat menghapus gambar, hasil, dan pengaturan Batch, Konversi, atau Ubah ukuran saat ini. Gambar asli tetap aman. Batal untuk mempertahankan pekerjaan.</string>
 </resources>
