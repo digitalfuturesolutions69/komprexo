@@ -65,3 +65,17 @@ Initial build attempts failed before tests: the default user cache is read-only,
 and the supplied Java 21 runtime lacks a compiler. Writable cache locations and
 a checksum-verified JDK 17 are being used for subsequent verification. Final
 results will be appended after CI/build execution. No APK PASS is claimed here.
+
+Recovery commit `a86ee153dee220075998c701cf3d3e08c54bca13` passed the CI debug
+job (run 37753146098). Kotlin compilation, unit tests, lint and debug APK assembly
+succeeded, and the APK artifact exists. Local validation also completed with
+BUILD SUCCESSFUL using JDK 17, writable caches, and inherited proxy/CA trust
+forwarded to Robolectric through a local-only Gradle init script. The unit test
+report records 1 test, 0 failures, 0 errors, 0 skipped. Lint reports 0 errors and
+2 warnings: DataExtractionRules and Overdraw. Local APK signature verification
+passes and aapt confirms Komprexo / com.komprexo.app / min 23 / target 35.
+
+The CI device job failed before executing tests because AndroidJUnitRunner was
+not included in the test APK (ClassNotFoundException). An explicit
+`androidx.test:runner:1.6.2` dependency repairs the verified defect; device checks
+remain enabled and will be rerun. Acceptance remains pending until that run.
