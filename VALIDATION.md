@@ -84,7 +84,12 @@ The HEIF probe is a signature fixture, not a valid full HEIC photo.
 
 ## CI / acceptance
 
-CI verification pending implementation push; no CI PASS is claimed yet.
+First CI run37779550450 for c3a4b07e75c563c3f5f596599b6a178d95b52818
+passed debug build/upload but failed device suites before completion. The test-only
+provider ran in its own process; its Kotlin runtime references were absent from
+the test APK (supplied only by the target APK during instrumentation). It is now
+self-contained Java. The corrected local43-test/lint/APK run passes. Corrected
+CI verification pending; the failed/incomplete run is not counted as acceptance.
 All prior UI, system-bar, large-font and compression tests remain enabled.
 Physical S9 acceptance pending, regardless of emulator outcome. HEIF/HDR/animated
 support is not added. Native codec memory accounting remains an estimate with

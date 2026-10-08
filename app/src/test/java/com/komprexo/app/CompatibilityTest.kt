@@ -17,7 +17,7 @@ class CompatibilityTest {
     private lateinit var checks: CompatibilityChecks
     @Before fun setup() {
         val context = RuntimeEnvironment.getApplication()
-        val provider = GalleryFixtureProvider().apply { streamViaPipe=false;fixtureLoader = { File("src/test/assets/$it").readBytes() } }
+        val provider = GalleryFixtureProvider().apply { streamViaPipe=false;fixtureLoader = GalleryFixtureProvider.FixtureLoader { File("src/test/assets/$it").readBytes() } }
         provider.attachInfo(context,ProviderInfo().apply { authority="com.komprexo.app.test.gallery";exported=true })
         ShadowContentResolver.registerProviderInternal("com.komprexo.app.test.gallery",provider)
         checks=CompatibilityChecks(context) { File("src/test/assets/$it").inputStream() }
