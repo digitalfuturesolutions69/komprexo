@@ -1,42 +1,25 @@
 # Komprexo
 
-Phase 0 — Technical Foundation only. A native Android Kotlin application with a
-launch shell and debug APK CI. No product features, website, backend, database,
-authentication, advertising, or billing are included.
+Phase 1 — offline, single-image smart compression for native Android.
+Select JPEG, PNG or supported WebP; set a maximum size; compare before/after;
+then save a copy or share a content URI. Originals remain untouched.
 
-## Identity and toolchain
+## Build
 
-- Name: Komprexo
-- Proposed application ID / namespace: `com.komprexo.app` (final owner approval pending)
-- Android minimum API 23; compile / target API 35
-- JDK 17, Gradle Wrapper 8.11.1, Android Gradle Plugin 8.9.2, Kotlin 2.1.20
-
-## Build and tests
-
-Install JDK 17 and Android SDK platform 35 / build tools 35.0.0. Set
-`ANDROID_HOME` or create an untracked `local.properties` containing `sdk.dir`.
+JDK 17, checked-in Gradle Wrapper 8.11.1, AGP 8.9.2, Kotlin 2.1.20.
+Android min API 23; compile/target API 36. Set ANDROID_HOME to your SDK.
+Application ID `com.komprexo.app` is provisional pending final owner approval.
 
 ```sh
-./gradlew --no-daemon testDebugUnitTest lintDebug assembleDebug assembleDebugAndroidTest
-./gradlew --no-daemon connectedDebugAndroidTest
+./gradlew :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
+./gradlew connectedDebugAndroidTest
 ```
 
-The second command needs an API 23+ emulator or device. The instrumentation smoke
-test verifies launching and recreating the activity, the displayed name, and the
-proposed application ID. A Robolectric unit smoke test also verifies native screen inflation on API 35.
-There is no domain logic in Phase 0.
+Device CI tests API 23 and 36; debug CI uploads the debug APK for 14 days.
+No tests, lint or wrapper validation are disabled. No merge or release is made.
 
-The wrapper JAR and launch scripts come from the official Gradle v8.11.1 tag.
-The JAR matches the official release checksum, and the distribution ZIP checksum
-is pinned in wrapper properties. CI validates the wrapper before use.
-
-GitHub Actions runs Kotlin compilation, unit tests, build/lint and API 35 emulator tests on pushes and pull
-requests. The debug job uploads `app/build/outputs/apk/debug/app-debug.apk` as
-`komprexo-debug-<commit SHA>` with 14-day retention. Download it from the workflow
-run's Artifacts section. It is debug signed and is not a release APK.
-
-## Phase boundary
-
-Stop after this foundation. Owner approval is needed before finalizing the
-application ID, merging into main, publishing releases, or deploying. Future
-features, monetization and service integration belong to later phases.
+See [engine design](docs/COMPRESSION_ENGINE.md) for byte units, memory limits,
+quality search, format behavior, cancellation, metadata and temporary-file policy.
+See [actual validation](VALIDATION.md) for test counts and verified CI evidence.
+Phase 0 history is preserved in Git; Phase 1 does not add batch processing,
+services, accounts, telemetry, database, ads, billing or other excluded features.

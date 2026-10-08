@@ -1,4 +1,36 @@
 <resources>
-    <string name="app_name">Komprexo</string>
-    <string name="foundation_message">Ready for the next chapter.</string>
+  <string name="app_name">Komprexo</string>
+  <string name="intro">One image. A smaller file. Processed on your device.</string>
+  <string name="select_image">Select image</string>
+  <string name="maximum_size">Maximum output size</string>
+  <string name="custom">Custom</string>
+  <string name="custom_label">Maximum size in KB</string>
+  <string name="custom_hint">1–10,240 KB. 1 KB = 1,024 bytes.</string>
+  <string name="output_format">Output format</string>
+  <string name="auto_format">Auto</string>
+  <string name="jpeg_alpha">JPEG removes transparency and uses a white background. Choose Auto, PNG or WebP to preserve transparency.</string>
+  <string name="compress">Compress image</string>
+  <string name="processing">Processing locally…</string>
+  <string name="dimensions_progress">Trying %1$d × %2$d pixels</string>
+  <string name="cancel">Cancel</string>
+  <string name="saved">Image saved. The original is unchanged.</string>
+  <string name="original">Before · Original</string>
+  <string name="compressed">After · Compressed</string>
+  <string name="result_summary">%1$s · %2$s%% smaller
+%3$d × %4$d pixels · %5$s</string>
+  <string name="target_met">Within maximum: %1$s</string>
+  <string name="target_not_met">Exceeds maximum: %1$s</string>
+  <string name="save">Save a copy</string>
+  <string name="share">Share</string>
+  <string name="privacy_note">No images are uploaded. Saved copies are yours. Temporary share copies are cleaned on the next launch after 24 hours.</string>
+  <string name="error_invalid">This file is not a valid image. Select another file.</string>
+  <string name="error_corrupt">The image is damaged or cannot be decoded. Select another image.</string>
+  <string name="error_format">Only JPEG, PNG and supported WebP images are accepted.</string>
+  <string name="error_large">This image exceeds the limit: 32 MB, 128 megapixels or 32,768 pixels per side.</string>
+  <string name="error_memory">Not enough memory to process this image safely. Try a smaller image.</string>
+  <string name="error_target">No valid image fits this maximum size. Increase the target or try another format.</string>
+  <string name="error_access">The file is unavailable or permission was lost. Select the image or destination again.</string>
+  <string name="error_storage">Storage is full. Free some space and try again.</string>
+  <string name="error_cancelled">Operation cancelled. Your original image is unchanged.</string>
+  <string name="error_interrupted">Processing was interrupted. Please try again.</string>
 </resources>

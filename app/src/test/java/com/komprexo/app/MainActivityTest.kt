@@ -1,7 +1,7 @@
 package com.komprexo.app
 
-import android.widget.TextView
-import org.junit.Assert.assertEquals
+import android.view.ViewGroup
+import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Robolectric
@@ -11,11 +11,12 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [35])
 class MainActivityTest {
-    @Test
-    fun launchInflatesNativeScreenWithKomprexoTitle() {
+    @Test fun launchCreatesComposeHostWithKomprexoIdentity() {
         Robolectric.buildActivity(MainActivity::class.java).use { controller ->
             val activity = controller.setup().get()
-            assertEquals("Komprexo", activity.findViewById<TextView>(R.id.title).text.toString())
+            assertEquals("com.komprexo.app",activity.packageName)
+            assertEquals("Komprexo",activity.getString(R.string.app_name))
+            assertTrue(activity.findViewById<ViewGroup>(android.R.id.content).childCount > 0)
         }
     }
 }

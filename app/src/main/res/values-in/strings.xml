@@ -1,0 +1,36 @@
+<resources>
+  <string name="app_name">Komprexo</string>
+  <string name="intro">Satu gambar. File lebih kecil. Diproses di perangkat Anda.</string>
+  <string name="select_image">Pilih gambar</string>
+  <string name="maximum_size">Ukuran keluaran maksimum</string>
+  <string name="custom">Kustom</string>
+  <string name="custom_label">Ukuran maksimum dalam KB</string>
+  <string name="custom_hint">1–10.240 KB. 1 KB = 1.024 byte.</string>
+  <string name="output_format">Format keluaran</string>
+  <string name="auto_format">Otomatis</string>
+  <string name="jpeg_alpha">JPEG menghapus transparansi dan memakai latar putih. Pilih Otomatis, PNG, atau WebP untuk mempertahankan transparansi.</string>
+  <string name="compress">Kompres gambar</string>
+  <string name="processing">Memproses secara lokal…</string>
+  <string name="dimensions_progress">Mencoba %1$d × %2$d piksel</string>
+  <string name="cancel">Batal</string>
+  <string name="saved">Gambar disimpan. Gambar asli tidak berubah.</string>
+  <string name="original">Sebelum · Asli</string>
+  <string name="compressed">Sesudah · Terkompresi</string>
+  <string name="result_summary">%1$s · %2$s%% lebih kecil
+%3$d × %4$d piksel · %5$s</string>
+  <string name="target_met">Di bawah maksimum: %1$s</string>
+  <string name="target_not_met">Melebihi maksimum: %1$s</string>
+  <string name="save">Simpan salinan</string>
+  <string name="share">Bagikan</string>
+  <string name="privacy_note">Gambar tidak diunggah. Salinan tersimpan tetap milik Anda. Salinan sementara untuk berbagi dibersihkan saat aplikasi dibuka kembali setelah 24 jam.</string>
+  <string name="error_invalid">File ini bukan gambar yang valid. Pilih file lain.</string>
+  <string name="error_corrupt">Gambar rusak atau tidak dapat dibaca. Pilih gambar lain.</string>
+  <string name="error_format">Hanya gambar JPEG, PNG, dan WebP yang didukung dapat dipilih.</string>
+  <string name="error_large">Gambar melebihi batas: 32 MB, 128 megapiksel, atau 32.768 piksel per sisi.</string>
+  <string name="error_memory">Memori tidak cukup untuk memproses gambar dengan aman. Coba gambar lebih kecil.</string>
+  <string name="error_target">Tidak ada gambar valid yang muat dalam ukuran ini. Naikkan target atau coba format lain.</string>
+  <string name="error_access">File tidak tersedia atau izin dicabut. Pilih ulang gambar atau tujuan.</string>
+  <string name="error_storage">Penyimpanan penuh. Kosongkan ruang lalu coba lagi.</string>
+  <string name="error_cancelled">Operasi dibatalkan. Gambar asli tidak berubah.</string>
+  <string name="error_interrupted">Pemrosesan terhenti. Silakan coba lagi.</string>
+</resources>

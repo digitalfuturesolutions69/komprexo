@@ -1,117 +1,112 @@
-# Komprexo — Phase 0 recovery and validation
+# Komprexo Phase 1 — actual validation
 
-Date: 2026-10-08 (Asia/Jakarta). Scope: Phase 0 only.
+Date: 2026-10-08 (Asia/Jakarta). Existing repository:
+https://github.com/digitalfuturesolutions69/komprexo. Branch: `work`.
+Starting commit: `c9fef373d085b75a3944fd8bb5c6aa75dab3385a`.
+Verified Phase 0 source: `f1f247d80dd65d57f5300919b5cff969bcff53a1`.
+Phase 0 report is retained in docs/PHASE0_VALIDATION.md and Git history.
 
-## Repository and recovery
+## Implemented Phase 1
 
-- Repository: https://github.com/digitalfuturesolutions69/komprexo
-- Existing project root: `/workspace/komprexo`; task branch: `work`.
-- Original commit `2c3af9e24f1aa4c9d37c90bcd250814a4909f6d6` was found locally
-  with a clean working tree. It was not recreated or inferred from missing data.
-- Remote initially had no branches. Supported network permission enabled Git
-  transport; the original branch was pushed, followed by ordinary fast-forward
-  recovery commits. No force push, history overwrite, merge or release occurred.
-- Verified application-source commit:
-  `f1f247d80dd65d57f5300919b5cff969bcff53a1`.
-- This report-only follow-up commit retains exactly that application and workflow
-  source. Its hash is available with `git rev-parse HEAD`; synchronization is
-  checked against `git ls-remote origin refs/heads/work` after pushing.
+Single-image Compose selection, target presets/custom binary KB, local encoding,
+normalized original/result previews, actual byte sizes/reduction/dimensions/format
+and target status, cancellation, SAF save, and FileProvider share. No original is
+opened for writing. All typed failure messages have English and Indonesian text.
 
-## Actual verification results
+Algorithm and limitations: docs/COMPRESSION_ENGINE.md. Quality is searched
+exhaustively from 100 to 35; then dimensions shrink by 0.8, always from normalized
+source pixels. PNG uses one quality trial. Auto preserves alpha with WebP; explicit
+JPEG uses white background and warns about transparency removal. Actual bytes,
+overflow flags and decoded output bounds must pass before accepting a result.
 
-| Check | Result | Evidence |
-| --- | --- | --- |
-| Wrapper JAR validation | PASS | Official Gradle 8.11.1 SHA-256 matches; CI wrapper-validation passed in both jobs |
-| Wrapper distribution | PASS | Gradle 8.11.1 downloaded with pinned ZIP checksum; wrapper ran successfully |
-| Dependency resolution | PASS | Local debugRuntimeClasspath dependency task completed; CI resolved build/test dependencies |
-| Kotlin compilation | PASS | compileDebugKotlin and compileDebugUnitTestKotlin succeeded locally and in CI |
-| JVM unit test | PASS | 1 test, 0 failures, 0 errors, 0 skipped in local JUnit XML; CI testDebugUnitTest succeeded |
-| Android lint | PASS with warnings | lintDebug completed locally and in CI; 0 errors, 2 warnings locally |
-| Debug APK assembly | PASS | Local assembleDebug succeeded; CI debug job succeeded and APK artifact exists |
-| Test APK assembly | PASS | assembleDebugAndroidTest succeeded; rebuilt test APK contains AndroidJUnitRunner |
-| Device smoke test | PASS | API 35 CI emulator ran 1 test; connectedDebugAndroidTest and device job succeeded |
-| APK signature / identity | PASS locally | apksigner verify exited 0; aapt confirms Komprexo, com.komprexo.app, min API 23, target API 35 |
-| Static checks | PASS | 5 Android XML files parsed; workflow YAML parsed; wrapper shell syntax and Git whitespace checks passed |
+## Actual local results
 
-Successful CI run: https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37753693594
+Command (JDK 17, existing wrapper, supported network grant, writable /tmp caches):
 
-GitHub returned `status: completed`, `conclusion: success`, with head SHA
-`f1f247d80dd65d57f5300919b5cff969bcff53a1`. Both `debug` and `device-test` jobs
-succeeded. Evidence applies to this source commit, not a claim that a later
-report-only commit has already completed its own workflow run.
+```sh
+./gradlew :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
+```
 
-## Confirmed APK artifact
+BUILD SUCCESSFUL. A local-only init script configures Robolectric's writable home
+and inherited proxy/CA trust; application source contains no environment-specific
+proxy configuration.
 
-- Name: `komprexo-debug-f1f247d80dd65d57f5300919b5cff969bcff53a1`
-- Artifact ID: `11539341305`; ZIP size: 828171 bytes; not expired at verification.
-- Location: successful workflow run above, Artifacts section.
-- Download: https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37753693594/artifacts/11539341305
-- Contents configured for upload: `app/build/outputs/apk/debug/app-debug.apk`.
-- Retention: 14 days; expiration: 2026-10-22 16:01:48 Asia/Jakarta.
-- GitHub artifact ZIP digest:
-  `sha256:75fc8db491592fa61a23397efeb0794a2fbcd081951dcde5f8fdff0eac483b36`.
-- Local APK: `/workspace/komprexo/app/build/outputs/apk/debug/app-debug.apk`,
-  836427 bytes; SHA-256:
-  `a61cfc589e7388613a650f64bf21aa85d557c9622fabab53df7454355392b7ca`.
-  Local and CI debug signing keys differ; the APK hashes need not match.
-- Unit/lint and device test report artifacts are also present on that run.
+- Wrapper: PASS, official Gradle 8.11.1 JAR SHA-256
+  `2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046`.
+  The retained wrapper distribution checksum is pinned; wrapper previously ran
+  successfully and is used for these checks. CI wrapper-validation remains enabled.
+- Kotlin compilation: PASS, production/unit/instrumentation sources compile.
+- JVM: 26 tests, 0 failures, 0 errors, 0 skipped (25 native-graphics engine/storage
+  checks plus 1 Compose host/identity smoke test).
+- Target-size checks: all six presets, custom 17389 bytes, actual file length,
+  highest fitting integer JPEG quality, dimension reduction and unreachable 1-byte
+  PNG target. Output is really encoded/decoded, not mocked.
+- Formats: JPEG, PNG, WebP, alpha-preserving Auto, explicit JPEG alpha-to-white,
+  small source, corrupted JPEG and unsupported GIF fixture rejection.
+- EXIF: rotated fixture dimensions/color placement and all 8 transforms checked
+  against a four-color pixel oracle; orientation metadata is absent/normal after
+  encoding. Aspect ratio checked with integer rounding tolerance.
+- Memory: versioned 4096x2048 fixture sampled before decode; actual bitmap
+  allocation <=2 million pixels x 4 bytes, sampling edge cases and >32 MiB source
+  rejection checked. Current available heap can further reduce this ceiling.
+- Errors/storage: cancellation removes job output, unreachable targets leave no
+  accepted files, blocked output directory, ENOSPC copy failure, invalid provider,
+  content-URI save/import and concurrent output isolation checked.
+- Integrity/security: outputs decode with reported dimensions; source bytes remain
+  unchanged; secure shared content URI read matches output bytes; FileProvider
+  rejects access to private result directories.
+- Lint: 0 errors, 4 warnings (2 PluralsCandidate, 2 UseKtx) and 1 informational
+  AutoboxingStateCreation recommendation. No lint checks were suppressed/disabled.
+- Debug APK and test APK assembly: PASS. Local app APK:
+  `/workspace/komprexo/app/build/outputs/apk/debug/app-debug.apk`.
+  SHA-256: `b65159f89e7b87b658750a4e5abe31353ad744b94fee46e26896bb21516b56bb`.
+  apksigner verification succeeds; META-INF/JAR metadata warnings are retained.
+- APK identity: Komprexo; `com.komprexo.app`; minSdk 23; compile/target 36;
+  versionName 0.2.0. Final owner application-ID approval remains pending.
+- Permissions: merged APK declares only AndroidX's app-specific signature-level
+  `com.komprexo.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`. No INTERNET,
+  READ/WRITE_EXTERNAL_STORAGE, READ_MEDIA_IMAGES or other broad media access.
+  FileProvider is unexported and scopes sharing to cache/shared. Backup and device
+  extraction are excluded. No network image code, telemetry, backend or database.
+- Static checks: fixtures' versioned SHA-256 manifest matches all files. Wrapper
+  shell syntax and Git whitespace checks pass.
 
-This is a debug-signed APK, not a release or Play publication.
+## CI and acceptance status at implementation commit
 
-## Verified defects repaired
+Existing CI retained with wrapper validation, JDK/SDK setup, Kotlin compilation,
+unit tests, lint, APK upload and device tests. SDK platform now 36; emulator matrix
+is API 23 and 36. No tests, lint or security validation have been weakened.
 
-1. Added the official Gradle wrapper and distribution checksum; CI uses
-   `./gradlew` and wrapper validation with only `contents: read` permissions.
-   Wrapper JAR/scripts originate from `gradle/gradle` tag `v8.11.1`. Official
-   checksum source: https://github.com/gradle/gradle-distributions/releases/tag/v8.11.1
-   JAR checksum: `2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046`.
-2. Converted the existing activity to Kotlin, enabled Kotlin 2.1.20, and added a
-   JVM launch smoke test to meet explicit compilation/unit-test requirements.
-3. SDK setup now requests `platform-tools`; original run 37752782518 failed
-   because the action attempted to install the retired `tools` package.
-4. Added explicit `androidx.test:runner:1.6.2`; run 37753146098 had a successful
-   debug job but failed instrumentation before tests due to missing
-   AndroidJUnitRunner. Corrected run 37753693594 executed the test successfully.
+Local device tests are not claimed: /dev/kvm is unavailable. Device tests run in
+GitHub Actions, including actual engine/storage checks and Compose selection →
+compression → preview → save/share. System activity-result dialogs are stubbed;
+engine, codecs and storage execute for real. Counts and final CI evidence will
+be recorded after those jobs complete. Acceptance is pending until the actual
+workflow succeeds and the uploaded APK artifact is confirmed.
 
-No tests, lint, wrapper validation or security checks were disabled to pass CI.
+## Known limitations
 
-## Environment and authentication
+- Native codec calls/provider reads cannot always stop immediately; cancellation
+  is cooperative and cleans owned files when control returns.
+- If the process is killed, encoding cannot resume; retained saved-state marks
+  interrupted work and the user must select/recompress. Android cache eviction
+  can remove unsaved outputs.
+- Input limits: 32 MiB, 128 MP, 32768 pixels per side. Decoded resolution <=2048
+  per edge and <=2 MP (possibly lower under heap pressure). This trades detail for
+  memory safety. The budget bounds bitmap allocations, not total native RSS.
+- UI custom targets: integer 1–10240 KB. Tiny engine targets can be unreachable.
+  Some small sources grow after fresh encoding; reductions remain accurate.
+- WebP uses device support and exports one decoded frame. SDR ARGB normalization
+  does not promise HDR/wide-gamut/high-bit-depth fidelity.
+- Shared copies remain usable for receivers and are purged at next launch after
+  24 hours, capped at 128 MiB; externally saved copies are never pruned.
+- A failed provider save can leave a partial destination document; externally
+  owned files are not deleted automatically.
+- System dialog/OEM UX, arbitrary adversarial files and physical-device memory
+  pressure need broader QA beyond these synthetic fixtures and emulator checks.
+- gh CLI credential check is still invalid; authorized Git transport/connector
+  work with supported environment credentials. No token was exposed or replaced.
 
-- Initial shell Git/curl failed to reach the proxy; Java socket creation was
-  denied under default execution permissions. Supported additional network
-  permission resolved access; inherited proxy and CA trust were preserved.
-- `gh auth status` reports the supplied GH_TOKEN invalid. No credential was
-  printed, replaced or persisted. GitHub connector reads and authorized Git
-  transport pushes succeeded independently. This remains a CLI-specific issue.
-- Supplied Java 21 runtime lacked javac. Downloaded JDK 17 from official Adoptium
-  release assets and verified its published SHA-256 before use.
-- Android SDK 35/build tools 35.0.0 installed in `/tmp/komprexo-sdk`.
-- Default Java/Android/Gradle/Robolectric caches are unwritable here. Local
-  commands used `/tmp` caches; a local-only Gradle init script forwarded writable
-  user.home and inherited proxy/CA settings to the test JVM. Initial Robolectric
-  failure was an unwritable lock file; corrected execution passed.
-- No local `/dev/kvm` exists. Device execution was verified on GitHub Actions,
-  rather than claimed locally. Local ephemeral toolchain files are not committed.
-
-## Remaining issues and acceptance
-
-Technical Phase 0 acceptance: PASS for the verified source commit, including a
-real uploaded APK and successful unit, lint and device checks.
-
-- Application ID remains provisional `com.komprexo.app`, pending final owner
-  approval. Namespace/package names were not changed.
-- Lint warnings: DataExtractionRules (future backup configuration) and Overdraw
-  (root and window backgrounds overlap). Deprecated system window inset API
-  compiler warnings remain; these APIs support the configured minimum API 23.
-- apksigner notes that Gradle's META-INF/app-metadata.properties entry is not
-  protected by the JAR signature; signature verification itself succeeds.
-- GitHub logs note deprecated Node 20 action runtimes forced onto Node 24; actual
-  action execution passed. These are maintenance warnings, not build blockers.
-- Smoke tests establish foundation launch behavior, not full product QA or
-  compatibility coverage across all Android versions.
-- GitHub CLI authentication remains unresolved; working Git transport and
-  connector access permit the requested delivery.
-
-No website, backend, database, authentication, AdMob, Billing or Phase 1 feature
-was introduced. No main merge, Google Play publication, release or deployment.
-Stop after Phase 0 validation; owner approval governs subsequent actions.
+No batch mode, website, backend, database, account, cloud storage, PDF features,
+AdMob, Billing, Play publication, production release, force push or branch merge.
+Stop after Phase 1. Phase 2 requires owner approval.

@@ -1,25 +1,15 @@
 package com.komprexo.app
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.View
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import com.komprexo.app.ui.KomprexoScreen
 
-/** Native launch shell for Phase 0. */
-class MainActivity : Activity() {
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val root = findViewById<View>(R.id.main)
-        // Android 15 enforces edge-to-edge; keep content clear of system bars.
-        root.setOnApplyWindowInsetsListener { view, insets ->
-            view.setPadding(
-                insets.systemWindowInsetLeft,
-                insets.systemWindowInsetTop,
-                insets.systemWindowInsetRight,
-                insets.systemWindowInsetBottom,
-            )
-            insets
-        }
-        root.requestApplyInsets()
+        enableEdgeToEdge()
+        setContent { KomprexoScreen() }
     }
 }

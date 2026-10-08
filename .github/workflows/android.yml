@@ -21,7 +21,7 @@ jobs:
       - uses: gradle/actions/wrapper-validation@v4
       - uses: gradle/actions/setup-gradle@v4
       - name: Install SDK
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+        run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - name: Test, lint, and assemble debug APK
         run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
       - uses: actions/upload-artifact@v4
@@ -36,6 +36,10 @@ jobs:
           name: android-reports-${{ github.sha }}
           path: app/build/reports/
   device-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [23, 36]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -56,7 +60,7 @@ jobs:
           sudo udevadm trigger --name-match=kvm
       - uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 35
+          api-level: ${{ matrix.api }}
           arch: x86_64
           profile: pixel_2
           disable-animations: true
@@ -64,5 +68,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: device-test-reports-${{ github.sha }}
+          name: device-test-reports-api${{ matrix.api }}-${{ github.sha }}
           path: app/build/reports/androidTests/
