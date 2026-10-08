@@ -6,7 +6,10 @@ enum class OutputFormat(val mime: String, val extension: String) {
     AUTO("", ""), JPEG("image/jpeg", "jpg"), PNG("image/png", "png"), WEBP("image/webp", "webp")
 }
 
-data class CompressionOptions(val format: OutputFormat = OutputFormat.AUTO)
+enum class CompressionMode { BALANCED, QUALITY_FIRST }
+
+// Balanced remains the API default for existing callers; the UI recommends Quality-first.
+data class CompressionOptions(val format: OutputFormat = OutputFormat.AUTO, val mode: CompressionMode = CompressionMode.BALANCED)
 data class CompressionRequest(val source: ImageSource, val maxBytes: Long, val options: CompressionOptions = CompressionOptions())
 data class ImageSource(val file: File, val bytes: Long, val width: Int, val height: Int, val mime: String, val orientation: Int)
 data class CompressionProgress(val attempts: Int, val width: Int, val height: Int)

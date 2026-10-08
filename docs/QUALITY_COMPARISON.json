@@ -1,0 +1,6 @@
+[{"target":2097152,"mode":"BALANCED","bytes":574022,"width":960,"height":800,"format":"JPEG","quality":100,"psnrDb":15.53864128286768},
+{"target":2097152,"mode":"QUALITY_FIRST","bytes":1478038,"width":1920,"height":1600,"format":"JPEG","quality":95,"psnrDb":35.96067374664655},
+{"target":512000,"mode":"BALANCED","bytes":459587,"width":960,"height":800,"format":"JPEG","quality":98,"psnrDb":15.53784960007759},
+{"target":512000,"mode":"QUALITY_FIRST","bytes":500829,"width":1920,"height":1600,"format":"JPEG","quality":75,"psnrDb":31.093956785675232},
+{"target":102400,"mode":"BALANCED","bytes":102049,"width":960,"height":800,"format":"JPEG","quality":73,"psnrDb":15.544292478173869},
+{"target":102400,"mode":"QUALITY_FIRST","bytes":100978,"width":1132,"height":944,"format":"WEBP","quality":70,"psnrDb":19.6795904843084}]

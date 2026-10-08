@@ -1,5 +1,10 @@
 package com.komprexo.app
 
+import androidx.activity.compose.setContent
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import android.app.Activity
 import android.app.Instrumentation.ActivityResult
 import android.content.Intent
@@ -41,14 +46,28 @@ class WorkflowTest {
             Intents.intending(hasAction(Intent.ACTION_CHOOSER)).respondWith(ActivityResult(Activity.RESULT_CANCELED,null))
             compose.onNodeWithText("Select image").performClick()
             compose.waitUntil(30000) { model.state.value.source != null && !model.state.value.busy }
-            compose.onNodeWithText("Compress image").performScrollTo().performClick()
+            compose.onNodeWithText("Compress image").assertIsDisplayed().performClick()
             compose.waitUntil(60000) { model.state.value.result != null && !model.state.value.busy }
             compose.onNodeWithText("After · Compressed").performScrollTo().assertIsDisplayed()
             assertTrue(model.state.value.result!!.meetsTarget)
-            compose.onNodeWithText("Save a copy").performScrollTo().performClick()
+            compose.activityRule.scenario.onActivity { activity ->
+                activity.setContent {
+                    val density = LocalDensity.current
+                    CompositionLocalProvider(LocalDensity provides Density(density.density, 2f)) { com.komprexo.app.ui.KomprexoScreen() }
+                }
+            }
+            compose.waitForIdle()
+            compose.onNodeWithText("Before · Original").performScrollTo().performClick()
+            compose.onNodeWithTag("comparisonPreview").performScrollTo().assertIsDisplayed()
+            compose.onNodeWithText("After").performScrollTo().performClick()
+            compose.onNodeWithTag("saveAction").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
+            compose.onNodeWithTag("shareAction").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
+            captureEvidence("result-large-font")
+
+            compose.onNodeWithText("Save a copy").assertIsDisplayed().performClick()
             compose.waitUntil(30000) { model.state.value.saved }
             assertArrayEquals(model.state.value.result!!.file.readBytes(),destination.readBytes())
-            compose.onNodeWithText("Share").performScrollTo().performClick()
+            compose.onNodeWithText("Share").assertIsDisplayed().performClick()
             compose.waitUntil(30000) { !model.state.value.busy }
             Intents.intended(hasAction(Intent.ACTION_CHOOSER))
             assertArrayEquals(original,source.readBytes())

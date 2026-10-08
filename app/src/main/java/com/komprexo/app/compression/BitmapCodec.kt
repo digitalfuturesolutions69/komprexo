@@ -61,14 +61,14 @@ object BitmapCodec {
         return sample
     }
 
-    fun decode(source: ImageSource, preview: Boolean = false): Bitmap {
+    fun decode(source: ImageSource, preview: Boolean = false, mode: CompressionMode = CompressionMode.BALANCED): Bitmap {
         val runtime = Runtime.getRuntime()
         val available = runtime.maxMemory() - (runtime.totalMemory() - runtime.freeMemory())
         // Reserve 16 bytes per decoded pixel for bitmap copies and processing headroom.
-        val safePixels = minOf(if (preview) 400_000L else ImageLimits.MAX_DECODE_PIXELS,
-            minOf(runtime.maxMemory() / 4, available / 2) / 16)
+        val safePixels = if (!preview && mode == CompressionMode.QUALITY_FIRST) qualityPixelBudget(runtime.maxMemory(), available)
+            else minOf(if (preview) 400_000L else ImageLimits.MAX_DECODE_PIXELS, minOf(runtime.maxMemory() / 4, available / 2) / 16)
         if (safePixels < 65_536) throw ImageProblem(FailureCode.INSUFFICIENT_MEMORY)
-        val sample = sampleSize(source.width, source.height, if (preview) 720 else ImageLimits.MAX_DECODE_EDGE, safePixels)
+        val sample = sampleSize(source.width, source.height, if (preview) 720 else if (mode == CompressionMode.QUALITY_FIRST) ImageLimits.MAX_DIMENSION else ImageLimits.MAX_DECODE_EDGE, safePixels)
         val options = BitmapFactory.Options().apply {
             inSampleSize = sample; inPreferredConfig = Bitmap.Config.ARGB_8888; inScaled = false
             if (Build.VERSION.SDK_INT >= 26) inPreferredColorSpace = ColorSpace.get(ColorSpace.Named.SRGB)
@@ -94,6 +94,10 @@ object BitmapCodec {
             normalized
         } catch (t: Throwable) { decoded.recycle(); throw t }
     }
+
+    /** Reserve half the heap and at least 32 MiB free; 20 bytes/pixel covers copies and encoder headroom. */
+    fun qualityPixelBudget(maxHeap: Long, available: Long): Long =
+        minOf(16_000_000L, minOf(maxHeap / 2, maxOf(0L, available - 32L * 1024 * 1024) / 2) / 20)
 
     fun whiteBackground(bitmap: Bitmap): Bitmap {
         val opaque = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)

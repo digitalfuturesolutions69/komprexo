@@ -41,6 +41,39 @@ class EngineChecks(private val context: Context, private val fixture: (String) -
         decoded.recycle()
         return result
     }
+    fun qualityMode() = runBlocking {
+        val input = source("detail.png")
+        val decoded = BitmapCodec.decode(input, mode = CompressionMode.QUALITY_FIRST)
+        val expectedWidth = decoded.width
+        val expectedHeight = decoded.height
+        decoded.recycle()
+        val r = engine.compress(CompressionRequest(input, 10L * 1024 * 1024, CompressionOptions(OutputFormat.PNG, CompressionMode.QUALITY_FIRST))) as CompressionResult.Success
+        assertEquals(expectedWidth, r.width); assertEquals(expectedHeight, r.height)
+        assertTrue(r.meetsTarget); assertEquals(r.bytes, r.file.length())
+        val balanced = engine.compress(CompressionRequest(input, 10L * 1024 * 1024, CompressionOptions(OutputFormat.PNG, CompressionMode.BALANCED))) as CompressionResult.Success
+        assertTrue(r.width >= balanced.width)
+    }
+    fun qualityTargets() = runBlocking {
+        for (format in listOf(OutputFormat.AUTO, OutputFormat.JPEG, OutputFormat.PNG, OutputFormat.WEBP)) {
+            val r = engine.compress(CompressionRequest(source("noise.jpg"), 100L * 1024, CompressionOptions(format, CompressionMode.QUALITY_FIRST))) as CompressionResult.Success
+            assertTrue(r.meetsTarget); assertEquals(r.bytes, r.file.length())
+            if (format != OutputFormat.AUTO) assertEquals(format, r.format)
+            if (format != OutputFormat.PNG) assertTrue(r.quality >= 70)
+        }
+    }
+    fun qualityAlpha() = runBlocking {
+        val r = engine.compress(CompressionRequest(source("alpha.png"), 100L * 1024, CompressionOptions(OutputFormat.AUTO, CompressionMode.QUALITY_FIRST))) as CompressionResult.Success
+        assertFalse(r.transparencyRemoved); assertTrue(r.format != OutputFormat.JPEG)
+        val bitmap = BitmapFactory.decodeFile(r.file.path)
+        assertTrue(bitmap.hasAlpha()); assertEquals(0, Color.alpha(bitmap.getPixel(0, 0))); bitmap.recycle()
+    }
+    fun memoryBudget() {
+        assertEquals(0L, BitmapCodec.qualityPixelBudget(256L * 1024 * 1024, 16L * 1024 * 1024))
+        val budget = BitmapCodec.qualityPixelBudget(512L * 1024 * 1024, 480L * 1024 * 1024)
+        assertTrue(budget > ImageLimits.MAX_DECODE_PIXELS)
+        assertTrue(budget * 20 <= 512L * 1024 * 1024 / 2)
+        assertEquals(1, BitmapCodec.sampleSize(1920, 1600, ImageLimits.MAX_DIMENSION, budget))
+    }
     fun jpeg() = runBlocking { assertEquals(OutputFormat.JPEG, success("noise.jpg", 100 * 1024).format) }
     fun png() = runBlocking { assertEquals(OutputFormat.PNG, success("alpha.png", 200 * 1024, OutputFormat.PNG).format) }
     fun webp() = runBlocking { assertEquals(OutputFormat.WEBP, success("noise.webp", 100 * 1024, OutputFormat.WEBP).format) }

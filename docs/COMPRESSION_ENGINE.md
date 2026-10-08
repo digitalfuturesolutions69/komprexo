@@ -1,4 +1,4 @@
-# Phase 1 compression engine
+# Phase 1.5 compression engine
 
 ## Scope and identity
 
@@ -41,26 +41,37 @@ Targets are maximum byte counts. UI uses binary units: KB = 1024 bytes, MB =
 1–10240 KB. Engine accepts integer targets from 1 byte to 10 MiB; targets smaller
 than encoding overhead can fail without producing an accepted image.
 
-1. Reinspect input; sample by powers of two until width/height <= 2048 and pixels
-   <= 2 million. Decode software ARGB_8888 and normalize all eight EXIF transforms.
-2. Auto uses JPEG for opaque bitmaps, WebP for alpha-bearing bitmaps. PNG and WebP
-   are explicit alternatives. Explicit JPEG composites alpha onto white; the UI
-   warns before conversion and reports transparency removal after processing.
-3. At the current resolution, try quality integers 100 down to 35. The first
-   fitting candidate is the highest fitting quality at that resolution. An
-   exhaustive descending search avoids assuming codec size is strictly monotonic.
-   PNG is lossless and its quality parameter is ineffective, so try it once.
-4. A bounded disk stream writes no more than the target, flags overflow and
-   discards the remaining bytes of rejected candidates. Partial overflow files
-   can never be accepted. Disk IO exceptions are captured at the Java stream
-   boundary and rethrown after native encoding, so JNI cannot turn ENOSPC into
-   an ambiguous encode failure. Measure actual file length and verify bounds.
-5. If no quality fits, multiply the resolution factor by 0.8, derive dimensions
-   from the normalized master aspect ratio (integer rounding, minimum 1x1), and
-   retry. Never upscale and never decode an earlier lossy candidate.
-6. At 1x1 with no fit, return UNREACHABLE_TARGET. JPEG/WebP retain quality >= 35;
-   reducing resolution is preferred to very low quality. This defines the
-   feasible search space, not a claim of a global perceptual optimum.
+1. Reinspect input; normalize all eight EXIF transforms in bounded software ARGB.
+   **Quality first** (UI default) removes the unconditional 2 MP / 2048-edge cap.
+   Its budget is `min(16 MP, maxHeap/2/20, (availableHeap-32 MiB)/2/20)` pixels,
+   clamped nonnegative. Twenty bytes/pixel reserve bitmap copies and encoder
+   headroom. Powers-of-two sampling is used only when source exceeds this budget.
+   Original resolution is preserved whenever the source fits it. This is not a
+   guarantee that every camera image fits every device's memory.
+   **Balanced** keeps the original 2 MP / 2048-edge bounds and is the model API
+   default for backwards-compatible callers; the UI explicitly selects its mode.
+2. Quality-first Auto evaluates JPEG and supported WebP for opaque images at each
+   resolution. At each quality level JPEG is preferred if it fits, otherwise WebP
+   is tried. Alpha Auto tries PNG losslessly first, then alpha-preserving WebP.
+   Balanced Auto retains JPEG (opaque) / WebP (alpha). Explicit selections are
+   honored. Only explicit JPEG composites alpha on white, with a visible warning.
+   JPEG is the most broadly compatible photographic output; PNG supports lossless
+   pixels/alpha and common editors; WebP is supported on Android 23–36 but some
+   older external editors/viewers may need JPEG or PNG. Auto never removes alpha.
+3. Quality-first tests 100,95,90,85,80,75,70. This bounded coarse search avoids
+   dozens of high-resolution encodes for every dimension step. These are codec
+   settings, not comparable perceptual scores across formats. Balanced searches
+   every integer 100–35, retaining its highest-fitting-quality regression check.
+   PNG is tried once at each resolution; its quality setting is ineffective.
+4. Every trial uses the bounded disk stream, actual nonzero file length <= target,
+   successful encoding and decoded output bounds. Overflow/partial files cannot
+   be accepted. Native stream IO errors are captured and reported after encoding.
+5. If no candidate fits, Quality-first reduces dimensions by 0.9; Balanced uses
+   0.8. Each resize derives from normalized master pixels, never a previous lossy
+   file. Never upscale. PNG size control uses dimensions, not a fake quality slider.
+6. At 1x1 with no fit return UNREACHABLE_TARGET. Guarantees concern actual bytes
+   and bounded allocations, not global perceptual optimality. Native codec costs
+   and sizes vary by Android version. Both modes remain cancellable/serialized.
 
 Output is freshly encoded, stripping source EXIF including GPS metadata. Small
 sources may encode larger than their originals; reduction percentages are actual
@@ -73,10 +84,12 @@ wide-gamut/HDR/high-bit-depth inputs are normalized to software ARGB SDR pixels.
 ## Memory, concurrency and cancellation
 
 Reject source >32 MiB, >128 million pixels, or >32768 pixels per dimension.
-Decoded master is <=2 million pixels (~8 MB ARGB), further reduced when the
-available heap budget is small (16 bytes/pixel headroom, at most one quarter of
-maximum heap and half the current available heap). Budgets below 65536 pixels
-return insufficient memory before decode. Each preview <=400k pixels
+Balanced decoded master is <=2 million pixels (~8 MB ARGB), further reduced by
+available memory (16 bytes/pixel, maximum-heap/4 and available-heap/2 limits).
+Quality-first uses the adaptive 20-byte/pixel budget above, with a hard 16 MP
+ceiling instead. Budgets below 65536 pixels fail before decode. Actual decoded
+pixel count and allocationByteCount are checked before orientation processing.
+Each preview <=400k pixels
 (~1.6 MB). Orientation/white compositing and scaling temporarily need additional
 bounded bitmaps. Only one engine bitmap job at a time is allowed by a process-wide
 mutex. Master + normalized or scaled bitmap allocations are bounded; Android
@@ -127,3 +140,20 @@ workflow tests exercise system activity-result boundaries with stubbed dialog
 responses, not a mocked engine. Dialog UX on OEM devices, arbitrary codec inputs,
 HDR fidelity and device-specific memory pressure require broader product QA.
 Actual execution results belong in VALIDATION.md, not in this design document.
+
+## Phase 1.5 UI and system bars
+
+Responsive FlowRows replace fixed rows; custom input exists only when selected.
+Quality-first and Auto are default/recommended; settings remain accessible through
+Adjust settings after processing. Results summarize original/output sizes,
+reduction, original normalized/output dimensions, actual format and byte status.
+Before/After switches one bounded preview. Save/Share stay outside the scrollable
+content in the Scaffold bottom bar. Controls wrap at large fonts and use at least
+48 dp touch heights. Safe drawing insets, bottom navigation and IME insets keep
+controls clear of system UI; Scaffold padding is consumed to avoid doubled insets.
+
+System dark mode now drives both Material colors and AndroidX edge-to-edge
+SystemBarStyle. Light backgrounds use dark status icons (API23+) and dark nav
+icons (API26+). API23–25 navigation uses a dark scrim with supported light icons.
+Dark backgrounds use light icons. Transparent status bars / modern gesture bars
+are backed by the matching theme surface. API35–36 edge-to-edge is retained.

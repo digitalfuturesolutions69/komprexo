@@ -49,11 +49,11 @@ class CompressionViewModel(application: Application, private val saved: SavedSta
         }
     }
 
-    fun compress(maxBytes: Long, format: OutputFormat) {
+    fun compress(maxBytes: Long, format: OutputFormat, mode: CompressionMode = CompressionMode.QUALITY_FIRST) {
         val source = state.value.source ?: return
         if (state.value.busy) return
         launch {
-            val result = engine.compress(CompressionRequest(source, maxBytes, CompressionOptions(format))) { progress ->
+            val result = engine.compress(CompressionRequest(source, maxBytes, CompressionOptions(format, mode))) { progress ->
                 mutable.update { it.copy(progress = progress) }
             }
             when (result) {

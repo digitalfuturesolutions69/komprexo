@@ -15,7 +15,7 @@ import java.io.IOException
 import java.io.OutputStream
 import kotlin.math.floor
 
-/** Resolution-first, exhaustive descending quality search. Each trial uses source pixels. */
+/** Memory-bounded resolution-first search; every trial derives from normalized source pixels. */
 class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
     companion object { private val memoryGate = Mutex() }
     override suspend fun compress(request: CompressionRequest, progress: (CompressionProgress) -> Unit): CompressionResult {
@@ -34,29 +34,34 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                 directory = File(cache, "result-${java.util.UUID.randomUUID()}")
                 ownedDirectory = directory
                 if (!directory.mkdirs()) throw IOException("Cannot create output")
-                master = BitmapCodec.decode(source)
+                master = BitmapCodec.decode(source, mode = request.options.mode)
                 val alpha = master.hasAlpha()
-                val format = if (request.options.format == OutputFormat.AUTO) {
+                val formats = if (request.options.mode == CompressionMode.QUALITY_FIRST && request.options.format == OutputFormat.AUTO) {
+                    if (alpha) listOf(OutputFormat.PNG, OutputFormat.WEBP) else listOf(OutputFormat.JPEG, OutputFormat.WEBP)
+                } else listOf(if (request.options.format == OutputFormat.AUTO) {
                     if (alpha) OutputFormat.WEBP else OutputFormat.JPEG
-                } else request.options.format
-                if (alpha && format == OutputFormat.JPEG) {
+                } else request.options.format)
+                if (alpha && formats.singleOrNull() == OutputFormat.JPEG) {
                     val opaque = BitmapCodec.whiteBackground(master)
                     master.recycle(); master = opaque
-                }
-                val encodeFormat = when (format) {
-                    OutputFormat.PNG -> Bitmap.CompressFormat.PNG
-                    OutputFormat.WEBP -> Bitmap.CompressFormat.WEBP
-                    else -> Bitmap.CompressFormat.JPEG
                 }
                 var width = master.width
                 var height = master.height
                 var attempts = 0
-                val candidate = File(directory, "compressed.${format.extension}")
+                val qualityFirst = request.options.mode == CompressionMode.QUALITY_FIRST
                 while (true) {
                     currentCoroutineContext().ensureActive()
                     scaled = if (width == master.width && height == master.height) master else Bitmap.createScaledBitmap(master, width, height, true)
-                    val qualities = if (format == OutputFormat.PNG) listOf(100) else (100 downTo ImageLimits.MIN_QUALITY).toList()
+                    val qualities = if (qualityFirst) (100 downTo 70 step 5).toList() else (100 downTo ImageLimits.MIN_QUALITY).toList()
                     for (quality in qualities) {
+                      for (format in formats) {
+                        if (format == OutputFormat.PNG && quality != 100) continue
+                        val candidate = File(directory, "compressed.${format.extension}")
+                        val encodeFormat = when (format) {
+                            OutputFormat.PNG -> Bitmap.CompressFormat.PNG
+                            OutputFormat.WEBP -> Bitmap.CompressFormat.WEBP
+                            else -> Bitmap.CompressFormat.JPEG
+                        }
                         currentCoroutineContext().ensureActive()
                         progress(CompressionProgress(++attempts, width, height))
                         val job = currentCoroutineContext()
@@ -78,12 +83,13 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                             return@withLock CompressionResult.Success(candidate, source.bytes, size, width, height, format, quality, request.maxBytes, alpha && format == OutputFormat.JPEG)
                         }
                         candidate.delete()
+                      }
                     }
                     if (scaled !== master) scaled.recycle()
                     scaled = null
                     if (width == 1 && height == 1) throw ImageProblem(FailureCode.UNREACHABLE_TARGET)
                     // Calculate from the normalized master aspect ratio, never a previous lossy file.
-                    val factor = 0.8 * minOf(width.toDouble() / master.width, height.toDouble() / master.height)
+                    val factor = (if (qualityFirst) 0.9 else 0.8) * minOf(width.toDouble() / master.width, height.toDouble() / master.height)
                     width = maxOf(1, floor(master.width * factor).toInt())
                     height = maxOf(1, floor(master.height * factor).toInt())
                 }

@@ -25,79 +25,107 @@ import com.komprexo.app.R
 import com.komprexo.app.compression.*
 import java.util.Locale
 
+import android.app.Activity
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
+import com.komprexo.app.MainActivity
+
 private val presets = listOf(100L * 1024, 200L * 1024, 300L * 1024, 500L * 1024, 1024L * 1024, 2L * 1024 * 1024)
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
     val state by model.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
-    var target by rememberSaveable { mutableStateOf(200L * 1024) }
+    val dark = isSystemInDarkTheme()
+    SideEffect { (context as? MainActivity)?.applySystemBars(dark) }
+    var target by rememberSaveable { mutableLongStateOf(200L * 1024) }
     var custom by rememberSaveable { mutableStateOf("") }
     var formatName by rememberSaveable { mutableStateOf(OutputFormat.AUTO.name) }
+    var modeName by rememberSaveable { mutableStateOf(CompressionMode.QUALITY_FIRST.name) }
+    var reviewing by rememberSaveable { mutableStateOf(false) }
+    var before by rememberSaveable { mutableStateOf(false) }
+    LaunchedEffect(state.result?.file) { reviewing = state.result != null; before = false }
     val format = OutputFormat.valueOf(formatName)
-    val customBytes = custom.toLongOrNull()?.takeIf { it in 1..10240 }?.times(1024)
-    val bytes = if (target == 0L) customBytes else target
+    val mode = CompressionMode.valueOf(modeName)
+    val bytes = if (target == 0L) custom.toLongOrNull()?.takeIf { it in 1..10240 }?.times(1024) else target
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { model.select(it) }
-    // MIME follows each result, including alpha-preserving Auto WebP.
     val save = rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { response ->
-        model.save(if (response.resultCode == android.app.Activity.RESULT_OK) response.data?.data else null)
+        model.save(if (response.resultCode == Activity.RESULT_OK) response.data?.data else null)
     }
-    MaterialTheme(colorScheme = lightColorScheme(primary = androidx.compose.ui.graphics.Color(0xff356858))) {
-        Surface(modifier = Modifier.fillMaxSize(), color = androidx.compose.ui.graphics.Color(0xfff6f5f0)) {
-            Column(Modifier.safeDrawingPadding().verticalScroll(rememberScrollState()).padding(20.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-                Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineLarge)
-                Text(stringResource(R.string.intro))
-                Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy) { Text(stringResource(R.string.select_image)) }
-                Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium)
-                presets.chunked(3).forEach { row ->
-                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                        row.forEach { value -> FilterChip(selected = target == value, enabled = !state.busy, onClick = { target = value }, label = { Text(sizeLabel(value)) }) }
+    MaterialTheme(colorScheme = if (dark) darkColorScheme(primary = Color(0xffa1d3bc)) else lightColorScheme(primary = Color(0xff356858))) {
+        Scaffold(containerColor = MaterialTheme.colorScheme.background,
+            contentWindowInsets = WindowInsets.safeDrawing,
+            bottomBar = {
+                Surface(shadowElevation = 4.dp) {
+                    FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        val result = state.result
+                        if (reviewing && result != null) {
+                            Button(modifier = Modifier.heightIn(min = 48.dp).testTag("saveAction"), enabled = !state.busy, onClick = {
+                                try { save.launch(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                                    addCategory(Intent.CATEGORY_OPENABLE); type = result.format.mime
+                                    putExtra(Intent.EXTRA_TITLE, "Komprexo.${result.format.extension}")
+                                }) } catch (_: ActivityNotFoundException) { model.notice(FailureCode.FILE_ACCESS) }
+                            }) { Text(stringResource(R.string.save)) }
+                            OutlinedButton(modifier = Modifier.heightIn(min = 48.dp).testTag("shareAction"), enabled = !state.busy, onClick = { model.share { context.startActivity(Intent.createChooser(it, null)) } }) { Text(stringResource(R.string.share)) }
+                        } else if (state.busy) {
+                            OutlinedButton(onClick = model::cancel, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.cancel)) }
+                        } else {
+                            Button(modifier = Modifier.heightIn(min = 48.dp), enabled = state.source != null && bytes != null, onClick = { bytes?.let { model.compress(it, format, mode) } }) { Text(stringResource(R.string.compress)) }
+                            if (result != null) OutlinedButton(onClick = { reviewing = true }) { Text(stringResource(R.string.view_result)) }
+                        }
                     }
                 }
-                FilterChip(selected = target == 0L, enabled = !state.busy, onClick = { target = 0L }, label = { Text(stringResource(R.string.custom)) })
-                if (target == 0L) OutlinedTextField(value = custom, onValueChange = { custom = it.take(5) }, enabled = !state.busy,
-                    label = { Text(stringResource(R.string.custom_label)) }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                    isError = bytes == null, supportingText = { Text(stringResource(R.string.custom_hint)) }, singleLine = true)
-                Text(stringResource(R.string.output_format), style = MaterialTheme.typography.titleMedium)
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    OutputFormat.entries.forEach { item -> FilterChip(selected = format == item, enabled = !state.busy, onClick = { formatName = item.name }, label = { Text(if (item == OutputFormat.AUTO) stringResource(R.string.auto_format) else item.name) }) }
-                }
-                if (format == OutputFormat.JPEG) Text(stringResource(R.string.jpeg_alpha))
-                Button(onClick = { bytes?.let { model.compress(it, format) } }, enabled = state.source != null && bytes != null && !state.busy) { Text(stringResource(R.string.compress)) }
-                if (state.busy) {
-                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                    Text(stringResource(R.string.processing))
-                    Text(stringResource(R.string.dimensions_progress, state.progress?.width ?: 0, state.progress?.height ?: 0))
-                    OutlinedButton(onClick = model::cancel) { Text(stringResource(R.string.cancel)) }
-                }
+            }) { padding ->
+            Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
+                Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
                 state.error?.let { Text(stringResource(errorString(it)), color = MaterialTheme.colorScheme.error) }
                 if (state.saved) Text(stringResource(R.string.saved))
-                state.source?.let { source ->
-                    Text(stringResource(R.string.original), style = MaterialTheme.typography.titleMedium)
-                    Text(sizeLabel(source.bytes))
-                    state.originalPreview?.let { Image(it.asImageBitmap(), stringResource(R.string.original), Modifier.fillMaxWidth().height(220.dp)) }
+                if (state.busy) {
+                    LinearProgressIndicator(Modifier.fillMaxWidth())
+                    Text(stringResource(R.string.processing))
+                    state.progress?.let { Text(stringResource(R.string.dimensions_progress, it.width, it.height)) }
                 }
-                state.result?.let { result ->
-                    HorizontalDivider()
+                val result = state.result
+                val source = state.source
+                if (reviewing && result != null && source != null) {
                     Text(stringResource(R.string.compressed), style = MaterialTheme.typography.titleMedium)
-                    state.outputPreview?.let { Image(it.asImageBitmap(), stringResource(R.string.compressed), Modifier.fillMaxWidth().height(220.dp)) }
-                    Text(stringResource(R.string.result_summary, sizeLabel(result.bytes), String.format(Locale.getDefault(), "%.1f", result.reductionPercent), result.width, result.height, result.format.name))
+                    Text(stringResource(R.string.size_comparison, sizeLabel(source.bytes), sizeLabel(result.bytes), String.format(Locale.getDefault(), "%.1f", result.reductionPercent)))
+                    val rotated = source.orientation in 5..8
+                    Text(stringResource(R.string.dimension_comparison, if (rotated) source.height else source.width, if (rotated) source.width else source.height, result.width, result.height, result.format.name))
                     Text(stringResource(if (result.meetsTarget) R.string.target_met else R.string.target_not_met, sizeLabel(result.maxBytes)))
-                    if (result.transparencyRemoved) Text(stringResource(R.string.jpeg_alpha))
-                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Button(enabled = !state.busy, onClick = {
-                            try {
-                                save.launch(Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                                    addCategory(Intent.CATEGORY_OPENABLE)
-                                    type = result.format.mime
-                                    putExtra(Intent.EXTRA_TITLE, "Komprexo.${result.format.extension}")
-                                })
-                            } catch (_: ActivityNotFoundException) { model.notice(FailureCode.FILE_ACCESS) }
-                        }) { Text(stringResource(R.string.save)) }
-                        OutlinedButton(enabled = !state.busy, onClick = { model.share { intent -> context.startActivity(Intent.createChooser(intent, null)) } }) { Text(stringResource(R.string.share)) }
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        FilterChip(before, { before = true }, label = { Text(stringResource(R.string.original)) }, modifier = Modifier.heightIn(min = 48.dp))
+                        FilterChip(!before, { before = false }, label = { Text(stringResource(R.string.after)) }, modifier = Modifier.heightIn(min = 48.dp))
                     }
+                    val preview = if (before) state.originalPreview else state.outputPreview
+                    preview?.let { Image(it.asImageBitmap(), stringResource(if (before) R.string.original else R.string.compressed), Modifier.fillMaxWidth().heightIn(min = 120.dp, max = 260.dp).testTag("comparisonPreview")) }
+                    if (result.transparencyRemoved) Text(stringResource(R.string.jpeg_alpha))
+                    OutlinedButton(onClick = { reviewing = false }, enabled = !state.busy) { Text(stringResource(R.string.adjust_settings)) }
+                } else {
+                    source?.let {
+                        Text("${sizeLabel(it.bytes)} · ${it.width} × ${it.height}")
+                        state.originalPreview?.let { image -> Image(image.asImageBitmap(), stringResource(R.string.original), Modifier.fillMaxWidth().height(96.dp)) }
+                    }
+                    Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium)
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        presets.forEach { value -> FilterChip(target == value, { target = value }, enabled = !state.busy, label = { Text(if (value >= 1024 * 1024) "${value / (1024 * 1024)} MB" else "${value / 1024} KB") }, modifier = Modifier.heightIn(min = 48.dp)) }
+                        FilterChip(target == 0L, { target = 0L }, enabled = !state.busy, label = { Text(stringResource(R.string.custom)) }, modifier = Modifier.heightIn(min = 48.dp))
+                    }
+                    if (target == 0L) OutlinedTextField(custom, { custom = it.take(5) }, enabled = !state.busy, modifier = Modifier.fillMaxWidth().testTag("customSize"), label = { Text(stringResource(R.string.custom_label)) }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number), isError = bytes == null, supportingText = { Text(stringResource(R.string.custom_hint)) }, singleLine = true)
+                    Text(stringResource(R.string.compression_settings), style = MaterialTheme.typography.titleMedium)
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        CompressionMode.entries.forEach { item -> FilterChip(mode == item, { modeName = item.name }, enabled = !state.busy, label = { Text(stringResource(if (item == CompressionMode.QUALITY_FIRST) R.string.quality_first else R.string.balanced)) }, modifier = Modifier.heightIn(min = 48.dp)) }
+                    }
+                    Text(stringResource(R.string.output_format))
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        OutputFormat.entries.forEach { item -> FilterChip(format == item, { formatName = item.name }, enabled = !state.busy, label = { Text(if (item == OutputFormat.AUTO) stringResource(R.string.auto_recommended) else item.name) }, modifier = Modifier.heightIn(min = 48.dp)) }
+                    }
+                    if (format == OutputFormat.JPEG) Text(stringResource(R.string.jpeg_alpha))
                 }
-                Text(stringResource(R.string.privacy_note), style = MaterialTheme.typography.bodySmall)
+                Text(stringResource(R.string.privacy_short), style = MaterialTheme.typography.bodySmall)
             }
         }
     }

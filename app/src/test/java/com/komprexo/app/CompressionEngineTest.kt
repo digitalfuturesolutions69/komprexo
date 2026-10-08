@@ -19,6 +19,10 @@ class CompressionEngineTest {
         (field.get(null) as MutableMap<*, *>).clear()
         checks=EngineChecks(RuntimeEnvironment.getApplication()) { File("src/test/assets/$it").inputStream() } }
     @After fun teardown() { checks.close() }
+    @Test fun qualityMode() { checks.qualityMode() }
+    @Test fun qualityTargets() { checks.qualityTargets() }
+    @Test fun qualityAlpha() { checks.qualityAlpha() }
+    @Test fun memoryBudget() { checks.memoryBudget() }
     @Test fun jpeg() { checks.jpeg() }
     @Test fun png() { checks.png() }
     @Test fun webp() { checks.webp() }
