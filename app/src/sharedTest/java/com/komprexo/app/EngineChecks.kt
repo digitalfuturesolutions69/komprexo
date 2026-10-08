@@ -159,6 +159,18 @@ class EngineChecks(private val context: Context, private val fixture: (String) -
             fail("Storage failure ignored")
         } catch(e:IOException) { assertEquals(FailureCode.STORAGE_FULL,storageFailure(e)) }
     }
+    fun nativeStorageFailure() {
+        val bitmap=BitmapCodec.decode(source("noise.jpg"))
+        try {
+            val output=LimitedOutput(object:OutputStream() {
+                override fun write(value:Int) { throw IOException("ENOSPC") }
+                override fun write(bytes:ByteArray,offset:Int,length:Int) { throw IOException("ENOSPC") }
+            },1024*1024) { true }
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG,90,output)
+            assertNotNull(output.failure)
+            assertEquals(FailureCode.STORAGE_FULL,storageFailure(output.failure!!))
+        } finally { bitmap.recycle() }
+    }
     fun concurrency() = runBlocking {
         val source=source("noise.jpg")
         val results=coroutineScope { listOf(async { engine.compress(CompressionRequest(source,100*1024)) },async { engine.compress(CompressionRequest(source,200*1024)) }).awaitAll() }

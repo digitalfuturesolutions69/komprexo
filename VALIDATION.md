@@ -36,7 +36,7 @@ proxy configuration.
   The retained wrapper distribution checksum is pinned; wrapper previously ran
   successfully and is used for these checks. CI wrapper-validation remains enabled.
 - Kotlin compilation: PASS, production/unit/instrumentation sources compile.
-- JVM: 26 tests, 0 failures, 0 errors, 0 skipped (25 native-graphics engine/storage
+- JVM: 27 tests, 0 failures, 0 errors, 0 skipped (26 native-graphics engine/storage
   checks plus 1 Compose host/identity smoke test).
 - Target-size checks: all six presets, custom 17389 bytes, actual file length,
   highest fitting integer JPEG quality, dimension reduction and unreachable 1-byte
@@ -51,7 +51,7 @@ proxy configuration.
   rejection checked. Current available heap can further reduce this ceiling.
 - Errors/storage: cancellation removes job output, unreachable targets leave no
   accepted files, blocked output directory, ENOSPC copy failure, invalid provider,
-  content-URI save/import and concurrent output isolation checked.
+  content-URI save/import, native encoder ENOSPC stream fault injection and concurrent output isolation checked.
 - Integrity/security: outputs decode with reported dimensions; source bytes remain
   unchanged; secure shared content URI read matches output bytes; FileProvider
   rejects access to private result directories.
@@ -59,7 +59,7 @@ proxy configuration.
   AutoboxingStateCreation recommendation. No lint checks were suppressed/disabled.
 - Debug APK and test APK assembly: PASS. Local app APK:
   `/workspace/komprexo/app/build/outputs/apk/debug/app-debug.apk`.
-  SHA-256: `b65159f89e7b87b658750a4e5abe31353ad744b94fee46e26896bb21516b56bb`.
+  SHA-256: `c41ad68023e0f0e65c34deb023d38ae5e39d5c475dd7ca3c4202053578daf33e`.
   apksigner verification succeeds; META-INF/JAR metadata warnings are retained.
 - APK identity: Komprexo; `com.komprexo.app`; minSdk 23; compile/target 36;
   versionName 0.2.0. Final owner application-ID approval remains pending.
@@ -80,9 +80,16 @@ is API 23 and 36. No tests, lint or security validation have been weakened.
 Local device tests are not claimed: /dev/kvm is unavailable. Device tests run in
 GitHub Actions, including actual engine/storage checks and Compose selection →
 compression → preview → save/share. System activity-result dialogs are stubbed;
-engine, codecs and storage execute for real. Counts and final CI evidence will
-be recorded after those jobs complete. Acceptance is pending until the actual
-workflow succeeds and the uploaded APK artifact is confirmed.
+engine, codecs and storage execute for real. The initial implementation source commit
+`83f79cfc98f7a76d012fcd624cecce258af14d8d` passed run 37757242876:
+https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37757242876
+The debug job and both device jobs succeeded. Each API emulator executed
+28 tests, including the complete Compose selection/save/share workflow.
+The confirmed APK artifact was `komprexo-debug-83f79cfc98f7a76d012fcd624cecce258af14d8d`,
+artifact ID 11540094992. The follow-up native IO guard adds one meaningful test
+per suite (27 JVM, expected 29 per device); final CI evidence will be recorded
+after those jobs complete. Acceptance for the final delivery is pending until
+that exact commit's workflow succeeds and its uploaded artifact is confirmed.
 
 ## Known limitations
 

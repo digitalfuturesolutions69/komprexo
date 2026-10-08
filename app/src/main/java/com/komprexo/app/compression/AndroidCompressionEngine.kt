@@ -64,6 +64,7 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                             val bounded = LimitedOutput(raw, request.maxBytes) { job.isActive }
                             val encoded = scaled.compress(encodeFormat, quality, bounded)
                             job.ensureActive()
+                            bounded.failure?.let { throw it }
                             if (!encoded && !bounded.exceeded) throw ImageProblem(FailureCode.CORRUPT_IMAGE)
                             bounded.exceeded
                         }
@@ -107,19 +108,23 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
     }
 }
 
-private class LimitedOutput(private val sink: OutputStream, private val limit: Long, private val active: () -> Boolean) : OutputStream() {
+internal class LimitedOutput(private val sink: OutputStream, private val limit: Long, private val active: () -> Boolean) : OutputStream() {
     private var count = 0L
     var exceeded = false
         private set
+    var failure: IOException? = null
+        private set
     override fun write(value: Int) {
         if (!active()) { exceeded = true; return }
+        if (failure != null) return
         if (exceeded || count >= limit) { exceeded = true; return }
-        sink.write(value); count++
+        try { sink.write(value); count++ } catch (e: IOException) { failure = e }
     }
     override fun write(bytes: ByteArray, offset: Int, length: Int) {
         if (!active()) { exceeded = true; return }
+        if (failure != null) return
         if (exceeded || length > limit - count) { exceeded = true; return }
-        sink.write(bytes, offset, length); count += length
+        try { sink.write(bytes, offset, length); count += length } catch (e: IOException) { failure = e }
     }
 }
 fun storageFailure(error: IOException): FailureCode {

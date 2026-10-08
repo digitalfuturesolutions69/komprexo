@@ -16,7 +16,7 @@
   <string name="saved">Image saved. The original is unchanged.</string>
   <string name="original">Before · Original</string>
   <string name="compressed">After · Compressed</string>
-  <string name="result_summary">%1$s · %2$s%% smaller
+  <string name="result_summary">%1$s · reduction %2$s%%
 %3$d × %4$d pixels · %5$s</string>
   <string name="target_met">Within maximum: %1$s</string>
   <string name="target_not_met">Exceeds maximum: %1$s</string>

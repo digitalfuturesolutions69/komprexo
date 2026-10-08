@@ -28,6 +28,7 @@ class CompressionDeviceTest {
     @Test fun unreachable() { checks.unreachable() }
     @Test fun cancellation() { checks.cancellation() }
     @Test fun outputIntegrity() { checks.outputIntegrity() }
+    @Test fun nativeStorageFailure() { checks.nativeStorageFailure() }
     @Test fun storageFailure() { checks.storageFailure() }
     @Test fun concurrency() { checks.concurrency() }
     @Test fun saveAndImport() { checks.saveAndImport() }

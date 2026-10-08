@@ -16,7 +16,7 @@
   <string name="saved">Gambar disimpan. Gambar asli tidak berubah.</string>
   <string name="original">Sebelum · Asli</string>
   <string name="compressed">Sesudah · Terkompresi</string>
-  <string name="result_summary">%1$s · %2$s%% lebih kecil
+  <string name="result_summary">%1$s · pengurangan %2$s%%
 %3$d × %4$d piksel · %5$s</string>
   <string name="target_met">Di bawah maksimum: %1$s</string>
   <string name="target_not_met">Melebihi maksimum: %1$s</string>

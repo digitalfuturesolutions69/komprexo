@@ -52,7 +52,9 @@ than encoding overhead can fail without producing an accepted image.
    PNG is lossless and its quality parameter is ineffective, so try it once.
 4. A bounded disk stream writes no more than the target, flags overflow and
    discards the remaining bytes of rejected candidates. Partial overflow files
-   can never be accepted. Measure actual file length and verify output bounds.
+   can never be accepted. Disk IO exceptions are captured at the Java stream
+   boundary and rethrown after native encoding, so JNI cannot turn ENOSPC into
+   an ambiguous encode failure. Measure actual file length and verify bounds.
 5. If no quality fits, multiply the resolution factor by 0.8, derive dimensions
    from the normalized master aspect ratio (integer rounding, minimum 1x1), and
    retry. Never upscale and never decode an earlier lossy candidate.
