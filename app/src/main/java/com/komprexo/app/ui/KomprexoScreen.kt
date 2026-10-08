@@ -69,6 +69,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
                                 }) } catch (_: ActivityNotFoundException) { model.notice(FailureCode.FILE_ACCESS) }
                             }) { Text(stringResource(R.string.save)) }
                             OutlinedButton(modifier = Modifier.heightIn(min = 48.dp).testTag("shareAction"), enabled = !state.busy, onClick = { model.share { context.startActivity(Intent.createChooser(it, null)) } }) { Text(stringResource(R.string.share)) }
+                            if (state.busy) OutlinedButton(onClick = model::cancel, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.cancel)) }
                         } else if (state.busy) {
                             OutlinedButton(onClick = model::cancel, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.cancel)) }
                         } else {

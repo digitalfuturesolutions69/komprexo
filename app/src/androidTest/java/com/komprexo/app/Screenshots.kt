@@ -10,6 +10,13 @@ fun captureEvidence(name: String) {
     val bitmap = instrumentation.uiAutomation.takeScreenshot() ?: return
     try {
         val directory = File(instrumentation.targetContext.getExternalFilesDir(null), "screenshots").apply { mkdirs() }
-        File(directory, "$name.png").outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
+        val file = File(directory, "$name.png")
+        file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
+        // AGP uninstalls the app after testing; shell-owned evidence survives cleanup.
+        for (command in listOf("mkdir -p /data/local/tmp/komprexo-evidence", "cp ${file.absolutePath} /data/local/tmp/komprexo-evidence/$name.png")) {
+            instrumentation.uiAutomation.executeShellCommand(command).use { descriptor ->
+                android.os.ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { it.readBytes() }
+            }
+        }
     } finally { bitmap.recycle() }
 }

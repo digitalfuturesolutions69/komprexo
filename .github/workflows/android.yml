@@ -68,7 +68,7 @@ jobs:
             adb shell wm size 720x1280
             adb shell wm density 360
             ./gradlew --no-daemon connectedDebugAndroidTest
-            adb pull /sdcard/Android/data/com.komprexo.app/files/screenshots app/build/reports/androidTests/screenshots
+            adb pull /data/local/tmp/komprexo-evidence app/build/reports/androidTests/screenshots
       - uses: actions/upload-artifact@v4
         if: always()
         with:

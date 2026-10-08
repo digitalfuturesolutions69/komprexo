@@ -83,7 +83,7 @@ proxy/network access; no environment credentials are stored in the application.
   lint check was suppressed.
 - Debug app and instrumentation APK assembly pass. Local app APK:
   app/build/outputs/apk/debug/app-debug.apk. SHA256:
-  a9539404e2819f7098b6d59cefc07fc6a9cba99b0c265125b1c3ef24c66b07c0.
+  1cc2cfe9adc7d7e45738d4e8e3aa42a8326d50b0fd576e96f13df0a24bb8e4ee.
 - Wrapper JAR checksum matches trusted Gradle8.11.1:
   2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046.
   Existing pinned distribution checksum and CI wrapper validation are retained.
@@ -101,10 +101,17 @@ the complete build was rerun. These failed attempts are not reported as passes.
 
 ## CI and delivery evidence
 
-Implementation CI is pending at the time this report is first committed. Do not
-infer a CI/device-test pass from local APK assembly. The final delivery will
-record the actual run URL, job outcomes, executed device counts, artifact ID and
-synchronization after GitHub finishes.
+First implementation run:
+https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37767077806
+for 57593e1d33edd55c518f56d13e34f2e70f22f81c.
+Debug job passed. Both API23 and API36 executed 36 tests and reported BUILD
+SUCCESSFUL, but their jobs then failed collecting screenshots after AGP had
+uninstalled the app and removed its external-files directory. This is a real
+workflow failure, not a passing CI run. Screenshot evidence now copies through
+the instrumentation shell into /data/local/tmp before cleanup; the final workflow
+must verify this artifact collection too. No test/lint/security check was disabled.
+A result-mode Cancel action was also retained while Save/Share is busy.
+Final CI verification will be recorded after that complete workflow finishes.
 
 CI retains Java17, SDK36, wrapper validation, unit tests, lint, app/test APK build,
 APK upload and contents:read permissions. Device matrix remains API23/API36,

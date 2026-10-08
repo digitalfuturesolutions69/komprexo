@@ -64,7 +64,7 @@ object BitmapCodec {
     fun decode(source: ImageSource, preview: Boolean = false, mode: CompressionMode = CompressionMode.BALANCED): Bitmap {
         val runtime = Runtime.getRuntime()
         val available = runtime.maxMemory() - (runtime.totalMemory() - runtime.freeMemory())
-        // Reserve 16 bytes per decoded pixel for bitmap copies and processing headroom.
+        // Legacy/preview reserve 16 bytes per pixel; Quality-first reserves 20.
         val safePixels = if (!preview && mode == CompressionMode.QUALITY_FIRST) qualityPixelBudget(runtime.maxMemory(), available)
             else minOf(if (preview) 400_000L else ImageLimits.MAX_DECODE_PIXELS, minOf(runtime.maxMemory() / 4, available / 2) / 16)
         if (safePixels < 65_536) throw ImageProblem(FailureCode.INSUFFICIENT_MEMORY)
