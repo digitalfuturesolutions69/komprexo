@@ -1,6 +1,7 @@
 package com.komprexo.app.compression
 
 import java.io.File
+import com.komprexo.app.diagnostics.AllocationFailure
 
 enum class OutputFormat(val mime: String, val extension: String) {
     AUTO("", ""), JPEG("image/jpeg", "jpg"), PNG("image/png", "png"), WEBP("image/webp", "webp")
@@ -11,9 +12,9 @@ enum class CompressionMode { BALANCED, QUALITY_FIRST }
 // Balanced remains the API default for existing callers; the UI recommends Quality-first.
 data class CompressionOptions(val format: OutputFormat = OutputFormat.AUTO, val mode: CompressionMode = CompressionMode.BALANCED)
 data class CompressionRequest(val source: ImageSource, val maxBytes: Long, val options: CompressionOptions = CompressionOptions())
-data class ImageSource(val file: File, val bytes: Long, val width: Int, val height: Int, val mime: String, val orientation: Int)
+data class ImageSource(val file: File, val bytes: Long, val width: Int, val height: Int, val mime: String, val orientation: Int, val declaredMime: String? = null)
 data class CompressionProgress(val attempts: Int, val width: Int, val height: Int)
-enum class FailureCode { INVALID_IMAGE, CORRUPT_IMAGE, UNSUPPORTED_FORMAT, INPUT_TOO_LARGE, INSUFFICIENT_MEMORY, UNREACHABLE_TARGET, FILE_ACCESS, STORAGE_FULL, CANCELLED, INTERRUPTED }
+enum class FailureCode { INVALID_IMAGE, CORRUPT_IMAGE, INVALID_URI, READ_PERMISSION, READ_FAILED, DECODER_FAILED, ENCODER_FAILED, OUTPUT_INVALID, UNSUPPORTED_HEIF, UNSUPPORTED_FORMAT, INPUT_TOO_LARGE, INSUFFICIENT_MEMORY, UNREACHABLE_TARGET, FILE_ACCESS, STORAGE_FULL, CANCELLED, INTERRUPTED }
 data class CompressionFailure(val code: FailureCode)
 sealed interface CompressionResult {
     data class Success(val file: File, val originalBytes: Long, val bytes: Long, val width: Int, val height: Int,
@@ -23,7 +24,7 @@ sealed interface CompressionResult {
     }
     data class Failed(val failure: CompressionFailure) : CompressionResult
 }
-class ImageProblem(val code: FailureCode) : Exception()
+class ImageProblem(val code: FailureCode, val allocation: AllocationFailure = AllocationFailure.NONE) : Exception()
 interface CompressionEngine {
     suspend fun compress(request: CompressionRequest, progress: (CompressionProgress) -> Unit = {}): CompressionResult
 }
@@ -33,6 +34,7 @@ object ImageLimits {
     const val MAX_DIMENSION = 32_768
     const val MAX_DECODE_PIXELS = 2_000_000L
     const val MAX_DECODE_EDGE = 2048
+    const val MAX_WEBP_EDGE = 16_383
     const val MAX_TARGET_BYTES = 10L * 1024 * 1024
     const val MIN_TARGET_BYTES = 1L
     const val MIN_QUALITY = 35

@@ -1,5 +1,7 @@
 package com.komprexo.app.compression
 
+import com.komprexo.app.diagnostics.*
+import android.os.Build
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import kotlinx.coroutines.CancellationException
@@ -16,9 +18,14 @@ import java.io.OutputStream
 import kotlin.math.floor
 
 /** Memory-bounded resolution-first search; every trial derives from normalized source pixels. */
-class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
+class AndroidCompressionEngine(private val cache: File,
+    private val traceFactory: () -> DiagnosticTrace = { DiagnosticTrace() },
+    private val encoder: BitmapEncodeBackend = platformEncoder,
+    private val decoder: (ImageSource, CompressionMode, DiagnosticTrace) -> Bitmap = { source, mode, trace -> BitmapCodec.decode(source, mode = mode, trace = trace) }
+) : CompressionEngine {
     companion object { private val memoryGate = Mutex() }
     override suspend fun compress(request: CompressionRequest, progress: (CompressionProgress) -> Unit): CompressionResult {
+        val trace = traceFactory().apply { mime(request.source.declaredMime) }
         var ownedDirectory: File? = null
         try { return withContext(Dispatchers.Default) {
         memoryGate.withLock {
@@ -30,11 +37,11 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                 if (request.maxBytes !in ImageLimits.MIN_TARGET_BYTES..ImageLimits.MAX_TARGET_BYTES) throw ImageProblem(FailureCode.UNREACHABLE_TARGET)
                 currentCoroutineContext().ensureActive()
                 // Re-inspect to reject stale/tampered input, never trust caller-supplied bounds.
-                val source = BitmapCodec.inspect(request.source.file)
+                val source = BitmapCodec.inspect(request.source.file, trace)
                 directory = File(cache, "result-${java.util.UUID.randomUUID()}")
                 ownedDirectory = directory
                 if (!directory.mkdirs()) throw IOException("Cannot create output")
-                master = BitmapCodec.decode(source, mode = request.options.mode)
+                master = decoder(source, request.options.mode, trace)
                 val alpha = master.hasAlpha()
                 val formats = if (request.options.mode == CompressionMode.QUALITY_FIRST && request.options.format == OutputFormat.AUTO) {
                     if (alpha) listOf(OutputFormat.PNG, OutputFormat.WEBP) else listOf(OutputFormat.JPEG, OutputFormat.WEBP)
@@ -47,38 +54,52 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                 }
                 var width = master.width
                 var height = master.height
+                if (formats.singleOrNull() == OutputFormat.WEBP) {
+                    val factor = minOf(1.0, ImageLimits.MAX_WEBP_EDGE.toDouble() / width, ImageLimits.MAX_WEBP_EDGE.toDouble() / height)
+                    width = maxOf(1, floor(width * factor).toInt()); height = maxOf(1, floor(height * factor).toInt())
+                }
                 var attempts = 0
                 val qualityFirst = request.options.mode == CompressionMode.QUALITY_FIRST
                 while (true) {
                     currentCoroutineContext().ensureActive()
+                    trace.move(ProcessingStage.SCALE)
                     scaled = if (width == master.width && height == master.height) master else Bitmap.createScaledBitmap(master, width, height, true)
                     val qualities = if (qualityFirst) (100 downTo 70 step 5).toList() else (100 downTo ImageLimits.MIN_QUALITY).toList()
                     for (quality in qualities) {
                       for (format in formats) {
                         if (format == OutputFormat.PNG && quality != 100) continue
+                        if (format == OutputFormat.WEBP && (width > ImageLimits.MAX_WEBP_EDGE || height > ImageLimits.MAX_WEBP_EDGE)) continue
                         val candidate = File(directory, "compressed.${format.extension}")
                         val encodeFormat = when (format) {
                             OutputFormat.PNG -> Bitmap.CompressFormat.PNG
-                            OutputFormat.WEBP -> Bitmap.CompressFormat.WEBP
+                            OutputFormat.WEBP -> if (Build.VERSION.SDK_INT >= 30) Bitmap.CompressFormat.WEBP_LOSSY else Bitmap.CompressFormat.WEBP
                             else -> Bitmap.CompressFormat.JPEG
                         }
+                        trace.encoder = when (format) {
+                            OutputFormat.PNG -> CodecName.PNG
+                            OutputFormat.WEBP -> if (Build.VERSION.SDK_INT >= 30) CodecName.WEBP_LOSSY else CodecName.WEBP_LEGACY
+                            else -> CodecName.JPEG
+                        }
+                        trace.move(ProcessingStage.ENCODE)
                         currentCoroutineContext().ensureActive()
                         progress(CompressionProgress(++attempts, width, height))
                         val job = currentCoroutineContext()
                         val exceeded = candidate.outputStream().use { raw ->
                             val bounded = LimitedOutput(raw, request.maxBytes) { job.isActive }
-                            val encoded = scaled.compress(encodeFormat, quality, bounded)
+                            val encoded = encoder.encode(scaled, encodeFormat, quality, bounded)
                             job.ensureActive()
                             bounded.failure?.let { throw it }
-                            if (!encoded && !bounded.exceeded) throw ImageProblem(FailureCode.CORRUPT_IMAGE)
+                            if (!encoded && !bounded.exceeded) throw ImageProblem(FailureCode.ENCODER_FAILED)
                             bounded.exceeded
                         }
                         val size = candidate.length()
                         if (!exceeded && size in 1..request.maxBytes) {
+                            trace.move(ProcessingStage.OUTPUT_VALIDATE)
                             val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
                             BitmapFactory.decodeFile(candidate.path, bounds)
-                            if (bounds.outWidth != width || bounds.outHeight != height) throw ImageProblem(FailureCode.CORRUPT_IMAGE)
+                            if (bounds.outWidth != width || bounds.outHeight != height) throw ImageProblem(FailureCode.OUTPUT_INVALID)
                             currentCoroutineContext().ensureActive()
+                            trace.move(ProcessingStage.READY)
                             keep = true
                             return@withLock CompressionResult.Success(candidate, source.bytes, size, width, height, format, quality, request.maxBytes, alpha && format == OutputFormat.JPEG)
                         }
@@ -94,12 +115,9 @@ class AndroidCompressionEngine(private val cache: File) : CompressionEngine {
                     height = maxOf(1, floor(master.height * factor).toInt())
                 }
                 CompressionResult.Failed(CompressionFailure(FailureCode.UNREACHABLE_TARGET))
-            } catch (e: CancellationException) { throw e }
-            catch (e: ImageProblem) { CompressionResult.Failed(CompressionFailure(e.code)) }
-            catch (_: OutOfMemoryError) { CompressionResult.Failed(CompressionFailure(FailureCode.INSUFFICIENT_MEMORY)) }
-            catch (e: IOException) { CompressionResult.Failed(CompressionFailure(storageFailure(e))) }
-            catch (_: SecurityException) { CompressionResult.Failed(CompressionFailure(FailureCode.FILE_ACCESS)) }
-            catch (_: RuntimeException) { CompressionResult.Failed(CompressionFailure(FailureCode.INTERRUPTED)) }
+            } catch (e: CancellationException) { trace.record(e); throw e }
+            catch (e: OutOfMemoryError) { trace.record(e); CompressionResult.Failed(CompressionFailure(FailureCode.INSUFFICIENT_MEMORY)) }
+            catch (e: Exception) { trace.record(e); CompressionResult.Failed(CompressionFailure(classifyFailure(e, trace.stage))) }
             finally {
                 if (scaled !== master) scaled?.recycle()
                 master?.recycle()
@@ -142,3 +160,6 @@ fun storageFailure(error: IOException): FailureCode {
     }
     return FailureCode.FILE_ACCESS
 }
+
+fun interface BitmapEncodeBackend { fun encode(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int, output: OutputStream): Boolean }
+private val platformEncoder = BitmapEncodeBackend { bitmap, format, quality, output -> bitmap.compress(format, quality, output) }

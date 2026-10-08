@@ -133,6 +133,13 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel()) {
 }
 fun sizeLabel(bytes: Long): String = if (bytes >= 1024 * 1024) String.format(Locale.getDefault(), "%.2f MB", bytes / (1024.0 * 1024)) else String.format(Locale.getDefault(), "%.1f KB", bytes / 1024.0)
 fun errorString(code: FailureCode): Int = when (code) {
+    FailureCode.INVALID_URI -> R.string.error_uri
+    FailureCode.READ_PERMISSION -> R.string.error_permission
+    FailureCode.READ_FAILED -> R.string.error_read
+    FailureCode.DECODER_FAILED -> R.string.error_decode
+    FailureCode.ENCODER_FAILED -> R.string.error_encode
+    FailureCode.OUTPUT_INVALID -> R.string.error_output
+    FailureCode.UNSUPPORTED_HEIF -> R.string.error_heif
     FailureCode.INVALID_IMAGE -> R.string.error_invalid
     FailureCode.CORRUPT_IMAGE -> R.string.error_corrupt
     FailureCode.UNSUPPORTED_FORMAT -> R.string.error_format

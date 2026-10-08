@@ -1,6 +1,6 @@
 # Komprexo
 
-Phase 1.5 — offline, single-image smart compression for native Android.
+Phase 1.6 — offline, single-image smart compression for native Android.
 Select JPEG, PNG or supported WebP; set a maximum size; compare before/after;
 then save a copy or share a content URI. Originals remain untouched.
 
@@ -19,11 +19,11 @@ Quality-first and Auto are recommended defaults. Balanced retains the lower-memo
 legacy behavior. The compact UI follows system light/dark themes and keeps
 Save/Share visible while comparing one preview.
 
-Device CI tests API 23 and 36 at 320 × 569 dp, including 200% font scaling; debug CI uploads the debug APK for 14 days.
+Device CI tests API 23, 26, 28 and 36 at 320 × 569 dp, including 200% font scaling; debug CI uploads the debug APK for 14 days.
 No tests, lint or wrapper validation are disabled. No merge or release is made.
 
 See [engine design](docs/COMPRESSION_ENGINE.md) for byte units, memory limits,
 quality search, format behavior, cancellation, metadata and temporary-file policy.
 See [actual validation](VALIDATION.md) for test counts and verified CI evidence.
-Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 1.5 does not add batch processing,
+Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 1.6 does not add batch processing,
 services, accounts, telemetry, database, ads, billing or other excluded features.

@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Deliberately accessible fixture provider in the TEST APK only. -->
+        <provider android:name="com.komprexo.app.GalleryFixtureProvider"
+            android:authorities="com.komprexo.app.test.gallery" android:exported="true" />
+    </application>
+</manifest>

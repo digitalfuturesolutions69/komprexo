@@ -20,7 +20,7 @@ android {
         androidTest.java.srcDir 'src/sharedTest/java'
         androidTest.assets.srcDir 'src/test/assets'
     }
-    buildFeatures { compose true }
+    buildFeatures { compose true; buildConfig true }
     testOptions { unitTests.includeAndroidResources = true }
     kotlinOptions { jvmTarget = '17' }
     compileOptions {

@@ -19,7 +19,7 @@
   <string name="save">Save a copy</string>
   <string name="share">Share</string>
   <string name="error_invalid">This file is not a valid image. Select another file.</string>
-  <string name="error_corrupt">The image is damaged or cannot be decoded. Select another image.</string>
+  <string name="error_corrupt">The image file structure is incomplete or invalid. Try another copy.</string>
   <string name="error_format">Only JPEG, PNG and supported WebP images are accepted.</string>
   <string name="error_large">This image exceeds the limit: 32 MB, 128 megapixels or 32,768 pixels per side.</string>
   <string name="error_memory">Not enough memory to process this image safely. Try a smaller image.</string>
@@ -38,4 +38,11 @@
   <string name="size_comparison">Original %1$s → Output %2$s · %3$s%% smaller</string>
   <string name="dimension_comparison">Original %1$d × %2$d → Output %3$d × %4$d · %5$s</string>
   <string name="privacy_short">On-device processing. Original unchanged.</string>
+  <string name="error_uri">The selected link is invalid. Select the image again.</string>
+  <string name="error_permission">Read permission was lost. Select the image again in Gallery.</string>
+  <string name="error_read">The provider could not read this image. Try a local copy or select it again.</string>
+  <string name="error_decode">This device could not decode the image. Try exporting a JPEG or PNG copy.</string>
+  <string name="error_encode">This device could not encode the selected format. Try JPEG or PNG, or Balanced mode.</string>
+  <string name="error_output">The encoded output could not be validated. Try again or select another format.</string>
+  <string name="error_heif">HEIC/HEIF input is not supported by Komprexo. Export a JPEG or PNG copy first.</string>
 </resources>

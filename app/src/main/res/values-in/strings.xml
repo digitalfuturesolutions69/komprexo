@@ -19,7 +19,7 @@
   <string name="save">Simpan salinan</string>
   <string name="share">Bagikan</string>
   <string name="error_invalid">File ini bukan gambar yang valid. Pilih file lain.</string>
-  <string name="error_corrupt">Gambar rusak atau tidak dapat dibaca. Pilih gambar lain.</string>
+  <string name="error_corrupt">Struktur file gambar tidak lengkap atau tidak valid. Coba salinan lain.</string>
   <string name="error_format">Hanya gambar JPEG, PNG, dan WebP yang didukung dapat dipilih.</string>
   <string name="error_large">Gambar melebihi batas: 32 MB, 128 megapiksel, atau 32.768 piksel per sisi.</string>
   <string name="error_memory">Memori tidak cukup untuk memproses gambar dengan aman. Coba gambar lebih kecil.</string>
@@ -38,4 +38,11 @@
   <string name="size_comparison">Asli %1$s → Hasil %2$s · turun %3$s%%</string>
   <string name="dimension_comparison">Asli %1$d × %2$d → Hasil %3$d × %4$d · %5$s</string>
   <string name="privacy_short">Diproses di perangkat. Asli tidak berubah.</string>
+  <string name="error_uri">Tautan gambar tidak valid. Pilih ulang gambar.</string>
+  <string name="error_permission">Izin membaca hilang. Pilih ulang gambar dari Galeri.</string>
+  <string name="error_read">Penyedia tidak dapat membaca gambar ini. Coba salinan lokal atau pilih ulang.</string>
+  <string name="error_decode">Perangkat ini tidak dapat mendekode gambar. Coba ekspor salinan JPEG atau PNG.</string>
+  <string name="error_encode">Perangkat ini tidak dapat membuat format yang dipilih. Coba JPEG atau PNG, atau mode Seimbang.</string>
+  <string name="error_output">Hasil kompresi tidak dapat diverifikasi. Coba lagi atau pilih format lain.</string>
+  <string name="error_heif">Masukan HEIC/HEIF belum didukung Komprexo. Ekspor salinan JPEG atau PNG dahulu.</string>
 </resources>

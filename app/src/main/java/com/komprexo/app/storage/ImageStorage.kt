@@ -1,5 +1,6 @@
 package com.komprexo.app.storage
 
+import com.komprexo.app.diagnostics.*
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
@@ -17,7 +18,7 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.UUID
 
-class ImageStorage(private val context: Context) {
+class ImageStorage(private val context: Context, private val traceFactory: () -> DiagnosticTrace = { DiagnosticTrace() }) {
     val cache = File(context.cacheDir, "images").apply { mkdirs() }
     private val shared = File(context.cacheDir, "shared").apply { mkdirs() }
     init {
@@ -26,12 +27,19 @@ class ImageStorage(private val context: Context) {
         listOf(cache, shared).forEach { root -> root.listFiles()?.filter { it.lastModified() < cutoff }?.forEach { it.deleteRecursively() } }
     }
     suspend fun import(uri: Uri): ImageSource {
+        val trace = traceFactory()
         val file = File(cache, "source-${UUID.randomUUID()}")
         try { return withContext(Dispatchers.IO) {
-        if (uri.scheme != ContentResolver.SCHEME_CONTENT) throw ImageProblem(FailureCode.FILE_ACCESS)
+        trace.move(ProcessingStage.URI_OPEN)
+        if (uri.scheme != ContentResolver.SCHEME_CONTENT || uri.authority.isNullOrEmpty()) throw ImageProblem(FailureCode.INVALID_URI)
         var keep = false
         try {
+            trace.move(ProcessingStage.MIME_QUERY)
+            try { trace.mime(context.contentResolver.getType(uri)) }
+            catch (e: RuntimeException) { trace.record(e) } // Optional provider metadata must not gate stream access.
+            trace.move(ProcessingStage.URI_OPEN)
             context.contentResolver.openInputStream(uri)?.use { input ->
+                trace.move(ProcessingStage.URI_READ)
                 file.outputStream().use { output ->
                     val buffer = ByteArray(16 * 1024)
                     var total = 0L
@@ -44,15 +52,18 @@ class ImageStorage(private val context: Context) {
                         output.write(buffer, 0, count)
                     }
                 }
-            } ?: throw ImageProblem(FailureCode.FILE_ACCESS)
+            } ?: throw ImageProblem(FailureCode.READ_FAILED)
             currentCoroutineContext().ensureActive()
-            val source = BitmapCodec.inspect(file)
+            val source = BitmapCodec.inspect(file, trace).copy(declaredMime = trace.declaredMime)
             // Decode a sampled preview once to validate decodability before accepting selection.
-            BitmapCodec.decode(source, preview = true).recycle()
+            BitmapCodec.decode(source, preview = true, trace = trace).recycle()
+            trace.move(ProcessingStage.READY)
             keep = true
             source
         } finally { if (!keep) file.delete() }
-        } } catch (e: CancellationException) { file.delete(); throw e }
+        } } catch (e: CancellationException) { file.delete(); trace.record(e); throw e }
+        catch (e: OutOfMemoryError) { file.delete(); trace.record(e); throw ImageProblem(FailureCode.INSUFFICIENT_MEMORY, AllocationFailure.OUT_OF_MEMORY) }
+        catch (e: Exception) { file.delete(); trace.record(e); throw ImageProblem(classifyFailure(e, trace.stage)) }
     }
 
     suspend fun save(result: CompressionResult.Success, destination: Uri) = withContext(Dispatchers.IO) {

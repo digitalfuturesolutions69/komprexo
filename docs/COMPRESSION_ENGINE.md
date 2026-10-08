@@ -157,3 +157,16 @@ SystemBarStyle. Light backgrounds use dark status icons (API23+) and dark nav
 icons (API26+). API23–25 navigation uses a dark scrim with supported light icons.
 Dark backgrounds use light icons. Transparent status bars / modern gesture bars
 are backed by the matching theme surface. API35–36 edge-to-edge is retained.
+
+## Phase 1.6 compatibility
+
+JPEG structure validation permits trailing payload after the main EOI while still
+rejecting missing main EOI. Provider data is copied through bounded ContentResolver
+streams, including unknown-length pipes and offset descriptors; optional MIME
+metadata does not control decoding. Software BitmapFactory is used on API23–36.
+HEIC/HEIF receives an explicit unsupported-format error rather than being assumed
+corrupt. Explicit WebP uses a16383-pixel edge limit and preserves format/alpha;
+API23–29 uses legacy WEBP, API30+ WEBP_LOSSY. Auto skips infeasible WebP dimensions
+while considering original-resolution JPEG/PNG. Byte and adaptive memory limits
+remain unchanged. Debug-only structured local diagnostics and S9 retest directions
+are documented in VALIDATION.md; no physical Samsung verification is claimed.
