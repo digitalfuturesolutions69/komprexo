@@ -63,12 +63,18 @@ maximum one concurrent injected decoder across four concurrent transform request
 
 Existing workflow/security checks are retained: Java17, SDK36, trusted/pinned
 Gradle Wrapper validation, Kotlin, JVM tests, lint, app/test APKs and artifact upload.
-Device matrix remains API23/26/28/36, compact320x569dp. Five new UI checks exercise
+Device matrix remains API23/26/28/36, compact320x569dp. Six new UI checks exercise
 home tools, multiple picker results/removal/clear, partial success, folder save and
 multi-share, converter consent/individual export, large-font resize/rotation and
 Cancel. Earlier UI checks still execute the accepted Compress workflow after
 explicitly navigating from the new Home; no assertions/tests are disabled.
-CI outcome/artifacts are pending push and actual execution. No CI PASS claimed yet.
+First implementation CI run37813417887 for b76930283fb4c61917f9037d82c6d4ba2238598a
+passed debug. API23/26/28/36 each completed77 tests with one failure at recreation
+in a new synthetic-density UI fixture. That fixture changes the Compose root
+position of rememberSaveable relative to normal MainActivity.onCreate. Large-font
+controls had already passed before recreation; large-font access and normal-root
+activity recreation now have separate retained checks. Corrected CI is pending;
+this failed run is not claimed PASS.
 
 Known limits:20 images/32MiB each/256MiB selected imports are initial safety limits,
 not monetization limits. Exact resize/converter dimensions can exceed heap or WebP

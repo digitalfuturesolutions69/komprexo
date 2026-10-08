@@ -113,7 +113,7 @@ class Phase2WorkflowTest {
             assertEquals(Intent.ACTION_SEND,shared.action);assertEquals("image/jpeg",shared.type);assertEquals(1,shared.clipData!!.itemCount)
         } finally { Intents.release() }
     }
-    @Test fun resizeLargeFontAndRotationKeepExportAccessible() {
+    @Test fun resizeLargeFontKeepsExportAccessible() {
         compose.activityRule.scenario.onActivity { activity->activity.setContent {
             val density=LocalDensity.current
             CompositionLocalProvider(LocalDensity provides Density(density.density,2f)) { KomprexoApp() }
@@ -133,8 +133,20 @@ class Phase2WorkflowTest {
         compose.onNodeWithTag("phase2Save").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
         compose.onNodeWithTag("phase2Share").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
         captureEvidence("phase2-resize-large-font")
+    }
+    @Test fun resizeRotationKeepsOutputAndRoute() {
+        // Normal production root: the synthetic density wrapper above has a
+        // different rememberSaveable position from MainActivity.onCreate.
+        compose.onNodeWithTag("homeRESIZE").performClick();val model=model()
+        compose.activityRule.scenario.onActivity { model.select(listOf(gallery("stream"))) }
+        compose.waitUntil(30000) { model.state.value.selection.size==1 && !model.state.value.busy }
+        compose.onNodeWithTag("phase2Start").performClick()
+        compose.waitUntil(30000) { model.state.value.outputs.size==1 && !model.state.value.busy }
+        val file=model.state.value.outputs.single().file
         compose.activityRule.scenario.recreate()
-        compose.onNodeWithTag("phase2Save").assertIsDisplayed();assertTrue(model.state.value.outputs.single().file.exists())
+        compose.onNodeWithTag("phase2Save").assertIsDisplayed()
+        compose.onNodeWithTag("phase2Share").assertIsDisplayed()
+        assertTrue(file.exists())
     }
     @Test fun batchCancelKeepsControlsAvailable() {
         compose.onNodeWithTag("homeBATCH").performClick();val model=model()
