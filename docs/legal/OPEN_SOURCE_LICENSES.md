@@ -23,8 +23,8 @@ Before publication, owner/legal review must verify all attribution obligations a
 | androidx.activity:activity:1.10.1 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
 | androidx.annotation:annotation-experimental:1.4.1 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
 | androidx.annotation:annotation-jvm:1.9.1 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
-| androidx.appcompat:appcompat-resources:1.7.1 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
-| androidx.appcompat:appcompat:1.7.1 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
+| androidx.appcompat:appcompat-resources:1.8.0 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
+| androidx.appcompat:appcompat:1.8.0 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
 | androidx.arch.core:core-common:2.2.0 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
 | androidx.arch.core:core-runtime:2.2.0 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |
 | androidx.autofill:autofill:1.0.0 | The Apache Software License, Version 2.0 | http://www.apache.org/licenses/LICENSE-2.0.txt |

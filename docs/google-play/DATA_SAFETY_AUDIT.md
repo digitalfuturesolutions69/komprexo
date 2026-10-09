@@ -6,7 +6,7 @@
 
 App com.komprexo.app/API 23–36. Main manifest BILLING; merged release adds INTERNET/ACCESS_NETWORK_STATE and AndroidX app-scoped DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION. No location/broad media/storage/camera/microphone/contacts/advertising-ID/account permission. Backup off; FileProvider nonexported/temporary URI grants/cache-shared only. Picker accesses user-selected content URI, never crawls library.
 
-Actual release runtime **99 artifacts**: [POM/license/hash inventory](../legal/RUNTIME_DEPENDENCIES.json), [notices](../legal/OPEN_SOURCE_LICENSES.md). New direct Billing 9.1.0/AppCompat 1.7.1; existing AndroidX Compose/Lifecycle/DataStore/Exif/Core/Kotlin/coroutines/desugar retained.
+Actual release runtime **99 artifacts**: [POM/license/hash inventory](../legal/RUNTIME_DEPENDENCIES.json), [notices](../legal/OPEN_SOURCE_LICENSES.md). New direct Billing 9.1.0/AppCompat 1.8.0; existing AndroidX Compose/Lifecycle/DataStore/Exif/Core/Kotlin/coroutines/desugar retained.
 
 **SDK finding:** Billing transitively brings Google datatransport api/runtime/backend-cct and GMS base/basement/tasks/location19.0.0/places-placereport17.0.0. No app location permission/API. Presence alone doesn't establish location collection. Transport may queue operational diagnostics in **SDK-managed local SQLite** and send to Google's transport backend. No application photo/account/backend database introduced. Do not claim absence of all SQLite or SDK diagnostics. Mandatory SDK dependencies retained rather than concealed.
 

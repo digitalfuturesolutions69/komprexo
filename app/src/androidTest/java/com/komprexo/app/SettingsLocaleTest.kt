@@ -13,6 +13,8 @@ import org.hamcrest.Matchers.allOf
 import androidx.test.espresso.intent.Intents.intending
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import androidx.core.os.ConfigurationCompat
+import androidx.lifecycle.Lifecycle
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
@@ -32,18 +34,44 @@ import org.junit.Assert.*
 /** Android locale/storage/UI tests. Fake Billing responses never create payments. */
 class SettingsLocaleTest {
     @get:Rule val compose=createAndroidComposeRule<MainActivity>()
+    @get:Rule(order=1) val failureEvidence=object: org.junit.rules.TestWatcher() {
+        override fun failed(error:Throwable,description:org.junit.runner.Description) {
+            runCatching { captureEvidence("phase4-failure-"+description.methodName) }
+        }
+    }
     private fun main(block:()->Unit)=InstrumentationRegistry.getInstrumentation().runOnMainSync(block)
-    @Before fun english() { locale("en") }
+    @Before fun english() { orientation(false);locale("en") }
     @After fun restore() {
-        main { compose.activity.requestedOrientation=ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED }
+        orientation(false)
         EntitlementProviderFactory.setTestingPremium(false)
-        main { AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList()) }
-        compose.waitForIdle()
+        locale("")
     }
     @Suppress("DEPRECATION") private fun currentLanguage() = compose.activity.resources.configuration.let { if(android.os.Build.VERSION.SDK_INT>=24) it.locales[0].language else it.locale.language }
     private fun locale(tag:String) {
+        val previous=compose.activity
+        val effective=ConfigurationCompat.getLocales(previous.resources.configuration)[0]?.toLanguageTag()
+        val expected=if(tag.isEmpty()) ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.toLanguageTag()
+            else java.util.Locale.forLanguageTag(tag).toLanguageTag()
         main { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag)) }
-        compose.waitUntil(20000) { currentLanguage() == (if(tag=="id") "in" else tag.substringBefore('-')) || (tag=="id" && currentLanguage()=="id") }
+        // Configuration can update before Android replaces the Activity. Do not install
+        // test content or scroll against the old viewport during that transition.
+        compose.waitUntil(20000) {
+            ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.toLanguageTag()==expected &&
+                (effective==expected || compose.activity!==previous) &&
+                compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+        }
+        compose.waitForIdle()
+    }
+    private fun orientation(landscape:Boolean) {
+        val previous=compose.activity
+        val expected=if(landscape) Configuration.ORIENTATION_LANDSCAPE else Configuration.ORIENTATION_PORTRAIT
+        val changed=previous.resources.configuration.orientation!=expected
+        main { compose.activity.requestedOrientation=if(landscape) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT }
+        compose.waitUntil(20000) {
+            compose.activity.resources.configuration.orientation==expected &&
+                (!changed || compose.activity!==previous) &&
+                compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+        }
         compose.waitForIdle()
     }
     private fun settings() { compose.onNodeWithTag("homeSettings").performScrollTo().performClick() }
@@ -106,16 +134,20 @@ class SettingsLocaleTest {
     private fun large(tag:String,landscape:Boolean) {
         locale(tag)
         if(landscape) {
-            main { compose.activity.requestedOrientation=ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE }
-            compose.waitUntil(20000) { compose.activity.resources.configuration.orientation==Configuration.ORIENTATION_LANDSCAPE }
+            orientation(true)
         }
         main { compose.activity.setContent {
             val d=LocalDensity.current
             CompositionLocalProvider(LocalDensity provides Density(d.density,2f)) { KomprexoApp() }
         } }
-        settings();compose.onNodeWithTag("languageSettings").performScrollTo().assertHeightIsAtLeast(48.dp)
-        compose.onNodeWithTag("legal_premium").performScrollTo().assertHeightIsAtLeast(48.dp)
-        compose.onNodeWithTag("contactSupport").performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp)
+        try {
+            settings();compose.onNodeWithTag("languageSettings").performScrollTo().assertHeightIsAtLeast(48.dp)
+            compose.onNodeWithTag("legal_premium").performScrollTo().assertHeightIsAtLeast(48.dp)
+            compose.onNodeWithTag("contactSupport").performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp)
+        } catch(error:Throwable) {
+            runCatching { captureEvidence("phase4-layout-failure-"+tag) }
+            throw error
+        }
         captureEvidence("phase4-settings-$tag-${if(landscape) "landscape" else "compact"}-font200")
     }
     @Test fun englishCompactFont200() { large("en",false) }

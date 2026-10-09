@@ -71,8 +71,8 @@ jobs:
             adb shell wm size
             adb shell wm size 720x1280
             adb shell wm density 360
-            # The runner executes each line in a separate shell. Retain the test status.
-            ./gradlew --no-daemon connectedDebugAndroidTest; komprexo_test_status=$?; adb pull /data/local/tmp/komprexo-evidence app/build/reports/androidTests/screenshots || true; exit "$komprexo_test_status"
+            # Bounded runner preserves sanitized per-test diagnostics even after a stall.
+            bash scripts/run-device-tests.sh
       - uses: actions/upload-artifact@v4
         if: always()
         with:

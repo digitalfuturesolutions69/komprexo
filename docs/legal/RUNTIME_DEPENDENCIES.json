@@ -35,18 +35,18 @@
     "pom_sha256": "89b99c218d60019316b50aab79816707bc21696c896a030e1b1ae038961bcb8e"
   },
   {
-    "coordinate": "androidx.appcompat:appcompat-resources:1.7.1",
+    "coordinate": "androidx.appcompat:appcompat-resources:1.8.0",
     "license": "The Apache Software License, Version 2.0",
     "reference": "http://www.apache.org/licenses/LICENSE-2.0.txt",
-    "pom": "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat-resources/1.7.1/appcompat-resources-1.7.1.pom",
-    "pom_sha256": "2faf922e8c3d706f29d862b3fbb3aa1347705c21c6eae18586d2bb1f7366ea01"
+    "pom": "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat-resources/1.8.0/appcompat-resources-1.8.0.pom",
+    "pom_sha256": "cc6e87c34b66e610d8ac0ad8ed0f657a086f4a8765244f7927b15e6099bf3a17"
   },
   {
-    "coordinate": "androidx.appcompat:appcompat:1.7.1",
+    "coordinate": "androidx.appcompat:appcompat:1.8.0",
     "license": "The Apache Software License, Version 2.0",
     "reference": "http://www.apache.org/licenses/LICENSE-2.0.txt",
-    "pom": "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat/1.7.1/appcompat-1.7.1.pom",
-    "pom_sha256": "1f79910cc20de198acf3867b1e93f9ed59ddb643585b2e9c28ee55518af1bc00"
+    "pom": "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat/1.8.0/appcompat-1.8.0.pom",
+    "pom_sha256": "2d6c30b8b8bb3f684e08c7f21b2d20bf853533227b178a8e5069966efec4ec93"
   },
   {
     "coordinate": "androidx.arch.core:core-common:2.2.0",

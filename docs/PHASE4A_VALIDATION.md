@@ -54,7 +54,7 @@ Run: https://github.com/digitalfuturesolutions69/komprexo/actions/runs/378973220
 | API23 | PASS157/157,0failed/0skipped |
 | API26 | PASS157/157,0failed/0skipped |
 | API28 | PASS157/157,0failed/0skipped |
-| API36 | PENDING at this snapshot; never counted as passing before completion |
+| API36 | INCOMPLETE: 129/157 completed,0failed at last progress; job deadline cancelled the stalled run |
 
 CI lint: **0 errors,25 warnings** (12 source/resource advisories plus13 available-dependency-update advisories). Local lint sees12 warnings; the difference reflects network metadata availability, not suppressed checks. Existing compatible foundation versions remain pinned; no broad upgrade undertaken to silence warnings.
 
@@ -65,3 +65,13 @@ API26 report HTML confirms157tests/0failures/0ignored; CI JVM HTML confirms171te
 The final report-bearing commit also includes a late-callback transport guard; after timeout/cancellation an old ProductDetails callback cannot replace fresh cached details. Its full local Gradle rerun passes171tests/lint/debug APK/instrumentation APK/release compilation/dependency export/security. Final CI is checked independently at delivery.
 
 Baseline delta currently124created,15modified,1removed files: native Billing/Settings/locale/icon/assets/tests, branding/content, static-source/tests, audits/legal/Play docs, build/workflow/security tools, README/validation. Removed only obsolete drawable launcher replaced by mipmap resources. Original engine/storage/quota-manager files remain unchanged. Exact file list is the final Git commit diff against the accepted baseline.
+
+## CI investigation and corrections
+
+The first API36 job completed129/157 tests with zero failures at its last progress update, then stalled and hit the30-minute deadline; no complete run or instrumentation report was claimed. The second candidate run37898905722 passed debug/static/API23/API26, but API28 had156passed/1failed (Portuguese compact200%-font support-control visibility); assertions remained unchanged.
+
+New locale/orientation test helpers now await the resumed replacement Activity, not merely updated resource configuration, and restore portrait explicitly before each compact case. Failure capture occurs before cleanup. AppCompat updated to current stable1.8.0 (official release notes: https://developer.android.com/jetpack/androidx/releases/appcompat), minSdk23, with its documented view-tree configuration-dispatch fix; image engines unchanged. These changes are validated rather than asserted to prove the old stall's root cause.
+
+Instrumentation uses a test-only listener exporting public test names/API/exception category only; no message, URI, image bytes, private paths or token. A15-minute test-process deadline keeps nonzero failure status and collects sanitized progress/screenshots before the outer30-minute CI timeout. All157 tests and all4API jobs remain mandatory; no assertions, tests, lint or security checks removed. Final counts and any remaining stall evidence are reported after the new run.
+
+Current compatibility correction local validation: AppCompat1.8.0 full Gradle run PASS171JVM/0failures/0skips,0lint errors/12warnings, debug+instrumentation assembly and release compilation. Resolved graph still99runtime artifacts; both AppCompat artifacts changed1.7.1→1.8.0; actual POM hashes and bundled upstream notices regenerated. Security guard and8Python tests PASS. APK is rebuilt after notice regeneration so the shipped inventory matches actual dependencies.
