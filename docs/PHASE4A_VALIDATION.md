@@ -11,7 +11,7 @@ Prepared 9 October 2026 Asia/Jakarta. Repository digitalfuturesolutions69/kompre
 | Dependency/license export | PASS 99 actual runtime artifacts |
 | JVM | PASS 171/171, 0 failures/errors/skips; 117 baseline + 46 Billing + 8 locale |
 | Android lint | PASS: 0 errors, 12 warnings (localeConfig API 33, legacy in/id alias, unused color, v26 monochrome detection, KTX). v33 monochrome exists |
-| Debug APK | PASS: 14,171,460 bytes (latest callback-hardened local build) app/build/outputs/apk/debug/app-debug.apk; signature PASS v1/v2, debug signing |
+| Debug APK | PASS: assembled locally (exact downloaded CI APK metadata below) app/build/outputs/apk/debug/app-debug.apk; signature PASS v1/v2, debug signing |
 | Instrumentation APK | PASS assembled; local execution unavailable (no KVM) |
 | Release security | PASS: 4 audited permissions/release isolation/secure FileProvider/99-library license graph |
 | Python assets/locales/legal/site integrity | PASS 8/8; 160 keys × 5/placeholder parity/Hindi/SVG/PNG/512RGBA/safezone/36 routes/licenses/DRAFT/contact |
@@ -64,7 +64,7 @@ API26 report HTML confirms157tests/0failures/0ignored; CI JVM HTML confirms171te
 
 The final report-bearing commit also includes a late-callback transport guard; after timeout/cancellation an old ProductDetails callback cannot replace fresh cached details. Its full local Gradle rerun passes171tests/lint/debug APK/instrumentation APK/release compilation/dependency export/security. Final CI is checked independently at delivery.
 
-Baseline delta currently124created,15modified,1removed files: native Billing/Settings/locale/icon/assets/tests, branding/content, static-source/tests, audits/legal/Play docs, build/workflow/security tools, README/validation. Removed only obsolete drawable launcher replaced by mipmap resources. Original engine/storage/quota-manager files remain unchanged. Exact file list is the final Git commit diff against the accepted baseline.
+Baseline delta at delivery:126created,15modified,1removed files: native Billing/Settings/locale/icon/assets/tests, branding/content, static-source/tests, audits/legal/Play docs, build/workflow/security tools, README/validation. Removed only obsolete drawable launcher replaced by mipmap resources. Original engine/storage/quota-manager files remain unchanged. Exact file list is the final Git commit diff against the accepted baseline.
 
 ## CI investigation and corrections
 
@@ -87,3 +87,268 @@ Correction under verification: compare effective locale language and explicitly 
 Run37905203816: debug/static/API26/API28 PASS; API23 finished157 with2 failures at Indonesian locale setup (legacy in/id canonical tag mismatch); Portuguese compact200% font visibility passed. API36 finished138 before watchdog failure,4 failed/incomplete; the remaining timed-out locale checks again occur during cleanup, and the runner hangs awaiting a frame after locale recreation. Software-renderer change alone did not fix the stall, so it is not claimed as a proven solution.
 
 The follow-up normalizes stored tags using LocaleListCompat in both test expectations and the app selected-language indicator; render tests now explicitly assert the selected checkmark for every language. System Default checks effective system language rather than assuming an unsupported resource-region match. Test cleanup closes the scenario before resetting the platform locale, preventing cleanup-only Activity recreation/retiring-root frame waits; the actual System Default UI and persisted-locale recreation tests remain unchanged and mandatory. Sanitized progress is streamed during the suite because API23 logcat ring rotation discarded early diagnostic lines. No production workaround or processing change introduced.
+
+
+## Verified completion — implementation 10a15e19517d3c89fc43361743fb384525116a29
+
+**PASS: all six jobs**, run https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37906486380 . API23/26/28/36 each completed157 tests,0failures/0skips; no watchdog fired. Downloaded API36 HTML confirms157/0; streamed log confirms157 START/157 FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. Downloaded JVM HTML confirms171/0failed/0ignored. CI lint0errors/24warnings (12 source/resource advisories,12 available-dependency updates). No checks were disabled. The previous failed runs above remain recorded for transparency.
+
+Actual API36 screenshots reviewed: Portuguese compact320x569dp/200% font toolbar and support action visible; Spanish landscape200% font support action visible; Hindi legal text renders; status/navigation icons have contrast. Automated system-bar, touch-target, compact/landscape/IME/navigation/save/share/quotas regressions all passed. This is not physical-device or manual TalkBack certification.
+
+Actual downloaded CI debug APK: app-debug.apk,14,157,342bytes; SHA2568e2a499b2aa37e26df97e5f2c378f8e06c75acc595bcdc902865048f88cd7de6. Packagecom.komprexo.app; version0.4.0(2); min23/target36/compile36. apksigner exits0, v1/v2 signatures verify; debug certificate only, not a production artifact. Artifact komprexo-debug-10a15e19517d3c89fc43361743fb384525116a29, ZIP13,225,730bytes, https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37906486380/artifacts/11604752976 ; uploaded/not expired at validation; retention14days.
+
+The report-only delivery commit runs the unchanged full workflow again. Its exact final HEAD, run and APK artifact are supplied in the accompanying delivery message after completion, avoiding a self-referential commit hash in this file. Technical implementation is validated; real-payment/legal/publication acceptance remains separate.
+
+## Owner delivery fields — GENERAL
+
+| Field | Result |
+|---|---|
+| REPOSITORY | digitalfuturesolutions69/komprexo, existing project root |
+| BRANCH | work |
+| STARTING COMMIT | 15266a239352cdf64ea37752a0f02fbf8d7de836, confirmed accepted baseline |
+| FINAL COMMIT | Delivery report commit: exact SHA supplied in accompanying response; validated implementation SHA above |
+| LOCAL = REMOTE / WORKING TREE | Authorized push verified equal; clean before report update; delivery checked again after push |
+| FILES CREATED / MODIFIED | 126created,15modified,1obsolete launcher removed; exact baseline file list below |
+
+## Owner delivery fields — GOOGLE PLAY BILLING
+
+| Field | Result |
+|---|---|
+| BILLING LIBRARY VERSION | 9.1.0 current stable; compatible Java API from Kotlin, min23 |
+| PRODUCT ID / TYPE | komprexo_premium_lifetime; one-time INAPP, non-consumable, no subscription |
+| PURCHASE FLOW | Official Play UI, fresh ProductDetails, localized Play price; unavailable product disables Buy |
+| PURCHASE OPTION HANDLING | Eligible base lifetime BUY; reject rental/preorder/discount/time-window/quantity limits; fresh offer token |
+| PURCHASE ACKNOWLEDGMENT | Only PURCHASED, correct SKU/package/quantity/token; grant after confirmed acknowledgment; bounded retries/idempotency |
+| RESTORE PURCHASES | Query current ownership; startup/foreground/reconnect/callback/explicit Restore |
+| PENDING PURCHASES | Distinct localized status; no acknowledgment/unlock/consumption |
+| REFUND/REVOCATION HANDLING | Successful current query without ownership revokes/clears cache; network failure alone does not imply refund |
+| PREMIUM ENTITLEMENT | Unlimited daily3features/max20batch, existing technical limits and presets preserved |
+| FREE ENTITLEMENT | 5successful/day separately for Compress/Resize/Convert, max2batch |
+| QUOTA REGRESSION | Existing manager/engines unchanged; shared single/batch primary-feature counters, no internal double-charge, unused failures/cancellations refunded, Save/Share unmetered; tests PASS |
+| CLIENT-ONLY SECURITY LIMITATIONS | No backend/independent cryptographic receipt verification/RTDN;24h authenticated local lease is not tamper-proof, delayed offline revocation possible |
+| PLAY CONSOLE CONFIGURATION STATUS | OWNER ACTION REQUIRED; product/base option/IDR49,000/regions/signing/track/testers unverified |
+| REAL GOOGLE PLAY PURCHASE TEST | NOT TESTED; deterministic fake tests are not transactions |
+
+## Owner delivery fields — BRANDING
+
+| Field | Result |
+|---|---|
+| LOGO CONCEPT | Original geometric K/photo-frame field; owner aesthetic/trademark review pending |
+| PRIMARY COLORS | #123B68 deep blue, #52E0D1 teal, #F5F8FC off-white; dark UI accent#7CDCE8 |
+| WORDMARK | Komprexo, outlined DejaVu Sans with bundled license |
+| SVG SOURCE | artwork/komprexo-master.svg,icon.svg,logo-primary/horizontal/light/dark.svg |
+| PNG EXPORTS | Actual primary/horizontal/light/dark variants and mask/contact sheets in artwork |
+| ANDROID LAUNCHER ICON | Legacy square/round mdpi–xxxhdpi48–192px |
+| ADAPTIVE ICON | API26 layers108dp, foreground inside66dp safe zone |
+| MONOCHROME ICON | API33 same geometry/system tint |
+| 512X512 STORE ICON | artwork/play-store-icon-512.png; RGBA32-bit, opaque square |
+| ASSET VALIDATION | PASS CRC/decompression/dimensions/vector self-containment/references/safe zone |
+| BRANDING PREVIEW | artwork/brand-contact-sheet.png and launcher-mask-preview.png, actual exports reviewed |
+
+## Owner delivery fields — MULTILINGUAL
+
+| Field | Result |
+|---|---|
+| SUPPORTED LANGUAGES | Indonesian(id),English(en),Spanish(es),Brazilian Portuguese(pt-BR),Hindi(hi) |
+| LANGUAGE SETTINGS / SYSTEM DEFAULT | Native Settings picker, selected indicator; OS fallback without override |
+| LOCALE PERSISTENCE | AppCompat API23–32 private locale persistence; native per-app LocaleManager33+; recreation tests PASS |
+| TRANSLATION COVERAGE |160 main keys ×5, placeholder parity, debug labels/offline documents/static source/store drafts |
+| BILLING LOCALIZATION |14statuses ×5, actual price from Play; no invented production price |
+| ACCESSIBILITY | Compact320x569dp/landscape/200%font/48dp touch targets/semantics/system bars/IME regressions PASS4APIs; manual TalkBack/native-speaker/physical review NOT TESTED |
+
+## Owner delivery fields — LEGAL AND CONTACT
+
+| Field | Result |
+|---|---|
+| SUPPORT EMAIL / CONTACT SUPPORT | komprexo.support@gmail.com only; ACTION_SENDTO opens mail client, no automatic photos/tokens/attachments; no-client fallback localized |
+| PRIVACY POLICY / TERMS OF USE | DRAFT,5languages offline+static, truthful local/cache/Google SDK/transfer/network limitations |
+| PREMIUM PURCHASE POLICY | DRAFT, one-time proposed price/Play fulfillment/restore/refund guidance, no invented refund deadline |
+| DATA SAFETY AUDIT | DRAFT actual99library graph/merged permissions; Google diagnostic transport/SDK SQLite/location library presence disclosed; vendor-data details unresolved |
+| OPEN-SOURCE LICENSES | Actual POM hashes/upstream binary notices/Apache/BSD/DejaVu/Google terms, bundled offline5languages |
+| OWNER LEGAL APPROVAL REQUIRED | Identity/address/effective date/jurisdiction/audience/children law/consumer rights/native-speaker review pending; no owner identity invented |
+
+## Owner delivery fields — WEBSITE
+
+| Field | Result |
+|---|---|
+| STATIC WEBSITE TECHNOLOGY | Python stdlib-generated HTML/CSS, no runtime JS/forms/tracking/backend/login/checkout |
+| GITHUB PAGES SOURCE | website/build generated output + .nojekyll; source/generator committed, no deployment workflow/CNAME |
+| STATIC BUILD TEST | PASS8asset checks/45browser cases |
+| HOME / PRIVACY / TERMS / SUPPORT / PREMIUM / ABOUT PAGE | All6pages ×5languages,6English root aliases =36actual HTML routes |
+| FIVE-LANGUAGE COVERAGE | id/en/es/pt-BR/hi; internal links/switcher/320px/landscape200%/dark/keyboard tests PASS |
+| PUBLIC DEPLOYMENT STATUS | NOT DEPLOYED; proposed Pages URL not verified public/live |
+| FUTURE DOMAIN PREPARATION | komprexo.click ownership unconfirmed; owner checklist only, no DNS/CNAME/certificate changes |
+
+## Owner delivery fields — GOOGLE PLAY READINESS
+
+| Field | Result |
+|---|---|
+| STORE LISTING |5DRAFT localized listings,30/80/4000limits validated; actual512icon, screenshot/feature-graphic specification; Console not changed |
+| CONTENT RATING PREPARATION / TARGET AUDIENCE | Truthful owner questionnaire/checklist prepared; ages/rating/children declarations not invented |
+| ADS DECLARATION | No AdMob or ads in this phase; owner must make truthful current Console entry |
+| PRIVACY POLICY URL STATUS | No public approved URL; DRAFT/proposed Pages only |
+| PLAY CONSOLE CHECKLIST | docs/google-play/PLAY_CONSOLE_CHECKLIST.md and PLAY_CONSOLE_SETUP.md |
+| REMAINING OWNER ACTIONS | Review branding/translations/legal/DataSafety; configure product/base option/pricing/regions/signing/license testers; separately authorize real-payment testing and public policy hosting before submission |
+
+## Owner delivery fields — QUALITY
+
+| Field | Result |
+|---|---|
+| UNIT TESTS | PASS171/171,0failures/errors/skips;117baseline+46Billing+8locale |
+| INSTRUMENTATION API23 / API26 / API28 / API36 | PASS157/157 each,0failures/skips;126baseline+13Billingcompatibility+18Settings/locale |
+| ANDROID LINT | PASS0blocking errors;24CI warnings/12local warnings, no suppression to obtain PASS |
+| SECURITY CHECKS | PASS wrapper/release-source isolation/exact4permissions/backup off/secure FileProvider/no token logs/runtime99license match |
+| WEBSITE TESTS | PASS45browser/8Python; no public deployment |
+| LOCALIZATION TESTS | PASS8JVM locale mapping+18native UI/storage cases on4APIs+five-language integrity/browser checks |
+| DEBUG APK / APK ARTIFACT URL | Actual downloaded app-debug.apk metadata and implementation artifact URL above; exact delivery-commit artifact supplied in response |
+| GITHUB ACTIONS RUN URL | All6implementation jobs PASS at37906486380; report-only delivery run separately verified in response |
+| KNOWN LIMITATIONS | Real purchases/Console settings/public URL unverified; legal/DataSafety/translation/brand review pending; client-only/root/clock/offline/storage limits; no manual TalkBack/physical Samsung S9/payment test |
+| FASE4A TECHNICAL ACCEPTANCE | PASS implementation automated checks; delivery commit verified separately; payment/legal/publication approval not implied |
+| NEXT RECOMMENDED PHASE | Owner review and separately authorized Console/license-tester/payment/policy-publication work; no FASE4B/AdMob started |
+
+## Exact files changed from accepted Phase3 baseline
+
+```text
+M	.github/workflows/android.yml
+M	.gitignore
+M	README.md
+M	VALIDATION.md
+M	app/build.gradle
+A	app/src/androidTest/java/com/komprexo/app/BillingCompatibilityTest.kt
+A	app/src/androidTest/java/com/komprexo/app/SafeTestProgressListener.kt
+A	app/src/androidTest/java/com/komprexo/app/SettingsLocaleTest.kt
+M	app/src/debug/java/com/komprexo/app/access/EntitlementProviderFactory.kt
+A	app/src/debug/res/values-es/strings.xml
+A	app/src/debug/res/values-hi/strings.xml
+A	app/src/debug/res/values-pt-rBR/strings.xml
+M	app/src/main/AndroidManifest.xml
+A	app/src/main/assets/legal/en/about.txt
+A	app/src/main/assets/legal/en/licenses.txt
+A	app/src/main/assets/legal/en/premium.txt
+A	app/src/main/assets/legal/en/privacy.txt
+A	app/src/main/assets/legal/en/support.txt
+A	app/src/main/assets/legal/en/terms.txt
+A	app/src/main/assets/legal/es/about.txt
+A	app/src/main/assets/legal/es/licenses.txt
+A	app/src/main/assets/legal/es/premium.txt
+A	app/src/main/assets/legal/es/privacy.txt
+A	app/src/main/assets/legal/es/support.txt
+A	app/src/main/assets/legal/es/terms.txt
+A	app/src/main/assets/legal/hi/about.txt
+A	app/src/main/assets/legal/hi/licenses.txt
+A	app/src/main/assets/legal/hi/premium.txt
+A	app/src/main/assets/legal/hi/privacy.txt
+A	app/src/main/assets/legal/hi/support.txt
+A	app/src/main/assets/legal/hi/terms.txt
+A	app/src/main/assets/legal/id/about.txt
+A	app/src/main/assets/legal/id/licenses.txt
+A	app/src/main/assets/legal/id/premium.txt
+A	app/src/main/assets/legal/id/privacy.txt
+A	app/src/main/assets/legal/id/support.txt
+A	app/src/main/assets/legal/id/terms.txt
+A	app/src/main/assets/legal/pt-BR/about.txt
+A	app/src/main/assets/legal/pt-BR/licenses.txt
+A	app/src/main/assets/legal/pt-BR/premium.txt
+A	app/src/main/assets/legal/pt-BR/privacy.txt
+A	app/src/main/assets/legal/pt-BR/support.txt
+A	app/src/main/assets/legal/pt-BR/terms.txt
+M	app/src/main/java/com/komprexo/app/MainActivity.kt
+A	app/src/main/java/com/komprexo/app/billing/BillingController.kt
+A	app/src/main/java/com/komprexo/app/billing/BillingModels.kt
+A	app/src/main/java/com/komprexo/app/billing/BillingServices.kt
+A	app/src/main/java/com/komprexo/app/billing/PlayBillingTransport.kt
+A	app/src/main/java/com/komprexo/app/billing/SealedOwnershipStore.kt
+M	app/src/main/java/com/komprexo/app/ui/KomprexoApp.kt
+M	app/src/main/java/com/komprexo/app/ui/PremiumScreen.kt
+A	app/src/main/java/com/komprexo/app/ui/SettingsScreen.kt
+D	app/src/main/res/drawable/ic_launcher.xml
+A	app/src/main/res/drawable/ic_launcher_foreground.xml
+A	app/src/main/res/drawable/ic_launcher_monochrome.xml
+A	app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+A	app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
+A	app/src/main/res/mipmap-anydpi-v33/ic_launcher.xml
+A	app/src/main/res/mipmap-anydpi-v33/ic_launcher_round.xml
+A	app/src/main/res/mipmap-hdpi/ic_launcher.png
+A	app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+A	app/src/main/res/mipmap-mdpi/ic_launcher.png
+A	app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+A	app/src/main/res/mipmap-xhdpi/ic_launcher.png
+A	app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+A	app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+A	app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+A	app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+A	app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+A	app/src/main/res/values-es/strings.xml
+A	app/src/main/res/values-hi/strings.xml
+M	app/src/main/res/values-in/strings.xml
+A	app/src/main/res/values-pt-rBR/strings.xml
+A	app/src/main/res/values/brand_colors.xml
+M	app/src/main/res/values/strings.xml
+M	app/src/main/res/values/styles.xml
+A	app/src/main/res/xml/locales_config.xml
+M	app/src/release/java/com/komprexo/app/access/EntitlementProviderFactory.kt
+A	app/src/sharedTest/java/com/komprexo/app/billing/BillingFixtures.kt
+A	app/src/test/java/com/komprexo/app/BillingTest.kt
+A	app/src/test/java/com/komprexo/app/LocaleMappingTest.kt
+A	artwork/DEJAVU_LICENSE.txt
+A	artwork/brand-contact-sheet.png
+A	artwork/icon.png
+A	artwork/icon.svg
+A	artwork/komprexo-master.svg
+A	artwork/launcher-mask-preview.png
+A	artwork/logo-dark.png
+A	artwork/logo-dark.svg
+A	artwork/logo-horizontal.png
+A	artwork/logo-horizontal.svg
+A	artwork/logo-light.png
+A	artwork/logo-light.svg
+A	artwork/logo-primary.png
+A	artwork/logo-primary.svg
+A	artwork/play-store-icon-512.png
+A	content/i18n/en.json
+A	content/i18n/es.json
+A	content/i18n/hi.json
+A	content/i18n/id.json
+A	content/i18n/pt-BR.json
+A	content/legal/en.json
+A	content/legal/es.json
+A	content/legal/hi.json
+A	content/legal/id.json
+A	content/legal/pt-BR.json
+A	content/store-listing.json
+A	docs/PHASE3_VALIDATION.md
+A	docs/PHASE4A_VALIDATION.md
+A	docs/billing/PLAY_BILLING_DESIGN.md
+A	docs/billing/PLAY_CONSOLE_SETUP.md
+A	docs/branding/BRAND_GUIDELINES.md
+A	docs/google-play/DATA_SAFETY_AUDIT.md
+A	docs/google-play/PLAY_CONSOLE_CHECKLIST.md
+A	docs/google-play/PLAY_CONSOLE_SETUP.md
+A	docs/google-play/STATIC_POLICY_PUBLISHING.md
+A	docs/google-play/STORE_LISTING.md
+A	docs/legal/ABOUT.md
+A	docs/legal/OPEN_SOURCE_LICENSES.md
+A	docs/legal/PREMIUM_PURCHASE_POLICY.md
+A	docs/legal/PRIVACY_POLICY.md
+A	docs/legal/RUNTIME_DEPENDENCIES.json
+A	docs/legal/TERMS_OF_USE.md
+A	docs/legal/licenses/APACHE-2.0.txt
+A	docs/legal/licenses/BINARY_NOTICES.txt
+A	docs/legal/licenses/PROTOBUF-BSD-3.txt
+A	docs/support/SUPPORT_GUIDE.md
+A	scripts/build-static-site.py
+M	scripts/check-phase3-security.py
+A	scripts/check-phase4-security.py
+A	scripts/generate-branding.py
+A	scripts/generate-legal-assets.py
+A	scripts/generate-license-notices.py
+A	scripts/generate-locales.py
+A	scripts/generate-store-listing.py
+A	scripts/run-device-tests.sh
+A	scripts/test-phase4-assets.py
+A	website/package-lock.json
+A	website/package.json
+A	website/playwright.config.cjs
+A	website/style.css
+A	website/tests/static-site.spec.cjs
+```
