@@ -352,3 +352,12 @@ A	website/playwright.config.cjs
 A	website/style.css
 A	website/tests/static-site.spec.cjs
 ```
+
+
+## Final-delivery verification follow-up
+
+Report commit1e3aa17462a95e553ca5132850b5434a1cf07deb, run37907515307, passed debug/static/API23/API26/API28. API36 first attempt failed132/incomplete with5errors: actual screenshots show the emulator's Quickstep launcher ANR dialog over Komprexo, causing dimmed system-bar screenshots and lost window focus. A targeted same-commit rerun removed that dialog but reached141tests/0failed before another Compose frame-idling stall; watchdog correctly failed142/incomplete. Neither attempt is claimed as passed.
+
+Dependency inspection found the test classpath still on Espresso3.6.1/Runner1.6.2/Core1.6.1/JUnit1.2.1. Official stable AndroidX Test release notes document Espresso3.7.0's TestLooperManagerCompat/new platform API synchronization; Android's MessageQueue guidance specifically recommends3.7+ for the new APIs introduced in Android16. Test-only dependencies are aligned to stable Espresso3.7.0/Runner1.7.0/Core1.7.0/JUnit1.3.0 (min21, compatible with app min23), retaining Compose/Billing/app runtime pins and every assertion. This is a verified missing compatibility path; subsequent CI determines whether it resolves the observed stall. References: https://developer.android.com/jetpack/androidx/releases/test and https://developer.android.com/about/versions/17/changes/messagequeue . No app-owned backend, runtime database, telemetry, subscriptions or ads added.
+
+Test-only dependency correction local Gradle tasks PASS: unchanged unit inputs/results171passed; lint0errors/12warnings; debug/instrumentation APKs assembled, release Kotlin compiled, runtime audit99unchanged and release security guard PASS. New test dependencies resolved and compiled successfully. Full CI is required on the correction commit before delivery.
