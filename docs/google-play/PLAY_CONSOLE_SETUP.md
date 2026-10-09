@@ -1,9 +1,9 @@
 # Owner-only Play Console setup — NOT executed
 
-9 October2026 Asia/Jakarta. Product activation/eligibility/payment testing/publication unverified. No account changes.
+9 October 2026 Asia/Jakarta. Product activation/eligibility/payment testing/publication unverified. No account changes.
 
 1. Use existing owner Console/login; confirm developer verification, merchant/payments profile, tax/business fields. Owner-approved legal identity/address only.
-2. Confirm Komprexo/com.komprexo.app/min23/target36 and final package approval. Appropriate photo/image utility category, free install/optional INAPP.
+2. Confirm Komprexo/com.komprexo.app/min 23/target 36 and final package approval. Appropriate photo/image utility category, free install/optional INAPP.
 3. Create/activate **komprexo_premium_lifetime**, lifetime non-consumable INAPP, ordinary **BUY** option, proposed Indonesia IDR49,000. Configure regional eligibility/currency/tax/translations. Prefer one stable eligible base option; no rental/preorder/subscription/discount/time/quantity-limited offers. Verify actual ProductDetails before claiming active.
 4. Owner securely manages upload key/Play App Signing. No keys/passwords/service credentials in repo/APK/logs. Current output debug APK only; future separately authorized signed AAB via :app:bundleRelease, no production bundle published now.
 5. Owner-authorized internal track, correctly signed matching package/version, product configured, opted-in license testers install from Play. Sideloaded debug/emulators do not verify real product.

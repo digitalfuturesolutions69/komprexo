@@ -41,6 +41,17 @@ class Links(HTMLParser):
         if tag in ('script','iframe','form'):self.scripts.append(tag)
 
 class Phase4Assets(unittest.TestCase):
+    def test_store_listing_limits_and_contact(self):
+        listings=json.loads((ROOT/'content/store-listing.json').read_text())
+        self.assertEqual(set(LOCALES),set(listings))
+        for locale,listing in listings.items():
+            with self.subTest(locale=locale):
+                self.assertEqual('Komprexo',listing['title'])
+                for key,maximum in (('title',30),('short',80),('full',4000)):
+                    self.assertGreater(len(listing[key]),0)
+                    self.assertLessEqual(len(listing[key]),maximum)
+                self.assertIn('komprexo.support@gmail.com',listing['full'])
+                self.assertIn(listing['short'],(ROOT/'docs/google-play/STORE_LISTING.md').read_text())
     def test_catalog_parity_placeholders_and_generated_resources(self):
         base=json.loads((ROOT/'content/i18n/en.json').read_text())
         for locale,folder in zip(LOCALES,FOLDERS):

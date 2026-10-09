@@ -38,6 +38,8 @@ class PlayBillingTransport(context: Context, private val changed: (BillingCode) 
                 QueryProductDetailsParams.Product.newBuilder().setProductId(PREMIUM_PRODUCT)
                     .setProductType(BillingClient.ProductType.INAPP).build())).build()
             client.queryProductDetailsAsync(params) { result, queried ->
+                // A late callback after timeout/cancellation must not replace fresh details.
+                if (!continuation.isActive) return@queryProductDetailsAsync
                 val offers = mutableListOf<PurchaseOffer>()
                 details.clear()
                 if (result.responseCode == BillingClient.BillingResponseCode.OK) {

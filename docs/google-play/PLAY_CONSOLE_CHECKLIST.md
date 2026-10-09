@@ -1,4 +1,4 @@
-# Phase4A readiness checklist
+# Phase 4A readiness checklist
 
 | Item | Status/owner action |
 |---|---|
@@ -21,4 +21,4 @@
 | CI/APK | Exact ../PHASE4A_VALIDATION.md evidence; not release |
 | Site/domain | Not authorized, no deploy/CNAME/DNS |
 
-Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE4B follows automatically.
+Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE 4B follows automatically.

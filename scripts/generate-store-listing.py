@@ -21,6 +21,7 @@ Support/developer public contact: komprexo.support@gmail.com (owner manually con
 Owner must confirm target audience/children ages and country policy, complete content rating questionnaire, current ads declaration No, no-login app access, Billing/transport Data Safety and consumer rights. Review five-language translations and final assets, then Console setup/checklist. Policies remain DRAFT.
 
 Official reference: https://support.google.com/googleplay/android-developer/answer/9866151
+Text limit reference: https://support.google.com/googleplay/android-developer/answer/9859152
 '''
 (ROOT/'docs/google-play/STORE_LISTING.md').write_text(text)
 print('PASS: five store listings, title/short/full limits; generated DRAFT')
