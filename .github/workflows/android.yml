@@ -67,9 +67,8 @@ jobs:
           script: |
             adb shell wm size 720x1280
             adb shell wm density 360
-            # Preserve screenshots when a test fails; the Gradle exit status is retained.
-            trap 'adb pull /data/local/tmp/komprexo-evidence app/build/reports/androidTests/screenshots || true' EXIT
-            ./gradlew --no-daemon connectedDebugAndroidTest
+            # The runner executes each line in a separate shell. Retain the test status.
+            ./gradlew --no-daemon connectedDebugAndroidTest; komprexo_test_status=$?; adb pull /data/local/tmp/komprexo-evidence app/build/reports/androidTests/screenshots || true; exit "$komprexo_test_status"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

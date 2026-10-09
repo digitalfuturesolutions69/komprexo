@@ -64,8 +64,9 @@ The first clipping helper incorrectly included covered background/partially scro
 text. It now checks fully visible text in the active scroll viewport. Controls use
 content-height selectable surfaces with radio semantics, wrapping labels and padding.
 Dialog status/navigation inset areas now have explicit contrasting backgrounds,
-including transparent edge-to-edge bars on API 35+. The CI evidence-copy step now
-runs on shell EXIT so failed tests retain screenshots; Gradle failures still fail CI.
+including transparent edge-to-edge bars on API 35+. The emulator action runs script lines in separate shells. Tests and evidence copy
+now share one shell command that preserves and returns the actual Gradle exit
+status, so failed tests retain screenshots and still fail CI.
 No test assertions, lint failures or build/security checks are disabled.
 
 ## Limits and acceptance
