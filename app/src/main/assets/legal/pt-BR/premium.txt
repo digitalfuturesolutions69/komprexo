@@ -1,0 +1,17 @@
+DRAFT — RASCUNHO — revisão do proprietário necessária. Preparado em 9 de outubro de 2026. Vigência: [APROVAÇÃO E PUBLICAÇÃO NECESSÁRIAS]. Identidade/endereço legal, lei aplicável e público-alvo: [REVISÃO DO PROPRIETÁRIO].
+
+# Premium com pagamento único
+
+Preço proposto na Indonésia: IDR 49.000 uma vez, sujeito ao Play Console. O preço local real Google Play aparece antes da compra. Produto komprexo_premium_lifetime: INAPP, não consumível; sem assinatura, mensalidade, aluguel ou recorrência. Benefícios: funções sem limite diário, lotes até vinte com segurança e todas as predefinições. Sem anúncios se publicidade for introduzida depois; atualmente não há SDK de anúncios.
+
+# Comprar e restaurar
+
+Compre apenas no diálogo oficial Google Play. Pagamentos pendentes não ativam; cancelamentos/falhas não criam compra. A propriedade concluída deve ser conciliada e reconhecida. Restaurar compras consulta a conta Play atual, inclusive após reinstalação. Use a conta proprietária e confira Play Store.
+
+# Reembolsos e revogações
+
+Guia oficial: https://support.google.com/googleplay/answer/2479637 . Ajuda de compra: https://support.google.com/googleplay/answer/1061913 . Elegibilidade/aprovação dependem de Google Play e direitos do consumidor; não há promessa automática nem prazo inventado. Perda confirmada de propriedade retorna ao Grátis. Verificação offline dura até vinte e quatro horas após a última aceita; sem backend não há detecção imediata de reembolsos/revogação.
+
+# Suporte
+
+Problemas de compra: komprexo.support@gmail.com. Informe versões do app/Android, status sem dados sensíveis e se tentou restaurar. Não envie tokens, cartões, fotos privadas nem documentos pessoais. Transações reais de teste diferem de testes automáticos com Billing simulado.

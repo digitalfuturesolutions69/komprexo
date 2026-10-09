@@ -1,0 +1,5 @@
+DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+
+# Komprexo
+
+Herramientas nativas Android para Comprimir, Redimensionar y Convertir localmente. Los originales se conservan y los resultados se guardan o comparten. ID: com.komprexo.app. Contacto: komprexo.support@gmail.com. Identidad legal: [REVISIÓN DEL PROPIETARIO]. El sitio está preparado, sin despliegue público.

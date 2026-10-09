@@ -11,14 +11,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.komprexo.app.R
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 /** Ephemeral test entitlement; no payment or persisted unlock. File absent from release. */
 object EntitlementProviderFactory {
+    private var testing = false
     private val mutable = MutableStateFlow<EntitlementState>(EntitlementState.Free)
+    init {
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.SupervisorJob() + kotlinx.coroutines.Dispatchers.Main.immediate).launch {
+            com.komprexo.app.billing.BillingServices.entitlement.collect { if (!testing) mutable.value = it }
+        }
+    }
     val provider: EntitlementProvider = object : EntitlementProvider { override val state = mutable.asStateFlow() }
-    fun setTestingPremium(active: Boolean) { mutable.value = if (active) EntitlementState.Premium else EntitlementState.Free }
+    fun setTestingPremium(active: Boolean) { testing = active; mutable.value = if (active) EntitlementState.Premium else com.komprexo.app.billing.BillingServices.entitlement.value }
 }
 @Composable fun EntitlementTestingControls(enabled: Boolean) {
     val plan by EntitlementProviderFactory.provider.state.collectAsStateWithLifecycle()

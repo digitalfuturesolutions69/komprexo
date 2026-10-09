@@ -1,0 +1,5 @@
+DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+
+# Komprexo
+
+Alat Android native untuk Compress, Resize dan Convert di perangkat. Gambar asli dipertahankan; hasil dapat disimpan atau dibagikan. ID aplikasi: com.komprexo.app. Kontak resmi: komprexo.support@gmail.com. Identitas hukum pengembang: [PERLU TINJAUAN PEMILIK]. Sumber website disiapkan tetapi belum dipublikasikan.

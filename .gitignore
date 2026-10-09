@@ -8,3 +8,8 @@ local.properties
 
 # Kotlin compiler session cache
 .kotlin/
+
+# Static-site development checks and generated previews
+node_modules/
+playwright-report/
+test-results/

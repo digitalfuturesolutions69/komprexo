@@ -1,0 +1,19 @@
+# Komprexo — Premium
+
+DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+
+# One-time Premium
+
+Proposed price in Indonesia: IDR 49,000 once, subject to Play Console configuration. The actual Google Play localized price is shown before purchase. Product komprexo_premium_lifetime is INAPP, non-consumable; no subscription, monthly charge, rental or recurring payment. Benefits: unlimited daily Compression, Resize and Convert, batches up to twenty within safe limits and all Smart Presets. Ad-free behavior applies if advertising is introduced later; no ads SDK is present now.
+
+# Purchase and restore
+
+Purchase only through the official Google Play dialog. Pending payments do not unlock; cancelled or failed payments do not create a purchase. Completed ownership must be reconciled and acknowledged. Restore Purchases queries the current Play account, including after reinstall. Sign in to the account that owns the purchase and check Play Store availability.
+
+# Refunds and revoked ownership
+
+Use official Google Play refund instructions: https://support.google.com/googleplay/answer/2479637 . Purchase help: https://support.google.com/googleplay/answer/1061913 . Eligibility and approval depend on Google Play and applicable consumer rights; no automatic refund or invented deadline is promised. Successfully reported loss of ownership returns the app to Free. Offline verification lasts at most twenty-four hours after the last accepted ownership check; immediate refund/revocation detection is unavailable without a backend.
+
+# Support
+
+For purchase problems email komprexo.support@gmail.com. Report app version, Android version, a sanitized status and whether Restore was tried. Do not send purchase tokens, card details, private image content or personal documents. Real Google Play test transactions are separate from automated fake-Billing tests.

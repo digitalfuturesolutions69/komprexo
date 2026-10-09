@@ -1,0 +1,24 @@
+# Phase4A readiness checklist
+
+| Item | Status/owner action |
+|---|---|
+| Package/version | com.komprexo.app/0.4.0(2), publication approval required |
+| Lifetime Billing source | Implemented, no consumption/subscriptions/custom checkout |
+| Product/base BUY/regions/IDR49,000 | OWNER ACTION REQUIRED; activation unverified |
+| Payments/tax/developer identity | OWNER ACTION REQUIRED |
+| Signing/AAB/track/license testers | OWNER ACTION REQUIRED; debug APK only |
+| Real purchase/pending/cancel/ack/restore/refund/reinstall | NOT TESTED; fakes aren't payments |
+| Branding | Actual assets; owner/trademark review |
+| Languages | id/en/es/pt-BR/hi; native-speaker/physical accessibility review |
+| Policies | DRAFT; identity/address/law/audience/effective date pending |
+| Support | komprexo.support@gmail.com prepared; Console entry owner action |
+| Privacy URL | Proposed Pages only, not public |
+| Data Safety | Source/99-artifact audit; SDK vendor fields/retention confirmation pending |
+| Ads | No now; re-audit before future authorized AdMob |
+| Audience/rating | Truthful owner Console questionnaire required |
+| App access | No login; Free quotas/optional purchase |
+| Listing/assets | Five drafts/icon/specification; approved screenshots/feature graphic upload pending |
+| CI/APK | Exact ../PHASE4A_VALIDATION.md evidence; not release |
+| Site/domain | Not authorized, no deploy/CNAME/DNS |
+
+Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE4B follows automatically.

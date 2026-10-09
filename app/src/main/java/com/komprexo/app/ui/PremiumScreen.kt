@@ -17,6 +17,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.komprexo.app.R
 import com.komprexo.app.access.*
+import com.komprexo.app.billing.*
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
 
 fun restrictionLabel(reason: Restriction) = when(reason) {
@@ -64,13 +66,16 @@ fun QuotaIndicator(busy: Boolean, quota: DailyQuotaManager, operation: Operation
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun PremiumScreen(reason: Restriction? = null, busy: Boolean = false, onBack: ()->Unit) {
+fun PremiumScreen(reason: Restriction? = null, busy: Boolean = false, controller: BillingController = BillingServices.controller, onBuy: (() -> Unit)? = null, onBack: ()->Unit) {
+    val billing by controller.ui.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     Scaffold(contentWindowInsets=WindowInsets.safeDrawing,topBar={
         WorkflowTopBar(stringResource(R.string.premium_title))
     },bottomBar={
         Surface(shadowElevation=4.dp) {
             FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(12.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(4.dp)) {
-                Button({},enabled=false,modifier=Modifier.widthIn(min=132.dp,max=320.dp).heightIn(min=48.dp).testTag("purchasePremium")) { Text(stringResource(R.string.purchase_unavailable)) }
+                Button({ if(onBuy != null) onBuy() else (context as? android.app.Activity)?.let { activity -> if(controller === BillingServices.controller) BillingServices.buy(activity) } },enabled=billing.canBuy && !busy,modifier=Modifier.widthIn(min=132.dp,max=320.dp).heightIn(min=48.dp).testTag("purchasePremium")) { Text(stringResource(if(billing.canBuy) R.string.buy_premium else R.string.purchase_unavailable)) }
                 TextButton(onBack,modifier=Modifier.heightIn(min=48.dp).testTag("dismissPremium")) { Text(stringResource(R.string.return_to_tool)) }
             }
         }
@@ -80,17 +85,37 @@ fun PremiumScreen(reason: Restriction? = null, busy: Boolean = false, onBack: ()
             reason?.let { Text(stringResource(restrictionLabel(it)),color=MaterialTheme.colorScheme.primary) }
             Card(Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
-                    Text(stringResource(R.string.premium_price),style=MaterialTheme.typography.headlineSmall)
-                    Text(stringResource(R.string.price_provisional),style=MaterialTheme.typography.bodySmall)
+                    Text(billing.price?.let { stringResource(R.string.play_price_once,it) } ?: stringResource(R.string.premium_price),style=MaterialTheme.typography.headlineSmall)
+                    Text(stringResource(if(billing.price == null) R.string.price_provisional else R.string.purchase_disclosure),style=MaterialTheme.typography.bodySmall)
                 }
             }
             listOf(R.string.benefit_unlimited,R.string.benefit_batch,R.string.benefit_presets,R.string.benefit_future_no_ads,R.string.benefit_quality).forEach {
                 Text("✓  "+stringResource(it))
             }
-            Text(stringResource(R.string.premium_purchase_notice),style=MaterialTheme.typography.bodyLarge,modifier=Modifier.testTag("premiumNotice"))
+            Text(stringResource(billingStatusLabel(billing.status)),modifier=Modifier.testTag("billingStatus"))
+            OutlinedButton({ if(controller === BillingServices.controller) BillingServices.refresh(restore=true) else scope.launch { controller.refresh(restore=true) } },enabled=!billing.busy && !busy,modifier=Modifier.heightIn(min=48.dp).testTag("restorePurchases")) { Text(stringResource(R.string.restore_purchases)) }
+            Text(stringResource(if(billing.price==null) R.string.premium_purchase_notice else R.string.purchase_disclosure),style=MaterialTheme.typography.bodyLarge,modifier=Modifier.testTag("premiumNotice"))
+            Text("komprexo.support@gmail.com",style=MaterialTheme.typography.bodySmall)
             Text(stringResource(R.string.free_plan_summary))
             EntitlementTestingControls(!busy)
             Text(stringResource(R.string.privacy_short),style=MaterialTheme.typography.bodySmall)
         }
     }
+}
+
+fun billingStatusLabel(status: BillingStatus) = when(status) {
+    BillingStatus.LOADING -> R.string.billing_loading
+    BillingStatus.READY -> R.string.billing_ready
+    BillingStatus.PROCESSING -> R.string.billing_processing
+    BillingStatus.PENDING -> R.string.billing_pending
+    BillingStatus.PURCHASED -> R.string.billing_purchased
+    BillingStatus.ACTIVE -> R.string.billing_active
+    BillingStatus.CANCELLED -> R.string.billing_cancelled
+    BillingStatus.FAILED -> R.string.billing_failed
+    BillingStatus.UNAVAILABLE -> R.string.billing_unavailable
+    BillingStatus.RESTORED -> R.string.billing_restored
+    BillingStatus.NOT_OWNED -> R.string.billing_not_owned
+    BillingStatus.ACKNOWLEDGMENT_PENDING -> R.string.billing_ack_pending
+    BillingStatus.OFFLINE_CACHED -> R.string.billing_offline_cached
+    BillingStatus.REVOKED -> R.string.billing_revoked
 }

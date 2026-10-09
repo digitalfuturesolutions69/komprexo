@@ -60,7 +60,7 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
     BackHandler(route!="home") {
         if(single.busy) compression.cancel() else if(multi.busy) phase2.cancel() else route=if(route=="premium") premiumReturn else "home"
     }
-    MaterialTheme(colorScheme=if(dark) darkColorScheme(primary=Color(0xffa1d3bc)) else lightColorScheme(primary=Color(0xff356858))) {
+    MaterialTheme(colorScheme=if(dark) darkColorScheme(primary=Color(0xff7cdce8)) else lightColorScheme(primary=Color(0xff123b68))) {
         pendingRoute?.let { next ->
             AlertDialog(onDismissRequest={ pendingRoute=null },title={ Text(stringResource(R.string.switch_tool)) },
                 text={ Text(stringResource(R.string.switch_tool_warning)) },
@@ -69,6 +69,7 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
         }
         screenState.SaveableStateProvider(route) {
         when(route) {
+            "settings" -> SettingsScreen(onHome={ route="home" },onPremium={ premium() })
             "premium" -> PremiumScreen(premiumReason,single.busy || multi.busy,onBack={ route=premiumReturn })
             "compress" -> KomprexoScreen(compression,onHome={ route="home" },onUpgrade={ premium() })
             "home" -> Scaffold(contentWindowInsets=WindowInsets.safeDrawing,topBar={ WorkflowTopBar(stringResource(R.string.app_name)) }) { padding ->
@@ -84,6 +85,7 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
                         LinearProgressIndicator(Modifier.fillMaxWidth())
                         OutlinedButton({ compression.cancel();phase2.cancel() },modifier=Modifier.heightIn(min=48.dp)) { Text(stringResource(R.string.cancel)) }
                     }
+                    TextButton({ route="settings" },enabled=!single.busy && !multi.busy,modifier=Modifier.heightIn(min=48.dp).testTag("homeSettings")) { Text(stringResource(R.string.app_settings)) }
                     Text(stringResource(R.string.privacy_short),style=MaterialTheme.typography.bodySmall)
                 }
             }

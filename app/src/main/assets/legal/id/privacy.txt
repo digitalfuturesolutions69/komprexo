@@ -1,0 +1,29 @@
+DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+
+# Identitas dan kontak
+
+Komprexo adalah aplikasi pengolah gambar Android. Nama hukum dan alamat usaha pengembang: [PERLU TINJAUAN PEMILIK]. Hubungi komprexo.support@gmail.com untuk bantuan dan pertanyaan privasi.
+
+# Foto dan pemrosesan lokal
+
+Anda memilih gambar melalui pemilih dokumen atau foto Android. Komprexo hanya membaca konten terpilih sesuai izin URI Android, menyalin masukan ke penyimpanan sementara privat, lalu melakukan kompresi, resize atau konversi di perangkat. Foto tidak diunggah ke server Komprexo. Tidak ada server Komprexo, akun, database aplikasi atau SDK analitik.
+
+# File sementara, simpan dan bagikan
+
+Cache masukan, keluaran dan thumbnail privat mendukung pemrosesan dan pratinjau. Gambar asli dipertahankan. Cache dibersihkan saat aplikasi mulai atau ketika diganti/dihapus, bergantung pada gangguan proses dan perilaku penyimpanan Android; cache bukan penyimpanan permanen. Simpan menulis salinan ke tujuan pilihan Anda. Bagikan memberi aplikasi penerima akses sementara melalui FileProvider yang tidak diekspor. Kebijakan penerima dan penyedia penyimpanan berlaku; Komprexo tidak dapat menghapus salinan yang Anda ekspor atau kirim.
+
+# Preferensi dan kuota lokal
+
+DataStore privat menyimpan tiga jumlah kuota harian dan jurnal reservasi, termasuk hari lokal, batas tertinggi waktu, fitur dan nomor slot. Tidak menyimpan identitas gambar, EXIF atau riwayat gambar. Preferensi bahasa per aplikasi Android menyimpan pilihan bahasa. Menghapus data atau mencopot aplikasi menghapus data lokal; file ekspor tetap Anda kendalikan. Pencadangan Android dinonaktifkan.
+
+# Pembelian Google Play dan jaringan
+
+Premium memakai Google Play Billing 9.1.0 untuk pembelian sekali bayar non-konsumsi, pemeriksaan kepemilikan, pengakuan dan pemulihan. Google Play menangani informasi pembayaran; Komprexo tidak mengumpulkan data kartu. Token pembelian hanya ada sementara di memori untuk pemeriksaan/pengakuan dan tidak dicatat di log. Ringkasan token serta waktu pemeriksaan/kedaluwarsa dapat dienkripsi dengan AndroidKeyStore untuk maksimal 24 jam tanpa internet. Aplikasi tidak menyimpan token mentah atau identitas pesanan. Billing menambahkan izin INTERNET, ACCESS_NETWORK_STATE dan BILLING. Google Play dan SDK-nya dapat memproses informasi transaksi/akun, perangkat dan diagnostik sesuai kebijakan mereka; kami tidak menyatakan Google tidak mengumpulkan data. Pengolahan gambar tetap bekerja tanpa internet. Transport bawaan Billing dapat mengantrekan diagnostik operasional di penyimpanan lokal SDK, termasuk SQLite; Komprexo tidak memakainya untuk foto atau kuota. Pustaka lokasi adalah dependensi transitif, tetapi aplikasi tidak meminta izin lokasi atau memanggil API lokasi. Akses cache berlaku 24 jam; catatan kedaluwarsa dihapus saat pemeriksaan berikutnya atau aplikasi dimulai.
+
+# Retensi, keamanan dan keterbatasan
+
+Cache hak akses terenkripsi kedaluwarsa setelah 24 jam dan dibatalkan saat kepemilikan hilang secara terkonfirmasi, cache kedaluwarsa atau jam mundur. Autentikasi cache lokal bukan verifikasi pembelian server yang kebal manipulasi. Deteksi pengembalian dana/pencabutan dapat tertunda tanpa internet. Penyimpanan privat, akses URI terbatas, pemrosesan berbatas dan FileProvider aman mengurangi risiko, tanpa menjamin keamanan mutlak. Retensi SDK/jaringan ditentukan Google dan perlu diaudit lagi sebelum publikasi.
+
+# Hak, anak dan perubahan
+
+Anda dapat mengganti bahasa, mencabut izin gambar, menghapus data aplikasi/salinan ekspor dan menghubungi kami untuk pertanyaan privasi. Google mengendalikan catatan akun/pembayaran dan prosedur hak terkait. Target usia, usia minimum dan kewajiban persetujuan anak/orang tua menurut wilayah [PERLU TINJAUAN PEMILIK] sebelum rilis. Perubahan kebijakan diterbitkan dengan tanggal berlaku setelah tinjauan pemilik. Iklan belum diintegrasikan; privasi dan Data Safety harus ditinjau lagi sebelum iklan ditambahkan.

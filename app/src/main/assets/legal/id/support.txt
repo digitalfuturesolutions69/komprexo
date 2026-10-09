@@ -1,0 +1,17 @@
+DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+
+# Kontak
+
+Email komprexo.support@gmail.com. Aplikasi tidak memiliki formulir unggah bantuan, akun atau server.
+
+# Gambar dan kuota Gratis
+
+Pilih JPEG, PNG atau WebP lokal yang didukung. HEIC/HEIF tidak didukung: ekspor salinan JPEG/PNG. Untuk izin baca hilang pilih ulang; untuk memori kurang gunakan gambar lebih kecil. Setiap fitur Gratis memiliki lima hasil sukses per hari, dibagi operasi tunggal/batch, maksimal dua per batch. Simpan/Bagikan tidak memakai kredit.
+
+# Kendala pembelian
+
+Periksa Play Store, koneksi dan akun Google pemilik, lalu Pulihkan Pembelian. Pembayaran tertunda harus selesai sebelum aktivasi. Produk yang tidak tersedia mungkin perlu konfigurasi Play Console pemilik. Panduan dana kembali: https://support.google.com/googleplay/answer/2479637 .
+
+# Laporan aman
+
+Kirim versi aplikasi, merek/model perangkat, versi Android, fitur, format dan uraian kesalahan yang disanitasi. Jangan kirim foto pribadi, EXIF, isi dokumen, data kartu atau token pembelian. Sembunyikan informasi pribadi pada tangkapan layar. Tidak ada telemetri otomatis.

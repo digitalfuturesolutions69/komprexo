@@ -1,0 +1,25 @@
+DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+
+# Servicio y propiedad
+
+Komprexo comprime, redimensiona, convierte y permite ajustes, guardar y compartir en el dispositivo. Conservas la propiedad de tus originales. Procesa solo contenido que tengas derecho a usar; no infrinjas derechos ni uses la app ilegalmente.
+
+# Gratis y Premium
+
+Gratis permite cinco resultados correctos aceptados por día local PARA CADA función: Comprimir, Redimensionar y Convertir, con contadores independientes. Una imagen y los lotes comparten contador; máximo dos por lote gratuito. Fallos y cancelaciones no aceptadas no consumen créditos. Las transformaciones internas cobran una vez a la herramienta principal; Guardar/Compartir no cobran. Premium elimina las tres cuotas diarias, admite hasta veinte por lote dentro de límites técnicos y todos los ajustes inteligentes.
+
+# Pagos y restauración
+
+Premium es una compra Google Play única no consumible, no una suscripción. IDR 49.000 es el precio propuesto en Indonesia; Google Play proporciona el precio local elegible real. La disponibilidad depende de configuración del propietario y elegibilidad Google. Restaura desde la cuenta propietaria. Pagos pendientes, cancelados o fallidos no activan Premium. Reembolsos según Google Play y derechos obligatorios del consumidor, sin garantía automática inventada.
+
+# Límites técnicos
+
+El resultado depende de imagen, códec, formato y memoria. La compresión puede reducir detalle; algunas dimensiones/formatos no se admiten. No se garantiza una tasa de compresión. Conserva originales y guarda resultados importantes; la salida temporal no es respaldo. El acceso Premium sin conexión depende de una caché reciente autenticada; reembolsos, revocación, cambio de cuenta o caducidad pueden devolver límites Gratis sin destruir resultados terminados.
+
+# Propiedad intelectual y cambios
+
+La marca y materiales de Komprexo son distintos de imágenes del usuario y software de terceros. Los avisos de código abierto siguen disponibles. Funciones y compatibilidad pueden cambiar respetando derechos del consumidor y obligaciones por derechos pagados. No hay descuentos engañosos, falsa escasez ni cuotas recurrentes.
+
+# Soporte y revisión legal
+
+Contacta con komprexo.support@gmail.com. Nada excluye derechos o recursos obligatorios del consumidor. Identidad/dirección legal del desarrollador, ley y foro de disputa: [REVISIÓN DEL PROPIETARIO]. Son borradores hasta revisión y publicación; no se afirma aprobación legal.

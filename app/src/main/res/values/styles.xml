@@ -1,8 +1,8 @@
 <resources>
-    <style name="Theme.Komprexo" parent="android:style/Theme.Material.Light.NoActionBar">
+    <style name="Theme.Komprexo" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:fontFamily">sans</item>
-        <item name="android:colorAccent">#356858</item>
+        <item name="android:colorAccent">#123B68</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowBackground">#F6F5F0</item>
+        <item name="android:windowBackground">#F5F8FC</item>
     </style>
 </resources>

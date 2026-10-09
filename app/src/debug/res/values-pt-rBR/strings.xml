@@ -1,0 +1,4 @@
+<resources>
+<string name="debug_premium">Teste de depuração — ativar Premium temporário</string>
+<string name="debug_free">Teste de depuração — voltar ao Grátis</string>
+</resources>

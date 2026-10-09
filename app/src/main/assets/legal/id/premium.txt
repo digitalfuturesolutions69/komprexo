@@ -1,0 +1,17 @@
+DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+
+# Premium sekali bayar
+
+Rencana harga Indonesia: IDR 49.000 sekali bayar, bergantung pada pengaturan Play Console. Harga lokal Google Play ditampilkan sebelum pembelian. Produk komprexo_premium_lifetime bertipe INAPP, non-konsumsi; tanpa langganan, biaya bulanan, sewa atau pembayaran berulang. Manfaat: Compress, Resize dan Convert harian tanpa batas, batch maksimal dua puluh dalam batas aman dan semua Smart Presets. Bebas iklan berlaku bila iklan ditambahkan nanti; saat ini tidak ada SDK iklan.
+
+# Pembelian dan pemulihan
+
+Beli hanya melalui dialog resmi Google Play. Pembayaran tertunda belum membuka Premium; pembatalan atau kegagalan tidak membuat pembelian. Kepemilikan selesai harus diperiksa dan diakui. Pulihkan Pembelian memeriksa akun Play saat ini, termasuk setelah pemasangan ulang. Gunakan akun pemilik pembelian dan periksa ketersediaan Play Store.
+
+# Pengembalian dana dan pencabutan
+
+Gunakan panduan resmi Google Play: https://support.google.com/googleplay/answer/2479637 . Bantuan pembelian: https://support.google.com/googleplay/answer/1061913 . Kelayakan/persetujuan bergantung pada Google Play dan hak konsumen; tidak ada janji dana kembali otomatis atau batas waktu rekaan. Kehilangan kepemilikan yang terkonfirmasi mengembalikan aplikasi ke Gratis. Pemeriksaan tanpa internet berlaku maksimal dua puluh empat jam sejak pemeriksaan diterima; deteksi langsung pengembalian dana/pencabutan tidak tersedia tanpa backend.
+
+# Bantuan
+
+Untuk kendala pembelian kirim email ke komprexo.support@gmail.com. Sertakan versi aplikasi, versi Android, status yang disanitasi dan apakah pemulihan telah dicoba. Jangan kirim token pembelian, data kartu, foto pribadi atau dokumen. Transaksi uji Google Play nyata berbeda dari pengujian otomatis Billing palsu.

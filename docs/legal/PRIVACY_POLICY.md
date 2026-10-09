@@ -1,0 +1,31 @@
+# Komprexo — Privacy
+
+DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+
+# Identity and contact
+
+Komprexo is an Android image utility. Developer legal name and business address: [OWNER REVIEW REQUIRED]. Contact support or privacy inquiries at komprexo.support@gmail.com.
+
+# Photos and local processing
+
+You choose images through Android system document or photo selection. Komprexo reads only selected content under Android URI permissions, copies inputs into private temporary storage, and compresses, resizes or converts them on your device. It does not upload photos to Komprexo servers. There is no Komprexo server, account, application database or analytics SDK.
+
+# Temporary files, saving and sharing
+
+Private input/output and thumbnail caches support processing and previews. Originals are preserved. Caches are cleaned on startup or when replaced/cleared, subject to interruption and Android storage behavior; do not treat caches as permanent storage. Saving writes a copy to your selected destination. Sharing gives the selected receiving app temporary access through a non-exported FileProvider. Recipient apps and storage providers apply their own policies; Komprexo cannot delete copies you export or send.
+
+# Local preferences and quotas
+
+Private DataStore stores three aggregate daily quotas and a reservation journal, including local day, clock high-water mark, feature and slot numbers. It stores no image identifiers, EXIF or image history. Android per-app language preferences persist your language choice. Clearing app data or uninstalling removes local app data; exported files remain under your control. Android backup is disabled.
+
+# Google Play purchases and network
+
+Premium uses Google Play Billing 9.1.0 for one-time, non-consumable purchases, ownership queries, acknowledgment and restore. Google Play handles payment information; Komprexo does not collect card details. Purchase tokens exist transiently in memory for reconciliation and acknowledgment and are not logged. A token digest and check/expiry times can be encrypted using AndroidKeyStore for at most 24 hours offline. No raw token or order identity is persisted by the app. Billing introduces INTERNET, ACCESS_NETWORK_STATE and BILLING permissions. Google Play and its SDK may process purchase/account, device and diagnostic information under their policies; we do not claim Google collects no data. Image processing itself works offline. Billing’s transitive transport may queue operational diagnostics in SDK-managed local storage, including SQLite; Komprexo does not use that storage for photos or quotas. The location library is a transitive dependency, but the app requests no location permissions and calls no location APIs. Cached access lasts 24 hours; expired records are removed on the next expiry check or app start.
+
+# Retention, security and limitations
+
+The encrypted entitlement cache expires after 24 hours and is invalidated by successful ownership loss, expiry or clock rollback. Local cache authentication is not tamper-proof server purchase verification. Refund/revocation detection can be delayed offline. Private app storage, scoped URI access, bounded processing and secure FileProvider reduce risk but cannot guarantee absolute security. SDK/network retention is controlled by Google and must be reassessed before publication.
+
+# Rights, children and changes
+
+You can change language, revoke image permissions, clear app data, delete exported copies and contact us with privacy questions. Google controls its account/payment records and rights procedures. Audience, minimum age and jurisdiction-specific child/parental-consent obligations are [OWNER REVIEW REQUIRED] before release. Policy changes will be published with an effective date after owner review. Advertising is not integrated; privacy and Data Safety require a new review before any future ads.

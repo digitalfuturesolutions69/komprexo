@@ -1,0 +1,17 @@
+# Owner-only Play Console setup — NOT executed
+
+9 October2026 Asia/Jakarta. Product activation/eligibility/payment testing/publication unverified. No account changes.
+
+1. Use existing owner Console/login; confirm developer verification, merchant/payments profile, tax/business fields. Owner-approved legal identity/address only.
+2. Confirm Komprexo/com.komprexo.app/min23/target36 and final package approval. Appropriate photo/image utility category, free install/optional INAPP.
+3. Create/activate **komprexo_premium_lifetime**, lifetime non-consumable INAPP, ordinary **BUY** option, proposed Indonesia IDR49,000. Configure regional eligibility/currency/tax/translations. Prefer one stable eligible base option; no rental/preorder/subscription/discount/time/quantity-limited offers. Verify actual ProductDetails before claiming active.
+4. Owner securely manages upload key/Play App Signing. No keys/passwords/service credentials in repo/APK/logs. Current output debug APK only; future separately authorized signed AAB via :app:bundleRelease, no production bundle published now.
+5. Owner-authorized internal track, correctly signed matching package/version, product configured, opted-in license testers install from Play. Sideloaded debug/emulators do not verify real product.
+6. Only Play test instruments after proper license-test setup; no production payments. Test localized price/checkout/PURCHASED/ack, cancellation, slow/pending success/cancel, offline/reconnect/restart, same-account restore, wrong account, reinstall and duplicate/ITEM_ALREADY_OWNED. Pending stays Free. Evidence sanitized; never expose token/order/account.
+7. Owner-supported refund/revoke testing, current ownership query and offline lease expiry. No instant offline-revoke promise. [Billing tests](https://developer.android.com/google/play/billing/test), [refund help](https://support.google.com/googleplay/answer/2479637). No real transaction/refund performed in this task.
+8. After legal approval/separate site deployment approval, configure verified public HTTPS privacy URL. Proposed https://digitalfuturesolutions69.github.io/komprexo/privacy/ **not published**; don't submit placeholder. Review Billing diagnostic transport in Data Safety; don't assert zero SDK collection.
+9. Set actual public support **komprexo.support@gmail.com**, approved developer fields, five listing drafts,512icon,1024x500 feature graphic/real screenshots. Console contact not auto-updated.
+10. Complete truthful content rating/target audience/children requirements. Current ads declaration **No**. App access: no app login, offline Free quotas/optional Play purchase. No invented account-deletion URL requirement; review current Console questions.
+11. Review signing, policy/SDK/licensing, URLs, prelaunch/accessibility, native speaker/legal/trademark/physical-device results. Separate release approval still mandatory.
+
+See [checklist](PLAY_CONSOLE_CHECKLIST.md), [listing](STORE_LISTING.md), [audit](DATA_SAFETY_AUDIT.md), [site preparation](STATIC_POLICY_PUBLISHING.md).

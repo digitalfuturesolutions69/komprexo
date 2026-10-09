@@ -1,0 +1,25 @@
+DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+
+# Layanan dan kepemilikan
+
+Komprexo menyediakan kompresi, resize, konversi, preset, simpan dan bagikan gambar di perangkat. Kepemilikan gambar asli tetap milik Anda. Proses hanya konten yang berhak Anda gunakan; jangan melanggar hak pihak lain atau memakai aplikasi untuk kegiatan ilegal.
+
+# Gratis dan Premium
+
+Gratis memberikan lima hasil sukses yang diterima per hari lokal untuk MASING-MASING fitur Compress, Resize dan Convert dengan penghitung terpisah. Operasi tunggal/batch berbagi penghitung fitur; batch Gratis maksimal dua gambar. Slot gagal atau dibatalkan sebelum diterima tidak dikenai kuota. Transformasi internal hanya mengenakan kuota fitur utama sekali; Simpan/Bagikan tidak dikenai kuota. Premium menghapus batas harian ketiganya dan mendukung batch maksimal dua puluh gambar dalam batas teknis aman, serta semua Smart Presets.
+
+# Pembayaran dan pemulihan
+
+Premium adalah pembelian Google Play non-konsumsi sekali bayar, bukan langganan. IDR 49.000 merupakan rencana harga Indonesia; harga pembayaran lokal yang memenuhi syarat berasal dari Google Play. Ketersediaan bergantung pada pengaturan Play Console pemilik dan kelayakan Google. Pulihkan melalui akun Play pemilik pembelian. Pembayaran tertunda, dibatalkan atau gagal tidak mengaktifkan Premium. Pengembalian dana mengikuti prosedur Google Play dan hak konsumen wajib, bukan jaminan pengembalian otomatis.
+
+# Batas teknis
+
+Hasil bergantung pada gambar, codec, format dan memori perangkat. Kompresi dapat mengurangi detail; sebagian format/ukuran tidak didukung. Tidak ada jaminan rasio kompresi. Simpan gambar asli dan hasil penting; keluaran sementara bukan cadangan. Premium tanpa internet terbatas pada cache pemeriksaan terbaru; pengembalian dana, pencabutan, pergantian akun atau kedaluwarsa dapat mengembalikan batas Gratis tanpa merusak hasil selesai.
+
+# Hak kekayaan intelektual dan perubahan
+
+Merek dan materi Komprexo terpisah dari gambar pengguna serta perangkat lunak pihak ketiga. Pemberitahuan lisensi sumber terbuka tetap tersedia. Fitur/kompatibilitas dapat berubah dengan tetap mematuhi perlindungan konsumen dan kewajiban hak berbayar. Tidak ada diskon menyesatkan, kelangkaan palsu atau biaya berulang dalam penawaran ini.
+
+# Bantuan dan tinjauan hukum
+
+Hubungi komprexo.support@gmail.com. Ketentuan ini tidak mengecualikan hak atau pemulihan konsumen wajib. Identitas/alamat hukum pengembang, hukum yang berlaku dan tempat penyelesaian sengketa [PERLU TINJAUAN PEMILIK]. Ketentuan tetap draf hingga ditinjau dan diterbitkan; bukan klaim persetujuan hukum.

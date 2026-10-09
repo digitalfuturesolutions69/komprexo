@@ -1,13 +1,12 @@
 package com.komprexo.app.access
 
 import androidx.compose.runtime.Composable
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import com.komprexo.app.billing.BillingServices
 
-/** Until verified Billing is separately authorized, production is always Free. */
+/** Production entitlement comes only from Play ownership reconciliation. */
 object EntitlementProviderFactory {
     val provider: EntitlementProvider = object : EntitlementProvider {
-        override val state = MutableStateFlow<EntitlementState>(EntitlementState.Free).asStateFlow()
+        override val state = BillingServices.entitlement
     }
 }
 @Composable fun EntitlementTestingControls(enabled: Boolean) { }

@@ -1,0 +1,17 @@
+DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+
+# Premium de pago único
+
+Precio propuesto para Indonesia: IDR 49.000 una vez, sujeto a Play Console. Antes de comprar se muestra el precio local real de Google Play. Producto komprexo_premium_lifetime: INAPP, no consumible; sin suscripción, mensualidad, alquiler ni cargos recurrentes. Beneficios: Comprimir, Redimensionar y Convertir sin límite diario, lotes hasta veinte con límites seguros y todos los ajustes. Sin anuncios si se introduce publicidad después; actualmente no hay SDK de anuncios.
+
+# Comprar y restaurar
+
+Compra solo mediante el diálogo oficial Google Play. Un pago pendiente no activa Premium; cancelado/fallido no crea compra. La propiedad completada debe conciliarse y reconocerse. Restaurar compras consulta la cuenta Play actual, también tras reinstalar. Usa la cuenta propietaria y comprueba Play Store.
+
+# Reembolsos y revocaciones
+
+Guía oficial: https://support.google.com/googleplay/answer/2479637 . Ayuda de compra: https://support.google.com/googleplay/answer/1061913 . Elegibilidad y aprobación dependen de Google Play y derechos del consumidor; no prometemos devolución automática ni plazos inventados. La pérdida confirmada de propiedad vuelve a Gratis. La comprobación sin conexión dura hasta veinticuatro horas desde la última aceptada; sin backend no hay detección inmediata de reembolsos/revocación.
+
+# Soporte
+
+Problemas de compra: komprexo.support@gmail.com. Indica versión de app/Android, estado sin datos sensibles y si probaste restaurar. No envíes tokens, tarjetas, fotos privadas ni documentos personales. Las transacciones reales de prueba son distintas de pruebas automáticas con Billing simulado.

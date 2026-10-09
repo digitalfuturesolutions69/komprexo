@@ -1,4 +1,4 @@
-name: Android foundation
+name: Komprexo Android and static preview
 on:
   push:
   pull_request:
@@ -23,9 +23,9 @@ jobs:
       - name: Install SDK
         run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - name: Test, lint, and assemble debug APK
-        run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin
-      - name: Verify release entitlement isolation and local-only permissions
-        run: python3 scripts/check-phase3-security.py
+        run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin :app:auditRuntimeDependencies
+      - name: Verify release Billing isolation and audited permissions/dependencies
+        run: python3 scripts/check-phase4-security.py
       - uses: actions/upload-artifact@v4
         with:
           name: komprexo-debug-${{ github.sha }}
@@ -78,3 +78,35 @@ jobs:
         with:
           name: device-test-reports-api${{ matrix.api }}-${{ github.sha }}
           path: app/build/reports/androidTests/
+  static-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Build static source and validate assets/locales/legal/internal links
+        run: |
+          python3 scripts/build-static-site.py
+          python3 scripts/test-phase4-assets.py
+      - name: Install browser test dependencies
+        working-directory: website
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Responsive and accessible browser checks
+        working-directory: website
+        run: npm test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-preview-${{ github.sha }}
+          path: |
+            website/build/
+            website/playwright-report/
+            website/test-results/
+          if-no-files-found: error
+          retention-days: 14

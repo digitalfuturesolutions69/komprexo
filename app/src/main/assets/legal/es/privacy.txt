@@ -1,0 +1,29 @@
+DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+
+# Identidad y contacto
+
+Komprexo es una herramienta de imágenes para Android. Nombre legal y dirección del desarrollador: [REVISIÓN DEL PROPIETARIO]. Soporte y consultas de privacidad: komprexo.support@gmail.com.
+
+# Fotos y procesamiento local
+
+Eliges imágenes con el selector de fotos o documentos de Android. Komprexo lee únicamente el contenido elegido con permisos URI, copia la entrada a almacenamiento temporal privado y comprime, redimensiona o convierte en tu dispositivo. No sube fotos a servidores de Komprexo. No hay servidor Komprexo, cuentas, base de datos de aplicación ni SDK de analítica.
+
+# Archivos temporales, guardar y compartir
+
+Las cachés privadas de entrada, salida y miniaturas permiten procesar y previsualizar. Los originales se conservan. Las cachés se limpian al iniciar o al reemplazar/borrar, según interrupciones y el almacenamiento Android; no son permanentes. Guardar escribe una copia en el destino elegido. Compartir da al receptor acceso temporal mediante FileProvider no exportado. Aplicaciones receptoras y proveedores aplican sus propias políticas; Komprexo no puede borrar copias exportadas o enviadas.
+
+# Preferencias y cuotas locales
+
+DataStore privado conserva tres contadores diarios y un registro de reservas: día local, máximo temporal, función y números de ranura. No guarda identificadores de imágenes, EXIF ni historial de imágenes. Android conserva tu idioma por aplicación. Borrar datos o desinstalar elimina datos locales; tú controlas los archivos exportados. La copia de seguridad Android está desactivada.
+
+# Google Play y red
+
+Premium usa Google Play Billing 9.1.0 para compras únicas no consumibles, consultas de propiedad, reconocimiento y restauración. Google Play gestiona pagos; Komprexo no recopila tarjetas. Los tokens solo están en memoria para conciliación/reconocimiento y no se registran. Un resumen del token y fechas de comprobación/caducidad pueden cifrarse con AndroidKeyStore durante hasta 24 horas sin conexión. La app no persiste tokens originales ni identidad del pedido. Billing añade INTERNET, ACCESS_NETWORK_STATE y BILLING. Google y su SDK pueden procesar información de compras/cuenta, dispositivo y diagnósticos según sus políticas; no afirmamos que Google no recopile datos. Procesar imágenes funciona sin conexión. El transporte transitivo de Billing puede guardar diagnósticos operativos en almacenamiento local del SDK, incluido SQLite; Komprexo no lo usa para fotos o cuotas. La biblioteca de ubicación es transitiva; la app no solicita permisos ni llama API de ubicación. El acceso en caché dura 24 horas; registros caducados se borran en la siguiente comprobación o inicio.
+
+# Conservación, seguridad y límites
+
+La caché cifrada caduca tras 24 horas y se invalida por pérdida confirmada de propiedad, caducidad o retroceso del reloj. Autenticar la caché local no equivale a verificación de compra en servidor resistente a manipulación. Reembolsos/revocaciones pueden detectarse tarde sin conexión. Almacenamiento privado, URI limitadas, procesamiento acotado y FileProvider reducen riesgos sin garantizar seguridad absoluta. Google controla la retención de SDK/red y debe volver a auditarse antes de publicar.
+
+# Derechos, menores y cambios
+
+Puedes cambiar idioma, revocar permisos, borrar datos/copias y contactar por privacidad. Google controla registros de cuenta/pago y sus procedimientos de derechos. Público objetivo, edad mínima y consentimiento parental por jurisdicción: [REVISIÓN DEL PROPIETARIO] antes del lanzamiento. Los cambios se publicarán con fecha de vigencia tras revisión. No hay publicidad integrada; privacidad y Seguridad de los datos se revisarán antes de añadir anuncios.
