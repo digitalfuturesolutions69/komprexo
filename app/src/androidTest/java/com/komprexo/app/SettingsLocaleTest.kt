@@ -42,9 +42,18 @@ class SettingsLocaleTest {
     private fun main(block:()->Unit)=InstrumentationRegistry.getInstrumentation().runOnMainSync(block)
     @Before fun english() { orientation(false);locale("en") }
     @After fun restore() {
-        orientation(false)
+        val application=compose.activity.applicationContext
         EntitlementProviderFactory.setTestingPremium(false)
-        locale("")
+        // Cleanup must not recreate an Activity while Compose is waiting on its
+        // retiring root's frame. UI System Default behavior is tested separately.
+        compose.activityRule.scenario.close()
+        main {
+            if(android.os.Build.VERSION.SDK_INT>=33) {
+                application.getSystemService(android.app.LocaleManager::class.java).applicationLocales=android.os.LocaleList.getEmptyLocaleList()
+            } else {
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList())
+            }
+        }
     }
     @Suppress("DEPRECATION") private fun currentLanguage() = compose.activity.resources.configuration.let { if(android.os.Build.VERSION.SDK_INT>=24) it.locales[0].language else it.locale.language }
     private fun locale(tag:String) {
@@ -60,8 +69,8 @@ class SettingsLocaleTest {
             compose.waitUntil(20000) {
                 ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.let { actual ->
                     val wanted=java.util.Locale.forLanguageTag(expected)
-                    actual.language==wanted.language && (wanted.country.isEmpty() || actual.country==wanted.country)
-                }==true && AppCompatDelegate.getApplicationLocales().toLanguageTags()==tag &&
+                    actual.language==wanted.language && (tag.isEmpty() || wanted.country.isEmpty() || actual.country==wanted.country)
+                }==true && AppCompatDelegate.getApplicationLocales().toLanguageTags()==LocaleListCompat.forLanguageTags(tag).toLanguageTags() &&
                     (java.util.Locale.forLanguageTag(effective ?: expected).language==java.util.Locale.forLanguageTag(expected).language || compose.activity!==previous) &&
                     compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
             }
@@ -90,6 +99,7 @@ class SettingsLocaleTest {
     private fun settings() { compose.onNodeWithTag("homeSettings").performScrollTo().performClick() }
     private fun render(tag:String) {
         locale(tag);settings();compose.onNodeWithTag("languageSettings").performScrollTo().performClick()
+        compose.onNodeWithTag("locale_"+tag).performScrollTo().assertTextContains("✓",substring=true)
         compose.onNodeWithTag("locale_hi").performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp)
         compose.onNodeWithTag("settingsDone").assertIsDisplayed().performClick()
         compose.onNodeWithTag("legal_privacy").performScrollTo().performClick()

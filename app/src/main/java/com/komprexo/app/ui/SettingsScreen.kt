@@ -83,7 +83,7 @@ fun SettingsScreen(onHome: ()->Unit, onPremium: ()->Unit) {
                 language=false
                 AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag))
             },modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("locale_$tag")) {
-                Text((if(selected==tag) "✓  " else "")+stringResource(label))
+                Text((if(selected==LocaleListCompat.forLanguageTags(tag).toLanguageTags()) "✓  " else "")+stringResource(label))
             }
         }
     }
