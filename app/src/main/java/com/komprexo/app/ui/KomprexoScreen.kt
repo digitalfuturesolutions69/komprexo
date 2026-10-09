@@ -36,7 +36,7 @@ private val presets = listOf(100L * 1024, 200L * 1024, 300L * 1024, 500L * 1024,
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Unit)? = null) {
+fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Unit)? = null, onUpgrade: ()->Unit = {}) {
     val state by model.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val dark = isSystemInDarkTheme()
@@ -55,6 +55,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
             try { resizeSettings.resize(); presetDialog = false } catch (e: ImageProblem) { model.notice(e.code) }
         }) {
         PresetChoices(resizeSettings, !state.busy) { settings ->
+            if (!model.requestPreset(settings.preset)) return@PresetChoices
             resizeSettings = settings
             val options = settings.options(); target = options.targetBytes; formatName = options.format.name; modeName = options.mode.name
         }
@@ -89,7 +90,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
                         } else if (state.busy) {
                             OutlinedButton(onClick = model::cancel, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.cancel)) }
                         } else {
-                            Button(modifier = Modifier.heightIn(min = 48.dp), enabled = state.source != null && bytes != null, onClick = { bytes?.let { try { model.compress(it, format, mode, resizeSettings.resize()) } catch (e: ImageProblem) { model.notice(e.code) } } }) { Text(stringResource(R.string.compress)) }
+                            Button(modifier = Modifier.heightIn(min = 48.dp), enabled = state.source != null && bytes != null, onClick = { bytes?.let { try { model.compress(it, format, mode, resizeSettings.resize(), resizeSettings.preset) } catch (e: ImageProblem) { model.notice(e.code) } } }) { Text(stringResource(R.string.compress)) }
                             if (result != null) OutlinedButton(onClick = { reviewing = true }) { Text(stringResource(R.string.view_result)) }
                         }
                     }
@@ -99,6 +100,8 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
             Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
                 Text(stringResource(R.string.selection_count, if(state.source != null) 1 else 0, 1))
+                QuotaIndicator(state.busy,model.quota,onUpgrade)
+                state.restriction?.takeIf { !it.invitesUpgrade() }?.let { Text(stringResource(restrictionLabel(it)),color=MaterialTheme.colorScheme.error) }
                 state.error?.let { Text(stringResource(errorString(it)), color = MaterialTheme.colorScheme.error) }
                 if (state.saved) Text(stringResource(R.string.saved))
                 if (state.busy) {

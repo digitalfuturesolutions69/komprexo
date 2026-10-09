@@ -23,7 +23,9 @@ jobs:
       - name: Install SDK
         run: sdkmanager 'platforms;android-36' 'build-tools;35.0.0'
       - name: Test, lint, and assemble debug APK
-        run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
+        run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin
+      - name: Verify release entitlement isolation and local-only permissions
+        run: python3 scripts/check-phase3-security.py
       - uses: actions/upload-artifact@v4
         with:
           name: komprexo-debug-${{ github.sha }}

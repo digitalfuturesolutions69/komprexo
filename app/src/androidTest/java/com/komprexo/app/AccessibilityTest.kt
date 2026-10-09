@@ -19,6 +19,9 @@ import org.junit.Rule
 import org.junit.Test
 
 class AccessibilityTest {
+    @org.junit.Before fun enableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(true) }
+    @org.junit.After fun disableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(false) }
+
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     @Before fun openAcceptedCompressionWorkflow() { compose.onNodeWithTag("homecompress").performClick() }
     @Test fun customFieldIsConditionalAndHasTouchTarget() {

@@ -1,0 +1,4 @@
+<resources>
+    <string name="debug_premium">TESTING ONLY: activate temporary Premium</string>
+    <string name="debug_free">TESTING ONLY: Premium active — return to Free</string>
+</resources>

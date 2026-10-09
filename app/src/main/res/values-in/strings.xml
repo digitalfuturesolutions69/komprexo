@@ -95,4 +95,27 @@
     <string name="cancelled_images">Gambar dibatalkan</string>
     <string name="switch_tool">Pindah alat</string>
     <string name="switch_tool_warning">Berpindah alat menghapus gambar, hasil, dan pengaturan Batch, Konversi, atau Ubah ukuran saat ini. Gambar asli tetap aman. Batal untuk mempertahankan pekerjaan.</string>
+    <string name="premium_title">Komprexo Premium</string>
+    <string name="premium_price">Rp49.000 — Sekali Bayar</string>
+    <string name="price_provisional">Harga sementara. Harga lokal final akan mengikuti Google Play saat pembelian tersedia.</string>
+    <string name="benefit_unlimited">Kompresi gambar harian tanpa batas</string>
+    <string name="benefit_batch">Hingga 20 gambar per batch, sesuai batas keamanan perangkat</string>
+    <string name="benefit_presets">Semua Smart Presets</string>
+    <string name="benefit_future_no_ads">Tanpa iklan saat iklan diperkenalkan</string>
+    <string name="benefit_quality">Semua pengaturan kualitas gambar</string>
+    <string name="premium_purchase_notice">Pembelian Premium belum tersedia pada versi pengujian ini.</string>
+    <string name="purchase_unavailable">Pembelian belum tersedia</string>
+    <string name="return_to_tool">Kembali</string>
+    <string name="explore_premium">Lihat Premium</string>
+    <string name="quota_remaining">Gratis — Sisa %1$d dari 5 kompresi hari ini.</string>
+    <string name="quota_exhausted">Kuota gratis hari ini habis. Coba lagi besok atau gunakan Premium.</string>
+    <string name="quota_unlimited">Premium — Kompresi harian tanpa batas.</string>
+    <string name="quota_loading">Memuat kuota harian…</string>
+    <string name="quota_unavailable">Kuota kompresi tidak dapat dibaca dengan aman. Coba lagi. Resize, Convert dan hasil selesai tetap tersedia.</string>
+    <string name="free_batch_limit">Gratis mendukung 2 gambar per batch. Premium hingga 20. Pilihan gambar dan pengaturan tetap tersimpan.</string>
+    <string name="premium_preset_notice">Smart Preset ini memerlukan Premium. Preset dasar dan pengaturan kustom tetap tersedia.</string>
+    <string name="processing_busy">Operasi gambar lain sedang berlangsung. Harap tunggu.</string>
+    <string name="free_plan_summary">Gratis · Rp0 · 5 kompresi berhasil per hari · 2 gambar per batch · Resize dan Convert satu gambar tanpa batas.</string>
+    <string name="batch_operation">Operasi batch</string>
+    <string name="preset_premium_label">%1$s · Premium</string>
 </resources>

@@ -25,6 +25,9 @@ import org.junit.Test
 import java.io.File
 
 class WorkflowTest {
+    @org.junit.Before fun enableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(true) }
+    @org.junit.After fun disableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(false) }
+
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     @Before fun openAcceptedCompressionWorkflow() { compose.onNodeWithTag("homecompress").performClick() }
     @Test fun pickerCompressionPreviewSaveAndShare() {

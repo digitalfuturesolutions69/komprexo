@@ -1,0 +1,4 @@
+<resources>
+    <string name="debug_premium">KHUSUS PENGUJIAN: aktifkan Premium sementara</string>
+    <string name="debug_free">KHUSUS PENGUJIAN: Premium aktif — kembali ke Gratis</string>
+</resources>

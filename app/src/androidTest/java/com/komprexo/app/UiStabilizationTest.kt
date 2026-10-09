@@ -30,6 +30,9 @@ import org.junit.Assert.*
 
 /** Real responsive dialog and navigation UI; no image-processing behavior is replaced. */
 class UiStabilizationTest {
+    @org.junit.Before fun enableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(true) }
+    @org.junit.After fun disableRegressionPremium() { com.komprexo.app.access.EntitlementProviderFactory.setTestingPremium(false) }
+
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     @get:Rule val testName = org.junit.rules.TestName()
     private fun model(): Phase2ViewModel {

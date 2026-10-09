@@ -12,6 +12,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.komprexo.app.R
+import com.komprexo.app.access.*
 import com.komprexo.app.compression.*
 import com.komprexo.app.processing.*
 
@@ -28,7 +29,7 @@ fun PresetChoices(settings: EditableSettings, enabled: Boolean, choices: List<Pr
     Text(stringResource(R.string.smart_presets),style=MaterialTheme.typography.titleMedium,modifier=Modifier.fillMaxWidth())
     FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         choices.forEach { preset -> ChoiceChip(settings.preset==preset,{ change(settings.apply(preset)) },enabled=enabled,
-            label={ Text(stringResource(presetLabel(preset))) },modifier=Modifier.heightIn(min=48.dp)) }
+            label={ Text(if(preset in FeatureAccessPolicy.premiumPresets) stringResource(R.string.preset_premium_label,stringResource(presetLabel(preset))) else stringResource(presetLabel(preset))) },modifier=Modifier.heightIn(min=48.dp)) }
     }
     Text(stringResource(R.string.preset_editable),style=MaterialTheme.typography.bodySmall)
 }

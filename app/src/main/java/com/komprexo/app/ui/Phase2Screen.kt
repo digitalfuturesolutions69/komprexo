@@ -16,6 +16,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
@@ -29,10 +31,11 @@ import java.util.Locale
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
+fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit, onUpgrade: ()->Unit = {}) {
     val state by model.state.collectAsStateWithLifecycle()
     val context=LocalContext.current
-    val batch=state.workflow==Workflow.BATCH
+    val batch=state.isBatch
+    val compression=state.workflow==Workflow.BATCH
     fun resultOf(selection: Selection) = state.progress?.items?.find { it.input.id==selection.id }?.result
     fun group(selection: Selection) = when(resultOf(selection)) { is ItemResult.Success -> 0; is ItemResult.Failed -> 1; ItemResult.Cancelled -> 2; else -> 3 }
     val grouped=batch && state.progress?.let { it.current==null && it.items.none { item -> item.result==ItemResult.Pending } }==true
@@ -63,8 +66,8 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
     } }
     if(showSettings) ResponsiveSettingsDialog(stringResource(R.string.tool_settings),
         onDismiss={ showSettings=false },onConfirm={ showSettings=false }) {
-            if(state.workflow!=Workflow.CONVERT) PresetChoices(state.settings,!state.busy,if(batch) Preset.entries else Preset.entries.filter { it!=Preset.DOCUMENT },model::edit)
-            if(batch) {
+            if(state.workflow!=Workflow.CONVERT) PresetChoices(state.settings,!state.busy,if(compression) Preset.entries else Preset.entries.filter { it!=Preset.DOCUMENT },model::edit)
+            if(compression) {
                 TargetControls(state.settings,!state.busy,model::edit)
                 Text(stringResource(R.string.compression_settings),style=MaterialTheme.typography.titleMedium)
                 FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
@@ -102,6 +105,15 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
                 Button({ if(batch) picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) else single.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) },enabled=!state.busy,
                     modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("phase2Select")) { Text(stringResource(if(batch) R.string.select_images else R.string.select_image)) }
                 Text(stringResource(R.string.selection_count,state.selection.size,if(batch) MAX_BATCH_IMAGES else 1),modifier=Modifier.testTag("selectionCount"))
+                if(compression) QuotaIndicator(state.busy,model.quota,onUpgrade)
+                if(!compression) {
+                    Row {
+                        val batchLabel=stringResource(R.string.batch_operation)
+                        Checkbox(state.multiple,model::setMultiple,enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp).testTag("batchOperation").semantics { contentDescription=batchLabel })
+                        Text(stringResource(R.string.batch_operation),modifier=Modifier.padding(top=12.dp))
+                    }
+                }
+                state.restriction?.takeIf { !it.invitesUpgrade() }?.let { Text(stringResource(restrictionLabel(it)),color=MaterialTheme.colorScheme.error) }
                 if(state.selection.isNotEmpty()) TextButton(model::clear,enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp).testTag("clearSelection")) { Text(stringResource(R.string.clear_selection)) }
                 state.error?.let { Text(stringResource(errorString(it)),color=MaterialTheme.colorScheme.error) }
                 state.progress?.takeIf { !state.busy }?.let { progress ->
@@ -115,7 +127,7 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
             item {
                 OutlinedCard(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(12.dp)) {
-                        if(batch) {
+                        if(compression) {
                             Text("${state.settings.targetKiB} KB · ${if(state.settings.mode==CompressionMode.QUALITY_FIRST) stringResource(R.string.quality_first) else stringResource(R.string.balanced)}")
                             Text(stringResource(presetLabel(state.settings.preset)))
                         }

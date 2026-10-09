@@ -19,6 +19,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.komprexo.app.MainActivity
 import com.komprexo.app.R
+import com.komprexo.app.access.Restriction
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -27,6 +28,19 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
     val single by compression.state.collectAsStateWithLifecycle()
     val multi by phase2.state.collectAsStateWithLifecycle()
     val screenState=rememberSaveableStateHolder()
+    var premiumReturn by rememberSaveable { mutableStateOf("home") }
+    var premiumReason by remember { mutableStateOf<Restriction?>(null) }
+    fun premium(reason: Restriction? = null) {
+        if(single.busy || multi.busy) return
+        if(route!="premium") premiumReturn=route
+        premiumReason=reason;route="premium"
+    }
+    LaunchedEffect(single.restriction,multi.restriction,single.busy,multi.busy) {
+        val reason=single.restriction?.takeIf { it.invitesUpgrade() } ?: multi.restriction?.takeIf { it.invitesUpgrade() }
+        if(reason!=null && !single.busy && !multi.busy) {
+            premium(reason);compression.clearRestriction();phase2.clearRestriction()
+        }
+    }
     var pendingRoute by rememberSaveable { mutableStateOf<String?>(null) }
     fun navigate(next: String) {
         if(next!="compress") {
@@ -44,7 +58,7 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
     val context=LocalContext.current
     SideEffect { (context as? MainActivity)?.applySystemBars(dark) }
     BackHandler(route!="home") {
-        if(single.busy) compression.cancel() else if(multi.busy) phase2.cancel() else route="home"
+        if(single.busy) compression.cancel() else if(multi.busy) phase2.cancel() else route=if(route=="premium") premiumReturn else "home"
     }
     MaterialTheme(colorScheme=if(dark) darkColorScheme(primary=Color(0xffa1d3bc)) else lightColorScheme(primary=Color(0xff356858))) {
         pendingRoute?.let { next ->
@@ -55,10 +69,12 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
         }
         screenState.SaveableStateProvider(route) {
         when(route) {
-            "compress" -> KomprexoScreen(compression,onHome={ route="home" })
+            "premium" -> PremiumScreen(premiumReason,single.busy || multi.busy,onBack={ route=premiumReturn })
+            "compress" -> KomprexoScreen(compression,onHome={ route="home" },onUpgrade={ premium() })
             "home" -> Scaffold(contentWindowInsets=WindowInsets.safeDrawing,topBar={ WorkflowTopBar(stringResource(R.string.app_name)) }) { padding ->
                 Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
                     Text(stringResource(R.string.home_description))
+                    QuotaIndicator(single.busy || multi.busy,compression.quota) { premium() }
                     FlowRow(horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                         listOf("compress" to R.string.home_compress,"BATCH" to R.string.home_batch,"CONVERT" to R.string.home_convert,"RESIZE" to R.string.home_resize).forEach { (next,label) ->
                             Button({ navigate(next) },enabled=!single.busy && !multi.busy,modifier=Modifier.widthIn(min=132.dp,max=560.dp).heightIn(min=64.dp).testTag("home$next")) { Text(stringResource(label)) }
@@ -71,7 +87,7 @@ fun KomprexoApp(compression: CompressionViewModel = viewModel(), phase2: Phase2V
                     Text(stringResource(R.string.privacy_short),style=MaterialTheme.typography.bodySmall)
                 }
             }
-            else -> Phase2Screen(phase2,onHome={ route="home" })
+            else -> Phase2Screen(phase2,onHome={ route="home" },onUpgrade={ premium() })
         }
     }
     }

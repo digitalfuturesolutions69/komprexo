@@ -7,6 +7,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.komprexo.app.compression.*
+import com.komprexo.app.access.*
+import com.komprexo.app.processing.Preset
 import com.komprexo.app.processing.ResizeSpec
 import com.komprexo.app.storage.ImageStorage
 import kotlinx.coroutines.*
@@ -24,9 +26,10 @@ data class CompressionUiState(
     val progress: CompressionProgress? = null,
     val error: FailureCode? = null,
     val saved: Boolean = false,
+    val restriction: Restriction? = null,
 )
 
-class CompressionViewModel(application: Application, private val saved: SavedStateHandle) : AndroidViewModel(application) {
+class CompressionViewModel @JvmOverloads constructor(application: Application, private val saved: SavedStateHandle, val quota: DailyQuotaManager = AccessServices.quota(application)) : AndroidViewModel(application) {
     private val storage = ImageStorage(application)
     private val engine = AndroidCompressionEngine(storage.cache)
     private val mutable = MutableStateFlow(CompressionUiState(error = if (saved.get<Boolean>("processing") == true) FailureCode.INTERRUPTED else null))
@@ -50,10 +53,12 @@ class CompressionViewModel(application: Application, private val saved: SavedSta
         }
     }
 
-    fun compress(maxBytes: Long, format: OutputFormat, mode: CompressionMode = CompressionMode.QUALITY_FIRST, resize: ResizeSpec = ResizeSpec.Original) {
+    fun compress(maxBytes: Long, format: OutputFormat, mode: CompressionMode = CompressionMode.QUALITY_FIRST, resize: ResizeSpec = ResizeSpec.Original, preset: Preset = Preset.CUSTOM) {
         val source = state.value.source ?: return
         if (state.value.busy) return
         launch {
+            val reservation = quota.reserve(Operation.COMPRESS, 1, preset)
+            try {
             val result = engine.compress(CompressionRequest(source, maxBytes, CompressionOptions(format, mode, resize))) { progress ->
                 mutable.update { it.copy(progress = progress) }
             }
@@ -64,12 +69,16 @@ class CompressionViewModel(application: Application, private val saved: SavedSta
                     try {
                         val preview = withContext(Dispatchers.Default) { BitmapCodec.decode(BitmapCodec.inspect(result.file), preview = true) }
                         ensureActive()
-                        storage.deleteResult(state.value.result)
-                        mutable.update { it.copy(result = result, outputPreview = preview) }
-                        accepted = true
+                        withContext(NonCancellable) {
+                            check(quota.settle(reservation, 0))
+                            storage.deleteResult(state.value.result)
+                            mutable.update { it.copy(result = result, outputPreview = preview) }
+                            accepted = true
+                        }
                     } finally { if (!accepted) storage.deleteResult(result) }
                 }
             }
+            } finally { quota.release(reservation) }
         }
     }
 
@@ -85,12 +94,19 @@ class CompressionViewModel(application: Application, private val saved: SavedSta
         launch { onReady(storage.shareIntent(result)) }
     }
     fun cancel() { job?.cancel() }
+    fun clearRestriction() { mutable.update { it.copy(restriction = null) } }
+    fun requestPreset(preset: Preset): Boolean {
+        if (state.value.busy) return false
+        if (FeatureAccessPolicy.allowsPreset(quota.entitlement.value, preset)) return true
+        mutable.update { it.copy(restriction = Restriction.PREMIUM_PRESET) }; return false
+    }
     fun notice(code: FailureCode) { mutable.update { it.copy(error = code) } }
     private fun launch(block: suspend CoroutineScope.() -> Unit) {
         mutable.update { it.copy(busy = true, error = null, saved = false, progress = null) }
         saved["processing"] = true
         job = viewModelScope.launch {
             try { block() }
+            catch (e: AccessDenied) { mutable.update { it.copy(restriction = e.reason) } }
             catch (_: CancellationException) { notice(FailureCode.CANCELLED) }
             catch (e: ImageProblem) { notice(e.code) }
             catch (_: OutOfMemoryError) { notice(FailureCode.INSUFFICIENT_MEMORY) }
