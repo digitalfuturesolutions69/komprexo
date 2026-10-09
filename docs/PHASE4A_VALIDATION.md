@@ -2,6 +2,16 @@
 
 Prepared 9 October 2026 Asia/Jakarta. Repository digitalfuturesolutions69/komprexo; work; accepted baseline 15266a239352cdf64ea37752a0f02fbf8d7de836. Local/remote matched baseline before edits; baseline existed, no previous Phase 4A implementation. Original evidence archived in PHASE3_VALIDATION.md.
 
+## Latest accepted implementation — 7ccad67f63402a0044a4b477b66713d861d43a1d
+
+Run [37931374086](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37931374086): **all six jobs PASS**. API23/26/28/36 each finished157tests,0failures/0skips. Downloaded API36 HTML and streamed diagnostics confirm157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. System Default diagnostics confirm expected=en,actual=en,overrideEmpty=true,focused=true. JVM report171/0failures/0ignored; CI lint0errors/20warnings; static45browser/8Python checks PASS. Debug/release compilation, trusted wrapper, dependency audit99 and security checks PASS. No tests, thresholds or checks disabled.
+
+API36 uses the official Google APIs image after verified AOSP Quickstep ANRs. Locale tests await exact requested locale and focused windows; default-locale expectation uses LocaleManager.systemLocales on33+. System-bar screenshots use actual status/navigation insets, covering both gesture and three-button navigation with unchanged contrast assertions. Downloaded dark-dialog and Portuguese compact200%-font screenshots reviewed: navigation/status indicators contrast and support remains visible. This is automated emulator evidence, not physical-device/manual TalkBack verification.
+
+Implementation debug APK artifact exists, uploaded/not expired at verification: `komprexo-debug-7ccad67f63402a0044a4b477b66713d861d43a1d`,ZIP13,225,732bytes, [artifact11616371774](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37931374086/artifacts/11616371774),retention14days. The report-bearing final commit runs the full unchanged suite again; its exact SHA, CI result and downloaded APK metadata are provided in the accompanying final delivery response. Older runs below are historical, including every failed attempt.
+
+Technical implementation PASS at this implementation SHA. Real Play purchases NOT TESTED; Console/legal/DataSafety/brand/native-speaker approvals OWNER ACTION REQUIRED; legal policies DRAFT; static website NOT DEPLOYED. Stop after FASE4A.
+
 ## Actual local evidence
 
 | Check | Result |
@@ -70,7 +80,7 @@ Baseline delta at delivery:126created,15modified,1removed files: native Billing/
 
 The first API36 job completed129/157 tests with zero failures at its last progress update, then stalled and hit the30-minute deadline; no complete run or instrumentation report was claimed. The second candidate run37898905722 passed debug/static/API23/API26, but API28 had156passed/1failed (Portuguese compact200%-font support-control visibility); assertions remained unchanged.
 
-New locale/orientation test helpers now await the resumed replacement Activity, not merely updated resource configuration, and restore portrait explicitly before each compact case. Failure capture occurs before cleanup. AppCompat updated to current stable1.8.0 (official release notes: https://developer.android.com/jetpack/androidx/releases/appcompat), minSdk23, with its documented view-tree configuration-dispatch fix; image engines unchanged. These changes are validated rather than asserted to prove the old stall's root cause.
+New locale/orientation test helpers now await the resumed replacement Activity, not merely updated resource configuration, and restore portrait explicitly before each compact case. Layout failure capture occurs before cleanup. General TestWatcher fallback runs after @After and can show the launcher after scenario cleanup; those fallback screenshots alone are not evidence of an app backgrounding failure. AppCompat updated to current stable1.8.0 (official release notes: https://developer.android.com/jetpack/androidx/releases/appcompat), minSdk23, with its documented view-tree configuration-dispatch fix; image engines unchanged. These changes are validated rather than asserted to prove the old stall's root cause.
 
 Instrumentation uses a test-only listener exporting public test names/API/exception category only; no message, URI, image bytes, private paths or token. A15-minute test-process deadline keeps nonzero failure status and collects sanitized progress/screenshots before the outer30-minute CI timeout. All157 tests and all4API jobs remain mandatory; no assertions, tests, lint or security checks removed. Final counts and any remaining stall evidence are reported after the new run.
 
