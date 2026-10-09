@@ -1,10 +1,20 @@
 # Komprexo
 
-Phase 2 — offline image tools for native Android.
-Compress one image or a sequential batch of up to 20; convert JPEG/PNG/WebP;
+Phase 3 — offline native Android image tools with Free/Premium policy foundations.
+Compress single images or sequential batches; convert JPEG/PNG/WebP;
 resize without upscaling; edit smart presets; save copies or share multiple URIs.
 Select JPEG, PNG or supported WebP; set a maximum size; compare before/after;
 then save a copy or share a content URI. Originals remain untouched.
+
+Free has three separate daily quotas: five successful Compression, five Resize and
+five Convert outputs. Single and batch operations share their feature’s allowance;
+Free batches allow at most two images. Failed or unused cancelled slots are released.
+Premium policy allows unlimited daily use and up to twenty images per batch, within
+existing safety limits; the proposed one-time price is Rp49,000. Purchases remain
+disabled. Release builds stay Free; debug builds offer a clearly labeled temporary
+test entitlement. No Billing or AdMob is integrated.
+See [Phase 3 policy and persistence](docs/PHASE3_DESIGN.md) for charging, reset,
+concurrency, recovery and offline enforcement limitations.
 
 ## Build
 
@@ -13,7 +23,8 @@ Android min API 23; compile/target API 36. Set ANDROID_HOME to your SDK.
 Application ID `com.komprexo.app` is provisional pending final owner approval.
 
 ```sh
-./gradlew :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest
+./gradlew :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin
+python3 scripts/check-phase3-security.py
 ./gradlew connectedDebugAndroidTest
 ```
 
@@ -27,6 +38,6 @@ No tests, lint or wrapper validation are disabled. No merge or release is made.
 See [engine design](docs/COMPRESSION_ENGINE.md) for byte units, memory limits,
 quality search, format behavior, cancellation, metadata and temporary-file policy.
 See [actual validation](VALIDATION.md) for test counts and verified CI evidence.
-Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 2 adds no services, accounts, telemetry, database, ads, billing or subscriptions.
+Phase 0 and Phase 1 reports are preserved in docs/ and Git. Phase 3 adds no services, accounts, telemetry, database, ads, billing or subscriptions.
 See [Phase 2 contracts](docs/PHASE2_DESIGN.md) for presets, exact-dimension safety,
 queue limits, secure folder export and temporary-file ownership.

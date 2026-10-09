@@ -107,7 +107,6 @@
     <string name="purchase_unavailable">Purchase unavailable</string>
     <string name="return_to_tool">Return</string>
     <string name="explore_premium">Explore Premium</string>
-    <string name="quota_remaining">Free — %1$d of 5 compressions remaining today.</string>
     <string name="quota_exhausted">Today’s Free quota for this feature is used up. Try tomorrow or use Premium.</string>
     <string name="quota_unlimited">Premium — Unlimited daily Compress, Resize and Convert.</string>
     <string name="quota_loading">Loading daily quota…</string>

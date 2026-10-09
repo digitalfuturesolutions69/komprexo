@@ -107,7 +107,6 @@
     <string name="purchase_unavailable">Pembelian belum tersedia</string>
     <string name="return_to_tool">Kembali</string>
     <string name="explore_premium">Lihat Premium</string>
-    <string name="quota_remaining">Gratis — Sisa %1$d dari 5 kompresi hari ini.</string>
     <string name="quota_exhausted">Kuota gratis hari ini untuk fitur ini habis. Coba lagi besok atau gunakan Premium.</string>
     <string name="quota_unlimited">Premium — Compress, Resize dan Convert harian tanpa batas.</string>
     <string name="quota_loading">Memuat kuota harian…</string>
