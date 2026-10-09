@@ -102,6 +102,8 @@ class UiStabilizationTest {
         assertFalse(model.state.value.settings.lockAspect)
         compose.onNodeWithTag("toolSettings").performClick()
         compose.onNodeWithTag("resizeHeight").performScrollTo().assertTextContains("80")
+        // Android Back first hides a visible IME (notably API 23).
+        androidx.test.espresso.Espresso.closeSoftKeyboard()
         androidx.test.espresso.Espresso.pressBack()
         compose.onNodeWithTag("settingsDialog").assertDoesNotExist()
         compose.onNodeWithTag("toolSettings").performClick()

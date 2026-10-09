@@ -56,9 +56,12 @@ Local JDK 17 / SDK 36 / Gradle 8.11.1; trusted Wrapper unchanged. Proxy and trus
 configuration remain outside the repository. Local instrumentation cannot run
 because /dev/kvm is unavailable; emulator results must come from actual CI.
 
-Initial local verification passed all 69 unit tests (zero failures/errors/skips),
-lint (zero errors, six warnings), and app/test APK assemblies. Follow-up verification
-is pending. The initial source CI run 37862102496 passed debug but failed new UI
+Final production local verification passed all 69 unit tests (zero failures/errors/skips),
+lint (zero errors, five UseKtx warnings), and app/test APK assemblies. JVM tests,
+lint and debug APKs are also verified by CI. CI adds 11 dependency-update warnings
+for 16 total warnings; no blocking lint error. The debug APK identity/permissions
+and apksigner verification pass: Komprexo / com.komprexo.app / min23 / target36,
+no Internet or storage permission. The initial source CI run 37862102496 passed debug but failed new UI
 checks for clipping and dialog status-icon contrast; it is not claimed PASS.
 The first clipping helper incorrectly included covered background/partially scrolled
 text. It now checks fully visible text in the active scroll viewport. Controls use
@@ -74,12 +77,35 @@ now share one shell command that preserves and returns the actual Gradle exit
 status, so failed tests retain screenshots and still fail CI.
 No test assertions, lint failures or build/security checks are disabled.
 
+Implementation run [37864015396](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37864015396)
+for d8ad0d1cb09f6cb58038a62bb87a403467f199e5 passed debug and API 26/28/36;
+each completed 88 tests with zero failures/skips. API 23 completed 88 tests with
+one new dismissal-fixture failure (all previous tests passed). The dialog bounds
+show the IME was still visible: Back hides it before dismissing the dialog, which
+is normal Android behavior. The fixture now explicitly closes the soft keyboard
+before asserting Back dismissal; its dismissal/state-retention assertions remain.
+Runs 37862804900, 37863011442 and 37863435450 failed earlier text-metric fixtures;
+none is claimed PASS. Actual 200% dialog text is now asserted, not merely assumed.
+
+The successful API 26 report was downloaded (88/0/0), and its 200% batch dialog,
+keyboard, landscape-result and dark-theme screenshots were inspected. Done stays
+visible above the keyboard; format labels wrap; Save/Share fit the landscape action
+area; dark status/navigation backgrounds have light icons.
+
+Final delivery HEAD CI, actual per-API counts and artifact URL are verified after
+this snapshot and reported in the final execution response. Technical acceptance
+requires all five jobs and an existing APK artifact. Physical owner review remains.
+
+
 ## Limits and acceptance
 
 Screenshots referenced by the owner are not attached to this message. Source
 layout defects and automated screenshots are used for verification; an owner
 physical-device review of these UI changes remains required. IME heights, keyboards
-and OEM layouts vary. Very short windows require scrolling to reach settings;
+and OEM layouts vary. The downloaded Phase 2.5 CI APK has a different debug signing
+certificate from the preceding downloaded Phase 2 APK; Android rejects an in-place
+update across those certificates. A clean debug install removes app-local data;
+external original images are separate. Stable release signing is outside this phase. Very short windows require scrolling to reach settings;
 confirmation remains outside the scroll area. Process-death restoration of image
 sessions remains outside existing scope. Existing Phase 2 safety limits apply.
 
