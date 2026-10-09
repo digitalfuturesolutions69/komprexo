@@ -1,6 +1,6 @@
 # Komprexo — Support
 
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
+DRAFT — not approved for publication. Intended launch audience confirmed: adults aged 18 and older. OWNER ACTION REQUIRED: final legal approval, required public operator disclosures, unresolved third-party data disclosures and effective date. The effective date will be set only after final approval and actual publication. Prepared 10 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Contact safely
 
@@ -17,3 +17,7 @@ Free gives 5 successful images/day separately for Compression, Resize and Conver
 # Purchase help and privacy
 
 Check internet, Play Store and the account that owns Premium, then use Restore Purchases. Pending payments must finish first. Offline Premium lasts up to 24 hours after a successful check; reconnect for a new ownership check when required. Refund help: https://support.google.com/googleplay/answer/2479637 . Google Billing software may process service diagnostics; exact collection and retention remain under review. This guide does not promise zero telemetry or an automatic refund.
+
+# Intended audience and age
+
+Komprexo is a general image utility intended for adults aged 18 and older. It is not marketed to children. The app does not verify age. This audience statement does not guarantee that Google Play prevents minors from downloading or using the app. It does not establish compliance with child-protection requirements.

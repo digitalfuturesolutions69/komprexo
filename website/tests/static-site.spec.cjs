@@ -2,6 +2,17 @@ const { test, expect } = require('@playwright/test');
 const languages = ['en', 'id', 'es', 'pt-BR', 'hi'];
 const routes = ['', 'privacy/', 'terms/', 'premium/', 'support/', 'about/'];
 for (const language of languages) {
+  test(language + ' adult audience visible on Home and all legal pages', async ({ page }) => {
+    const legal = JSON.parse(require('node:fs').readFileSync(require('node:path').join(__dirname, '../../content/legal', language + '.json'), 'utf8'));
+    await page.goto(language + '/');
+    await expect(page.locator('main .audience p')).toHaveText(legal.about.at(-1)[1]);
+    for (const route of ['privacy', 'terms', 'premium', 'support', 'about']) {
+      await page.goto(language + '/' + route + '/');
+      await expect(page.locator('main section').last()).toContainText(legal[route].at(-1)[1]);
+      await expect(page.locator('main section').last()).toContainText('18');
+      expect(await page.locator('form, input[type="date"]').count()).toBe(0);
+    }
+  });
   test(language + ' confirmed identity, draft gates and project-path assets', async ({ page }, testInfo) => {
     const base = new URL(testInfo.project.use.baseURL);
     for (const route of ['privacy', 'terms', 'premium', 'support', 'about']) {

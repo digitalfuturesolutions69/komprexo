@@ -55,12 +55,12 @@ class Phase4Assets(unittest.TestCase):
                     self.assertIn('Personal',text)
                     self.assertIn('komprexo.support@gmail.com',text)
                 self.assertIn('OWNER ACTION REQUIRED',data['draft'])
-                self.assertIn('OWNER ACTION REQUIRED',data['terms'][-1][1])
+                self.assertIn('OWNER ACTION REQUIRED',data['terms'][-2][1])
         english=json.loads((ROOT/'content/legal/en.json').read_text())
         self.assertIn('individual registered and verified',english['privacy'][0][1])
         self.assertIn('not identify a separate company',english['privacy'][0][1])
-        self.assertIn('Indonesian law, subject to owner approval',english['terms'][-1][1])
-        self.assertIn('Mandatory consumer rights',english['terms'][-1][1])
+        self.assertIn('Indonesian law, subject to applicable mandatory consumer and privacy laws',english['terms'][-2][1])
+        self.assertIn('Mandatory consumer rights',english['terms'][-2][1])
         self.assertIn('not an effective date',english['draft'])
 
     def test_pages_archive_is_only_public_static_files_and_cannot_publish_drafts(self):
@@ -142,7 +142,7 @@ class Phase4Assets(unittest.TestCase):
     def test_editorial_policy_facts_and_publication_gates(self):
         # Billing validity must not become a promise of permanent offline access;
         # each independent quota and pending legal decision must remain visible.
-        shapes={'privacy':8,'terms':5,'premium':4,'support':4,'about':1}
+        shapes={'privacy':9,'terms':6,'premium':5,'support':5,'about':2}
         for locale in LOCALES:
             data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
             with self.subTest(locale=locale):
@@ -164,6 +164,29 @@ class Phase4Assets(unittest.TestCase):
         text=json.dumps(json.loads((ROOT/'content/legal/en.json').read_text()))
         for misleading in ('No automatic telemetry is sent','unlimited offline Premium','no data is collected','guaranteed refund'):
             self.assertNotIn(misleading,text)
+
+    def test_adult_audience_is_distinct_from_age_enforcement_and_publication(self):
+        listings=json.loads((ROOT/'content/store-listing.json').read_text())
+        for locale in LOCALES:
+            data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+            with self.subTest(locale=locale):
+                sections=[data[page][-1] for page in ('privacy','terms','premium','support','about')]
+                self.assertTrue(all(s==sections[0] for s in sections))
+                self.assertRegex(sections[0][1],r'(?<![0-9])18(?![0-9])')
+                self.assertIn('Google Play',sections[0][1])
+                self.assertIn('18',listings[locale]['full'].split('\n\n')[0])
+                self.assertIn('OWNER ACTION REQUIRED',data['draft'])
+        english=json.loads((ROOT/'content/legal/en.json').read_text())
+        audience=english['privacy'][-1][1]
+        for required in ('general image utility','adults aged 18 and older','not marketed to children',
+                         'does not verify age','does not guarantee that Google Play prevents minors',
+                         'does not establish compliance with child-protection requirements'):
+            self.assertIn(required,audience)
+        self.assertIn('only after final approval and actual publication',english['draft'])
+        declaration=(ROOT/'docs/google-play/TARGET_AUDIENCE_DECLARATION.md').read_text()
+        for required in ('18 and over','NOT SUBMITTED','Restrict Minor Access','No in-app age verification',
+                         'under 21','OWNER ACTION REQUIRED'):
+            self.assertIn(required,declaration)
 
     def test_offline_policy_generation_matches_canonical_drafts(self):
         # Prevent divergence between the in-app text and shared website policy source.

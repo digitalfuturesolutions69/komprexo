@@ -71,6 +71,8 @@ for locale in NAMES:
                     f'<article><h2>{escape(strings["home_" + key])}</h2><p>{escape(text)}</p></article>'
                     for key, text in descriptions) + '</div></section>'
                 body += f'<section class="local"><h2>{escape(strings["privacy_short"])}</h2></section>'
+                audience_title, audience_text = legal['about'][-1]
+                body += f'<section class="audience"><h2>{escape(audience_title)}</h2><p>{rich(audience_text)}</p></section>'
                 benefits = ''.join(f'<li>{escape(strings[key])}</li>' for key in
                                    ['benefit_unlimited', 'benefit_batch', 'benefit_presets', 'benefit_future_no_ads', 'benefit_quality'])
                 body += f'<section class="plans"><article><h2>{escape(strings["free_status"])}</h2><p>{escape(strings["free_plan_summary"])}</p></article><article><h2>Komprexo Premium</h2><p>{escape(strings["premium_price"])}</p><p>{escape(strings["price_provisional"])}</p><ul>{benefits}</ul><p>{escape(strings["purchase_disclosure"])}</p><a href="{prefix}{locale}/premium/">{escape(strings["premium_information"])}</a></article></section>'

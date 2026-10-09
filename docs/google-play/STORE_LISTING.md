@@ -8,7 +8,9 @@ Title (8): Komprexo
 
 Short (59): Compress, resize and convert photos on your Android device.
 
-Full (3753):
+Full (3895):
+
+General image utility for adults aged 18 and older. No age verification; this audience statement does not guarantee that Play blocks minors.
 
 Compress photos to a maximum file-size target, resize without upscaling, or convert JPEG, PNG and supported WebP. Process batches sequentially. Smart Presets are editable starting points. Compare before and after, save copies or share results. Originals remain unchanged. Image processing is on your Android device; it does not require photo uploads to Komprexo or an app account.
 
@@ -36,7 +38,9 @@ Title (8): Komprexo
 
 Short (63): Kompres, resize dan convert foto langsung di perangkat Android.
 
-Full (3841):
+Full (3990):
+
+Utilitas gambar umum untuk dewasa 18 tahun ke atas. Tanpa verifikasi usia; pernyataan audiens ini tidak menjamin Play memblokir anak di bawah umur.
 
 Kompres foto sesuai batas ukuran file, ubah ukuran tanpa memperbesar, atau konversi JPEG, PNG dan WebP yang didukung. Batch diproses berurutan. Smart Presets dapat diedit. Bandingkan sebelum dan sesudah, simpan salinan atau bagikan hasil. Gambar asli tidak diubah. Pemrosesan dilakukan di Android; tidak memerlukan unggah foto ke Komprexo atau akun aplikasi.
 
@@ -64,7 +68,9 @@ Title (8): Komprexo
 
 Short (67): Comprime, redimensiona y convierte fotos en tu dispositivo Android.
 
-Full (3719):
+Full (3867):
+
+Herramienta general de imágenes para adultos de 18 años o más. Sin verificación de edad; esta declaración no garantiza que Play bloquee a menores.
 
 Comprime fotos con un tamaño máximo, redimensiona sin ampliar o convierte JPEG, PNG y WebP compatible. Los lotes se procesan en orden. Los ajustes inteligentes son editables. Compara antes y después, guarda copias o comparte resultados. Los originales no cambian. Todo se procesa en Android, sin subir fotos a Komprexo ni crear una cuenta.
 
@@ -92,7 +98,9 @@ Title (8): Komprexo
 
 Short (67): Comprima, redimensione e converta fotos no seu dispositivo Android.
 
-Full (3473):
+Full (3619):
+
+Ferramenta geral de imagens para adultos com 18 anos ou mais. Sem verificação de idade; esta declaração não garante que o Play bloqueie menores.
 
 Comprima fotos com tamanho máximo, redimensione sem ampliar ou converta JPEG, PNG e WebP compatível. Lotes são processados em sequência. Ajustes inteligentes podem ser editados. Compare antes e depois, salve cópias ou compartilhe resultados. Originais não mudam. O processamento ocorre no Android, sem enviar fotos a Komprexo nem criar conta.
 
@@ -120,7 +128,9 @@ Title (8): Komprexo
 
 Short (59): अपने Android पर फ़ोटो कंप्रेस करें, आकार और फ़ॉर्मेट बदलें।
 
-Full (3236):
+Full (3382):
+
+18 वर्ष और उससे अधिक आयु के वयस्कों के लिए सामान्य चित्र उपयोगिता। आयु सत्यापन नहीं; यह बयान Play द्वारा नाबालिगों को रोकने की गारंटी नहीं देता।
 
 फोटो को अधिकतम फ़ाइल आकार तक संपीड़ित करें, बिना बड़ा किए आकार बदलें या JPEG, PNG और समर्थित WebP में बदलें। बैच क्रम से चलता है। Smart Presets संपादन योग्य हैं। पहले और बाद की तुलना करें, प्रतियाँ सहेजें या परिणाम साझा करें। मूल नहीं बदलते। प्रक्रिया Android पर होती है; Komprexo पर फोटो अपलोड या ऐप खाता जरूरी नहीं है।
 
@@ -152,7 +162,7 @@ Screenshot plan: real Android Home/free three counters, compression before/after
 
 Public developer: Digital Future Solutions. Legal operator: the individual registered and verified in Google Play Console with a Personal account in Indonesia; the display name is not a separate company. Official support/privacy contact: komprexo.support@gmail.com (owner manually configures). No residential address or personal contact details are included. Review legally required public operator disclosures with the owner before publication. Privacy URL **PLACEHOLDER — NOT LIVE**: proposed https://digitalfuturesolutions69.github.io/komprexo/privacy/ only after legal approval and authorized publication.
 
-Owner must confirm target audience/children ages and country policy, complete content rating questionnaire, current ads declaration No, no-login app access, Billing/transport Data Safety and consumer rights. Review five-language translations and final assets, then Console setup/checklist. Policies remain DRAFT.
+Owner-confirmed intended launch audience: adults aged18andolder; general image utility, not marketed to children. Proposed target-age selection:18 and over only, for owner review, not submitted. No in-app age verification is implemented and this declaration does not guarantee that Play blocks minors. Review the separate Restrict Minor Access option and applicable age/child-protection laws without claiming compliance or an enabled restriction. Complete the independent content-rating questionnaire from actual content; 18+ marketing audience is not an assigned mature-content rating. See TARGET_AUDIENCE_DECLARATION.md. Current ads declaration No, no-login app access, Billing/transport Data Safety classifications and mandatory consumer/privacy rights still need accurate owner review. Effective date will be set only after final approval and actual publication. Review five-language translations and final assets; policies remain DRAFT.
 
 Official reference: https://support.google.com/googleplay/android-developer/answer/9866151
 Text limit reference: https://support.google.com/googleplay/android-developer/answer/9859152

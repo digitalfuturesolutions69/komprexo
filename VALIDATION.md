@@ -1,5 +1,9 @@
 # Komprexo validation
 
+## FASE 4A.3 — adult audience and legal policy drafts
+
+Current scope: [docs/PHASE4A3_VALIDATION.md](docs/PHASE4A3_VALIDATION.md). [Play audience declaration](docs/google-play/TARGET_AUDIENCE_DECLARATION.md) proposes 18 and over only for owner review, NOT SUBMITTED. General image utility intended for adults 18+, no age-verification/automatic minor block/child-compliance claim. Five-language website/offline/Store policies are synchronized; SDK classifications/final legal approval remain pending and effective date stays unset until approval/publication. Exact final SHA, CI evidence and local/remote equality are reported with delivery. No website/app publication or AdMob. Earlier phase records below are historical.
+
 ## FASE 4A.2 — legal identity and GitHub Pages preparation
 
 Current scope and owner decisions: [docs/PHASE4A2_VALIDATION.md](docs/PHASE4A2_VALIDATION.md). [Pages preparation](docs/google-play/STATIC_POLICY_PUBLISHING.md) includes a nonactive deployment template and tested root/project-path review output. Public developer Digital Future Solutions, verified Personal-account operator category and Indonesia are owner-confirmed. Indonesian law is proposed; audience/effective date and legal/SDK disclosures remain pending. No publication is authorized or performed. Exact final commit, actual CI result and local/remote equality are reported with delivery. Earlier phase records below are historical.

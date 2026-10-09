@@ -1,4 +1,4 @@
-DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: target pengguna, tanggal berlaku, persetujuan usulan hukum Indonesia, pengungkapan identitas publik yang diwajibkan hukum dan pengungkapan data pihak ketiga yang belum terverifikasi. Disusun 9 Oktober 2026; bukan tanggal berlaku. Review penutur asli yang kompeten dan review hukum diperlukan.
+DRAFT — DRAF, belum disetujui untuk publikasi. Audiens peluncuran dikonfirmasi: dewasa berusia 18 tahun ke atas. OWNER ACTION REQUIRED: persetujuan hukum final, pengungkapan operator secara publik yang diwajibkan hukum, pengungkapan data pihak ketiga yang belum terverifikasi dan tanggal berlaku. Tanggal berlaku ditetapkan hanya setelah persetujuan final dan publikasi nyata. Disusun 10 Oktober 2026; bukan tanggal berlaku. Review penutur asli yang kompeten dan review hukum diperlukan.
 
 # Pembelian sekali bayar dan harga
 
@@ -15,3 +15,7 @@ Pembayaran tertunda, gagal atau dibatalkan tidak mengaktifkan Premium. Pembelian
 # Refund, pencabutan dan bantuan
 
 Refund atau pencabutan yang valid dapat menghapus Premium saat terkonfirmasi. Kondisi offline dapat menunda deteksi. Hasil yang sudah selesai tetap tersedia. Ajukan refund melalui Google Play: https://support.google.com/googleplay/answer/2479637 . Hak konsumen menurut hukum tetap dilindungi. Tidak ada janji refund otomatis, waktu persetujuan tetap atau Premium offline tanpa batas seumur hidup. Bantuan pembelian: komprexo.support@gmail.com; jangan kirim data kartu, gambar privat atau token pembelian.
+
+# Audiens yang dituju dan usia
+
+Komprexo adalah utilitas gambar umum yang ditujukan untuk orang dewasa berusia 18 tahun ke atas. Aplikasi tidak dipasarkan kepada anak-anak. Aplikasi tidak memverifikasi usia. Pernyataan audiens ini tidak menjamin bahwa Google Play mencegah anak di bawah umur mengunduh atau menggunakan aplikasi. Pernyataan ini bukan bukti kepatuhan terhadap persyaratan perlindungan anak.

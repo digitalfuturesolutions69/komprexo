@@ -2,6 +2,8 @@
 
 Historical FASE 4A.1 review. FASE 4A.2 subsequently confirms Digital Future Solutions as the public developer, the verified Personal-account individual as operator and Indonesia as country. Indonesian law is proposed subject to approval. Current owner gates and Pages preparation: [FASE 4A.2](../PHASE4A2_VALIDATION.md). Historical statements below record what was unresolved at 4A.1, not the latest identity status.
 
+FASE 4A.3 further confirms intended launch audience adults18andolder, with Indonesian jurisdiction proposed subject to mandatory consumer/privacy law. Audience is no longer awaiting confirmation; age enforcement/child-law compliance is not claimed, and effective date remains unset until final approval/publication. Current evidence and owner gates: [FASE 4A.3](../PHASE4A3_VALIDATION.md).
+
 Prepared 9 October 2026 (Asia/Jakarta). **Complete drafts only; not approved for publication or a legal opinion.** Accepted implementation baseline: `9bab33b2d8586c4338d22f6ed597f6655e6097ae`, branch `work`, application ID `com.komprexo.app`.
 
 ## Sources and delivery surfaces

@@ -1,4 +1,4 @@
-DRAFT — RASCUNHO, sem aprovação para publicar. OWNER ACTION REQUIRED: público-alvo, data de vigência, aprovação da proposta de lei indonésia, informações legais públicas obrigatórias e divulgações pendentes sobre dados de terceiros. Preparado em 9 de outubro de 2026; não é a data de vigência. Revisão jurídica e de falante nativo qualificado são necessárias.
+DRAFT — RASCUNHO, sem aprovação para publicar. Público de lançamento confirmado: adultos com 18 anos ou mais. OWNER ACTION REQUIRED: aprovação jurídica final, divulgações públicas obrigatórias do operador, informações pendentes sobre dados de terceiros e data de vigência. A vigência será definida somente após aprovação final e publicação real. Preparado em 10 de outubro de 2026; não é a data de vigência. Revisão jurídica e de falante nativo qualificado são necessárias.
 
 # Uso de Komprexo
 
@@ -18,4 +18,8 @@ Restaurar compras usa a conta Google Play proprietária. Pagamentos pendentes, c
 
 # Direitos e suporte
 
-Licenças de terceiros estão em Ajustes. Mudanças de recursos ou direitos pagos seguem a lei aplicável. Lei proposta: a lei da Indonésia, sujeita à aprovação do proprietário. Direitos obrigatórios do consumidor e regras de jurisdição aplicáveis são preservados, inclusive proteções exigidas por outras leis aplicáveis. Este rascunho não escolhe um tribunal exclusivo. Público, data de vigência e divulgações públicas do operador exigidas por lei: OWNER ACTION REQUIRED. O rascunho não é aprovação jurídica.
+Licenças de terceiros estão em Ajustes. Mudanças de recursos ou direitos pagos seguem a lei aplicável. Lei proposta: a lei da Indonésia, sujeita às leis obrigatórias de consumo e privacidade aplicáveis. Direitos obrigatórios do consumidor e regras de jurisdição aplicáveis são preservados, inclusive proteções exigidas por outras leis aplicáveis. Este rascunho não escolhe um tribunal exclusivo. Divulgações públicas do operador exigidas por lei e aprovação jurídica final continuam OWNER ACTION REQUIRED. A vigência será definida somente após aprovação final e publicação real.
+
+# Público-alvo e idade
+
+Komprexo é uma ferramenta geral de imagens destinada a adultos com 18 anos ou mais. Não é divulgado para crianças. O aplicativo não verifica idade. Esta declaração de público não garante que o Google Play impeça menores de baixar ou usar o aplicativo. Também não comprova conformidade com requisitos de proteção infantil.

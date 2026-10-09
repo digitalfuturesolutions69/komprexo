@@ -1,4 +1,4 @@
-DRAFT — RASCUNHO, sem aprovação para publicar. OWNER ACTION REQUIRED: público-alvo, data de vigência, aprovação da proposta de lei indonésia, informações legais públicas obrigatórias e divulgações pendentes sobre dados de terceiros. Preparado em 9 de outubro de 2026; não é a data de vigência. Revisão jurídica e de falante nativo qualificado são necessárias.
+DRAFT — RASCUNHO, sem aprovação para publicar. Público de lançamento confirmado: adultos com 18 anos ou mais. OWNER ACTION REQUIRED: aprovação jurídica final, divulgações públicas obrigatórias do operador, informações pendentes sobre dados de terceiros e data de vigência. A vigência será definida somente após aprovação final e publicação real. Preparado em 10 de outubro de 2026; não é a data de vigência. Revisão jurídica e de falante nativo qualificado são necessárias.
 
 # Contato seguro
 
@@ -15,3 +15,7 @@ Grátis dá 5 imagens bem-sucedidas/dia separadamente para Compressão, Redimens
 # Compras e privacidade
 
 Confira internet, Play Store e a conta proprietária, depois use Restaurar compras. Pagamentos pendentes precisam terminar. Premium offline dura até 24 horas após verificação; reconecte quando for necessária nova verificação. Reembolsos: https://support.google.com/googleplay/answer/2479637 . Google Billing pode processar diagnósticos; coleta exata e retenção ainda estão em revisão. Não há promessa de ausência de telemetria ou reembolso automático.
+
+# Público-alvo e idade
+
+Komprexo é uma ferramenta geral de imagens destinada a adultos com 18 anos ou mais. Não é divulgado para crianças. O aplicativo não verifica idade. Esta declaração de público não garante que o Google Play impeça menores de baixar ou usar o aplicativo. Também não comprova conformidade com requisitos de proteção infantil.

@@ -1,4 +1,4 @@
-DRAFT — BORRADOR, sin aprobación para publicar. OWNER ACTION REQUIRED: público destinatario, fecha de vigencia, aprobación de la propuesta de ley indonesia, información legal pública obligatoria y divulgaciones pendientes sobre datos de terceros. Preparado el 9 de octubre de 2026; no es la fecha de vigencia. Se requiere revisión jurídica y de un hablante nativo cualificado.
+DRAFT — BORRADOR, sin aprobación para publicar. Público de lanzamiento confirmado: adultos de 18 años o más. OWNER ACTION REQUIRED: aprobación jurídica final, divulgaciones públicas obligatorias del operador, información pendiente sobre datos de terceros y fecha de vigencia. La fecha de vigencia se fijará solo tras la aprobación final y la publicación real. Preparado el 10 de octubre de 2026; no es la fecha de vigencia. Se requiere revisión jurídica y de un hablante nativo cualificado.
 
 # Compra única y precio
 
@@ -15,3 +15,7 @@ Pagos pendientes, fallidos o cancelados no activan Premium. Google Play debe con
 # Reembolsos, revocación y ayuda
 
 Un reembolso o revocación válida puede retirar Premium al confirmarse. Sin conexión, la detección puede tardar. Los resultados completados permanecen. Solicita reembolsos por Google Play: https://support.google.com/googleplay/answer/2479637 . Se conservan los derechos legales del consumidor. No se promete reembolso automático, plazo fijo ni Premium sin conexión ilimitado de por vida. Ayuda: komprexo.support@gmail.com; no envíes tarjetas, imágenes privadas ni tokens de compra.
+
+# Público destinatario y edad
+
+Komprexo es una herramienta general de imágenes destinada a adultos de 18 años o más. No se promociona para niños. La aplicación no verifica la edad. Esta declaración de público no garantiza que Google Play impida a menores descargar o usar la aplicación. Tampoco demuestra cumplimiento de los requisitos de protección infantil.

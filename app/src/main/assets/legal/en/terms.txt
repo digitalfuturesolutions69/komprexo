@@ -1,4 +1,4 @@
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
+DRAFT — not approved for publication. Intended launch audience confirmed: adults aged 18 and older. OWNER ACTION REQUIRED: final legal approval, required public operator disclosures, unresolved third-party data disclosures and effective date. The effective date will be set only after final approval and actual publication. Prepared 10 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Using Komprexo
 
@@ -18,4 +18,8 @@ Restore Purchases is supported with the Google Play account that owns Premium. P
 
 # Rights and support
 
-Third-party software licenses remain available in Settings. Changes to features or paid rights remain subject to applicable law. Proposed governing law: Indonesian law, subject to owner approval. Mandatory consumer rights and applicable jurisdiction rules are preserved, including protections required by other applicable laws. No exclusive court is selected by this draft. Target audience, effective date and any legally required public operator disclosures: OWNER ACTION REQUIRED. This draft is not legal approval.
+Third-party software licenses remain available in Settings. Changes to features or paid rights remain subject to applicable law. Proposed governing law: Indonesian law, subject to applicable mandatory consumer and privacy laws. Mandatory consumer rights and applicable jurisdiction rules are preserved, including protections required by other applicable laws. No exclusive court is selected by this draft. Any legally required public operator disclosures and final legal approval remain OWNER ACTION REQUIRED. The effective date will be set only after final approval and actual publication.
+
+# Intended audience and age
+
+Komprexo is a general image utility intended for adults aged 18 and older. It is not marketed to children. The app does not verify age. This audience statement does not guarantee that Google Play prevents minors from downloading or using the app. It does not establish compliance with child-protection requirements.

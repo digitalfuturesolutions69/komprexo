@@ -1,6 +1,6 @@
 # Komprexo — Privacy
 
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
+DRAFT — not approved for publication. Intended launch audience confirmed: adults aged 18 and older. OWNER ACTION REQUIRED: final legal approval, required public operator disclosures, unresolved third-party data disclosures and effective date. The effective date will be set only after final approval and actual publication. Prepared 10 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Who we are and how to contact us
 
@@ -32,4 +32,8 @@ Local temporary files, quota records and preferences follow the rules above. The
 
 # Your choices and rights
 
-You can choose which images to process, revoke access, change language, clear app data and delete copies you saved. Revoking permission does not delete a copy already imported. Contact komprexo.support@gmail.com about access, correction or deletion requests and rights available under applicable law. Contact Google or a receiving provider about records they control. If you email support, that provider processes the message; avoid private photos, card details and purchase tokens. Target audience, children-related requirements and the policy effective date remain OWNER ACTION REQUIRED. Policies and use of included software must be reviewed before future changes or publication. Support messages contain information you choose to send. How support mail is retained and handled must be confirmed by the owner before publication: OWNER ACTION REQUIRED.
+You can choose which images to process, revoke access, change language, clear app data and delete copies you saved. Revoking permission does not delete a copy already imported. Contact komprexo.support@gmail.com about access, correction or deletion requests and rights available under applicable law. Contact Google or a receiving provider about records they control. If you email support, that provider processes the message; avoid private photos, card details and purchase tokens. Applicable child-protection obligations and the policy effective date still require review and approval before publication: OWNER ACTION REQUIRED. Policies and use of included software must be reviewed before future changes or publication. Support messages contain information you choose to send. How support mail is retained and handled must be confirmed by the owner before publication: OWNER ACTION REQUIRED.
+
+# Intended audience and age
+
+Komprexo is a general image utility intended for adults aged 18 and older. It is not marketed to children. The app does not verify age. This audience statement does not guarantee that Google Play prevents minors from downloading or using the app. It does not establish compliance with child-protection requirements.
