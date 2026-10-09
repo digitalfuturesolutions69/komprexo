@@ -70,7 +70,14 @@ class UiStabilizationTest {
             for(node in textNodes.filter { it.boundsInRoot.width>=it.size.width-1 && it.boundsInRoot.height>=it.size.height-1 && it.size.height>0 }) {
                 val layouts=mutableListOf<TextLayoutResult>()
                 node.config[SemanticsActions.GetTextLayoutResult].action?.invoke(layouts)
-                layouts.forEach { assertFalse("Visible label is clipped: ${it.layoutInput.text}; size=${it.size}, widthOverflow=${it.didOverflowWidth}, heightOverflow=${it.didOverflowHeight}",it.hasVisualOverflow) }
+                layouts.forEach { layout ->
+                    assertEquals("Large-font coverage must reach dialog text",2f,layout.layoutInput.density.fontScale,0.001f)
+                    // Paragraph metrics are fractional pixels; layout sizes are integer pixels.
+                    val widthOverflow=layout.multiParagraph.width-layout.size.width
+                    val heightOverflow=layout.multiParagraph.height-layout.size.height
+                    assertTrue("Visible label clipped: ${layout.layoutInput.text}; overflow=$widthOverflow x $heightOverflow",widthOverflow<=1f && heightOverflow<=1f)
+                    for(line in 0 until layout.lineCount) assertFalse("Label must not be ellipsized",layout.isLineEllipsized(line))
+                }
             }
         }
         for(node in compose.onAllNodes(isSelectable()).fetchSemanticsNodes()) {

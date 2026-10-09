@@ -63,7 +63,11 @@ checks for clipping and dialog status-icon contrast; it is not claimed PASS.
 The first clipping helper incorrectly included covered background/partially scrolled
 text. It now checks fully visible text in the active scroll viewport. Controls use
 content-height selectable surfaces with radio semantics, wrapping labels and padding.
-Dialog status/navigation inset areas now have explicit contrasting backgrounds,
+Dialog inherits parent density/theme configuration explicitly; separate Android
+windows otherwise replace synthetic font/theme overrides used in tests. UI tests
+assert that dialog text actually uses 2.0 font scale. Text clipping checks allow
+at most one physical pixel of fractional paragraph/integer layout rounding, and
+reject ellipsis and larger overflow. Dialog status/navigation inset areas have explicit contrasting backgrounds,
 including transparent edge-to-edge bars on API 35+. The emulator action runs script lines in separate shells. Tests and evidence copy
 now share one shell command that preserves and returns the actual Gradle exit
 status, so failed tests retain screenshots and still fail CI.

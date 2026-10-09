@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -43,12 +44,15 @@ import com.komprexo.app.processing.Preset
 @Composable
 fun ResponsiveSettingsDialog(title: String, onDismiss: () -> Unit, onConfirm: () -> Unit,
     content: @Composable ColumnScope.() -> Unit) {
+    val inheritedDensity=LocalDensity.current
+    val inheritedConfiguration=LocalConfiguration.current
+    val dark=isSystemInDarkTheme()
     Dialog(onDismissRequest = onDismiss,
         properties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
+        CompositionLocalProvider(LocalDensity provides inheritedDensity, LocalConfiguration provides inheritedConfiguration) {
         val view = LocalView.current
         val focus = LocalFocusManager.current
         val keyboard = LocalSoftwareKeyboardController.current
-        val dark = isSystemInDarkTheme()
         SideEffect {
             (view.parent as? DialogWindowProvider)?.window?.let { window ->
                 window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
@@ -89,6 +93,7 @@ fun ResponsiveSettingsDialog(title: String, onDismiss: () -> Unit, onConfirm: ()
                     }
                 }
             }
+        }
         }
         }
     }
