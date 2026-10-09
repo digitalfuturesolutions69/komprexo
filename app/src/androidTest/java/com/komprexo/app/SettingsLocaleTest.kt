@@ -40,7 +40,14 @@ class SettingsLocaleTest {
         }
     }
     private fun main(block:()->Unit)=InstrumentationRegistry.getInstrumentation().runOnMainSync(block)
-    @Before fun english() { orientation(false);locale("en") }
+    @Before fun english() {
+        orientation(false)
+        // Avoid requesting an unnecessary en-US -> en recreation during setup.
+        if(currentLanguage()!="en") locale("en")
+        compose.waitUntil(20000) { focusedWindow() }
+    }
+    private fun focusedWindow() = compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED &&
+        compose.activity.window.decorView.let { it.isAttachedToWindow && it.isShown && it.hasWindowFocus() }
     @After fun restore() {
         val application=compose.activity.applicationContext
         EntitlementProviderFactory.setTestingPremium(false)
@@ -62,26 +69,25 @@ class SettingsLocaleTest {
         val expected=if(tag.isEmpty()) ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.toLanguageTag()
             else java.util.Locale.forLanguageTag(tag).toLanguageTag()
         main { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag)) }
-        // A real language change must finish recreation. A native same-language
-        // regional/default change need not replace the Activity. Assert the stored
-        // override separately; effective system locales can include regional fallback.
+        // A regional change can also recreate the Activity. Do not synchronize
+        // Compose against the outgoing root merely because its language matches.
         try {
             compose.waitUntil(20000) {
-                ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.let { actual ->
-                    val wanted=java.util.Locale.forLanguageTag(expected)
-                    actual.language==wanted.language && (tag.isEmpty() || wanted.country.isEmpty() || actual.country==wanted.country)
-                }==true && AppCompatDelegate.getApplicationLocales().toLanguageTags()==LocaleListCompat.forLanguageTags(tag).toLanguageTags() &&
-                    (java.util.Locale.forLanguageTag(effective ?: expected).language==java.util.Locale.forLanguageTag(expected).language || compose.activity!==previous) &&
-                    compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+                ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.toLanguageTag()==expected &&
+                    AppCompatDelegate.getApplicationLocales().toLanguageTags()==LocaleListCompat.forLanguageTags(tag).toLanguageTags() &&
+                    (effective==expected || compose.activity!==previous) && focusedWindow()
             }
         } catch(error: androidx.compose.ui.test.ComposeTimeoutException) {
             android.util.Log.i("KomprexoTest","event=LOCALE_TIMEOUT api="+android.os.Build.VERSION.SDK_INT+
                 " requested="+tag+" expected="+expected+" before="+effective+
                 " actual="+ConfigurationCompat.getLocales(compose.activity.resources.configuration).toLanguageTags()+
                 " stored="+AppCompatDelegate.getApplicationLocales().toLanguageTags()+
-                " replaced="+(compose.activity!==previous)+" lifecycle="+compose.activity.lifecycle.currentState)
+                " replaced="+(compose.activity!==previous)+" focused="+focusedWindow()+" lifecycle="+compose.activity.lifecycle.currentState)
             throw error
         }
+        android.util.Log.i("KomprexoTest","event=LOCALE_READY requested="+tag+" before="+effective+
+            " actual="+ConfigurationCompat.getLocales(compose.activity.resources.configuration).toLanguageTags()+
+            " replaced="+(compose.activity!==previous)+" focused="+focusedWindow())
         compose.waitForIdle()
     }
     private fun orientation(landscape:Boolean) {
@@ -92,7 +98,7 @@ class SettingsLocaleTest {
         compose.waitUntil(20000) {
             compose.activity.resources.configuration.orientation==expected &&
                 (!changed || compose.activity!==previous) &&
-                compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+                focusedWindow()
         }
         compose.waitForIdle()
     }
@@ -112,11 +118,19 @@ class SettingsLocaleTest {
     @Test fun hindiSettingsAndLegal() { render("hi");captureEvidence("phase4-hindi-legal") }
     @Test fun systemDefaultChoiceClearsOverride() {
         locale("es");settings();compose.onNodeWithTag("languageSettings").performScrollTo().performClick()
-        compose.onNodeWithTag("locale_").performScrollTo().performClick();compose.waitForIdle()
+        val previous=compose.activity
+        compose.onNodeWithTag("locale_").performScrollTo().performClick()
+        val systemLanguage=ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.language
+        compose.waitUntil(20000) { compose.activity!==previous && currentLanguage()==systemLanguage && focusedWindow() }
+        compose.waitForIdle()
         assertTrue(AppCompatDelegate.getApplicationLocales().isEmpty)
     }
     @Test fun languagePersistsAfterActivityRecreation() {
-        locale("pt-BR");compose.activityRule.scenario.recreate();compose.waitForIdle()
+        locale("pt-BR")
+        val previous=compose.activity
+        compose.activityRule.scenario.recreate()
+        compose.waitUntil(20000) { compose.activity!==previous && focusedWindow() }
+        compose.waitForIdle()
         assertEquals("pt",currentLanguage());assertEquals("pt-BR",AppCompatDelegate.getApplicationLocales().toLanguageTags())
     }
     @Test fun localeChangesPreserveWorkPremiumAndAllQuotaCounters() {
