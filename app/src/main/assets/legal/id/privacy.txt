@@ -1,29 +1,33 @@
-DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
 
-# Identitas dan kontak
+# Tentang kami dan kontak
 
-Komprexo adalah aplikasi pengolah gambar Android. Nama hukum dan alamat usaha pengembang: [PERLU TINJAUAN PEMILIK]. Hubungi komprexo.support@gmail.com untuk bantuan dan pertanyaan privasi.
+Komprexo membantu mengompres, mengubah ukuran dan mengonversi gambar di Android. Nama hukum pengembang dan alamat usaha: OWNER ACTION REQUIRED. Pertanyaan privasi: komprexo.support@gmail.com.
 
-# Foto dan pemrosesan lokal
+# Gambar yang Anda pilih
 
-Anda memilih gambar melalui pemilih dokumen atau foto Android. Komprexo hanya membaca konten terpilih sesuai izin URI Android, menyalin masukan ke penyimpanan sementara privat, lalu melakukan kompresi, resize atau konversi di perangkat. Foto tidak diunggah ke server Komprexo. Tidak ada server Komprexo, akun, database aplikasi atau SDK analitik.
+Komprexo mengakses gambar pilihan Anda dan informasi yang diperlukan untuk membacanya, seperti format, dimensi dan orientasi. Salinan sementara dapat memuat metadata kamera dari gambar asli. Pemrosesan dan pratinjau dilakukan di perangkat. Pemrosesan tidak memerlukan pengunggahan foto ke server Komprexo. Komprexo tidak memiliki server pemrosesan foto atau akun aplikasi. Jika gambar dipilih dari penyedia online, penyedia mungkin memerlukan koneksi untuk menyediakan file dan menerapkan kebijakannya sendiri.
 
-# File sementara, simpan dan bagikan
+# File sementara, Simpan dan Bagikan
 
-Cache masukan, keluaran dan thumbnail privat mendukung pemrosesan dan pratinjau. Gambar asli dipertahankan. Cache dibersihkan saat aplikasi mulai atau ketika diganti/dihapus, bergantung pada gangguan proses dan perilaku penyimpanan Android; cache bukan penyimpanan permanen. Simpan menulis salinan ke tujuan pilihan Anda. Bagikan memberi aplikasi penerima akses sementara melalui FileProvider yang tidak diekspor. Kebijakan penerima dan penyedia penyimpanan berlaku; Komprexo tidak dapat menghapus salinan yang Anda ekspor atau kirim.
+Aplikasi menyimpan file masukan, hasil dan pratinjau sementara di ruang penyimpanan privat. Gambar asli tidak diubah. Sebagian file dihapus saat pekerjaan diganti atau dibersihkan, atau proses gagal. File yang lebih lama dari 24 jam diperiksa untuk dibersihkan saat penyimpanan gambar diinisialisasi; penghapusan tidak dijamin tepat setelah 24 jam. Simpan hasil penting. Simpan menulis salinan ke tujuan pilihan Anda. Bagikan memberi aplikasi pilihan Anda akses ke hasil. Penyedia penyimpanan cloud atau aplikasi penerima dapat mengunggah atau menyimpan salinan sesuai kebijakannya. Komprexo tidak dapat menarik kembali salinan yang diekspor.
 
-# Preferensi dan kuota lokal
+# Kuota dan preferensi lokal
 
-DataStore privat menyimpan tiga jumlah kuota harian dan jurnal reservasi, termasuk hari lokal, batas tertinggi waktu, fitur dan nomor slot. Tidak menyimpan identitas gambar, EXIF atau riwayat gambar. Preferensi bahasa per aplikasi Android menyimpan pilihan bahasa. Menghapus data atau mencopot aplikasi menghapus data lokal; file ekspor tetap Anda kendalikan. Pencadangan Android dinonaktifkan.
+Aplikasi menyimpan hitungan harian per fitur, informasi proses yang belum selesai dan pilihan bahasa secara lokal. Catatan ini bukan riwayat gambar. Hitungan direset sesuai aturan kuota harian. Preferensi tersimpan hingga diubah atau dihapus. Menghapus data aplikasi atau mencopot aplikasi menghapus file dan catatan privat; tindakan ini tidak menghapus file ekspor atau catatan pembelian Google. Pencadangan aplikasi dinonaktifkan.
 
-# Pembelian Google Play dan jaringan
+# Pembelian dan layanan Google
 
-Premium memakai Google Play Billing 9.1.0 untuk pembelian sekali bayar non-konsumsi, pemeriksaan kepemilikan, pengakuan dan pemulihan. Google Play menangani informasi pembayaran; Komprexo tidak mengumpulkan data kartu. Token pembelian hanya ada sementara di memori untuk pemeriksaan/pengakuan dan tidak dicatat di log. Ringkasan token serta waktu pemeriksaan/kedaluwarsa dapat dienkripsi dengan AndroidKeyStore untuk maksimal 24 jam tanpa internet. Aplikasi tidak menyimpan token mentah atau identitas pesanan. Billing menambahkan izin INTERNET, ACCESS_NETWORK_STATE dan BILLING. Google Play dan SDK-nya dapat memproses informasi transaksi/akun, perangkat dan diagnostik sesuai kebijakan mereka; kami tidak menyatakan Google tidak mengumpulkan data. Pengolahan gambar tetap bekerja tanpa internet. Transport bawaan Billing dapat mengantrekan diagnostik operasional di penyimpanan lokal SDK, termasuk SQLite; Komprexo tidak memakainya untuk foto atau kuota. Pustaka lokasi adalah dependensi transitif, tetapi aplikasi tidak meminta izin lokasi atau memanggil API lokasi. Akses cache berlaku 24 jam; catatan kedaluwarsa dihapus saat pemeriksaan berikutnya atau aplikasi dimulai.
+Google Play menangani pembayaran dan rinciannya. Komprexo memakai informasi pembelian untuk mengaktifkan, memulihkan dan memeriksa Premium. Aplikasi tidak menyimpan data kartu atau riwayat pesanan. Catatan kepemilikan lokal yang dilindungi mendukung Premium offline hingga 24 jam setelah pemeriksaan berhasil. Catatan kedaluwarsa atau tidak valid dihapus saat pemeriksaan berikutnya. Pembelian dan pemeriksaan ulang memerlukan internet. Pemrosesan gambar sendiri tetap bekerja offline.
 
-# Retensi, keamanan dan keterbatasan
+# Diagnostik pihak ketiga
 
-Cache hak akses terenkripsi kedaluwarsa setelah 24 jam dan dibatalkan saat kepemilikan hilang secara terkonfirmasi, cache kedaluwarsa atau jam mundur. Autentikasi cache lokal bukan verifikasi pembelian server yang kebal manipulasi. Deteksi pengembalian dana/pencabutan dapat tertunda tanpa internet. Penyimpanan privat, akses URI terbatas, pemrosesan berbatas dan FileProvider aman mengurangi risiko, tanpa menjamin keamanan mutlak. Retensi SDK/jaringan ditentukan Google dan perlu diaudit lagi sebelum publikasi.
+Google Play dan perangkat lunak bawaannya dapat memproses informasi pembelian, akun, perangkat, jaringan dan diagnostik sesuai kebijakannya. Perangkat lunak terkait Billing dapat menyimpan dan mengirim diagnostik layanan. Jenis data tepat, masa penyimpanan dan ketentuan penghapusan masih perlu dikonfirmasi sebelum publikasi: OWNER ACTION REQUIRED. Tidak ada klaim bahwa pengumpulan data sama sekali tidak terjadi. Komprexo tidak memiliki layanan analitik aplikasi atau iklan tersendiri. Aplikasi tidak meminta izin lokasi perangkat atau memanggil layanan lokasi. Hal ini tidak membuktikan informasi apa yang dapat disimpulkan Google dari jaringan.
 
-# Hak, anak dan perubahan
+# Penyimpanan dan keamanan
 
-Anda dapat mengganti bahasa, mencabut izin gambar, menghapus data aplikasi/salinan ekspor dan menghubungi kami untuk pertanyaan privasi. Google mengendalikan catatan akun/pembayaran dan prosedur hak terkait. Target usia, usia minimum dan kewajiban persetujuan anak/orang tua menurut wilayah [PERLU TINJAUAN PEMILIK] sebelum rilis. Perubahan kebijakan diterbitkan dengan tanggal berlaku setelah tinjauan pemilik. Iklan belum diintegrasikan; privasi dan Data Safety harus ditinjau lagi sebelum iklan ditambahkan.
+File sementara, kuota dan preferensi mengikuti aturan di atas. Catatan Premium offline berlaku maksimal 24 jam; ini bukan batas penghapusan catatan Google atau diagnostik perangkat lunak Google. Google serta penyedia penyimpanan, berbagi atau email memiliki aturan penyimpanan sendiri. Penyimpanan privat dan catatan kepemilikan yang dilindungi mengurangi risiko, tetapi tidak menjamin keamanan mutlak atau mengenkripsi setiap foto. Perangkat yang disusupi dan keterlambatan pemeriksaan refund saat offline tetap mungkin terjadi.
+
+# Pilihan dan hak Anda
+
+Anda dapat memilih gambar, mencabut akses, mengubah bahasa, menghapus data aplikasi dan menghapus salinan yang disimpan. Mencabut izin tidak menghapus salinan yang sudah diimpor. Hubungi komprexo.support@gmail.com untuk permintaan akses, koreksi atau penghapusan serta hak berdasarkan hukum yang berlaku. Hubungi Google atau penyedia penerima untuk catatan yang mereka kendalikan. Penyedia email memproses pesan dukungan Anda; hindari foto privat, data kartu dan token pembelian. Target pengguna, ketentuan terkait anak dan tanggal berlaku masih OWNER ACTION REQUIRED. Kebijakan dan penggunaan perangkat lunak bawaan harus ditinjau sebelum perubahan atau publikasi. Pesan dukungan memuat informasi yang Anda pilih untuk dikirim. Cara penanganan dan masa penyimpanan email dukungan perlu dikonfirmasi pemilik sebelum publikasi: OWNER ACTION REQUIRED.

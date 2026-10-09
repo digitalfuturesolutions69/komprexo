@@ -1,5 +1,5 @@
-DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
 
 # Komprexo
 
-Alat Android native untuk Compress, Resize dan Convert di perangkat. Gambar asli dipertahankan; hasil dapat disimpan atau dibagikan. ID aplikasi: com.komprexo.app. Kontak resmi: komprexo.support@gmail.com. Identitas hukum pengembang: [PERLU TINJAUAN PEMILIK]. Sumber website disiapkan tetapi belum dipublikasikan.
+Alat Android untuk Kompresi, Resize dan Convert lokal. Gambar asli dipertahankan; hasil dapat disimpan atau dibagikan. Kontak: komprexo.support@gmail.com. Identitas pengembang, target pengguna dan rincian publikasi: OWNER ACTION REQUIRED. Source situs belum dipublikasikan.

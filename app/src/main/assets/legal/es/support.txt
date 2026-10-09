@@ -1,17 +1,17 @@
-DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+DRAFT — BORRADOR, sin aprobación para publicar. OWNER ACTION REQUIRED: nombre legal del desarrollador, dirección comercial, ley aplicable, público destinatario y fecha de vigencia. Preparado el 9 de octubre de 2026; no es la fecha de vigencia. Todas las traducciones requieren revisión jurídica y de un hablante nativo cualificado.
 
-# Contacto
+# Contacto seguro
 
-Email komprexo.support@gmail.com. No hay formulario de subida, cuenta ni servidor de soporte.
+Escribe a komprexo.support@gmail.com. Incluye versión de app y Android, modelo, función, formato y error. Oculta datos personales en capturas. No envíes imágenes privadas, documentos, metadatos de cámara, tarjetas ni tokens. La aplicación abre tu cliente de correo sin adjuntar fotos automáticamente. Tu proveedor procesa el mensaje.
 
-# Imágenes y cuotas
+# Problemas de imágenes
 
-Elige JPEG, PNG o WebP local compatible. HEIC/HEIF no se admite: exporta JPEG/PNG. Si pierdes permiso, selecciona otra vez; si falta memoria, usa una imagen menor. Cada función Gratis tiene cinco resultados diarios, compartidos entre individual/lote; máximo dos por lote. Guardar/Compartir no consume créditos.
+Usa JPEG, PNG o WebP compatible. HEIC/HEIF no es compatible; exporta primero una copia JPEG o PNG. Vuelve a elegir la imagen tras errores de acceso. Prueba una imagen menor si falta memoria. Los originales se conservan. Guarda resultados antes de borrar trabajo o datos. Tú y el receptor controláis las copias guardadas o compartidas.
 
-# Problemas de compra
+# Cuotas y Premium
 
-Comprueba Play Store, conexión y cuenta propietaria; después restaura compras. El pago pendiente debe completarse. Un producto no disponible puede requerir configuración del propietario. Reembolsos: https://support.google.com/googleplay/answer/2479637 .
+Gratis da 5 imágenes correctas/día por separado a Compresión, Redimensionar y Convertir. Individual y lote comparten su cuota; Gratis permite 2 por lote. Fallos y créditos cancelados no utilizados no se cobran. Guardar y Compartir no usan créditos. Premium elimina límites diarios y permite hasta 20 imágenes por lote dentro de límites seguros.
 
-# Informes seguros
+# Compras y privacidad
 
-Envía versión, marca/modelo, Android, herramienta, formato y error sin información sensible. No envíes fotos privadas, EXIF, documentos, tarjetas ni tokens. Oculta datos personales en capturas. No se envía telemetría automática.
+Comprueba internet, Play Store y la cuenta propietaria; usa Restaurar compras. Los pagos pendientes deben terminar. Premium sin conexión dura hasta 24 horas después de comprobarse; vuelve a conectarte cuando se requiera otra comprobación. Reembolsos: https://support.google.com/googleplay/answer/2479637 . El software Google Billing puede procesar diagnósticos; datos exactos y conservación siguen en revisión. No se promete ausencia de telemetría ni reembolso automático.

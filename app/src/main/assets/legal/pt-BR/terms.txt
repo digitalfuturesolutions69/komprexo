@@ -1,25 +1,21 @@
-DRAFT — RASCUNHO — revisão do proprietário necessária. Preparado em 9 de outubro de 2026. Vigência: [APROVAÇÃO E PUBLICAÇÃO NECESSÁRIAS]. Identidade/endereço legal, lei aplicável e público-alvo: [REVISÃO DO PROPRIETÁRIO].
+DRAFT — RASCUNHO, sem aprovação para publicação. OWNER ACTION REQUIRED: nome jurídico do desenvolvedor, endereço comercial, lei aplicável, público-alvo e data de vigência. Preparado em 9 de outubro de 2026; esta não é a data de vigência. Todas as traduções precisam de revisão jurídica e por falante nativo qualificado.
 
-# Serviço e propriedade
+# Uso de Komprexo
 
-Komprexo oferece compressão, redimensionamento, conversão, predefinições, salvamento e compartilhamento no dispositivo. Você mantém a propriedade dos originais. Processe somente conteúdo autorizado; não viole direitos nem use ilegalmente.
+Compressão, Redimensionar e Converter funcionam no dispositivo. Seus originais continuam seus. Processe apenas conteúdo que possa usar legalmente. Resultados dependem da imagem, formato, objetivo e dispositivo. Compressão pode reduzir detalhes; mantenha originais e salve resultados importantes. Temporários não são backups.
 
-# Grátis e Premium
+# Cotas grátis
 
-Grátis permite cinco resultados aceitos por dia local PARA CADA função: Comprimir, Redimensionar e Converter, com contadores independentes. Individual/lote compartilham o contador; lote grátis tem no máximo duas imagens. Falhas e cancelamentos não aceitos não usam créditos. Transformações internas cobram uma vez da função principal; Salvar/Compartilhar não cobram. Premium remove as três cotas diárias, permite até vinte por lote dentro de limites técnicos e todas as predefinições.
+Compressão: 5 imagens bem-sucedidas por dia local. Redimensionar: 5. Converter: 5. São três cotas separadas. Individual e lote compartilham a cota da função. Grátis permite até 2 imagens por lote. Falhas e créditos cancelados não usados não são cobrados; resultados concluídos antes de cancelar contam. Transformações internas cobram apenas uma vez da função principal. Salvar e Compartilhar não usam créditos.
 
-# Pagamentos e restauração
+# Premium e limites técnicos
 
-Premium é compra única Google Play não consumível, não assinatura. IDR 49.000 é configuração proposta na Indonésia; Google Play fornece o preço local real elegível. Disponibilidade depende da configuração do proprietário e elegibilidade Google. Restaure pela conta proprietária. Pagamentos pendentes, cancelados ou com falha não ativam Premium. Reembolsos seguem Google Play e direitos obrigatórios do consumidor, sem garantia automática inventada.
+Premium remove os três limites diários, libera todos os ajustes inteligentes e permite até 20 imagens por lote. Limites de formato, tamanho, memória e segurança continuam. É compra única não consumível: o benefício não acaba após uma operação. Não há assinatura recorrente. Preço pretendido na Indonésia: Rp49.000. Google Play fornece o preço real de pagamento.
 
-# Limites técnicos
+# Propriedade, offline e reembolsos
 
-Resultados dependem de imagem, codec, formato e memória. Compressão pode perder detalhes; alguns formatos/dimensões não são compatíveis. Não há taxa de compressão garantida. Guarde originais e resultados importantes; saída temporária não é backup. Premium offline depende de cache recente autenticado; reembolso, revogação, troca de conta ou expiração podem restabelecer limites grátis sem destruir resultados concluídos.
+Restaurar compras usa a conta Google Play proprietária. Pagamentos pendentes, cancelados ou falhos não ativam Premium. Premium offline dura até 24 horas após verificação bem-sucedida. Depois, pode ser necessária nova verificação por internet. Reembolso ou revogação válida pode retirar Premium e restaurar limites grátis. Isso não apaga resultados concluídos. Reembolsos seguem processos Google Play e a lei de consumo aplicável; aprovação e prazo não são garantidos.
 
-# Propriedade intelectual e alterações
+# Direitos e suporte
 
-Marca e materiais Komprexo são distintos de imagens do usuário e software de terceiros. Avisos de código aberto permanecem disponíveis. Funções/compatibilidade podem mudar respeitando proteções do consumidor e direitos pagos. Não há descontos enganosos, escassez falsa ou cobrança recorrente.
-
-# Suporte e revisão legal
-
-Contate komprexo.support@gmail.com. Nada exclui direitos ou recursos obrigatórios do consumidor. Identidade/endereço legal, lei e foro: [REVISÃO DO PROPRIETÁRIO]. Os termos são rascunho até revisão/publicação; não há alegação de aprovação legal.
+Licenças de terceiros estão em Ajustes. Mudanças de recursos ou direitos pagos seguem a lei aplicável. Nada exclui direitos ou reparações obrigatórias do consumidor. Contato: komprexo.support@gmail.com. Nome jurídico, endereço, lei, foro, público e vigência: OWNER ACTION REQUIRED. O rascunho não é aprovação jurídica.

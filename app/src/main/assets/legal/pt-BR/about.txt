@@ -1,5 +1,5 @@
-DRAFT — RASCUNHO — revisão do proprietário necessária. Preparado em 9 de outubro de 2026. Vigência: [APROVAÇÃO E PUBLICAÇÃO NECESSÁRIAS]. Identidade/endereço legal, lei aplicável e público-alvo: [REVISÃO DO PROPRIETÁRIO].
+DRAFT — RASCUNHO, sem aprovação para publicação. OWNER ACTION REQUIRED: nome jurídico do desenvolvedor, endereço comercial, lei aplicável, público-alvo e data de vigência. Preparado em 9 de outubro de 2026; esta não é a data de vigência. Todas as traduções precisam de revisão jurídica e por falante nativo qualificado.
 
 # Komprexo
 
-Ferramentas nativas Android para Comprimir, Redimensionar e Converter no dispositivo. Originais preservados; resultados podem ser salvos/compartilhados. ID: com.komprexo.app. Contato: komprexo.support@gmail.com. Identidade legal: [REVISÃO DO PROPRIETÁRIO]. Fonte do site preparada, sem implantação pública.
+Ferramentas Android para Compressão, Redimensionar e Converter localmente. Originais preservados; salve ou compartilhe resultados. Contato: komprexo.support@gmail.com. Identidade, público e publicação: OWNER ACTION REQUIRED. O site não está publicado.

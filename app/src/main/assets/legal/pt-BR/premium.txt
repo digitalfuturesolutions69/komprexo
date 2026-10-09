@@ -1,17 +1,17 @@
-DRAFT — RASCUNHO — revisão do proprietário necessária. Preparado em 9 de outubro de 2026. Vigência: [APROVAÇÃO E PUBLICAÇÃO NECESSÁRIAS]. Identidade/endereço legal, lei aplicável e público-alvo: [REVISÃO DO PROPRIETÁRIO].
+DRAFT — RASCUNHO, sem aprovação para publicação. OWNER ACTION REQUIRED: nome jurídico do desenvolvedor, endereço comercial, lei aplicável, público-alvo e data de vigência. Preparado em 9 de outubro de 2026; esta não é a data de vigência. Todas as traduções precisam de revisão jurídica e por falante nativo qualificado.
 
-# Premium com pagamento único
+# Compra única e preço
 
-Preço proposto na Indonésia: IDR 49.000 uma vez, sujeito ao Play Console. O preço local real Google Play aparece antes da compra. Produto komprexo_premium_lifetime: INAPP, não consumível; sem assinatura, mensalidade, aluguel ou recorrência. Benefícios: funções sem limite diário, lotes até vinte com segurança e todas as predefinições. Sem anúncios se publicidade for introduzida depois; atualmente não há SDK de anúncios.
+Premium é uma compra única não consumível pelo Google Play. Não se esgota ao processar imagens. Não é assinatura e não tem cobrança recorrente. Preço pretendido na Indonésia: Rp49.000. Google Play mostra preço real, moeda e condições antes do pagamento. Disponibilidade depende da configuração e elegibilidade do Play.
 
-# Comprar e restaurar
+# Benefícios e limites grátis
 
-Compre apenas no diálogo oficial Google Play. Pagamentos pendentes não ativam; cancelamentos/falhas não criam compra. A propriedade concluída deve ser conciliada e reconhecida. Restaurar compras consulta a conta Play atual, inclusive após reinstalação. Use a conta proprietária e confira Play Store.
+Premium oferece Compressão, Redimensionar e Converter sem limite diário, todos os ajustes inteligentes e lotes de até 20 imagens, dentro de limites técnicos. Grátis tem três cotas separadas: 5 imagens bem-sucedidas/dia para Compressão, 5 para Redimensionar e 5 para Converter. Individual e lote compartilham a cota; Grátis permite 2 por lote. Falhas e créditos cancelados não usados não são cobrados. Transformações internas cobram uma vez da função principal; Salvar e Compartilhar não usam cota. Não há anúncios nesta versão.
 
-# Reembolsos e revogações
+# Ativação, restauração e offline
 
-Guia oficial: https://support.google.com/googleplay/answer/2479637 . Ajuda de compra: https://support.google.com/googleplay/answer/1061913 . Elegibilidade/aprovação dependem de Google Play e direitos do consumidor; não há promessa automática nem prazo inventado. Perda confirmada de propriedade retorna ao Grátis. Verificação offline dura até vinte e quatro horas após a última aceita; sem backend não há detecção imediata de reembolsos/revogação.
+Pagamentos pendentes, falhos ou cancelados não ativam Premium. Google Play deve confirmar compras concluídas. Restaurar compras consulta a conta proprietária, inclusive após reinstalar. Premium offline dura até 24 horas desde a última verificação bem-sucedida. Depois, pode precisar de nova verificação por internet. Imagens continuam sendo processadas offline com os limites grátis ou Premium aplicáveis.
 
-# Suporte
+# Reembolsos, revogação e ajuda
 
-Problemas de compra: komprexo.support@gmail.com. Informe versões do app/Android, status sem dados sensíveis e se tentou restaurar. Não envie tokens, cartões, fotos privadas nem documentos pessoais. Transações reais de teste diferem de testes automáticos com Billing simulado.
+Um reembolso ou revogação válida pode retirar Premium quando confirmado. Offline pode atrasar a detecção. Resultados concluídos permanecem. Solicite reembolso no Google Play: https://support.google.com/googleplay/answer/2479637 . Direitos legais do consumidor são preservados. Não há promessa de reembolso automático, prazo fixo ou Premium offline ilimitado para sempre. Ajuda: komprexo.support@gmail.com; não envie cartões, imagens privadas ou tokens de compra.

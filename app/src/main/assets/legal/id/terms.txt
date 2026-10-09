@@ -1,25 +1,21 @@
-DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
 
-# Layanan dan kepemilikan
+# Menggunakan Komprexo
 
-Komprexo menyediakan kompresi, resize, konversi, preset, simpan dan bagikan gambar di perangkat. Kepemilikan gambar asli tetap milik Anda. Proses hanya konten yang berhak Anda gunakan; jangan melanggar hak pihak lain atau memakai aplikasi untuk kegiatan ilegal.
+Kompresi, Resize dan Convert dilakukan di perangkat. Gambar asli tetap milik Anda. Proses hanya konten yang boleh Anda gunakan secara sah. Hasil bergantung pada gambar, format, target dan perangkat. Kompresi dapat mengurangi detail; simpan gambar asli dan hasil penting. File sementara bukan cadangan.
 
-# Gratis dan Premium
+# Kuota Gratis
 
-Gratis memberikan lima hasil sukses yang diterima per hari lokal untuk MASING-MASING fitur Compress, Resize dan Convert dengan penghitung terpisah. Operasi tunggal/batch berbagi penghitung fitur; batch Gratis maksimal dua gambar. Slot gagal atau dibatalkan sebelum diterima tidak dikenai kuota. Transformasi internal hanya mengenakan kuota fitur utama sekali; Simpan/Bagikan tidak dikenai kuota. Premium menghapus batas harian ketiganya dan mendukung batch maksimal dua puluh gambar dalam batas teknis aman, serta semua Smart Presets.
+Kompresi: 5 gambar berhasil per hari lokal. Resize: 5. Convert: 5. Ketiganya memiliki kuota terpisah. Proses satu gambar dan batch berbagi kuota fiturnya. Batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota; hasil yang berhasil sebelum pembatalan tetap dihitung. Resize atau encoding internal hanya mengenakan kuota fitur utama sekali. Simpan dan Bagikan tidak menggunakan kredit.
 
-# Pembayaran dan pemulihan
+# Premium dan batas teknis
 
-Premium adalah pembelian Google Play non-konsumsi sekali bayar, bukan langganan. IDR 49.000 merupakan rencana harga Indonesia; harga pembayaran lokal yang memenuhi syarat berasal dari Google Play. Ketersediaan bergantung pada pengaturan Play Console pemilik dan kelayakan Google. Pulihkan melalui akun Play pemilik pembelian. Pembayaran tertunda, dibatalkan atau gagal tidak mengaktifkan Premium. Pengembalian dana mengikuti prosedur Google Play dan hak konsumen wajib, bukan jaminan pengembalian otomatis.
+Premium menghapus tiga batas harian, membuka semua Smart Presets dan mendukung hingga 20 gambar per batch. Batas format, ukuran file, memori dan keselamatan perangkat tetap berlaku. Premium adalah pembelian sekali bayar non-konsumsi: hak peningkatan tidak habis setelah dipakai. Bukan langganan berulang. Harga yang ditujukan untuk Indonesia: Rp49.000. Harga pembayaran sebenarnya berasal dari Google Play.
 
-# Batas teknis
+# Kepemilikan, akses offline dan refund
 
-Hasil bergantung pada gambar, codec, format dan memori perangkat. Kompresi dapat mengurangi detail; sebagian format/ukuran tidak didukung. Tidak ada jaminan rasio kompresi. Simpan gambar asli dan hasil penting; keluaran sementara bukan cadangan. Premium tanpa internet terbatas pada cache pemeriksaan terbaru; pengembalian dana, pencabutan, pergantian akun atau kedaluwarsa dapat mengembalikan batas Gratis tanpa merusak hasil selesai.
+Pulihkan Pembelian didukung dengan akun Google Play pemilik Premium. Pembayaran tertunda, gagal atau dibatalkan tidak mengaktifkannya. Premium offline berlaku hingga 24 jam setelah pemeriksaan kepemilikan berhasil. Pemeriksaan baru melalui internet dapat diperlukan setelahnya. Refund atau pencabutan yang valid dapat menghapus akses Premium dan mengembalikan batas Gratis. Hasil yang sudah selesai tidak dihapus oleh perubahan ini. Permintaan refund mengikuti proses Google Play dan hukum konsumen yang berlaku; persetujuan dan waktunya tidak dijamin.
 
-# Hak kekayaan intelektual dan perubahan
+# Hak dan dukungan
 
-Merek dan materi Komprexo terpisah dari gambar pengguna serta perangkat lunak pihak ketiga. Pemberitahuan lisensi sumber terbuka tetap tersedia. Fitur/kompatibilitas dapat berubah dengan tetap mematuhi perlindungan konsumen dan kewajiban hak berbayar. Tidak ada diskon menyesatkan, kelangkaan palsu atau biaya berulang dalam penawaran ini.
-
-# Bantuan dan tinjauan hukum
-
-Hubungi komprexo.support@gmail.com. Ketentuan ini tidak mengecualikan hak atau pemulihan konsumen wajib. Identitas/alamat hukum pengembang, hukum yang berlaku dan tempat penyelesaian sengketa [PERLU TINJAUAN PEMILIK]. Ketentuan tetap draf hingga ditinjau dan diterbitkan; bukan klaim persetujuan hukum.
+Lisensi perangkat lunak pihak ketiga tersedia di Pengaturan. Perubahan fitur atau hak berbayar tetap tunduk pada hukum yang berlaku. Ketentuan ini tidak menghapus hak atau pemulihan konsumen yang wajib dilindungi. Hubungi komprexo.support@gmail.com. Nama hukum pengembang, alamat, hukum yang berlaku, tempat penyelesaian sengketa, target pengguna dan tanggal berlaku: OWNER ACTION REQUIRED. Draf ini bukan persetujuan hukum.

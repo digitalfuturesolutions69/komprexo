@@ -1,17 +1,17 @@
-DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].
+DRAFT — BORRADOR, sin aprobación para publicar. OWNER ACTION REQUIRED: nombre legal del desarrollador, dirección comercial, ley aplicable, público destinatario y fecha de vigencia. Preparado el 9 de octubre de 2026; no es la fecha de vigencia. Todas las traducciones requieren revisión jurídica y de un hablante nativo cualificado.
 
-# Premium de pago único
+# Compra única y precio
 
-Precio propuesto para Indonesia: IDR 49.000 una vez, sujeto a Play Console. Antes de comprar se muestra el precio local real de Google Play. Producto komprexo_premium_lifetime: INAPP, no consumible; sin suscripción, mensualidad, alquiler ni cargos recurrentes. Beneficios: Comprimir, Redimensionar y Convertir sin límite diario, lotes hasta veinte con límites seguros y todos los ajustes. Sin anuncios si se introduce publicidad después; actualmente no hay SDK de anuncios.
+Premium es una compra única no consumible mediante Google Play. No se agota al procesar imágenes. No es una suscripción ni tiene cargos recurrentes. Precio previsto en Indonesia: Rp49.000. Google Play muestra el precio real, moneda y condiciones antes de pagar. La disponibilidad depende de la configuración y elegibilidad de Play.
 
-# Comprar y restaurar
+# Ventajas y límites gratuitos
 
-Compra solo mediante el diálogo oficial Google Play. Un pago pendiente no activa Premium; cancelado/fallido no crea compra. La propiedad completada debe conciliarse y reconocerse. Restaurar compras consulta la cuenta Play actual, también tras reinstalar. Usa la cuenta propietaria y comprueba Play Store.
+Premium ofrece Compresión, Redimensionar y Convertir sin límite diario, todos los ajustes inteligentes y lotes de hasta 20 imágenes, dentro de límites técnicos. Gratis tiene tres cuotas separadas: 5 imágenes correctas/día para Compresión, 5 para Redimensionar y 5 para Convertir. Individual y lote comparten su cuota; Gratis admite 2 por lote. Los fallos y créditos cancelados no utilizados no se cobran. Las transformaciones internas cobran una vez a la función principal; Guardar y Compartir no usan cuota. Esta versión no tiene anuncios.
 
-# Reembolsos y revocaciones
+# Activación, restauración y conexión
 
-Guía oficial: https://support.google.com/googleplay/answer/2479637 . Ayuda de compra: https://support.google.com/googleplay/answer/1061913 . Elegibilidad y aprobación dependen de Google Play y derechos del consumidor; no prometemos devolución automática ni plazos inventados. La pérdida confirmada de propiedad vuelve a Gratis. La comprobación sin conexión dura hasta veinticuatro horas desde la última aceptada; sin backend no hay detección inmediata de reembolsos/revocación.
+Pagos pendientes, fallidos o cancelados no activan Premium. Google Play debe confirmar las compras completadas. Restaurar compras comprueba la cuenta propietaria, también tras reinstalar. Premium sin conexión dura hasta 24 horas desde la última comprobación correcta. Después puede requerir otra comprobación por internet. Las imágenes siguen procesándose sin conexión con los límites gratuitos o Premium correspondientes.
 
-# Soporte
+# Reembolsos, revocación y ayuda
 
-Problemas de compra: komprexo.support@gmail.com. Indica versión de app/Android, estado sin datos sensibles y si probaste restaurar. No envíes tokens, tarjetas, fotos privadas ni documentos personales. Las transacciones reales de prueba son distintas de pruebas automáticas con Billing simulado.
+Un reembolso o revocación válida puede retirar Premium al confirmarse. Sin conexión, la detección puede tardar. Los resultados completados permanecen. Solicita reembolsos por Google Play: https://support.google.com/googleplay/answer/2479637 . Se conservan los derechos legales del consumidor. No se promete reembolso automático, plazo fijo ni Premium sin conexión ilimitado de por vida. Ayuda: komprexo.support@gmail.com; no envíes tarjetas, imágenes privadas ni tokens de compra.

@@ -1,101 +1,101 @@
 {
-  "draft": "DRAFT — BORRADOR — requiere revisión del propietario. Preparado el 9 de octubre de 2026. Fecha de vigencia: [REQUIERE APROBACIÓN Y PUBLICACIÓN]. Identidad/dirección legal, legislación y público objetivo: [REVISIÓN DEL PROPIETARIO].",
+  "draft": "DRAFT — BORRADOR, sin aprobación para publicar. OWNER ACTION REQUIRED: nombre legal del desarrollador, dirección comercial, ley aplicable, público destinatario y fecha de vigencia. Preparado el 9 de octubre de 2026; no es la fecha de vigencia. Todas las traducciones requieren revisión jurídica y de un hablante nativo cualificado.",
   "privacy": [
     [
-      "Identidad y contacto",
-      "Komprexo es una herramienta de imágenes para Android. Nombre legal y dirección del desarrollador: [REVISIÓN DEL PROPIETARIO]. Soporte y consultas de privacidad: komprexo.support@gmail.com."
+      "Quiénes somos y contacto",
+      "Komprexo permite comprimir, redimensionar y convertir imágenes en Android. Nombre legal y dirección del desarrollador: OWNER ACTION REQUIRED. Consultas de privacidad: komprexo.support@gmail.com."
     ],
     [
-      "Fotos y procesamiento local",
-      "Eliges imágenes con el selector de fotos o documentos de Android. Komprexo lee únicamente el contenido elegido con permisos URI, copia la entrada a almacenamiento temporal privado y comprime, redimensiona o convierte en tu dispositivo. No sube fotos a servidores de Komprexo. No hay servidor Komprexo, cuentas, base de datos de aplicación ni SDK de analítica."
+      "Imágenes que eliges",
+      "Komprexo accede a las imágenes elegidas y a la información necesaria para leerlas, como formato, dimensiones y orientación. Las copias temporales pueden incluir metadatos de cámara del original. El procesamiento y las vistas previas se realizan en tu dispositivo. No hace falta subir fotos a un servidor de Komprexo. No hay servidor de procesamiento de fotos ni cuenta de la aplicación. Si eliges una imagen de un proveedor en línea, puede necesitar conexión para entregarla y aplica su propia política."
     ],
     [
-      "Archivos temporales, guardar y compartir",
-      "Las cachés privadas de entrada, salida y miniaturas permiten procesar y previsualizar. Los originales se conservan. Las cachés se limpian al iniciar o al reemplazar/borrar, según interrupciones y el almacenamiento Android; no son permanentes. Guardar escribe una copia en el destino elegido. Compartir da al receptor acceso temporal mediante FileProvider no exportado. Aplicaciones receptoras y proveedores aplican sus propias políticas; Komprexo no puede borrar copias exportadas o enviadas."
+      "Archivos temporales, Guardar y Compartir",
+      "La aplicación guarda entradas, resultados y vistas previas temporales en almacenamiento privado. Los originales no cambian. Algunos archivos se eliminan al sustituir o borrar el trabajo, o si un proceso falla. Se revisan para limpieza los archivos de más de 24 horas al inicializar el almacenamiento de imágenes; no se garantiza su eliminación exactamente a las 24 horas. Guarda los resultados importantes. Guardar crea una copia en el destino elegido. Compartir da acceso al resultado a la aplicación elegida. Un proveedor de nube o receptor puede subir o conservar esa copia según su política. Komprexo no puede retirar copias exportadas."
     ],
     [
-      "Preferencias y cuotas locales",
-      "DataStore privado conserva tres contadores diarios y un registro de reservas: día local, máximo temporal, función y números de ranura. No guarda identificadores de imágenes, EXIF ni historial de imágenes. Android conserva tu idioma por aplicación. Borrar datos o desinstalar elimina datos locales; tú controlas los archivos exportados. La copia de seguridad Android está desactivada."
+      "Cuotas y preferencias locales",
+      "Los contadores diarios por función, los datos de operaciones sin terminar y el idioma se guardan localmente. No son un historial de imágenes. Los contadores se reinician según las reglas de cuota diaria. Las preferencias permanecen hasta cambiarlas o eliminarlas. Borrar los datos o desinstalar elimina archivos y registros privados; no borra archivos exportados ni registros de compras de Google. La copia de seguridad de la aplicación está desactivada."
     ],
     [
-      "Google Play y red",
-      "Premium usa Google Play Billing 9.1.0 para compras únicas no consumibles, consultas de propiedad, reconocimiento y restauración. Google Play gestiona pagos; Komprexo no recopila tarjetas. Los tokens solo están en memoria para conciliación/reconocimiento y no se registran. Un resumen del token y fechas de comprobación/caducidad pueden cifrarse con AndroidKeyStore durante hasta 24 horas sin conexión. La app no persiste tokens originales ni identidad del pedido. Billing añade INTERNET, ACCESS_NETWORK_STATE y BILLING. Google y su SDK pueden procesar información de compras/cuenta, dispositivo y diagnósticos según sus políticas; no afirmamos que Google no recopile datos. Procesar imágenes funciona sin conexión. El transporte transitivo de Billing puede guardar diagnósticos operativos en almacenamiento local del SDK, incluido SQLite; Komprexo no lo usa para fotos o cuotas. La biblioteca de ubicación es transitiva; la app no solicita permisos ni llama API de ubicación. El acceso en caché dura 24 horas; registros caducados se borran en la siguiente comprobación o inicio."
+      "Compras y servicios de Google",
+      "Google Play gestiona el pago y sus detalles. Komprexo usa información de compras para activar, restaurar y comprobar Premium. No guarda tarjetas ni un historial de pedidos. Un registro local protegido permite Premium sin conexión durante un máximo de 24 horas tras una comprobación correcta. Los registros vencidos o inválidos se eliminan al comprobarlos de nuevo. Comprar y renovar la comprobación requiere internet. El procesamiento de imágenes funciona sin conexión."
     ],
     [
-      "Conservación, seguridad y límites",
-      "La caché cifrada caduca tras 24 horas y se invalida por pérdida confirmada de propiedad, caducidad o retroceso del reloj. Autenticar la caché local no equivale a verificación de compra en servidor resistente a manipulación. Reembolsos/revocaciones pueden detectarse tarde sin conexión. Almacenamiento privado, URI limitadas, procesamiento acotado y FileProvider reducen riesgos sin garantizar seguridad absoluta. Google controla la retención de SDK/red y debe volver a auditarse antes de publicar."
+      "Diagnósticos de terceros",
+      "Google Play y su software pueden procesar información de compras, cuenta, dispositivo, red y diagnósticos conforme a sus políticas. El software de facturación puede guardar y enviar diagnósticos del servicio. Los campos exactos, la conservación y la eliminación deben confirmarse antes de publicar: OWNER ACTION REQUIRED. No se afirma que no exista recopilación de datos. Komprexo no tiene un servicio propio de analítica o anuncios. No solicita permiso de ubicación ni llama a servicios de ubicación. Esto no determina qué puede inferir Google de la información de red."
     ],
     [
-      "Derechos, menores y cambios",
-      "Puedes cambiar idioma, revocar permisos, borrar datos/copias y contactar por privacidad. Google controla registros de cuenta/pago y sus procedimientos de derechos. Público objetivo, edad mínima y consentimiento parental por jurisdicción: [REVISIÓN DEL PROPIETARIO] antes del lanzamiento. Los cambios se publicarán con fecha de vigencia tras revisión. No hay publicidad integrada; privacidad y Seguridad de los datos se revisarán antes de añadir anuncios."
+      "Conservación y seguridad",
+      "Los archivos temporales, cuotas y preferencias siguen las reglas anteriores. El registro Premium sin conexión es válido como máximo 24 horas; no es un plazo de borrado para Google ni los diagnósticos del software de Google. Google y los proveedores de almacenamiento, intercambio o correo tienen sus propias reglas de conservación. El almacenamiento privado y un registro protegido reducen riesgos, pero no garantizan seguridad absoluta ni cifran todas las fotos. Un dispositivo comprometido y una detección tardía de reembolsos sin conexión siguen siendo posibles."
+    ],
+    [
+      "Opciones y derechos",
+      "Puedes elegir imágenes, revocar acceso, cambiar idioma, borrar datos y eliminar copias guardadas. Revocar permiso no borra una copia ya importada. Contacta con komprexo.support@gmail.com para solicitudes de acceso, corrección o eliminación y derechos según la ley aplicable. Contacta con Google o el receptor sobre sus registros. El proveedor de correo procesa los mensajes de soporte; evita fotos privadas, tarjetas y tokens de compra. Público destinatario, obligaciones sobre menores y fecha de vigencia: OWNER ACTION REQUIRED. Las políticas y el uso del software incluido deben revisarse antes de cambios o publicación. Los mensajes contienen información que decides enviar. El propietario debe confirmar el manejo y conservación del correo de soporte antes de publicar: OWNER ACTION REQUIRED."
     ]
   ],
   "terms": [
     [
-      "Servicio y propiedad",
-      "Komprexo comprime, redimensiona, convierte y permite ajustes, guardar y compartir en el dispositivo. Conservas la propiedad de tus originales. Procesa solo contenido que tengas derecho a usar; no infrinjas derechos ni uses la app ilegalmente."
+      "Uso de Komprexo",
+      "Compresión, Redimensionar y Convertir funcionan en tu dispositivo. Conservas la propiedad de tus originales. Procesa solo contenido que puedas usar legalmente. Los resultados dependen de imagen, formato, objetivo y dispositivo. Comprimir puede reducir detalles; conserva originales y guarda resultados importantes. Los archivos temporales no son copias de seguridad."
     ],
     [
-      "Gratis y Premium",
-      "Gratis permite cinco resultados correctos aceptados por día local PARA CADA función: Comprimir, Redimensionar y Convertir, con contadores independientes. Una imagen y los lotes comparten contador; máximo dos por lote gratuito. Fallos y cancelaciones no aceptadas no consumen créditos. Las transformaciones internas cobran una vez a la herramienta principal; Guardar/Compartir no cobran. Premium elimina las tres cuotas diarias, admite hasta veinte por lote dentro de límites técnicos y todos los ajustes inteligentes."
+      "Cuotas gratuitas",
+      "Compresión: 5 imágenes correctas por día local. Redimensionar: 5. Convertir: 5. Son tres cuotas separadas. Las operaciones individuales y por lotes comparten la cuota de su función. Gratis permite hasta 2 imágenes por lote. Los fallos y créditos de cancelación no utilizados no se cobran; los resultados completados antes de cancelar cuentan. Las transformaciones internas cobran una sola vez a la función principal. Guardar y Compartir no usan créditos."
     ],
     [
-      "Pagos y restauración",
-      "Premium es una compra Google Play única no consumible, no una suscripción. IDR 49.000 es el precio propuesto en Indonesia; Google Play proporciona el precio local elegible real. La disponibilidad depende de configuración del propietario y elegibilidad Google. Restaura desde la cuenta propietaria. Pagos pendientes, cancelados o fallidos no activan Premium. Reembolsos según Google Play y derechos obligatorios del consumidor, sin garantía automática inventada."
+      "Premium y límites técnicos",
+      "Premium elimina los tres límites diarios, desbloquea todos los ajustes inteligentes y permite hasta 20 imágenes por lote. Siguen aplicándose límites de formato, tamaño, memoria y seguridad. Es una compra única no consumible: la mejora no se agota al usarla. No hay suscripción recurrente. Precio previsto en Indonesia: Rp49.000. Google Play proporciona el precio real de pago."
     ],
     [
-      "Límites técnicos",
-      "El resultado depende de imagen, códec, formato y memoria. La compresión puede reducir detalle; algunas dimensiones/formatos no se admiten. No se garantiza una tasa de compresión. Conserva originales y guarda resultados importantes; la salida temporal no es respaldo. El acceso Premium sin conexión depende de una caché reciente autenticada; reembolsos, revocación, cambio de cuenta o caducidad pueden devolver límites Gratis sin destruir resultados terminados."
+      "Propiedad, uso sin conexión y reembolsos",
+      "Puedes restaurar compras con la cuenta Google Play propietaria. Los pagos pendientes, fallidos o cancelados no activan Premium. Premium sin conexión dura hasta 24 horas tras una comprobación correcta. Después puede requerirse otra comprobación por internet. Un reembolso o una revocación válida puede retirar Premium y restablecer límites gratuitos. No elimina los resultados completados. Los reembolsos siguen los procesos de Google Play y la ley de consumo aplicable; aprobación y plazos no están garantizados."
     ],
     [
-      "Propiedad intelectual y cambios",
-      "La marca y materiales de Komprexo son distintos de imágenes del usuario y software de terceros. Los avisos de código abierto siguen disponibles. Funciones y compatibilidad pueden cambiar respetando derechos del consumidor y obligaciones por derechos pagados. No hay descuentos engañosos, falsa escasez ni cuotas recurrentes."
-    ],
-    [
-      "Soporte y revisión legal",
-      "Contacta con komprexo.support@gmail.com. Nada excluye derechos o recursos obligatorios del consumidor. Identidad/dirección legal del desarrollador, ley y foro de disputa: [REVISIÓN DEL PROPIETARIO]. Son borradores hasta revisión y publicación; no se afirma aprobación legal."
+      "Derechos y soporte",
+      "Las licencias de terceros están en Ajustes. Los cambios de funciones o derechos pagados están sujetos a la ley aplicable. Nada excluye derechos o recursos obligatorios del consumidor. Contacto: komprexo.support@gmail.com. Nombre legal, dirección, ley, jurisdicción de disputas, público y fecha de vigencia: OWNER ACTION REQUIRED. Este borrador no es una aprobación jurídica."
     ]
   ],
   "premium": [
     [
-      "Premium de pago único",
-      "Precio propuesto para Indonesia: IDR 49.000 una vez, sujeto a Play Console. Antes de comprar se muestra el precio local real de Google Play. Producto komprexo_premium_lifetime: INAPP, no consumible; sin suscripción, mensualidad, alquiler ni cargos recurrentes. Beneficios: Comprimir, Redimensionar y Convertir sin límite diario, lotes hasta veinte con límites seguros y todos los ajustes. Sin anuncios si se introduce publicidad después; actualmente no hay SDK de anuncios."
+      "Compra única y precio",
+      "Premium es una compra única no consumible mediante Google Play. No se agota al procesar imágenes. No es una suscripción ni tiene cargos recurrentes. Precio previsto en Indonesia: Rp49.000. Google Play muestra el precio real, moneda y condiciones antes de pagar. La disponibilidad depende de la configuración y elegibilidad de Play."
     ],
     [
-      "Comprar y restaurar",
-      "Compra solo mediante el diálogo oficial Google Play. Un pago pendiente no activa Premium; cancelado/fallido no crea compra. La propiedad completada debe conciliarse y reconocerse. Restaurar compras consulta la cuenta Play actual, también tras reinstalar. Usa la cuenta propietaria y comprueba Play Store."
+      "Ventajas y límites gratuitos",
+      "Premium ofrece Compresión, Redimensionar y Convertir sin límite diario, todos los ajustes inteligentes y lotes de hasta 20 imágenes, dentro de límites técnicos. Gratis tiene tres cuotas separadas: 5 imágenes correctas/día para Compresión, 5 para Redimensionar y 5 para Convertir. Individual y lote comparten su cuota; Gratis admite 2 por lote. Los fallos y créditos cancelados no utilizados no se cobran. Las transformaciones internas cobran una vez a la función principal; Guardar y Compartir no usan cuota. Esta versión no tiene anuncios."
     ],
     [
-      "Reembolsos y revocaciones",
-      "Guía oficial: https://support.google.com/googleplay/answer/2479637 . Ayuda de compra: https://support.google.com/googleplay/answer/1061913 . Elegibilidad y aprobación dependen de Google Play y derechos del consumidor; no prometemos devolución automática ni plazos inventados. La pérdida confirmada de propiedad vuelve a Gratis. La comprobación sin conexión dura hasta veinticuatro horas desde la última aceptada; sin backend no hay detección inmediata de reembolsos/revocación."
+      "Activación, restauración y conexión",
+      "Pagos pendientes, fallidos o cancelados no activan Premium. Google Play debe confirmar las compras completadas. Restaurar compras comprueba la cuenta propietaria, también tras reinstalar. Premium sin conexión dura hasta 24 horas desde la última comprobación correcta. Después puede requerir otra comprobación por internet. Las imágenes siguen procesándose sin conexión con los límites gratuitos o Premium correspondientes."
     ],
     [
-      "Soporte",
-      "Problemas de compra: komprexo.support@gmail.com. Indica versión de app/Android, estado sin datos sensibles y si probaste restaurar. No envíes tokens, tarjetas, fotos privadas ni documentos personales. Las transacciones reales de prueba son distintas de pruebas automáticas con Billing simulado."
+      "Reembolsos, revocación y ayuda",
+      "Un reembolso o revocación válida puede retirar Premium al confirmarse. Sin conexión, la detección puede tardar. Los resultados completados permanecen. Solicita reembolsos por Google Play: https://support.google.com/googleplay/answer/2479637 . Se conservan los derechos legales del consumidor. No se promete reembolso automático, plazo fijo ni Premium sin conexión ilimitado de por vida. Ayuda: komprexo.support@gmail.com; no envíes tarjetas, imágenes privadas ni tokens de compra."
     ]
   ],
   "support": [
     [
-      "Contacto",
-      "Email komprexo.support@gmail.com. No hay formulario de subida, cuenta ni servidor de soporte."
+      "Contacto seguro",
+      "Escribe a komprexo.support@gmail.com. Incluye versión de app y Android, modelo, función, formato y error. Oculta datos personales en capturas. No envíes imágenes privadas, documentos, metadatos de cámara, tarjetas ni tokens. La aplicación abre tu cliente de correo sin adjuntar fotos automáticamente. Tu proveedor procesa el mensaje."
     ],
     [
-      "Imágenes y cuotas",
-      "Elige JPEG, PNG o WebP local compatible. HEIC/HEIF no se admite: exporta JPEG/PNG. Si pierdes permiso, selecciona otra vez; si falta memoria, usa una imagen menor. Cada función Gratis tiene cinco resultados diarios, compartidos entre individual/lote; máximo dos por lote. Guardar/Compartir no consume créditos."
+      "Problemas de imágenes",
+      "Usa JPEG, PNG o WebP compatible. HEIC/HEIF no es compatible; exporta primero una copia JPEG o PNG. Vuelve a elegir la imagen tras errores de acceso. Prueba una imagen menor si falta memoria. Los originales se conservan. Guarda resultados antes de borrar trabajo o datos. Tú y el receptor controláis las copias guardadas o compartidas."
     ],
     [
-      "Problemas de compra",
-      "Comprueba Play Store, conexión y cuenta propietaria; después restaura compras. El pago pendiente debe completarse. Un producto no disponible puede requerir configuración del propietario. Reembolsos: https://support.google.com/googleplay/answer/2479637 ."
+      "Cuotas y Premium",
+      "Gratis da 5 imágenes correctas/día por separado a Compresión, Redimensionar y Convertir. Individual y lote comparten su cuota; Gratis permite 2 por lote. Fallos y créditos cancelados no utilizados no se cobran. Guardar y Compartir no usan créditos. Premium elimina límites diarios y permite hasta 20 imágenes por lote dentro de límites seguros."
     ],
     [
-      "Informes seguros",
-      "Envía versión, marca/modelo, Android, herramienta, formato y error sin información sensible. No envíes fotos privadas, EXIF, documentos, tarjetas ni tokens. Oculta datos personales en capturas. No se envía telemetría automática."
+      "Compras y privacidad",
+      "Comprueba internet, Play Store y la cuenta propietaria; usa Restaurar compras. Los pagos pendientes deben terminar. Premium sin conexión dura hasta 24 horas después de comprobarse; vuelve a conectarte cuando se requiera otra comprobación. Reembolsos: https://support.google.com/googleplay/answer/2479637 . El software Google Billing puede procesar diagnósticos; datos exactos y conservación siguen en revisión. No se promete ausencia de telemetría ni reembolso automático."
     ]
   ],
   "about": [
     [
       "Komprexo",
-      "Herramientas nativas Android para Comprimir, Redimensionar y Convertir localmente. Los originales se conservan y los resultados se guardan o comparten. ID: com.komprexo.app. Contacto: komprexo.support@gmail.com. Identidad legal: [REVISIÓN DEL PROPIETARIO]. El sitio está preparado, sin despliegue público."
+      "Herramientas Android para Compresión, Redimensionar y Convertir localmente. Los originales se conservan; guarda o comparte resultados. Contacto: komprexo.support@gmail.com. Identidad, público y publicación: OWNER ACTION REQUIRED. El sitio no está desplegado públicamente."
     ]
   ]
 }

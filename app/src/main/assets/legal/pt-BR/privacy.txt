@@ -1,29 +1,33 @@
-DRAFT — RASCUNHO — revisão do proprietário necessária. Preparado em 9 de outubro de 2026. Vigência: [APROVAÇÃO E PUBLICAÇÃO NECESSÁRIAS]. Identidade/endereço legal, lei aplicável e público-alvo: [REVISÃO DO PROPRIETÁRIO].
+DRAFT — RASCUNHO, sem aprovação para publicação. OWNER ACTION REQUIRED: nome jurídico do desenvolvedor, endereço comercial, lei aplicável, público-alvo e data de vigência. Preparado em 9 de outubro de 2026; esta não é a data de vigência. Todas as traduções precisam de revisão jurídica e por falante nativo qualificado.
 
-# Identidade e contato
+# Quem somos e contato
 
-Komprexo é uma ferramenta de imagens Android. Nome legal e endereço do desenvolvedor: [REVISÃO DO PROPRIETÁRIO]. Suporte e privacidade: komprexo.support@gmail.com.
+Komprexo permite comprimir, redimensionar e converter imagens no Android. Nome jurídico e endereço do desenvolvedor: OWNER ACTION REQUIRED. Privacidade: komprexo.support@gmail.com.
 
-# Fotos e processamento local
+# Imagens escolhidas
 
-Você escolhe imagens pelo seletor Android de documentos/fotos. Komprexo lê somente conteúdo selecionado com permissão URI, copia entradas para armazenamento temporário privado e comprime, redimensiona ou converte no dispositivo. Não envia fotos a servidores Komprexo. Não há servidor Komprexo, contas, banco de dados de app ou SDK de análise.
+Komprexo acessa as imagens que você escolhe e informações necessárias à leitura, como formato, dimensões e orientação. Cópias temporárias podem conter metadados de câmera do original. Processamento e prévias acontecem no dispositivo. Não é necessário enviar fotos a um servidor Komprexo. Não há servidor de processamento de fotos nem conta do aplicativo. Se escolher imagem de um provedor online, ele pode precisar de conexão para fornecê-la e aplica sua própria política.
 
-# Arquivos temporários, salvar e compartilhar
+# Arquivos temporários, Salvar e Compartilhar
 
-Caches privados de entrada, saída e miniaturas permitem processamento/prévia. Originais são preservados. Caches são limpos ao iniciar ou substituir/limpar, sujeitos a interrupções e armazenamento Android; não são permanentes. Salvar grava uma cópia no destino escolhido. Compartilhar fornece acesso temporário ao destinatário pelo FileProvider não exportado. Apps destinatários e provedores têm suas políticas; Komprexo não apaga cópias exportadas/enviadas.
+Entradas, resultados e prévias temporárias ficam no armazenamento privado. Os originais não mudam. Alguns arquivos são excluídos ao substituir ou limpar o trabalho, ou quando o processo falha. Arquivos com mais de 24 horas são verificados para limpeza ao inicializar o armazenamento de imagens; não há garantia de exclusão exatamente após 24 horas. Salve resultados importantes. Salvar cria uma cópia no destino escolhido. Compartilhar dá ao aplicativo escolhido acesso ao resultado. Um provedor de nuvem ou destinatário pode enviar ou guardar essa cópia conforme sua política. Komprexo não consegue retirar cópias exportadas.
 
-# Preferências e cotas locais
+# Cotas e preferências locais
 
-DataStore privado armazena três contadores diários e um registro de reservas: dia local, maior horário registrado, função e números de posições. Não armazena identificadores de imagens, EXIF ou histórico. Android persiste o idioma por app. Limpar dados/desinstalar remove dados locais; arquivos exportados ficam sob seu controle. Backup Android desativado.
+Contagens diárias por função, informações de operações inacabadas e idioma ficam no dispositivo. Não são um histórico de imagens. As contagens são reiniciadas conforme as regras diárias. Preferências permanecem até alteração ou remoção. Limpar dados ou desinstalar remove arquivos e registros privados; não apaga arquivos exportados nem compras registradas pelo Google. O backup do aplicativo está desativado.
 
-# Compras Google Play e rede
+# Compras e serviços Google
 
-Premium usa Google Play Billing 9.1.0 para compras únicas não consumíveis, consulta de propriedade, reconhecimento e restauração. Google Play processa pagamentos; Komprexo não coleta cartões. Tokens ficam temporariamente na memória para conciliação/reconhecimento e não são registrados. Resumo do token e horários de verificação/expiração podem ser criptografados com AndroidKeyStore por até 24 horas offline. Tokens originais e identidade do pedido não são persistidos. Billing adiciona INTERNET, ACCESS_NETWORK_STATE e BILLING. Google e seu SDK podem processar compras/conta, dispositivo e diagnósticos conforme suas políticas; não afirmamos que Google não coleta dados. Processar imagens funciona offline. O transporte transitivo do Billing pode guardar diagnósticos operacionais em armazenamento local do SDK, incluindo SQLite; Komprexo não usa esse armazenamento para fotos/cotas. A biblioteca de localização é transitiva; o app não solicita permissões nem chama APIs de localização. O acesso em cache dura 24 horas; registros expirados são removidos na próxima verificação ou início.
+Google Play cuida do pagamento e seus detalhes. Komprexo usa informações de compra para ativar, restaurar e verificar Premium. Não guarda cartões nem histórico de pedidos. Um registro local protegido permite Premium offline por até 24 horas após verificação bem-sucedida. Registros vencidos ou inválidos são removidos na próxima verificação. Compras e novas verificações precisam de internet. O processamento de imagens funciona offline.
 
-# Retenção, segurança e limites
+# Diagnósticos de terceiros
 
-Cache criptografado expira em 24 horas e é invalidado por perda confirmada de propriedade, expiração ou retrocesso do relógio. Autenticar cache local não equivale a verificação em servidor resistente a adulteração. Reembolsos/revogações podem ser detectados depois offline. Armazenamento privado, URI restrita, processamento limitado e FileProvider reduzem riscos, sem garantir segurança absoluta. Google controla retenção do SDK/rede; nova auditoria é necessária antes de publicar.
+Google Play e seu software podem processar informações de compra, conta, dispositivo, rede e diagnóstico conforme suas políticas. Software de faturamento pode armazenar e enviar diagnósticos do serviço. Campos exatos, retenção e exclusão precisam de confirmação antes de publicar: OWNER ACTION REQUIRED. Não se afirma coleta zero. Komprexo não tem serviço próprio de análise ou anúncios. Não pede permissão de localização nem usa serviços de localização. Isso não determina o que o Google pode inferir da rede.
 
-# Direitos, crianças e alterações
+# Retenção e segurança
 
-Você pode mudar idioma, revogar permissões, limpar dados/cópias e contatar por privacidade. Google controla registros de conta/pagamento e procedimentos de direitos. Público-alvo, idade mínima e obrigações de consentimento parental por jurisdição: [REVISÃO DO PROPRIETÁRIO] antes de lançar. Alterações serão publicadas com vigência após revisão. Publicidade não integrada; privacidade e Segurança dos dados serão revistas antes de anúncios.
+Arquivos temporários, cotas e preferências seguem as regras acima. O registro Premium offline vale no máximo 24 horas; isso não é prazo de exclusão de registros Google ou diagnósticos do software Google. Google e provedores de armazenamento, compartilhamento ou email têm regras próprias. Armazenamento privado e um registro protegido reduzem riscos, mas não garantem segurança absoluta nem criptografam todas as fotos. Comprometimento do dispositivo e detecção tardia de reembolso offline continuam possíveis.
+
+# Escolhas e direitos
+
+Você pode escolher imagens, revogar acesso, mudar idioma, limpar dados e excluir cópias salvas. Revogar permissão não apaga uma cópia já importada. Contate komprexo.support@gmail.com para pedidos de acesso, correção ou exclusão e direitos previstos em lei. Contate Google ou o destinatário sobre registros que controlam. O provedor de email processa mensagens de suporte; evite fotos privadas, cartões e tokens de compra. Público-alvo, obrigações relativas a crianças e data de vigência: OWNER ACTION REQUIRED. Políticas e uso do software incluído devem ser revistos antes de mudanças ou publicação. Mensagens contêm informações que você decide enviar. O proprietário deve confirmar o tratamento e a retenção do email de suporte antes de publicar: OWNER ACTION REQUIRED.

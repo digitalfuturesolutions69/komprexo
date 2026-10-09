@@ -1,4 +1,8 @@
-# Komprexo FASE 4A validation
+# Komprexo validation
+
+## FASE 4A.1 — legal editorial and privacy review
+
+Current editorial validation: [docs/PHASE4A1_VALIDATION.md](docs/PHASE4A1_VALIDATION.md). Review, five-language fact matrix and publication gates: [docs/legal/EDITORIAL_REVIEW.md](docs/legal/EDITORIAL_REVIEW.md). Accepted baseline `9bab33b2d8586c4338d22f6ed597f6655e6097ae`; policies remain DRAFT and owner information remains unresolved. Exact final commit and CI verification are reported with delivery. The following FASE 4A records are historical.
 
 Complete owner report and historical CI investigation: [docs/PHASE4A_VALIDATION.md](docs/PHASE4A_VALIDATION.md). Accepted Phase3 evidence: [docs/PHASE3_VALIDATION.md](docs/PHASE3_VALIDATION.md).
 

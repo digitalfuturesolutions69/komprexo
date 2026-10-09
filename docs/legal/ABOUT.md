@@ -1,7 +1,7 @@
 # Komprexo — About
 
-DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
 
 # Komprexo
 
-Native Android tools for on-device Compression, Resize and Convert. Originals are preserved; results can be saved or shared. Application ID: com.komprexo.app. Official contact: komprexo.support@gmail.com. Developer legal identity: [OWNER REVIEW REQUIRED]. Website source is prepared but has not been publicly deployed.
+Android tools for local Compression, Resize and Convert. Originals are preserved; results can be saved or shared. Contact: komprexo.support@gmail.com. Developer identity, audience and publication details: OWNER ACTION REQUIRED. Website source is not publicly deployed.

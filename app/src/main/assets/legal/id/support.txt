@@ -1,17 +1,17 @@
-DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
 
-# Kontak
+# Hubungi dengan aman
 
-Email komprexo.support@gmail.com. Aplikasi tidak memiliki formulir unggah bantuan, akun atau server.
+Email komprexo.support@gmail.com. Sertakan versi aplikasi, versi Android, model perangkat, fitur, format dan pesan error. Sembunyikan informasi pribadi pada screenshot. Jangan kirim gambar privat, dokumen, metadata kamera, data kartu atau token pembelian. Aplikasi membuka klien email tanpa otomatis melampirkan foto. Penyedia email menangani pesan.
 
-# Gambar dan kuota Gratis
+# Masalah gambar
 
-Pilih JPEG, PNG atau WebP lokal yang didukung. HEIC/HEIF tidak didukung: ekspor salinan JPEG/PNG. Untuk izin baca hilang pilih ulang; untuk memori kurang gunakan gambar lebih kecil. Setiap fitur Gratis memiliki lima hasil sukses per hari, dibagi operasi tunggal/batch, maksimal dua per batch. Simpan/Bagikan tidak memakai kredit.
+Gunakan JPEG, PNG atau WebP yang didukung. HEIC/HEIF tidak didukung; ekspor salinan JPEG atau PNG dahulu. Pilih ulang gambar setelah error akses. Untuk error memori, coba gambar lebih kecil. Gambar asli dipertahankan. Simpan hasil sebelum membersihkan pekerjaan atau data aplikasi. Salinan yang dibagikan atau disimpan dikendalikan Anda dan penyedia penerima.
 
-# Kendala pembelian
+# Kuota dan Premium
 
-Periksa Play Store, koneksi dan akun Google pemilik, lalu Pulihkan Pembelian. Pembayaran tertunda harus selesai sebelum aktivasi. Produk yang tidak tersedia mungkin perlu konfigurasi Play Console pemilik. Panduan dana kembali: https://support.google.com/googleplay/answer/2479637 .
+Gratis menyediakan 5 gambar berhasil/hari secara terpisah untuk Kompresi, Resize dan Convert. Proses satu gambar dan batch berbagi kuota masing-masing; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Simpan dan Bagikan tidak menggunakan kredit. Premium menghapus batas harian dan mendukung hingga 20 gambar per batch dalam batas keselamatan.
 
-# Laporan aman
+# Bantuan pembelian dan privasi
 
-Kirim versi aplikasi, merek/model perangkat, versi Android, fitur, format dan uraian kesalahan yang disanitasi. Jangan kirim foto pribadi, EXIF, isi dokumen, data kartu atau token pembelian. Sembunyikan informasi pribadi pada tangkapan layar. Tidak ada telemetri otomatis.
+Periksa internet, Play Store dan akun pemilik Premium, lalu gunakan Pulihkan Pembelian. Pembayaran tertunda harus selesai dahulu. Premium offline berlaku hingga 24 jam setelah pemeriksaan berhasil; sambungkan internet untuk pemeriksaan baru saat diperlukan. Bantuan refund: https://support.google.com/googleplay/answer/2479637 . Perangkat lunak Google Billing dapat memproses diagnostik layanan; pengumpulan tepat dan masa penyimpanannya masih ditinjau. Panduan ini tidak menjanjikan tanpa telemetri atau refund otomatis.

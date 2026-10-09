@@ -1,17 +1,17 @@
-DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
 
-# Premium sekali bayar
+# Pembelian sekali bayar dan harga
 
-Rencana harga Indonesia: IDR 49.000 sekali bayar, bergantung pada pengaturan Play Console. Harga lokal Google Play ditampilkan sebelum pembelian. Produk komprexo_premium_lifetime bertipe INAPP, non-konsumsi; tanpa langganan, biaya bulanan, sewa atau pembayaran berulang. Manfaat: Compress, Resize dan Convert harian tanpa batas, batch maksimal dua puluh dalam batas aman dan semua Smart Presets. Bebas iklan berlaku bila iklan ditambahkan nanti; saat ini tidak ada SDK iklan.
+Premium adalah satu pembelian non-konsumsi melalui Google Play. Hak peningkatan tidak habis setelah memproses gambar. Bukan langganan dan tanpa biaya berulang. Harga yang ditujukan untuk Indonesia: Rp49.000. Harga, mata uang dan ketentuan pembayaran sebenarnya ditampilkan Google Play sebelum membayar. Ketersediaan bergantung pada konfigurasi Play dan kelayakan.
 
-# Pembelian dan pemulihan
+# Manfaat dan batas Gratis
 
-Beli hanya melalui dialog resmi Google Play. Pembayaran tertunda belum membuka Premium; pembatalan atau kegagalan tidak membuat pembelian. Kepemilikan selesai harus diperiksa dan diakui. Pulihkan Pembelian memeriksa akun Play saat ini, termasuk setelah pemasangan ulang. Gunakan akun pemilik pembelian dan periksa ketersediaan Play Store.
+Premium menyediakan Kompresi, Resize dan Convert tanpa batas harian, semua Smart Presets dan batch hingga 20 gambar, dalam batas keselamatan teknis. Gratis memiliki tiga kuota terpisah: 5 gambar Kompresi berhasil/hari, 5 Resize dan 5 Convert. Proses satu gambar dan batch berbagi kuota fitur; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Transformasi internal mengenakan kuota fitur utama sekali; Simpan dan Bagikan tidak dikenakan kuota. Versi saat ini tidak memiliki iklan.
 
-# Pengembalian dana dan pencabutan
+# Aktivasi, pemulihan dan pemeriksaan offline
 
-Gunakan panduan resmi Google Play: https://support.google.com/googleplay/answer/2479637 . Bantuan pembelian: https://support.google.com/googleplay/answer/1061913 . Kelayakan/persetujuan bergantung pada Google Play dan hak konsumen; tidak ada janji dana kembali otomatis atau batas waktu rekaan. Kehilangan kepemilikan yang terkonfirmasi mengembalikan aplikasi ke Gratis. Pemeriksaan tanpa internet berlaku maksimal dua puluh empat jam sejak pemeriksaan diterima; deteksi langsung pengembalian dana/pencabutan tidak tersedia tanpa backend.
+Pembayaran tertunda, gagal atau dibatalkan tidak mengaktifkan Premium. Pembelian selesai harus dikonfirmasi oleh Google Play. Pulihkan Pembelian memeriksa akun Google Play pemilik, termasuk setelah instal ulang. Premium offline berlaku hingga 24 jam sejak pemeriksaan kepemilikan terakhir berhasil. Pemeriksaan baru melalui internet dapat diperlukan setelahnya. Pemrosesan gambar tetap tersedia offline dengan batas Gratis atau Premium yang berlaku.
 
-# Bantuan
+# Refund, pencabutan dan bantuan
 
-Untuk kendala pembelian kirim email ke komprexo.support@gmail.com. Sertakan versi aplikasi, versi Android, status yang disanitasi dan apakah pemulihan telah dicoba. Jangan kirim token pembelian, data kartu, foto pribadi atau dokumen. Transaksi uji Google Play nyata berbeda dari pengujian otomatis Billing palsu.
+Refund atau pencabutan yang valid dapat menghapus Premium saat terkonfirmasi. Kondisi offline dapat menunda deteksi. Hasil yang sudah selesai tetap tersedia. Ajukan refund melalui Google Play: https://support.google.com/googleplay/answer/2479637 . Hak konsumen menurut hukum tetap dilindungi. Tidak ada janji refund otomatis, waktu persetujuan tetap atau Premium offline tanpa batas seumur hidup. Bantuan pembelian: komprexo.support@gmail.com; jangan kirim data kartu, gambar privat atau token pembelian.

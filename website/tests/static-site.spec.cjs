@@ -57,3 +57,18 @@ for (const language of languages) {
     await page.screenshot({ path: 'test-results/' + language + '-dark.png', fullPage: true });
   });
 }
+
+// A policy shown online must have the same substantive paragraphs as the offline source.
+const fs = require('node:fs');
+const path = require('node:path');
+for (const language of languages) {
+  test(language + ' legal draft paragraphs match offline policy source', async ({ page }) => {
+    const legal = JSON.parse(fs.readFileSync(path.join(__dirname, '../../content/legal', language + '.json'), 'utf8'));
+    for (const route of ['privacy', 'terms', 'premium', 'support', 'about']) {
+      await page.goto('/' + language + '/' + route + '/');
+      await expect(page.locator('main .draft')).toHaveText(legal.draft);
+      expect(await page.locator('main section h2').allTextContents()).toEqual(legal[route].map(s => s[0]));
+      expect(await page.locator('main section p').allTextContents()).toEqual(legal[route].map(s => s[1]));
+    }
+  });
+}

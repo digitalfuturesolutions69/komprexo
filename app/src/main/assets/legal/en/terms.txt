@@ -1,25 +1,21 @@
-DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
 
-# Service and ownership
+# Using Komprexo
 
-Komprexo provides on-device image compression, resize, conversion, presets, saving and sharing. You retain ownership of your original images. Process only content you are entitled to use; do not infringe rights or use the app for unlawful purposes.
+Compression, Resize and Convert work on your device. You keep ownership of your original images. Only process content you may lawfully use. Results depend on the image, format, target and device. Compression can reduce detail; keep originals and save important results. Temporary files are not backups.
 
-# Free and Premium
+# Free quotas
 
-Free permits five successfully accepted outputs per local day for EACH of Compression, Resize and Convert, with independent counters. Single and batch share the relevant counter; Free batches have at most two images. Failed/unaccepted cancelled slots are not charged. Internal transformations charge the primary tool once; Save and Share are unmetered. Premium removes all three daily limits and supports up to twenty images per batch within technical safety limits, plus all Smart Presets.
+Compression: 5 successful images per local day. Resize: 5. Convert: 5. These are three separate quotas. Single and batch operations share the quota of their feature. Free batches allow at most 2 images. Failed operations and unused cancelled credits are not charged; successful results completed before cancellation count. Internal resizing or encoding within a tool charges only the primary feature once. Save and Share do not use credits.
 
-# Payments and restoration
+# Premium and technical limits
 
-Premium is a non-consumable one-time Google Play purchase, not a subscription. IDR 49,000 is the proposed Indonesian configuration; the actual eligible localized checkout price comes from Google Play. Purchase availability depends on owner Play Console configuration and Google eligibility. Restore using the owning Play account. Pending, cancelled or failed payments do not activate Premium. Refunds follow Google Play procedures and mandatory consumer law, not an invented automatic refund guarantee.
+Premium removes the three daily limits, unlocks all Smart Presets and allows up to 20 images per batch. Existing format, file-size, memory and device safety limits still apply. Premium is a one-time, non-consumable purchase: the upgrade is not used up after an operation. There is no recurring subscription. Intended Indonesian price: Rp49.000. Google Play supplies the actual checkout price.
 
-# Technical limits
+# Ownership, offline access and refunds
 
-Results depend on source image, codec, format and device memory. Compression can reduce detail; some formats or dimensions are unsupported. There is no guaranteed compression ratio. Keep originals and save important results; temporary output is not a backup. Offline Premium checks are limited to a recent authenticated ownership cache; refunds, revocations, account changes or expiry can restore Free limits without destroying completed outputs.
+Restore Purchases is supported with the Google Play account that owns Premium. Pending, failed or cancelled payments do not activate it. Offline Premium lasts up to 24 hours after a successful ownership check. A new internet-based check may then be required. A refund or valid revocation may remove Premium and restore Free limits. Completed outputs are not deleted by this change. Refund requests follow Google Play processes and applicable consumer law; approval and timing are not guaranteed.
 
-# Intellectual property and changes
+# Rights and support
 
-Komprexo branding and app materials are distinct from user images and third-party software. Applicable open-source notices remain available. Features and compatibility may change, subject to applicable consumer protections and obligations for paid rights. No misleading discounts, scarcity or recurring fees are part of this offer.
-
-# Support and legal review
-
-Contact komprexo.support@gmail.com. Nothing in these terms excludes mandatory consumer rights or remedies. Legal developer identity, address, governing law and dispute venue are [OWNER REVIEW REQUIRED]. These terms remain a draft until reviewed and published; they are not a claim of legal approval.
+Third-party software licenses remain available in Settings. Changes to features or paid rights remain subject to applicable law. Nothing here excludes mandatory consumer rights or remedies. Contact komprexo.support@gmail.com. Developer legal name, address, governing law, dispute venue, audience and effective date: OWNER ACTION REQUIRED. This draft is not legal approval.

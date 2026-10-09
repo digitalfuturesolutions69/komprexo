@@ -80,6 +80,40 @@ class Phase4Assets(unittest.TestCase):
             self.assertIn('Apache License',licenses);self.assertIn('BSD',licenses)
             for dependency in json.loads((ROOT/'docs/legal/RUNTIME_DEPENDENCIES.json').read_text()):
                 self.assertIn(dependency['coordinate'],licenses)
+    def test_editorial_policy_facts_and_publication_gates(self):
+        # Billing validity must not become a promise of permanent offline access;
+        # each independent quota and pending legal decision must remain visible.
+        shapes={'privacy':8,'terms':5,'premium':4,'support':4,'about':1}
+        for locale in LOCALES:
+            data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+            with self.subTest(locale=locale):
+                self.assertIn('DRAFT',data['draft'])
+                self.assertIn('OWNER ACTION REQUIRED',data['draft'])
+                for page,size in shapes.items():
+                    self.assertEqual(size,len(data[page]))
+                    self.assertTrue(all(title.strip() and body.strip() for title,body in data[page]))
+                for page in ('terms','premium','support'):
+                    body=' '.join(x[1] for x in data[page])
+                    for number in ('5','2','20','24'):
+                        self.assertRegex(body,r'(?<![0-9])'+number+r'(?![0-9])')
+                    self.assertIn('komprexo.support@gmail.com',body)
+                for page in ('terms','premium'):
+                    self.assertIn('Rp49.000',' '.join(x[1] for x in data[page]))
+                self.assertIn('24',json.loads((ROOT/f'content/i18n/{locale}.json').read_text())['purchase_disclosure'])
+                emails=re.findall(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}',json.dumps(data))
+                self.assertEqual({'komprexo.support@gmail.com'},set(emails))
+        text=json.dumps(json.loads((ROOT/'content/legal/en.json').read_text()))
+        for misleading in ('No automatic telemetry is sent','unlimited offline Premium','no data is collected','guaranteed refund'):
+            self.assertNotIn(misleading,text)
+
+    def test_offline_policy_generation_matches_canonical_drafts(self):
+        # Prevent divergence between the in-app text and shared website policy source.
+        for locale in LOCALES:
+            data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+            for page in ('privacy','terms','premium','support','about'):
+                expected=data['draft']+'\n\n'+'\n\n'.join('# '+title+'\n\n'+body for title,body in data[page])+'\n'
+                self.assertEqual(expected,(ROOT/f'app/src/main/assets/legal/{locale}/{page}.txt').read_text(),(locale,page))
+
     def test_svg_exports_are_self_contained(self):
         for path in (ROOT/'artwork').glob('*.svg'):
             tree=ET.parse(path)

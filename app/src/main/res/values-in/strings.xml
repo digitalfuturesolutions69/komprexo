@@ -144,7 +144,7 @@
     <string name="buy_premium">Beli Premium</string>
     <string name="restore_purchases">Pulihkan Pembelian</string>
     <string name="play_price_once">%1$s — Sekali Bayar</string>
-    <string name="purchase_disclosure">Pembelian sekali bayar melalui Google Play. Tanpa langganan atau biaya berulang. Harga pembayaran berasal dari Google Play.</string>
+    <string name="purchase_disclosure">Pembelian sekali bayar melalui Google Play. Tanpa langganan atau biaya berulang. Harga pembayaran berasal dari Google Play. Premium offline berlaku hingga 24 jam setelah pemeriksaan kepemilikan berhasil. Pemeriksaan baru melalui internet dapat diperlukan.</string>
     <string name="billing_loading">Menghubungkan ke Google Play…</string>
     <string name="billing_ready">Siap membeli melalui Google Play.</string>
     <string name="billing_processing">Pembelian diproses. Menunggu konfirmasi Google Play…</string>

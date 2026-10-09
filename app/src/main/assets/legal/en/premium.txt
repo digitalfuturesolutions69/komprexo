@@ -1,17 +1,17 @@
-DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
 
-# One-time Premium
+# One-time purchase and price
 
-Proposed price in Indonesia: IDR 49,000 once, subject to Play Console configuration. The actual Google Play localized price is shown before purchase. Product komprexo_premium_lifetime is INAPP, non-consumable; no subscription, monthly charge, rental or recurring payment. Benefits: unlimited daily Compression, Resize and Convert, batches up to twenty within safe limits and all Smart Presets. Ad-free behavior applies if advertising is introduced later; no ads SDK is present now.
+Premium is one non-consumable purchase through Google Play. The upgrade is not used up after processing. It is not a subscription and has no recurring charges. Intended Indonesian price: Rp49.000. The actual price, currency and applicable checkout terms are shown by Google Play before payment. Availability depends on Play configuration and eligibility.
 
-# Purchase and restore
+# Benefits and Free limits
 
-Purchase only through the official Google Play dialog. Pending payments do not unlock; cancelled or failed payments do not create a purchase. Completed ownership must be reconciled and acknowledged. Restore Purchases queries the current Play account, including after reinstall. Sign in to the account that owns the purchase and check Play Store availability.
+Premium offers unlimited daily Compression, Resize and Convert, all Smart Presets and batches up to 20 images, within technical safety limits. Free has three separate quotas: 5 successful Compression images/day, 5 Resize and 5 Convert. Single and batch share their feature quota; Free batches allow 2 images. Failed operations and unused cancelled credits are not charged. Internal transformations charge the primary feature once; Save and Share are unmetered. There are no ads in the current version.
 
-# Refunds and revoked ownership
+# Activation, restore and offline checks
 
-Use official Google Play refund instructions: https://support.google.com/googleplay/answer/2479637 . Purchase help: https://support.google.com/googleplay/answer/1061913 . Eligibility and approval depend on Google Play and applicable consumer rights; no automatic refund or invented deadline is promised. Successfully reported loss of ownership returns the app to Free. Offline verification lasts at most twenty-four hours after the last accepted ownership check; immediate refund/revocation detection is unavailable without a backend.
+Pending, failed or cancelled payments do not activate Premium. Completed purchases must be confirmed by Google Play. Restore Purchases checks the owning Google Play account, including after reinstall. Offline Premium lasts up to 24 hours after the last successful ownership check. A new internet-based ownership check may be required afterward. Image processing remains available offline under the applicable Free or Premium limits.
 
-# Support
+# Refunds, revocation and help
 
-For purchase problems email komprexo.support@gmail.com. Report app version, Android version, a sanitized status and whether Restore was tried. Do not send purchase tokens, card details, private image content or personal documents. Real Google Play test transactions are separate from automated fake-Billing tests.
+A refund or valid revocation may remove Premium when confirmed. Offline checks can delay detection. Already completed outputs remain available. Request refunds through Google Play: https://support.google.com/googleplay/answer/2479637 . Applicable consumer rights are preserved. No automatic refund, fixed approval time or unconditional lifetime offline access is promised. Contact komprexo.support@gmail.com for purchase help; do not send card details, private images or purchase tokens.

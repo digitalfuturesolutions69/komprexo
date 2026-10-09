@@ -144,7 +144,7 @@
     <string name="buy_premium">Comprar Premium</string>
     <string name="restore_purchases">Restaurar compras</string>
     <string name="play_price_once">%1$s — Pago único</string>
-    <string name="purchase_disclosure">Compra única mediante Google Play. Sin suscripción ni cargos periódicos. Google Play proporciona el precio de pago.</string>
+    <string name="purchase_disclosure">Compra única mediante Google Play. Sin suscripción ni cargos periódicos. Google Play proporciona el precio de pago. Premium sin conexión dura hasta 24 horas tras una comprobación correcta. Después puede requerirse otra comprobación por internet.</string>
     <string name="billing_loading">Conectando con Google Play…</string>
     <string name="billing_ready">Listo para comprar mediante Google Play.</string>
     <string name="billing_processing">Compra en curso. Esperando confirmación de Google Play…</string>

@@ -144,7 +144,7 @@
     <string name="buy_premium">Buy Premium</string>
     <string name="restore_purchases">Restore Purchases</string>
     <string name="play_price_once">%1$s — One-time purchase</string>
-    <string name="purchase_disclosure">One-time purchase through Google Play. No subscription or recurring charges. The checkout price is provided by Google Play.</string>
+    <string name="purchase_disclosure">One-time purchase through Google Play. No subscription or recurring charges. The checkout price is provided by Google Play. Offline Premium lasts up to 24 hours after a successful ownership check. A new internet check may then be required.</string>
     <string name="billing_loading">Connecting to Google Play…</string>
     <string name="billing_ready">Ready to purchase through Google Play.</string>
     <string name="billing_processing">Purchase processing. Waiting for Google Play confirmation…</string>

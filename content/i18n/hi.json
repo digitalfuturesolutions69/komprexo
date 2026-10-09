@@ -144,7 +144,7 @@
   "buy_premium": "Premium खरीदें",
   "restore_purchases": "खरीद बहाल करें",
   "play_price_once": "%1$s — एक बार भुगतान",
-  "purchase_disclosure": "Google Play से एक बार खरीद। कोई सदस्यता या बार-बार शुल्क नहीं। भुगतान मूल्य Google Play से मिलता है।",
+  "purchase_disclosure": "Google Play से एक बार खरीद। कोई सदस्यता या बार-बार शुल्क नहीं। भुगतान मूल्य Google Play से मिलता है। सफल स्वामित्व जाँच के बाद ऑफ़लाइन Premium अधिकतम 24 घंटे है। बाद में इंटरनेट से नई जाँच जरूरी हो सकती है।",
   "billing_loading": "Google Play से जुड़ रहा है…",
   "billing_ready": "Google Play से खरीदने के लिए तैयार।",
   "billing_processing": "खरीद जारी है। Google Play की पुष्टि की प्रतीक्षा…",

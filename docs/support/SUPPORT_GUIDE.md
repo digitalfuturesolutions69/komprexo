@@ -1,19 +1,19 @@
 # Komprexo — Support
 
-DRAFT — owner review required. Prepared 9 October 2026. Effective date: [OWNER APPROVAL AND PUBLICATION REQUIRED]. Developer legal identity/address, governing law and target audience: [OWNER REVIEW REQUIRED].
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
 
-# Contact
+# Contact safely
 
-Email komprexo.support@gmail.com. The app has no support upload form, account or server.
+Email komprexo.support@gmail.com. Include app version, Android version, device model, tool, format and the error you see. Hide personal information in screenshots. Do not send private images, documents, camera metadata, card details or purchase tokens. The app opens your email client without attaching photos automatically. Your email provider handles the message.
 
-# Images and free quotas
+# Image problems
 
-Choose local JPEG, PNG or supported WebP. HEIC/HEIF is not supported: export a JPEG or PNG copy. For read-permission errors select again; for memory errors use a smaller image. Each Free tool has five successful outputs per day and shares its counter between single/batch; maximum two per batch. Save and Share do not use credits.
+Use JPEG, PNG or supported WebP. HEIC/HEIF is not supported; export a JPEG or PNG copy first. Select the image again after access errors. For memory errors, try a smaller image. Originals are preserved. Save results before clearing work or app data. Shared or saved copies are controlled by you and the receiving provider.
 
-# Purchase troubleshooting
+# Quotas and Premium
 
-Check Play Store availability, connection and the owning Google account, then Restore Purchases. Pending payments must complete before activation. An unavailable product may require owner Play Console configuration. Refund guidance: https://support.google.com/googleplay/answer/2479637 .
+Free gives 5 successful images/day separately for Compression, Resize and Convert. Single and batch share the corresponding quota; Free batches allow 2 images. Failed operations and unused cancelled credits are not charged. Save and Share do not use credits. Premium removes daily limits and allows up to 20 images per batch within safe limits.
 
-# Safe error reports
+# Purchase help and privacy
 
-Send app version, device manufacturer/model, Android version, tool, selected format, and a sanitized error description. Do not email private photos, EXIF, document contents, card details or purchase tokens. Screenshots should hide personal information. No automatic telemetry is sent.
+Check internet, Play Store and the account that owns Premium, then use Restore Purchases. Pending payments must finish first. Offline Premium lasts up to 24 hours after a successful check; reconnect for a new ownership check when required. Refund help: https://support.google.com/googleplay/answer/2479637 . Google Billing software may process service diagnostics; exact collection and retention remain under review. This guide does not promise zero telemetry or an automatic refund.

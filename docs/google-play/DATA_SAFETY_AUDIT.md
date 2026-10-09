@@ -1,6 +1,14 @@
 # Data Safety assessment — DRAFT
 
-9 October 2026, Asia/Jakarta. **Owner review required; no declaration submitted.** Local processing and Google SDK network behavior are distinct.
+9 October 2026, Asia/Jakarta. FASE4A.1 editorial review. **DRAFT; OWNER ACTION REQUIRED; no declaration submitted.** Local processing and Google SDK network behavior are distinct.
+
+## Publication decision and evidence boundaries
+
+**NOT READY FOR SUBMISSION.** On-device photo processing does not require uploading photos to Komprexo. This does not mean the app and included Google software collect no data. The release graph has99artifacts; source confirms no app photo-upload endpoint, but cannot establish every vendor diagnostic field or retention rule. No new SDK, permission, behavior or runtime dependency is authorized by this editorial review.
+
+The consumer policies now explain selected images/metadata, local work files, user-directed exports, quotas/preferences, purchases, possible Google diagnostics, retention limits, security and user choices in plain language. Implementation names, cryptography, permission constants and dependency versions remain in this audit and Billing design. English, Indonesian, Spanish, Brazilian Portuguese and Hindi use the same policy sections and generation sources. Native-speaker and legal approval are still required.
+
+A24-hour offline entitlement validity window is **not** a Google/SDK/support-mail deletion deadline. Temporary images older than24hours are checked during ImageStorage initialization, not erased by a guaranteed24-hour timer. Revoking URI permission does not erase an imported copy. Exported copies remain outside app deletion control.
 
 ## Evidence
 
@@ -23,6 +31,7 @@ Actual release runtime **99 artifacts**: [POM/license/hash inventory](../legal/R
 | Diagnostics/errors | Local sanitized API/manufacturer/model/stage/MIME/decoder/encoder/allocation/error category | No app telemetry endpoint. Billing transport may transmit service diagnostics to Google | Android local logs; SDK serialized event queue may use SQLite. Vendor retention/encryption not established from source alone | diagnostics/ and SDK POM/AAR. Need actual Billing9.1 fields/destinations/optionality/deletion/security disclosure |
 | Device/network IDs/IP | App API/model/manufacturer diagnostics; Billing uses services/network | Google sees IP and may process SDK/device IDs. No advertising-ID permission/app tracking ID | No app stable-ID DB; SDK/Play terms govern logs/retention | Manifest/source. Do not infer no IDs collected from absent direct calls |
 | Location | No app permission/request/API | Precise collection not evidenced; IP-derived approximate location by Google unresolved | No app location store | Transitive location libs not proof either way |
+| Voluntary support email | User chooses to send contact information, device/app details, text or redacted screenshots to seek help | ACTION_SENDTO opens an email client; no automatic attachment/transmission. User sends to komprexo.support@gmail.com; mailbox owner and email providers handle it | Owner must define access, retention, deletion, security and applicable request handling; not established | OWNER ACTION REQUIRED. Support is not an in-app upload service; do not imply the developer never receives personal information |
 | Contacts/mic/messages/health/passwords | Not used | No app collection/sharing | None | Manifest/source; no accounts/forms |
 
 ## Safeguards, limits and owner questions
@@ -36,3 +45,17 @@ Do **not** submit unqualified “no collection” while Billing/transport behavi
 Owner confirms identity/address/effective date/target ages/children law/consumer jurisdiction before policy publication. **Re-audit before separately authorized FASE 4B AdMob.**
 
 References: [Data Safety](https://support.google.com/googleplay/android-developer/answer/10787469), [SDK data use](https://developer.android.com/privacy-and-security/declare-data-use), [Billing](https://developer.android.com/google/play/billing/release-notes).
+
+## Unresolved items — OWNER ACTION REQUIRED
+
+| Gap | Required evidence/action before publication |
+|---|---|
+| Controller/developer identity | Legal name, business address, governing law/dispute jurisdiction, audience/children obligations and effective date. Preparation date must not become effective date automatically. |
+| Billing/transport data fields | Confirm current vendor disclosure for resolved Billing9.1.0 and its transport chain. Determine exact account/purchase/device/network/diagnostic identifiers and destinations. Library names alone do not prove a data type is collected. |
+| Vendor retention/deletion/security | Confirm queue/network/server retention, encryption in transit, deletion/request handling, recipient roles and optionality. Do not infer these from app cache encryption or absence of permissions. |
+| Location/network inference | No app location permission/API; transitive location libraries are not proof of collection or noncollection. Vendor IP-derived information remains unresolved. |
+| Support mailbox | Confirm operator, access controls, retention, deletion and responses to lawful requests for voluntary email data. No response deadline or automatic erasure promise is made. |
+| Play form classifications | Apply current SDK/service-provider/user-directed-transfer rules to actual behavior; do not prefill “no collection” or guess exemption eligibility. |
+| Final legal and language approval | Review all five drafts with qualified native speakers and appropriate legal advisers; approve public text and host policy only after separate authorization. |
+
+Official guidance reviewed9October2026: Google Play Data Safety requires assessment of third-party SDK data, not only developer endpoints; refund eligibility depends on purchase/payment/location and applicable law. References above and [refund guidance](https://support.google.com/googleplay/answer/2479637). This is compliance preparation, not a legal certification, vendor disclosure confirmation, payment test or Console submission.

@@ -144,7 +144,7 @@
   "buy_premium": "Beli Premium",
   "restore_purchases": "Pulihkan Pembelian",
   "play_price_once": "%1$s — Sekali Bayar",
-  "purchase_disclosure": "Pembelian sekali bayar melalui Google Play. Tanpa langganan atau biaya berulang. Harga pembayaran berasal dari Google Play.",
+  "purchase_disclosure": "Pembelian sekali bayar melalui Google Play. Tanpa langganan atau biaya berulang. Harga pembayaran berasal dari Google Play. Premium offline berlaku hingga 24 jam setelah pemeriksaan kepemilikan berhasil. Pemeriksaan baru melalui internet dapat diperlukan.",
   "billing_loading": "Menghubungkan ke Google Play…",
   "billing_ready": "Siap membeli melalui Google Play.",
   "billing_processing": "Pembelian diproses. Menunggu konfirmasi Google Play…",

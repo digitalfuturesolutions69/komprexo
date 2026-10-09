@@ -55,7 +55,7 @@ for locale in NAMES:
             if page:
                 title = strings[LABELS[page]]
                 body = f'<h1>{escape(title)}</h1>'
-                if page in ['privacy', 'terms', 'premium']:
+                if page in LABELS:
                     body += f'<aside class="draft">{escape(legal["draft"])}</aside>'
                 body += ''.join(f'<section><h2>{escape(heading)}</h2><p>{rich(text)}</p></section>'
                                 for heading, text in legal[page])

@@ -1,101 +1,101 @@
 {
-  "draft": "DRAFT — DRAF — perlu tinjauan pemilik. Disusun 9 Oktober 2026. Tanggal berlaku: [PERLU PERSETUJUAN PEMILIK DAN PUBLIKASI]. Identitas/alamat hukum pengembang, hukum yang berlaku dan target pengguna: [PERLU TINJAUAN PEMILIK].",
+  "draft": "DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.",
   "privacy": [
     [
-      "Identitas dan kontak",
-      "Komprexo adalah aplikasi pengolah gambar Android. Nama hukum dan alamat usaha pengembang: [PERLU TINJAUAN PEMILIK]. Hubungi komprexo.support@gmail.com untuk bantuan dan pertanyaan privasi."
+      "Tentang kami dan kontak",
+      "Komprexo membantu mengompres, mengubah ukuran dan mengonversi gambar di Android. Nama hukum pengembang dan alamat usaha: OWNER ACTION REQUIRED. Pertanyaan privasi: komprexo.support@gmail.com."
     ],
     [
-      "Foto dan pemrosesan lokal",
-      "Anda memilih gambar melalui pemilih dokumen atau foto Android. Komprexo hanya membaca konten terpilih sesuai izin URI Android, menyalin masukan ke penyimpanan sementara privat, lalu melakukan kompresi, resize atau konversi di perangkat. Foto tidak diunggah ke server Komprexo. Tidak ada server Komprexo, akun, database aplikasi atau SDK analitik."
+      "Gambar yang Anda pilih",
+      "Komprexo mengakses gambar pilihan Anda dan informasi yang diperlukan untuk membacanya, seperti format, dimensi dan orientasi. Salinan sementara dapat memuat metadata kamera dari gambar asli. Pemrosesan dan pratinjau dilakukan di perangkat. Pemrosesan tidak memerlukan pengunggahan foto ke server Komprexo. Komprexo tidak memiliki server pemrosesan foto atau akun aplikasi. Jika gambar dipilih dari penyedia online, penyedia mungkin memerlukan koneksi untuk menyediakan file dan menerapkan kebijakannya sendiri."
     ],
     [
-      "File sementara, simpan dan bagikan",
-      "Cache masukan, keluaran dan thumbnail privat mendukung pemrosesan dan pratinjau. Gambar asli dipertahankan. Cache dibersihkan saat aplikasi mulai atau ketika diganti/dihapus, bergantung pada gangguan proses dan perilaku penyimpanan Android; cache bukan penyimpanan permanen. Simpan menulis salinan ke tujuan pilihan Anda. Bagikan memberi aplikasi penerima akses sementara melalui FileProvider yang tidak diekspor. Kebijakan penerima dan penyedia penyimpanan berlaku; Komprexo tidak dapat menghapus salinan yang Anda ekspor atau kirim."
+      "File sementara, Simpan dan Bagikan",
+      "Aplikasi menyimpan file masukan, hasil dan pratinjau sementara di ruang penyimpanan privat. Gambar asli tidak diubah. Sebagian file dihapus saat pekerjaan diganti atau dibersihkan, atau proses gagal. File yang lebih lama dari 24 jam diperiksa untuk dibersihkan saat penyimpanan gambar diinisialisasi; penghapusan tidak dijamin tepat setelah 24 jam. Simpan hasil penting. Simpan menulis salinan ke tujuan pilihan Anda. Bagikan memberi aplikasi pilihan Anda akses ke hasil. Penyedia penyimpanan cloud atau aplikasi penerima dapat mengunggah atau menyimpan salinan sesuai kebijakannya. Komprexo tidak dapat menarik kembali salinan yang diekspor."
     ],
     [
-      "Preferensi dan kuota lokal",
-      "DataStore privat menyimpan tiga jumlah kuota harian dan jurnal reservasi, termasuk hari lokal, batas tertinggi waktu, fitur dan nomor slot. Tidak menyimpan identitas gambar, EXIF atau riwayat gambar. Preferensi bahasa per aplikasi Android menyimpan pilihan bahasa. Menghapus data atau mencopot aplikasi menghapus data lokal; file ekspor tetap Anda kendalikan. Pencadangan Android dinonaktifkan."
+      "Kuota dan preferensi lokal",
+      "Aplikasi menyimpan hitungan harian per fitur, informasi proses yang belum selesai dan pilihan bahasa secara lokal. Catatan ini bukan riwayat gambar. Hitungan direset sesuai aturan kuota harian. Preferensi tersimpan hingga diubah atau dihapus. Menghapus data aplikasi atau mencopot aplikasi menghapus file dan catatan privat; tindakan ini tidak menghapus file ekspor atau catatan pembelian Google. Pencadangan aplikasi dinonaktifkan."
     ],
     [
-      "Pembelian Google Play dan jaringan",
-      "Premium memakai Google Play Billing 9.1.0 untuk pembelian sekali bayar non-konsumsi, pemeriksaan kepemilikan, pengakuan dan pemulihan. Google Play menangani informasi pembayaran; Komprexo tidak mengumpulkan data kartu. Token pembelian hanya ada sementara di memori untuk pemeriksaan/pengakuan dan tidak dicatat di log. Ringkasan token serta waktu pemeriksaan/kedaluwarsa dapat dienkripsi dengan AndroidKeyStore untuk maksimal 24 jam tanpa internet. Aplikasi tidak menyimpan token mentah atau identitas pesanan. Billing menambahkan izin INTERNET, ACCESS_NETWORK_STATE dan BILLING. Google Play dan SDK-nya dapat memproses informasi transaksi/akun, perangkat dan diagnostik sesuai kebijakan mereka; kami tidak menyatakan Google tidak mengumpulkan data. Pengolahan gambar tetap bekerja tanpa internet. Transport bawaan Billing dapat mengantrekan diagnostik operasional di penyimpanan lokal SDK, termasuk SQLite; Komprexo tidak memakainya untuk foto atau kuota. Pustaka lokasi adalah dependensi transitif, tetapi aplikasi tidak meminta izin lokasi atau memanggil API lokasi. Akses cache berlaku 24 jam; catatan kedaluwarsa dihapus saat pemeriksaan berikutnya atau aplikasi dimulai."
+      "Pembelian dan layanan Google",
+      "Google Play menangani pembayaran dan rinciannya. Komprexo memakai informasi pembelian untuk mengaktifkan, memulihkan dan memeriksa Premium. Aplikasi tidak menyimpan data kartu atau riwayat pesanan. Catatan kepemilikan lokal yang dilindungi mendukung Premium offline hingga 24 jam setelah pemeriksaan berhasil. Catatan kedaluwarsa atau tidak valid dihapus saat pemeriksaan berikutnya. Pembelian dan pemeriksaan ulang memerlukan internet. Pemrosesan gambar sendiri tetap bekerja offline."
     ],
     [
-      "Retensi, keamanan dan keterbatasan",
-      "Cache hak akses terenkripsi kedaluwarsa setelah 24 jam dan dibatalkan saat kepemilikan hilang secara terkonfirmasi, cache kedaluwarsa atau jam mundur. Autentikasi cache lokal bukan verifikasi pembelian server yang kebal manipulasi. Deteksi pengembalian dana/pencabutan dapat tertunda tanpa internet. Penyimpanan privat, akses URI terbatas, pemrosesan berbatas dan FileProvider aman mengurangi risiko, tanpa menjamin keamanan mutlak. Retensi SDK/jaringan ditentukan Google dan perlu diaudit lagi sebelum publikasi."
+      "Diagnostik pihak ketiga",
+      "Google Play dan perangkat lunak bawaannya dapat memproses informasi pembelian, akun, perangkat, jaringan dan diagnostik sesuai kebijakannya. Perangkat lunak terkait Billing dapat menyimpan dan mengirim diagnostik layanan. Jenis data tepat, masa penyimpanan dan ketentuan penghapusan masih perlu dikonfirmasi sebelum publikasi: OWNER ACTION REQUIRED. Tidak ada klaim bahwa pengumpulan data sama sekali tidak terjadi. Komprexo tidak memiliki layanan analitik aplikasi atau iklan tersendiri. Aplikasi tidak meminta izin lokasi perangkat atau memanggil layanan lokasi. Hal ini tidak membuktikan informasi apa yang dapat disimpulkan Google dari jaringan."
     ],
     [
-      "Hak, anak dan perubahan",
-      "Anda dapat mengganti bahasa, mencabut izin gambar, menghapus data aplikasi/salinan ekspor dan menghubungi kami untuk pertanyaan privasi. Google mengendalikan catatan akun/pembayaran dan prosedur hak terkait. Target usia, usia minimum dan kewajiban persetujuan anak/orang tua menurut wilayah [PERLU TINJAUAN PEMILIK] sebelum rilis. Perubahan kebijakan diterbitkan dengan tanggal berlaku setelah tinjauan pemilik. Iklan belum diintegrasikan; privasi dan Data Safety harus ditinjau lagi sebelum iklan ditambahkan."
+      "Penyimpanan dan keamanan",
+      "File sementara, kuota dan preferensi mengikuti aturan di atas. Catatan Premium offline berlaku maksimal 24 jam; ini bukan batas penghapusan catatan Google atau diagnostik perangkat lunak Google. Google serta penyedia penyimpanan, berbagi atau email memiliki aturan penyimpanan sendiri. Penyimpanan privat dan catatan kepemilikan yang dilindungi mengurangi risiko, tetapi tidak menjamin keamanan mutlak atau mengenkripsi setiap foto. Perangkat yang disusupi dan keterlambatan pemeriksaan refund saat offline tetap mungkin terjadi."
+    ],
+    [
+      "Pilihan dan hak Anda",
+      "Anda dapat memilih gambar, mencabut akses, mengubah bahasa, menghapus data aplikasi dan menghapus salinan yang disimpan. Mencabut izin tidak menghapus salinan yang sudah diimpor. Hubungi komprexo.support@gmail.com untuk permintaan akses, koreksi atau penghapusan serta hak berdasarkan hukum yang berlaku. Hubungi Google atau penyedia penerima untuk catatan yang mereka kendalikan. Penyedia email memproses pesan dukungan Anda; hindari foto privat, data kartu dan token pembelian. Target pengguna, ketentuan terkait anak dan tanggal berlaku masih OWNER ACTION REQUIRED. Kebijakan dan penggunaan perangkat lunak bawaan harus ditinjau sebelum perubahan atau publikasi. Pesan dukungan memuat informasi yang Anda pilih untuk dikirim. Cara penanganan dan masa penyimpanan email dukungan perlu dikonfirmasi pemilik sebelum publikasi: OWNER ACTION REQUIRED."
     ]
   ],
   "terms": [
     [
-      "Layanan dan kepemilikan",
-      "Komprexo menyediakan kompresi, resize, konversi, preset, simpan dan bagikan gambar di perangkat. Kepemilikan gambar asli tetap milik Anda. Proses hanya konten yang berhak Anda gunakan; jangan melanggar hak pihak lain atau memakai aplikasi untuk kegiatan ilegal."
+      "Menggunakan Komprexo",
+      "Kompresi, Resize dan Convert dilakukan di perangkat. Gambar asli tetap milik Anda. Proses hanya konten yang boleh Anda gunakan secara sah. Hasil bergantung pada gambar, format, target dan perangkat. Kompresi dapat mengurangi detail; simpan gambar asli dan hasil penting. File sementara bukan cadangan."
     ],
     [
-      "Gratis dan Premium",
-      "Gratis memberikan lima hasil sukses yang diterima per hari lokal untuk MASING-MASING fitur Compress, Resize dan Convert dengan penghitung terpisah. Operasi tunggal/batch berbagi penghitung fitur; batch Gratis maksimal dua gambar. Slot gagal atau dibatalkan sebelum diterima tidak dikenai kuota. Transformasi internal hanya mengenakan kuota fitur utama sekali; Simpan/Bagikan tidak dikenai kuota. Premium menghapus batas harian ketiganya dan mendukung batch maksimal dua puluh gambar dalam batas teknis aman, serta semua Smart Presets."
+      "Kuota Gratis",
+      "Kompresi: 5 gambar berhasil per hari lokal. Resize: 5. Convert: 5. Ketiganya memiliki kuota terpisah. Proses satu gambar dan batch berbagi kuota fiturnya. Batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota; hasil yang berhasil sebelum pembatalan tetap dihitung. Resize atau encoding internal hanya mengenakan kuota fitur utama sekali. Simpan dan Bagikan tidak menggunakan kredit."
     ],
     [
-      "Pembayaran dan pemulihan",
-      "Premium adalah pembelian Google Play non-konsumsi sekali bayar, bukan langganan. IDR 49.000 merupakan rencana harga Indonesia; harga pembayaran lokal yang memenuhi syarat berasal dari Google Play. Ketersediaan bergantung pada pengaturan Play Console pemilik dan kelayakan Google. Pulihkan melalui akun Play pemilik pembelian. Pembayaran tertunda, dibatalkan atau gagal tidak mengaktifkan Premium. Pengembalian dana mengikuti prosedur Google Play dan hak konsumen wajib, bukan jaminan pengembalian otomatis."
+      "Premium dan batas teknis",
+      "Premium menghapus tiga batas harian, membuka semua Smart Presets dan mendukung hingga 20 gambar per batch. Batas format, ukuran file, memori dan keselamatan perangkat tetap berlaku. Premium adalah pembelian sekali bayar non-konsumsi: hak peningkatan tidak habis setelah dipakai. Bukan langganan berulang. Harga yang ditujukan untuk Indonesia: Rp49.000. Harga pembayaran sebenarnya berasal dari Google Play."
     ],
     [
-      "Batas teknis",
-      "Hasil bergantung pada gambar, codec, format dan memori perangkat. Kompresi dapat mengurangi detail; sebagian format/ukuran tidak didukung. Tidak ada jaminan rasio kompresi. Simpan gambar asli dan hasil penting; keluaran sementara bukan cadangan. Premium tanpa internet terbatas pada cache pemeriksaan terbaru; pengembalian dana, pencabutan, pergantian akun atau kedaluwarsa dapat mengembalikan batas Gratis tanpa merusak hasil selesai."
+      "Kepemilikan, akses offline dan refund",
+      "Pulihkan Pembelian didukung dengan akun Google Play pemilik Premium. Pembayaran tertunda, gagal atau dibatalkan tidak mengaktifkannya. Premium offline berlaku hingga 24 jam setelah pemeriksaan kepemilikan berhasil. Pemeriksaan baru melalui internet dapat diperlukan setelahnya. Refund atau pencabutan yang valid dapat menghapus akses Premium dan mengembalikan batas Gratis. Hasil yang sudah selesai tidak dihapus oleh perubahan ini. Permintaan refund mengikuti proses Google Play dan hukum konsumen yang berlaku; persetujuan dan waktunya tidak dijamin."
     ],
     [
-      "Hak kekayaan intelektual dan perubahan",
-      "Merek dan materi Komprexo terpisah dari gambar pengguna serta perangkat lunak pihak ketiga. Pemberitahuan lisensi sumber terbuka tetap tersedia. Fitur/kompatibilitas dapat berubah dengan tetap mematuhi perlindungan konsumen dan kewajiban hak berbayar. Tidak ada diskon menyesatkan, kelangkaan palsu atau biaya berulang dalam penawaran ini."
-    ],
-    [
-      "Bantuan dan tinjauan hukum",
-      "Hubungi komprexo.support@gmail.com. Ketentuan ini tidak mengecualikan hak atau pemulihan konsumen wajib. Identitas/alamat hukum pengembang, hukum yang berlaku dan tempat penyelesaian sengketa [PERLU TINJAUAN PEMILIK]. Ketentuan tetap draf hingga ditinjau dan diterbitkan; bukan klaim persetujuan hukum."
+      "Hak dan dukungan",
+      "Lisensi perangkat lunak pihak ketiga tersedia di Pengaturan. Perubahan fitur atau hak berbayar tetap tunduk pada hukum yang berlaku. Ketentuan ini tidak menghapus hak atau pemulihan konsumen yang wajib dilindungi. Hubungi komprexo.support@gmail.com. Nama hukum pengembang, alamat, hukum yang berlaku, tempat penyelesaian sengketa, target pengguna dan tanggal berlaku: OWNER ACTION REQUIRED. Draf ini bukan persetujuan hukum."
     ]
   ],
   "premium": [
     [
-      "Premium sekali bayar",
-      "Rencana harga Indonesia: IDR 49.000 sekali bayar, bergantung pada pengaturan Play Console. Harga lokal Google Play ditampilkan sebelum pembelian. Produk komprexo_premium_lifetime bertipe INAPP, non-konsumsi; tanpa langganan, biaya bulanan, sewa atau pembayaran berulang. Manfaat: Compress, Resize dan Convert harian tanpa batas, batch maksimal dua puluh dalam batas aman dan semua Smart Presets. Bebas iklan berlaku bila iklan ditambahkan nanti; saat ini tidak ada SDK iklan."
+      "Pembelian sekali bayar dan harga",
+      "Premium adalah satu pembelian non-konsumsi melalui Google Play. Hak peningkatan tidak habis setelah memproses gambar. Bukan langganan dan tanpa biaya berulang. Harga yang ditujukan untuk Indonesia: Rp49.000. Harga, mata uang dan ketentuan pembayaran sebenarnya ditampilkan Google Play sebelum membayar. Ketersediaan bergantung pada konfigurasi Play dan kelayakan."
     ],
     [
-      "Pembelian dan pemulihan",
-      "Beli hanya melalui dialog resmi Google Play. Pembayaran tertunda belum membuka Premium; pembatalan atau kegagalan tidak membuat pembelian. Kepemilikan selesai harus diperiksa dan diakui. Pulihkan Pembelian memeriksa akun Play saat ini, termasuk setelah pemasangan ulang. Gunakan akun pemilik pembelian dan periksa ketersediaan Play Store."
+      "Manfaat dan batas Gratis",
+      "Premium menyediakan Kompresi, Resize dan Convert tanpa batas harian, semua Smart Presets dan batch hingga 20 gambar, dalam batas keselamatan teknis. Gratis memiliki tiga kuota terpisah: 5 gambar Kompresi berhasil/hari, 5 Resize dan 5 Convert. Proses satu gambar dan batch berbagi kuota fitur; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Transformasi internal mengenakan kuota fitur utama sekali; Simpan dan Bagikan tidak dikenakan kuota. Versi saat ini tidak memiliki iklan."
     ],
     [
-      "Pengembalian dana dan pencabutan",
-      "Gunakan panduan resmi Google Play: https://support.google.com/googleplay/answer/2479637 . Bantuan pembelian: https://support.google.com/googleplay/answer/1061913 . Kelayakan/persetujuan bergantung pada Google Play dan hak konsumen; tidak ada janji dana kembali otomatis atau batas waktu rekaan. Kehilangan kepemilikan yang terkonfirmasi mengembalikan aplikasi ke Gratis. Pemeriksaan tanpa internet berlaku maksimal dua puluh empat jam sejak pemeriksaan diterima; deteksi langsung pengembalian dana/pencabutan tidak tersedia tanpa backend."
+      "Aktivasi, pemulihan dan pemeriksaan offline",
+      "Pembayaran tertunda, gagal atau dibatalkan tidak mengaktifkan Premium. Pembelian selesai harus dikonfirmasi oleh Google Play. Pulihkan Pembelian memeriksa akun Google Play pemilik, termasuk setelah instal ulang. Premium offline berlaku hingga 24 jam sejak pemeriksaan kepemilikan terakhir berhasil. Pemeriksaan baru melalui internet dapat diperlukan setelahnya. Pemrosesan gambar tetap tersedia offline dengan batas Gratis atau Premium yang berlaku."
     ],
     [
-      "Bantuan",
-      "Untuk kendala pembelian kirim email ke komprexo.support@gmail.com. Sertakan versi aplikasi, versi Android, status yang disanitasi dan apakah pemulihan telah dicoba. Jangan kirim token pembelian, data kartu, foto pribadi atau dokumen. Transaksi uji Google Play nyata berbeda dari pengujian otomatis Billing palsu."
+      "Refund, pencabutan dan bantuan",
+      "Refund atau pencabutan yang valid dapat menghapus Premium saat terkonfirmasi. Kondisi offline dapat menunda deteksi. Hasil yang sudah selesai tetap tersedia. Ajukan refund melalui Google Play: https://support.google.com/googleplay/answer/2479637 . Hak konsumen menurut hukum tetap dilindungi. Tidak ada janji refund otomatis, waktu persetujuan tetap atau Premium offline tanpa batas seumur hidup. Bantuan pembelian: komprexo.support@gmail.com; jangan kirim data kartu, gambar privat atau token pembelian."
     ]
   ],
   "support": [
     [
-      "Kontak",
-      "Email komprexo.support@gmail.com. Aplikasi tidak memiliki formulir unggah bantuan, akun atau server."
+      "Hubungi dengan aman",
+      "Email komprexo.support@gmail.com. Sertakan versi aplikasi, versi Android, model perangkat, fitur, format dan pesan error. Sembunyikan informasi pribadi pada screenshot. Jangan kirim gambar privat, dokumen, metadata kamera, data kartu atau token pembelian. Aplikasi membuka klien email tanpa otomatis melampirkan foto. Penyedia email menangani pesan."
     ],
     [
-      "Gambar dan kuota Gratis",
-      "Pilih JPEG, PNG atau WebP lokal yang didukung. HEIC/HEIF tidak didukung: ekspor salinan JPEG/PNG. Untuk izin baca hilang pilih ulang; untuk memori kurang gunakan gambar lebih kecil. Setiap fitur Gratis memiliki lima hasil sukses per hari, dibagi operasi tunggal/batch, maksimal dua per batch. Simpan/Bagikan tidak memakai kredit."
+      "Masalah gambar",
+      "Gunakan JPEG, PNG atau WebP yang didukung. HEIC/HEIF tidak didukung; ekspor salinan JPEG atau PNG dahulu. Pilih ulang gambar setelah error akses. Untuk error memori, coba gambar lebih kecil. Gambar asli dipertahankan. Simpan hasil sebelum membersihkan pekerjaan atau data aplikasi. Salinan yang dibagikan atau disimpan dikendalikan Anda dan penyedia penerima."
     ],
     [
-      "Kendala pembelian",
-      "Periksa Play Store, koneksi dan akun Google pemilik, lalu Pulihkan Pembelian. Pembayaran tertunda harus selesai sebelum aktivasi. Produk yang tidak tersedia mungkin perlu konfigurasi Play Console pemilik. Panduan dana kembali: https://support.google.com/googleplay/answer/2479637 ."
+      "Kuota dan Premium",
+      "Gratis menyediakan 5 gambar berhasil/hari secara terpisah untuk Kompresi, Resize dan Convert. Proses satu gambar dan batch berbagi kuota masing-masing; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Simpan dan Bagikan tidak menggunakan kredit. Premium menghapus batas harian dan mendukung hingga 20 gambar per batch dalam batas keselamatan."
     ],
     [
-      "Laporan aman",
-      "Kirim versi aplikasi, merek/model perangkat, versi Android, fitur, format dan uraian kesalahan yang disanitasi. Jangan kirim foto pribadi, EXIF, isi dokumen, data kartu atau token pembelian. Sembunyikan informasi pribadi pada tangkapan layar. Tidak ada telemetri otomatis."
+      "Bantuan pembelian dan privasi",
+      "Periksa internet, Play Store dan akun pemilik Premium, lalu gunakan Pulihkan Pembelian. Pembayaran tertunda harus selesai dahulu. Premium offline berlaku hingga 24 jam setelah pemeriksaan berhasil; sambungkan internet untuk pemeriksaan baru saat diperlukan. Bantuan refund: https://support.google.com/googleplay/answer/2479637 . Perangkat lunak Google Billing dapat memproses diagnostik layanan; pengumpulan tepat dan masa penyimpanannya masih ditinjau. Panduan ini tidak menjanjikan tanpa telemetri atau refund otomatis."
     ]
   ],
   "about": [
     [
       "Komprexo",
-      "Alat Android native untuk Compress, Resize dan Convert di perangkat. Gambar asli dipertahankan; hasil dapat disimpan atau dibagikan. ID aplikasi: com.komprexo.app. Kontak resmi: komprexo.support@gmail.com. Identitas hukum pengembang: [PERLU TINJAUAN PEMILIK]. Sumber website disiapkan tetapi belum dipublikasikan."
+      "Alat Android untuk Kompresi, Resize dan Convert lokal. Gambar asli dipertahankan; hasil dapat disimpan atau dibagikan. Kontak: komprexo.support@gmail.com. Identitas pengembang, target pengguna dan rincian publikasi: OWNER ACTION REQUIRED. Source situs belum dipublikasikan."
     ]
   ]
 }
