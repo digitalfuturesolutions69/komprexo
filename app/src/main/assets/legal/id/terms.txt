@@ -1,8 +1,8 @@
-DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: nama hukum pengembang, alamat usaha, hukum yang berlaku, target pengguna dan tanggal berlaku. Disusun 9 Oktober 2026; tanggal penyusunan bukan tanggal berlaku. Semua terjemahan perlu ditinjau penutur asli yang berkualifikasi dan penasihat hukum.
+DRAFT — DRAF, belum disetujui untuk publikasi. OWNER ACTION REQUIRED: target pengguna, tanggal berlaku, persetujuan usulan hukum Indonesia, pengungkapan identitas publik yang diwajibkan hukum dan pengungkapan data pihak ketiga yang belum terverifikasi. Disusun 9 Oktober 2026; bukan tanggal berlaku. Review penutur asli yang kompeten dan review hukum diperlukan.
 
 # Menggunakan Komprexo
 
-Kompresi, Resize dan Convert dilakukan di perangkat. Gambar asli tetap milik Anda. Proses hanya konten yang boleh Anda gunakan secara sah. Hasil bergantung pada gambar, format, target dan perangkat. Kompresi dapat mengurangi detail; simpan gambar asli dan hasil penting. File sementara bukan cadangan.
+Digital Future Solutions adalah nama pengembang publik Komprexo. Operator legal adalah individu yang terdaftar dan terverifikasi di Google Play Console melalui akun Personal di Indonesia. Nama publik ini tidak menunjukkan perusahaan yang terpisah. Kontak resmi dukungan dan privasi: komprexo.support@gmail.com. Kompresi, Resize dan Convert dilakukan di perangkat. Gambar asli tetap milik Anda. Proses hanya konten yang boleh Anda gunakan secara sah. Hasil bergantung pada gambar, format, target dan perangkat. Kompresi dapat mengurangi detail; simpan gambar asli dan hasil penting. File sementara bukan cadangan.
 
 # Kuota Gratis
 
@@ -18,4 +18,4 @@ Pulihkan Pembelian didukung dengan akun Google Play pemilik Premium. Pembayaran 
 
 # Hak dan dukungan
 
-Lisensi perangkat lunak pihak ketiga tersedia di Pengaturan. Perubahan fitur atau hak berbayar tetap tunduk pada hukum yang berlaku. Ketentuan ini tidak menghapus hak atau pemulihan konsumen yang wajib dilindungi. Hubungi komprexo.support@gmail.com. Nama hukum pengembang, alamat, hukum yang berlaku, tempat penyelesaian sengketa, target pengguna dan tanggal berlaku: OWNER ACTION REQUIRED. Draf ini bukan persetujuan hukum.
+Lisensi perangkat lunak pihak ketiga tersedia di Pengaturan. Perubahan fitur atau hak berbayar tetap tunduk pada hukum yang berlaku. Usulan hukum yang mengatur: hukum Indonesia, dengan persetujuan owner. Hak konsumen yang wajib dilindungi dan aturan yurisdiksi yang berlaku tetap dipertahankan, termasuk perlindungan dari hukum lain yang berlaku. Draf ini tidak menetapkan pengadilan eksklusif. Target pengguna, tanggal berlaku dan pengungkapan operator secara publik yang diwajibkan hukum: OWNER ACTION REQUIRED. Draf ini bukan persetujuan hukum.

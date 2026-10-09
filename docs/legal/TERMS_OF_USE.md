@@ -1,10 +1,10 @@
 # Komprexo — Terms
 
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Using Komprexo
 
-Compression, Resize and Convert work on your device. You keep ownership of your original images. Only process content you may lawfully use. Results depend on the image, format, target and device. Compression can reduce detail; keep originals and save important results. Temporary files are not backups.
+Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com. Compression, Resize and Convert work on your device. You keep ownership of your original images. Only process content you may lawfully use. Results depend on the image, format, target and device. Compression can reduce detail; keep originals and save important results. Temporary files are not backups.
 
 # Free quotas
 
@@ -20,4 +20,4 @@ Restore Purchases is supported with the Google Play account that owns Premium. P
 
 # Rights and support
 
-Third-party software licenses remain available in Settings. Changes to features or paid rights remain subject to applicable law. Nothing here excludes mandatory consumer rights or remedies. Contact komprexo.support@gmail.com. Developer legal name, address, governing law, dispute venue, audience and effective date: OWNER ACTION REQUIRED. This draft is not legal approval.
+Third-party software licenses remain available in Settings. Changes to features or paid rights remain subject to applicable law. Proposed governing law: Indonesian law, subject to owner approval. Mandatory consumer rights and applicable jurisdiction rules are preserved, including protections required by other applicable laws. No exclusive court is selected by this draft. Target audience, effective date and any legally required public operator disclosures: OWNER ACTION REQUIRED. This draft is not legal approval.

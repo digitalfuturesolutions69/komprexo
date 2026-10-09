@@ -1,6 +1,10 @@
 # Data Safety assessment — DRAFT
 
-9 October 2026, Asia/Jakarta. FASE4A.1 editorial review. **DRAFT; OWNER ACTION REQUIRED; no declaration submitted.** Local processing and Google SDK network behavior are distinct.
+9 October 2026, Asia/Jakarta. FASE4A.2 identity review. **DRAFT; OWNER ACTION REQUIRED; no declaration submitted.** Local processing and Google SDK network behavior are distinct.
+
+Owner-confirmed public developer: **Digital Future Solutions**. Legal operator: the individual registered and verified in Google Play Console under a **Personal** account; country **Indonesia**. This public display name is not proof of a separate company. Official support/privacy email: **komprexo.support@gmail.com**. No residential address, personal name or private contact information is included. Review any legally required public operator disclosures through the owner; do not copy residential/payment-profile details into source or public Pages artifacts unnecessarily.
+
+Indonesian law is proposed, subject to owner approval, mandatory consumer rights and applicable jurisdiction rules. No exclusive court, audience or effective date is selected. The preparation date is not an effective date.
 
 ## Publication decision and evidence boundaries
 
@@ -42,7 +46,7 @@ Keystore encrypts lease, not all images. Revoked URI permission doesn't erase al
 
 Do **not** submit unqualified “no collection” while Billing/transport behavior unresolved. Obtain current vendor disclosure, inspect merged production graph/manifest and owner-authorized Play-test network behavior without sensitive logs, establish recipient roles/fields/retention/encryption/deletion and form's current collection/sharing/service-provider/user-directed exceptions. No packet capture/legal certification claimed.
 
-Owner confirms identity/address/effective date/target ages/children law/consumer jurisdiction before policy publication. **Re-audit before separately authorized FASE 4B AdMob.**
+Public display identity, personal operator category and country are confirmed. Owner must approve legally required public operator disclosures, effective date, target ages/children obligations and proposed Indonesian law before policy publication. **Re-audit before separately authorized FASE 4B AdMob.**
 
 References: [Data Safety](https://support.google.com/googleplay/android-developer/answer/10787469), [SDK data use](https://developer.android.com/privacy-and-security/declare-data-use), [Billing](https://developer.android.com/google/play/billing/release-notes).
 
@@ -50,7 +54,7 @@ References: [Data Safety](https://support.google.com/googleplay/android-develope
 
 | Gap | Required evidence/action before publication |
 |---|---|
-| Controller/developer identity | Legal name, business address, governing law/dispute jurisdiction, audience/children obligations and effective date. Preparation date must not become effective date automatically. |
+| Controller/developer identity | Digital Future Solutions public name / verified personal operator / Indonesia confirmed. Owner review of legally required public operator disclosures remains; no unnecessary residential address or personal contact publication. Indonesian law proposed, not approved; audience/children obligations and effective date pending. |
 | Billing/transport data fields | Confirm current vendor disclosure for resolved Billing9.1.0 and its transport chain. Determine exact account/purchase/device/network/diagnostic identifiers and destinations. Library names alone do not prove a data type is collected. |
 | Vendor retention/deletion/security | Confirm queue/network/server retention, encryption in transit, deletion/request handling, recipient roles and optionality. Do not infer these from app cache encryption or absence of permissions. |
 | Location/network inference | No app location permission/API; transitive location libraries are not proof of collection or noncollection. Vendor IP-derived information remains unresolved. |

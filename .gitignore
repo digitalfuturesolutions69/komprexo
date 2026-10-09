@@ -13,3 +13,5 @@ local.properties
 node_modules/
 playwright-report/
 test-results/
+website/pages-preview/
+__pycache__/

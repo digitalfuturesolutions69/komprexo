@@ -2,9 +2,30 @@ const { test, expect } = require('@playwright/test');
 const languages = ['en', 'id', 'es', 'pt-BR', 'hi'];
 const routes = ['', 'privacy/', 'terms/', 'premium/', 'support/', 'about/'];
 for (const language of languages) {
+  test(language + ' confirmed identity, draft gates and project-path assets', async ({ page }, testInfo) => {
+    const base = new URL(testInfo.project.use.baseURL);
+    for (const route of ['privacy', 'terms', 'premium', 'support', 'about']) {
+      await page.goto(language + '/' + route + '/');
+      await expect(page.locator('main')).toContainText('Digital Future Solutions');
+      await expect(page.locator('main')).toContainText('Google Play Console');
+      await expect(page.locator('main')).toContainText('Personal');
+      await expect(page.locator('.draft')).toContainText('OWNER ACTION REQUIRED');
+      await expect(page.locator('footer')).toContainText('Digital Future Solutions');
+      for (const href of await page.locator('link[href], img[src], header a, footer a').evaluateAll(nodes =>
+        nodes.map(n => n.href || n.src).filter(url => url.startsWith(location.origin)))) {
+        expect(new URL(href).pathname.startsWith(base.pathname)).toBe(true);
+        expect((await page.request.get(href)).status()).toBe(200);
+      }
+    }
+    // The English root alias must work under both hosting layouts too.
+    await page.goto('privacy/');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await page.locator('.languages a[hreflang="id"]').click();
+    expect(new URL(page.url()).pathname).toBe(base.pathname + 'id/privacy/');
+  });
   for (const route of routes) {
-    test(language + '/' + route + ' renders and preserves legal/language navigation', async ({ page }) => {
-      const response = await page.goto('/' + language + '/' + route);
+    test(language + '/' + route + ' renders and preserves legal/language navigation', async ({ page }, testInfo) => {
+      const response = await page.goto(language + '/' + route);
       expect(response.status()).toBe(200);
       await expect(page.locator('html')).toHaveAttribute('lang', language);
       await expect(page.locator('main h1')).toBeVisible();
@@ -16,14 +37,14 @@ for (const language of languages) {
       expect(await page.locator('form, script[src], iframe').count()).toBe(0);
       await page.locator('.languages a[hreflang="hi"]').click();
       await expect(page.locator('html')).toHaveAttribute('lang', 'hi');
-      expect(new URL(page.url()).pathname).toBe('/hi/' + route);
+      expect(new URL(page.url()).pathname).toBe(new URL(testInfo.project.use.baseURL).pathname + 'hi/' + route);
     });
   }
   for (const viewport of [{ width: 320, height: 569 }, { width: 569, height: 320 }]) {
     test(language + ' responsive 200% ' + viewport.width, async ({ page }) => {
       await page.setViewportSize(viewport);
       for (const route of ['', 'premium/', 'privacy/']) {
-        await page.goto('/' + language + '/' + route);
+        await page.goto(language + '/' + route);
         await page.addStyleTag({ content: 'html { font-size: 200%; }' });
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
         const boxes = await page.locator('header nav a, .languages a').evaluateAll(elements =>
@@ -43,9 +64,9 @@ for (const language of languages) {
       }
     });
   }
-  test(language + ' dark theme and keyboard navigation', async ({ page }) => {
+  test(language + ' dark theme and keyboard navigation', async ({ page }, testInfo) => {
     await page.emulateMedia({ colorScheme: 'dark' });
-    await page.goto('/' + language + '/');
+    await page.goto(language + '/');
     await page.keyboard.press('Tab');
     await expect(page.locator('.skip')).toBeFocused();
     await page.keyboard.press('Enter');
@@ -54,7 +75,7 @@ for (const language of languages) {
       const s = getComputedStyle(e); return [s.color, getComputedStyle(document.documentElement).backgroundColor];
     });
     expect(colors[0]).not.toBe(colors[1]);
-    await page.screenshot({ path: 'test-results/' + language + '-dark.png', fullPage: true });
+    await page.screenshot({ path: testInfo.outputPath(language + '-dark.png'), fullPage: true });
   });
 }
 
@@ -65,7 +86,7 @@ for (const language of languages) {
   test(language + ' legal draft paragraphs match offline policy source', async ({ page }) => {
     const legal = JSON.parse(fs.readFileSync(path.join(__dirname, '../../content/legal', language + '.json'), 'utf8'));
     for (const route of ['privacy', 'terms', 'premium', 'support', 'about']) {
-      await page.goto('/' + language + '/' + route + '/');
+      await page.goto(language + '/' + route + '/');
       await expect(page.locator('main .draft')).toHaveText(legal.draft);
       expect(await page.locator('main section h2').allTextContents()).toEqual(legal[route].map(s => s[0]));
       expect(await page.locator('main section p').allTextContents()).toEqual(legal[route].map(s => s[1]));

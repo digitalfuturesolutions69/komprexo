@@ -1,8 +1,8 @@
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Contact safely
 
-Email komprexo.support@gmail.com. Include app version, Android version, device model, tool, format and the error you see. Hide personal information in screenshots. Do not send private images, documents, camera metadata, card details or purchase tokens. The app opens your email client without attaching photos automatically. Your email provider handles the message.
+Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com. Email komprexo.support@gmail.com. Include app version, Android version, device model, tool, format and the error you see. Hide personal information in screenshots. Do not send private images, documents, camera metadata, card details or purchase tokens. The app opens your email client without attaching photos automatically. Your email provider handles the message.
 
 # Image problems
 

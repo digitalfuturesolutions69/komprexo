@@ -4,8 +4,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 import json
+import importlib.util
 import re
 import struct
+import tarfile
+import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 import zlib
@@ -41,6 +44,62 @@ class Links(HTMLParser):
         if tag in ('script','iframe','form'):self.scripts.append(tag)
 
 class Phase4Assets(unittest.TestCase):
+    def test_owner_identity_and_proposed_law_in_five_languages(self):
+        for locale in LOCALES:
+            data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+            with self.subTest(locale=locale):
+                for page in ('privacy','terms','premium','support','about'):
+                    text=' '.join(x[1] for x in data[page])
+                    self.assertIn('Digital Future Solutions',text)
+                    self.assertIn('Google Play Console',text)
+                    self.assertIn('Personal',text)
+                    self.assertIn('komprexo.support@gmail.com',text)
+                self.assertIn('OWNER ACTION REQUIRED',data['draft'])
+                self.assertIn('OWNER ACTION REQUIRED',data['terms'][-1][1])
+        english=json.loads((ROOT/'content/legal/en.json').read_text())
+        self.assertIn('individual registered and verified',english['privacy'][0][1])
+        self.assertIn('not identify a separate company',english['privacy'][0][1])
+        self.assertIn('Indonesian law, subject to owner approval',english['terms'][-1][1])
+        self.assertIn('Mandatory consumer rights',english['terms'][-1][1])
+        self.assertIn('not an effective date',english['draft'])
+
+    def test_pages_archive_is_only_public_static_files_and_cannot_publish_drafts(self):
+        spec=importlib.util.spec_from_file_location('pages',ROOT/'scripts/prepare-pages-artifact.py')
+        pages=importlib.util.module_from_spec(spec);spec.loader.exec_module(pages)
+        archive=ROOT/'website/pages-preview/pages-artifact.tar.gz'
+        with tarfile.open(archive) as tar:
+            self.assertEqual(pages.EXPECTED,{m.name for m in tar.getmembers()})
+            for m in tar.getmembers():
+                self.assertTrue(m.isfile(),m.name)
+                self.assertEqual((ROOT/'website/build'/m.name).read_bytes(),tar.extractfile(m).read())
+        with self.assertRaisesRegex(ValueError,'Publication blocked'):
+            pages.validate_site(ROOT/'website/build',publication=True)
+        # Reject accidental private files or symlinks before packaging them.
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            (root/'private.env').write_text('fixture only')
+            with self.assertRaisesRegex(ValueError,'Unexpected Pages input'):
+                pages.validate_site(root)
+            (root/'private.env').unlink()
+            (root/'linked').symlink_to(ROOT/'website/build/style.css')
+            with self.assertRaisesRegex(ValueError,'symbolic or hard links'):
+                pages.validate_site(root)
+
+    def test_pages_template_is_inactive_and_active_ci_cannot_deploy(self):
+        template=ROOT/'.github/pages-deploy.yml.template'
+        self.assertTrue(template.is_file())
+        for path in (ROOT/'.github/workflows').glob('*'):
+            if path.suffix not in ('.yml','.yaml'):continue
+            text=path.read_text()
+            self.assertNotRegex(text,r'(deploy-pages|upload-pages-artifact|configure-pages)@')
+            self.assertNotRegex(text,r'(pages|id-token):\s*write')
+        text=template.read_text()
+        for required in ('workflow_dispatch:','approved_commit:','PUBLISH KOMPREXO PAGES',
+                         'needs: build','name: github-pages','--publication'):
+            self.assertIn(required,text)
+        self.assertNotRegex(text,r'(?m)^\s+(push|pull_request):')
+        self.assertFalse(list((ROOT/'website/build').rglob('CNAME')))
+
     def test_store_listing_limits_and_contact(self):
         listings=json.loads((ROOT/'content/store-listing.json').read_text())
         self.assertEqual(set(LOCALES),set(listings))

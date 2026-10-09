@@ -1,8 +1,8 @@
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # One-time purchase and price
 
-Premium is one non-consumable purchase through Google Play. The upgrade is not used up after processing. It is not a subscription and has no recurring charges. Intended Indonesian price: Rp49.000. The actual price, currency and applicable checkout terms are shown by Google Play before payment. Availability depends on Play configuration and eligibility.
+Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com. Premium is one non-consumable purchase through Google Play. The upgrade is not used up after processing. It is not a subscription and has no recurring charges. Intended Indonesian price: Rp49.000. The actual price, currency and applicable checkout terms are shown by Google Play before payment. Availability depends on Play configuration and eligibility.
 
 # Benefits and Free limits
 

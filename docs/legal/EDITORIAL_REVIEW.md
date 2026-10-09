@@ -1,5 +1,7 @@
 # FASE 4A.1 editorial and privacy review
 
+Historical FASE 4A.1 review. FASE 4A.2 subsequently confirms Digital Future Solutions as the public developer, the verified Personal-account individual as operator and Indonesia as country. Indonesian law is proposed subject to approval. Current owner gates and Pages preparation: [FASE 4A.2](../PHASE4A2_VALIDATION.md). Historical statements below record what was unresolved at 4A.1, not the latest identity status.
+
 Prepared 9 October 2026 (Asia/Jakarta). **Complete drafts only; not approved for publication or a legal opinion.** Accepted implementation baseline: `9bab33b2d8586c4338d22f6ed597f6655e6097ae`, branch `work`, application ID `com.komprexo.app`.
 
 ## Sources and delivery surfaces

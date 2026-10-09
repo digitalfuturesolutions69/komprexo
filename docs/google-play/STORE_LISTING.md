@@ -8,7 +8,7 @@ Title (8): Komprexo
 
 Short (59): Compress, resize and convert photos on your Android device.
 
-Full (3442):
+Full (3753):
 
 Compress photos to a maximum file-size target, resize without upscaling, or convert JPEG, PNG and supported WebP. Process batches sequentially. Smart Presets are editable starting points. Compare before and after, save copies or share results. Originals remain unchanged. Image processing is on your Android device; it does not require photo uploads to Komprexo or an app account.
 
@@ -28,13 +28,15 @@ Quality, output dimensions and achievable file size depend on the image, target 
 
 Languages: Indonesian, English, Spanish, Brazilian Portuguese and Hindi; System Default. Offline policies and licenses are available in Settings.
 
+Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com.
+
 ## id
 
 Title (8): Komprexo
 
 Short (63): Kompres, resize dan convert foto langsung di perangkat Android.
 
-Full (3529):
+Full (3841):
 
 Kompres foto sesuai batas ukuran file, ubah ukuran tanpa memperbesar, atau konversi JPEG, PNG dan WebP yang didukung. Batch diproses berurutan. Smart Presets dapat diedit. Bandingkan sebelum dan sesudah, simpan salinan atau bagikan hasil. Gambar asli tidak diubah. Pemrosesan dilakukan di Android; tidak memerlukan unggah foto ke Komprexo atau akun aplikasi.
 
@@ -54,13 +56,15 @@ Kualitas, dimensi dan ukuran hasil bergantung pada gambar, target serta memori p
 
 Bahasa Indonesia, Inggris, Spanyol, Portugis Brasil dan Hindi; Default Sistem. Kebijakan dan lisensi tersedia offline di Pengaturan.
 
+Digital Future Solutions adalah nama pengembang publik Komprexo. Operator legal adalah individu yang terdaftar dan terverifikasi di Google Play Console melalui akun Personal di Indonesia. Nama publik ini tidak menunjukkan perusahaan yang terpisah. Kontak resmi dukungan dan privasi: komprexo.support@gmail.com.
+
 ## es
 
 Title (8): Komprexo
 
 Short (67): Comprime, redimensiona y convierte fotos en tu dispositivo Android.
 
-Full (3395):
+Full (3719):
 
 Comprime fotos con un tamaño máximo, redimensiona sin ampliar o convierte JPEG, PNG y WebP compatible. Los lotes se procesan en orden. Los ajustes inteligentes son editables. Compara antes y después, guarda copias o comparte resultados. Los originales no cambian. Todo se procesa en Android, sin subir fotos a Komprexo ni crear una cuenta.
 
@@ -80,13 +84,15 @@ Calidad, dimensiones y tamaño posible dependen de imagen, objetivo y memoria. F
 
 Indonesio, inglés, español, portugués de Brasil e hindi; idioma del sistema. Políticas y licencias sin conexión en Ajustes.
 
+Digital Future Solutions es el nombre público del desarrollador de Komprexo. El operador legal es la persona registrada y verificada en Google Play Console con una cuenta Personal en Indonesia. El nombre público no identifica una empresa independiente. Contacto oficial de soporte y privacidad: komprexo.support@gmail.com.
+
 ## pt-BR
 
 Title (8): Komprexo
 
 Short (67): Comprima, redimensione e converta fotos no seu dispositivo Android.
 
-Full (3166):
+Full (3473):
 
 Comprima fotos com tamanho máximo, redimensione sem ampliar ou converta JPEG, PNG e WebP compatível. Lotes são processados em sequência. Ajustes inteligentes podem ser editados. Compare antes e depois, salve cópias ou compartilhe resultados. Originais não mudam. O processamento ocorre no Android, sem enviar fotos a Komprexo nem criar conta.
 
@@ -106,13 +112,15 @@ Qualidade, dimensões e tamanho possível dependem da imagem, meta e memória. C
 
 Indonésio, inglês, espanhol, português do Brasil e hindi; idioma do sistema. Políticas e licenças offline em Ajustes.
 
+Digital Future Solutions é o nome público do desenvolvedor do Komprexo. O operador legal é a pessoa cadastrada e verificada no Google Play Console com uma conta Personal na Indonésia. O nome público não identifica uma empresa separada. Contato oficial de suporte e privacidade: komprexo.support@gmail.com.
+
 ## hi
 
 Title (8): Komprexo
 
 Short (59): अपने Android पर फ़ोटो कंप्रेस करें, आकार और फ़ॉर्मेट बदलें।
 
-Full (2943):
+Full (3236):
 
 फोटो को अधिकतम फ़ाइल आकार तक संपीड़ित करें, बिना बड़ा किए आकार बदलें या JPEG, PNG और समर्थित WebP में बदलें। बैच क्रम से चलता है। Smart Presets संपादन योग्य हैं। पहले और बाद की तुलना करें, प्रतियाँ सहेजें या परिणाम साझा करें। मूल नहीं बदलते। प्रक्रिया Android पर होती है; Komprexo पर फोटो अपलोड या ऐप खाता जरूरी नहीं है।
 
@@ -132,6 +140,8 @@ Google Play और उसका सॉफ़्टवेयर अपनी न�
 
 इंडोनेशियाई, अंग्रेज़ी, स्पेनिश, ब्राज़ीली पुर्तगाली और हिन्दी; सिस्टम भाषा। नीतियाँ और लाइसेंस सेटिंग्स में ऑफ़लाइन हैं।
 
+Digital Future Solutions, Komprexo के डेवलपर का सार्वजनिक नाम है। कानूनी संचालक वह व्यक्ति है जो इंडोनेशिया में Personal खाते के साथ Google Play Console में पंजीकृत और सत्यापित है। सार्वजनिक नाम किसी अलग कंपनी की पहचान नहीं है। आधिकारिक सहायता और गोपनीयता संपर्क: komprexo.support@gmail.com।
+
 ## Assets and owner checklist
 
 App title Komprexo; positioning Photo Compressor, Resize & Convert; category photo/image utility subject to owner Console selection. No fixed compression ratio, rating/download/award/certification claims.
@@ -140,7 +150,7 @@ Store icon artwork/play-store-icon-512.png: actual512x512 RGBA32-bit opaque unma
 
 Screenshot plan: real Android Home/free three counters, compression before/after target/dimensions, batch settings/count, resize dimensions, convert format, Premium real Play localized price only after configured, language/settings/offline policies. At least2 phone screenshots per listing,320–3840px accepted current Play size range, longest dimension≤2×shortest; use high-resolution portrait/landscape real captures with no personal photos/payment IDs, and recommended16:9/9:16 at least1080px assets for eligibility where applicable. Do not use mock transactions as real payment evidence. CI compact screenshots are test evidence, not automatically approved Store marketing assets.
 
-Support/developer public contact: komprexo.support@gmail.com (owner manually configures). Privacy URL **PLACEHOLDER — NOT LIVE**: proposed https://digitalfuturesolutions69.github.io/komprexo/privacy/ only after legal approval and authorized publication. Developer legal identity/address not supplied.
+Public developer: Digital Future Solutions. Legal operator: the individual registered and verified in Google Play Console with a Personal account in Indonesia; the display name is not a separate company. Official support/privacy contact: komprexo.support@gmail.com (owner manually configures). No residential address or personal contact details are included. Review legally required public operator disclosures with the owner before publication. Privacy URL **PLACEHOLDER — NOT LIVE**: proposed https://digitalfuturesolutions69.github.io/komprexo/privacy/ only after legal approval and authorized publication.
 
 Owner must confirm target audience/children ages and country policy, complete content rating questionnaire, current ads declaration No, no-login app access, Billing/transport Data Safety and consumer rights. Review five-language translations and final assets, then Console setup/checklist. Policies remain DRAFT.
 

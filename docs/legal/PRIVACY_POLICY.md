@@ -1,10 +1,10 @@
 # Komprexo — Privacy
 
-DRAFT — not approved for publication. OWNER ACTION REQUIRED: developer legal name, business address, governing law, target audience and effective date. Prepared 9 October 2026; this preparation date is not an effective date. All translations require qualified native-speaker and legal review.
+DRAFT — not approved for publication. OWNER ACTION REQUIRED: target audience, effective date, approval of proposed Indonesian law, required public legal disclosures and unresolved third-party data disclosures. Prepared 9 October 2026; this is not an effective date. Qualified native-speaker and legal review are required.
 
 # Who we are and how to contact us
 
-Komprexo helps you compress, resize and convert images on Android. Developer legal name and business address: OWNER ACTION REQUIRED. Send privacy questions to komprexo.support@gmail.com.
+Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com.
 
 # Images you select
 

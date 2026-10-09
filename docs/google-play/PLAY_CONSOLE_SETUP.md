@@ -2,7 +2,7 @@
 
 9 October 2026 Asia/Jakarta. Product activation/eligibility/payment testing/publication unverified. No account changes.
 
-1. Use existing owner Console/login; confirm developer verification, merchant/payments profile, tax/business fields. Owner-approved legal identity/address only.
+1. Use existing owner Console/login. Owner confirms public developer Digital Future Solutions, Personal account, legal operator the registered/verified individual, country Indonesia. No Console settings were changed. Complete required verification/payments/tax fields privately; do not unnecessarily copy residential address or personal contact data into public policies or source. Owner review of legally required public disclosures remains.
 2. Confirm Komprexo/com.komprexo.app/min 23/target 36 and final package approval. Appropriate photo/image utility category, free install/optional INAPP.
 3. Create/activate **komprexo_premium_lifetime**, lifetime non-consumable INAPP, ordinary **BUY** option, proposed Indonesia IDR49,000. Configure regional eligibility/currency/tax/translations. Prefer one stable eligible base option; no rental/preorder/subscription/discount/time/quantity-limited offers. Verify actual ProductDetails before claiming active.
 4. Owner securely manages upload key/Play App Signing. No keys/passwords/service credentials in repo/APK/logs. Current output debug APK only; future separately authorized signed AAB via :app:bundleRelease, no production bundle published now.

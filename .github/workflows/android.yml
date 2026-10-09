@@ -96,6 +96,7 @@ jobs:
       - name: Build static source and validate assets/locales/legal/internal links
         run: |
           python3 scripts/build-static-site.py
+          python3 scripts/prepare-pages-artifact.py
           python3 scripts/test-phase4-assets.py
       - name: Install browser test dependencies
         working-directory: website
@@ -111,6 +112,7 @@ jobs:
           name: static-preview-${{ github.sha }}
           path: |
             website/build/
+            website/pages-preview/
             website/playwright-report/
             website/test-results/
           if-no-files-found: error
