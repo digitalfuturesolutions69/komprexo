@@ -196,12 +196,12 @@ The report-only delivery commit runs the unchanged full workflow again. Its exac
 |---|---|
 | UNIT TESTS | PASS171/171,0failures/errors/skips;117baseline+46Billing+8locale |
 | INSTRUMENTATION API23 / API26 / API28 / API36 | PASS157/157 each,0failures/skips;126baseline+13Billingcompatibility+18Settings/locale |
-| ANDROID LINT | PASS0blocking errors;24CI warnings/12local warnings, no suppression to obtain PASS |
+| ANDROID LINT | PASS0blocking errors;20CI warnings/12local warnings on latest compatible-test run, no suppression to obtain PASS |
 | SECURITY CHECKS | PASS wrapper/release-source isolation/exact4permissions/backup off/secure FileProvider/no token logs/runtime99license match |
 | WEBSITE TESTS | PASS45browser/8Python; no public deployment |
 | LOCALIZATION TESTS | PASS8JVM locale mapping+18native UI/storage cases on4APIs+five-language integrity/browser checks |
 | DEBUG APK / APK ARTIFACT URL | Actual downloaded app-debug.apk metadata and implementation artifact URL above; exact delivery-commit artifact supplied in response |
-| GITHUB ACTIONS RUN URL | All6implementation jobs PASS at37906486380; report-only delivery run separately verified in response |
+| GITHUB ACTIONS RUN URL | Latest6implementation jobs PASS at37909692945; exact report-only delivery run separately verified in response |
 | KNOWN LIMITATIONS | Real purchases/Console settings/public URL unverified; legal/DataSafety/translation/brand review pending; client-only/root/clock/offline/storage limits; no manual TalkBack/physical Samsung S9/payment test |
 | FASE4A TECHNICAL ACCEPTANCE | PASS implementation automated checks; delivery commit verified separately; payment/legal/publication approval not implied |
 | NEXT RECOMMENDED PHASE | Owner review and separately authorized Console/license-tester/payment/policy-publication work; no FASE4B/AdMob started |
@@ -361,3 +361,12 @@ Report commit1e3aa17462a95e553ca5132850b5434a1cf07deb, run37907515307, passed de
 Dependency inspection found the test classpath still on Espresso3.6.1/Runner1.6.2/Core1.6.1/JUnit1.2.1. Official stable AndroidX Test release notes document Espresso3.7.0's TestLooperManagerCompat/new platform API synchronization; Android's MessageQueue guidance specifically recommends3.7+ for the new APIs introduced in Android16. Test-only dependencies are aligned to stable Espresso3.7.0/Runner1.7.0/Core1.7.0/JUnit1.3.0 (min21, compatible with app min23), retaining Compose/Billing/app runtime pins and every assertion. This is a verified missing compatibility path; subsequent CI determines whether it resolves the observed stall. References: https://developer.android.com/jetpack/androidx/releases/test and https://developer.android.com/about/versions/17/changes/messagequeue . No app-owned backend, runtime database, telemetry, subscriptions or ads added.
 
 Test-only dependency correction local Gradle tasks PASS: unchanged unit inputs/results171passed; lint0errors/12warnings; debug/instrumentation APKs assembled, release Kotlin compiled, runtime audit99unchanged and release security guard PASS. New test dependencies resolved and compiled successfully. Full CI is required on the correction commit before delivery.
+
+
+## Current compatible-test implementation verification — PASS
+
+Implementation a054912cc389bc0d0d7fe623b8d258b3af330c05, https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37909692945 : **all6jobs PASS**, no rerun needed. Each API23/26/28/36 finished157tests/0failed/0skipped. Downloaded API36 HTML confirms157/0/0; streamed diagnostics157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. Downloaded JVM report171/0failed/0ignored. Gradle dependencyInsight confirms Espresso3.7.0 is selected, replacing Compose's older transitive3.5.0. Exact native-frame failure mechanism cannot be proven from stack traces alone; the missing platform-compatible test-library path is corrected and the full regression suite now passes. No weakening of tests/idling/security/lint checks.
+
+CI lint now **0errors/20warnings**:12source/resource advisories +8available dependency updates. The4-warning reduction comes from updating the4test dependency pins; no warning suppression. App runtime remains99artifacts, audited notices and permissions unchanged. Static job8Python/45browser PASS. Debug job compile/unit/lint/debug+test APK/release compile/runtime/security/wrapper checks PASS. Current debug artifact uploaded/not expired: komprexo-debug-a054912cc389bc0d0d7fe623b8d258b3af330c05,ZIP13,225,739bytes, https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37909692945/artifacts/11606142844 . All older failed/intermediate evidence above is historical.
+
+This report-only commit re-verifies the unchanged157native/171JVM/45browser/8asset checks on its final SHA. Its exact local/remote SHA, CI result, downloaded APK byte count/digest/signatures/URL and any infrastructure retry are reported in the accompanying final delivery response. Real Play purchases remain NOT TESTED; legal/DataSafety/brand/native-speaker approvals remain pending; website remains NOT DEPLOYED. No FASE4B, AdMob, merge, release or publication is authorized by technical PASS.
