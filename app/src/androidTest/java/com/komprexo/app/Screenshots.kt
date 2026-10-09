@@ -24,15 +24,6 @@ fun captureEvidence(name: String, darkTheme: Boolean? = null) {
         }
         if (darkTheme != null) {
             val density = instrumentation.targetContext.resources.displayMetrics.density
-            fun countIcons(start: Int, end: Int, light: Boolean): Int {
-                var count = 0
-                for (y in start until end) for (x in 0 until bitmap.width) {
-                    val pixel = bitmap.getPixel(x, y)
-                    val luma = (android.graphics.Color.red(pixel) + android.graphics.Color.green(pixel) + android.graphics.Color.blue(pixel)) / 3
-                    if (if (light) luma > 200 else luma < 130) count++
-                }
-                return count
-            }
             fun backgroundLuma(start: Int, end: Int): Int {
                 val histogram=IntArray(256)
                 for(y in start until end) for(x in 0 until bitmap.width) {
@@ -43,6 +34,22 @@ fun captureEvidence(name: String, darkTheme: Boolean? = null) {
                 var count=0
                 for(luma in histogram.indices) { count+=histogram[luma];if(count>midpoint) return luma }
                 return 0
+            }
+            fun countIcons(start: Int, end: Int, light: Boolean): Int {
+                val background = backgroundLuma(start, end)
+                val backgroundColor = android.graphics.Color.rgb(background, background, background)
+                var count = 0
+                for (y in start until end) for (x in 0 until bitmap.width) {
+                    val pixel = bitmap.getPixel(x, y)
+                    val luma = (android.graphics.Color.red(pixel) + android.graphics.Color.green(pixel) + android.graphics.Color.blue(pixel)) / 3
+                    // API28 uses gray navigation icons (142) on a light scrim (245):
+                    // 3.005:1 contrast, despite failing an arbitrary <130 cutoff.
+                    val correctPolarity = if (light) luma > background else luma < background
+                    if (correctPolarity && androidx.core.graphics.ColorUtils.calculateContrast(
+                            pixel or android.graphics.Color.BLACK, backgroundColor
+                        ) >= 3.0) count++
+                }
+                return count
             }
             val statusEnd=(24*density).toInt()
             org.junit.Assert.assertTrue("Status background must follow theme dark=$darkTheme",if(darkTheme) backgroundLuma(0,statusEnd)<130 else backgroundLuma(0,statusEnd)>150)
