@@ -118,12 +118,20 @@ class SettingsLocaleTest {
     @Test fun hindiSettingsAndLegal() { render("hi");captureEvidence("phase4-hindi-legal") }
     @Test fun systemDefaultChoiceClearsOverride() {
         locale("es");settings();compose.onNodeWithTag("languageSettings").performScrollTo().performClick()
-        val previous=compose.activity
+        // On API33+ Resources.getSystem can reflect the app's current override;
+        // LocaleManager exposes the device locales independently of that override.
+        val systemLanguage=if(android.os.Build.VERSION.SDK_INT>=33)
+            compose.activity.getSystemService(android.app.LocaleManager::class.java).systemLocales[0].language
+        else ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.language
         compose.onNodeWithTag("locale_").performScrollTo().performClick()
-        val systemLanguage=ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.language
-        compose.waitUntil(20000) { compose.activity!==previous && currentLanguage()==systemLanguage && focusedWindow() }
+        compose.waitUntil(20000) {
+            AppCompatDelegate.getApplicationLocales().isEmpty && currentLanguage()==systemLanguage && focusedWindow()
+        }
+        android.util.Log.i("KomprexoTest","event=SYSTEM_DEFAULT_READY expected="+systemLanguage+
+            " actual="+currentLanguage()+" overrideEmpty="+AppCompatDelegate.getApplicationLocales().isEmpty+" focused="+focusedWindow())
         compose.waitForIdle()
         assertTrue(AppCompatDelegate.getApplicationLocales().isEmpty)
+        assertEquals(systemLanguage,currentLanguage())
     }
     @Test fun languagePersistsAfterActivityRecreation() {
         locale("pt-BR")

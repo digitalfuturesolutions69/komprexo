@@ -23,7 +23,17 @@ fun captureEvidence(name: String, darkTheme: Boolean? = null) {
             }
         }
         if (darkTheme != null) {
-            val density = instrumentation.targetContext.resources.displayMetrics.density
+            var statusHeight=0
+            var navigationHeight=0
+            instrumentation.runOnMainSync {
+                val activity=androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry.getInstance()
+                    .getActivitiesInStage(androidx.test.runner.lifecycle.Stage.RESUMED).single()
+                val insets=checkNotNull(androidx.core.view.ViewCompat.getRootWindowInsets(activity.window.decorView))
+                statusHeight=insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.statusBars()).top
+                navigationHeight=insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.navigationBars()).bottom
+            }
+            org.junit.Assert.assertTrue("Status inset must be visible",statusHeight>0)
+            org.junit.Assert.assertTrue("Navigation inset must be visible",navigationHeight>0)
             fun backgroundLuma(start: Int, end: Int): Int {
                 val histogram=IntArray(256)
                 for(y in start until end) for(x in 0 until bitmap.width) {
@@ -51,13 +61,13 @@ fun captureEvidence(name: String, darkTheme: Boolean? = null) {
                 }
                 return count
             }
-            val statusEnd=(24*density).toInt()
+            val statusEnd=statusHeight
             org.junit.Assert.assertTrue("Status background must follow theme dark=$darkTheme",if(darkTheme) backgroundLuma(0,statusEnd)<130 else backgroundLuma(0,statusEnd)>150)
-            org.junit.Assert.assertTrue("Visible status icons must contrast with theme dark=$darkTheme", countIcons(0, (24 * density).toInt(), darkTheme) > 100)
+            org.junit.Assert.assertTrue("Visible status icons must contrast with theme dark=$darkTheme", countIcons(0, statusEnd, darkTheme) > 100)
             val lightNavigation = darkTheme || android.os.Build.VERSION.SDK_INT < 26
-            val navigationStart=bitmap.height-(48*density).toInt()
+            val navigationStart=bitmap.height-navigationHeight
             org.junit.Assert.assertTrue("Navigation background must contrast with icons",if(lightNavigation) backgroundLuma(navigationStart,bitmap.height)<130 else backgroundLuma(navigationStart,bitmap.height)>150)
-            org.junit.Assert.assertTrue("Visible navigation icons must contrast with theme", countIcons(bitmap.height - (48 * density).toInt(), bitmap.height, lightNavigation) > 100)
+            org.junit.Assert.assertTrue("Visible navigation icons must contrast with theme", countIcons(navigationStart, bitmap.height, lightNavigation) > 100)
         }
     } finally { bitmap.recycle() }
 }
