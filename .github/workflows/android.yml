@@ -63,6 +63,9 @@ jobs:
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api }}
+          # API 36 AOSP Quickstep repeatedly ANRs over the app in captured screenshots.
+          # Use the official Google APIs image; all tests and failure checks stay enabled.
+          target: ${{ matrix.api == 36 && 'google_apis' || 'default' }}
           arch: x86_64
           profile: pixel_2
           # Official software renderer; Vulkan is disabled after verified color-buffer/frame stalls.
