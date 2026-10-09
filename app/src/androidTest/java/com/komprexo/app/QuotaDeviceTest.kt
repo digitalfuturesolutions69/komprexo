@@ -9,11 +9,9 @@ import org.junit.Test
 class QuotaDeviceTest {
     private fun check(block: suspend QuotaChecks.()->Unit)=runBlocking { QuotaChecks().block() }
     @Test fun cancellationDuringDurableReservation()=check { cancellationDuringReservationCommit() }
-    @Test fun sharedFiveCredits()=check { sharedPool();fiveCreditsAfterReset() }
-    private suspend fun QuotaChecks.fiveCreditsAfterReset() { midnight();fiveCredits() }
+    @Test fun sharedFiveCredits()=runBlocking { sharedFiveCreditsChecks() }
     @Test fun freeAndPremiumAllBatchLimits()=check { freeBatchLimit();premiumLimit() }
-    @Test fun transformsRemainUnlimited()=check { transforms(Operation.RESIZE,1);transformsAfterReset() }
-    private suspend fun QuotaChecks.transformsAfterReset() { midnight();transforms(Operation.CONVERT,2) }
+    @Test fun transformsRemainUnlimited()=runBlocking { unlimitedTransformChecks() }
     @Test fun atomicAndIdempotent()=check { concurrent();idempotent() }
     @Test fun partialCancellationAndRestart()=runBlocking { QuotaChecks().partialFailure();QuotaChecks().partialRestart() }
     @Test fun clockTimezoneAndRollback()=runBlocking { QuotaChecks().rollback();QuotaChecks().timezone() }

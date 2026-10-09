@@ -10,9 +10,9 @@ See [docs/PHASE3_DESIGN.md](docs/PHASE3_DESIGN.md) for policies, durable commit 
 
 ## Execution evidence
 
-Local validation: 98 unit tests (69 retained + 29 new), zero failures/errors/skips. Android lint: zero errors, five UseKtx warnings. Debug APK and instrumentation APK assembly pass. Release Kotlin compilation and compiled-provider isolation check pass. Trusted wrapper JAR matches SHA256 `2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046`; distribution SHA256 remains pinned.
+Local validation: 100 unit tests (69 retained + 31 new), zero failures/errors/skips. Android lint: zero errors, five UseKtx warnings. Debug APK and instrumentation APK assembly pass. Release Kotlin compilation and compiled-provider isolation check pass. Trusted wrapper JAR matches SHA256 `2db75c40782f5e8ba1fc278a5574bab070adccb2d21ca5a6e5ed840888448046`; distribution SHA256 remains pinned.
 
-Remote emulator execution and final-commit GitHub CI verification are pending. No instrumentation PASS is claimed at this snapshot.
+Initial CI [37871443601](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37871443601): build/unit/lint/APK/security job PASS, 98 JVM tests, lint zero errors/17 warnings (12 dependency update advisories, five UseKtx). API23/26/28/36 each ran 116 cases with two failures in newly composed quota test fixtures: an already-exhausted journal was passed to a helper that first exhausts a fresh journal. The manager correctly rejected the extra attempts. Independent fixtures now retain all assertions; two JVM tests verify the same device-scenario compositions. No tests, lint, or checks are disabled. Screenshot review additionally found API23 landscape captures letterboxed by the emulator's physical framebuffer/`wm` override mismatch, including old Phase2.5 scenarios. The emulator now starts with the intended 720×1280 framebuffer and 360 dpi instead of relying only on runtime overrides. Final emulator verification remains pending.
 Local instrumentation requires hardware acceleration unavailable in this workspace; real emulators in GitHub Actions cover API23/26/28/36.
 A physical Samsung S9 and owner review of the new Phase 3 UI have not been performed by this task.
 

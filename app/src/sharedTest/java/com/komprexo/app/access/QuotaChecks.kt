@@ -102,3 +102,15 @@ class QuotaChecks {
         } finally { file.delete() }
     }
 }
+
+/** Every independent quota scenario owns a fresh journal; verify these compositions on JVM too. */
+suspend fun sharedFiveCreditsChecks() {
+    QuotaChecks().sharedPool()
+    QuotaChecks().fiveCredits()
+    QuotaChecks().midnight()
+}
+suspend fun unlimitedTransformChecks() {
+    for(operation in listOf(Operation.RESIZE,Operation.CONVERT)) {
+        for(count in 1..2) QuotaChecks().transforms(operation,count)
+    }
+}

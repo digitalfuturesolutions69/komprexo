@@ -7,6 +7,8 @@ import java.nio.file.Files
 
 class QuotaTest {
     private fun check(block: suspend QuotaChecks.()->Unit)=runBlocking { QuotaChecks().block() }
+    @Test fun deviceDailyScenarioComposition()=runBlocking { sharedFiveCreditsChecks() }
+    @Test fun deviceTransformScenarioComposition()=runBlocking { unlimitedTransformChecks() }
     @Test fun fiveDailyCredits()=check { fiveCredits() }
     @Test fun sharedSingleBatchPool()=check { sharedPool() }
     @Test fun allFreeBatchLimits()=check { freeBatchLimit() }
