@@ -96,9 +96,9 @@
     <string name="switch_tool">Switch tools</string>
     <string name="switch_tool_warning">Switching tools clears the current Batch, Convert or Resize images, results and settings. Originals are preserved. Cancel to keep your current work.</string>
     <string name="premium_title">Komprexo Premium</string>
-    <string name="premium_price">Rp49.000 — One-time payment</string>
+    <string name="premium_price">Rp49,000 — One-time purchase</string>
     <string name="price_provisional">Proposed price. Final localized price will come from Google Play when purchases become available.</string>
-    <string name="benefit_unlimited">Unlimited daily image compression</string>
+    <string name="benefit_unlimited">Unlimited daily Compress, Resize and Convert</string>
     <string name="benefit_batch">Up to 20 images per batch, within device safety limits</string>
     <string name="benefit_presets">All Smart Presets</string>
     <string name="benefit_future_no_ads">No ads when advertising is introduced</string>
@@ -108,14 +108,17 @@
     <string name="return_to_tool">Return</string>
     <string name="explore_premium">Explore Premium</string>
     <string name="quota_remaining">Free — %1$d of 5 compressions remaining today.</string>
-    <string name="quota_exhausted">Today’s Free quota is used up. Try tomorrow or use Premium.</string>
-    <string name="quota_unlimited">Premium — Unlimited daily compression.</string>
+    <string name="quota_exhausted">Today’s Free quota for this feature is used up. Try tomorrow or use Premium.</string>
+    <string name="quota_unlimited">Premium — Unlimited daily Compress, Resize and Convert.</string>
     <string name="quota_loading">Loading daily quota…</string>
-    <string name="quota_unavailable">Compression quota could not be read safely. Try again. Resize, Convert and completed outputs remain available.</string>
+    <string name="quota_unavailable">Daily quotas could not be read safely. Try again. Save and Share remain available for completed outputs.</string>
     <string name="free_batch_limit">Free allows 2 images per batch. Premium supports up to 20. Your selection and settings are preserved.</string>
     <string name="premium_preset_notice">This Smart Preset requires Premium. Basic presets and custom settings remain available.</string>
     <string name="processing_busy">Another image operation is in progress. Please wait.</string>
-    <string name="free_plan_summary">Free · Rp0 · 5 successful compressions per day · 2 images per batch · Unlimited single Resize and Convert.</string>
+    <string name="free_plan_summary">Free · Rp0 · 5 successful images per day for EACH feature: Compress, Resize and Convert · 2 images per batch.</string>
     <string name="batch_operation">Batch operation</string>
     <string name="preset_premium_label">%1$s · Premium</string>
+    <string name="quota_all_remaining">Free today — Compress %1$d/5 · Resize %2$d/5 · Convert %3$d/5.</string>
+    <string name="quota_feature_remaining">Free — %1$s: %2$d of 5 remaining today.</string>
+    <string name="quota_feature_exhausted">%1$s quota is used up today. Try tomorrow or use Premium.</string>
 </resources>

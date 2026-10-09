@@ -14,6 +14,7 @@ import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import com.komprexo.app.R
 import com.komprexo.app.access.*
 import kotlinx.coroutines.delay
@@ -28,24 +29,35 @@ fun restrictionLabel(reason: Restriction) = when(reason) {
 fun Restriction.invitesUpgrade() = this in setOf(Restriction.DAILY_QUOTA,Restriction.BATCH_LIMIT,Restriction.PREMIUM_PRESET)
 
 @Composable
-fun QuotaIndicator(busy: Boolean, quota: DailyQuotaManager, onUpgrade: ()->Unit) {
+fun QuotaIndicator(busy: Boolean, quota: DailyQuotaManager, operation: Operation? = null, onUpgrade: ()->Unit) {
     val snapshot by quota.state.collectAsStateWithLifecycle()
     val plan by quota.entitlement.collectAsStateWithLifecycle()
-    LaunchedEffect(quota) {
-        while(true) {
-            try { quota.refresh() } catch(_: AccessDenied) { /* Fail-closed indicator; transforms remain available. */ }
-            delay(15_000)
+    val lifecycleOwner=androidx.lifecycle.compose.LocalLifecycleOwner.current
+    LaunchedEffect(quota,lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.STARTED) {
+            while(true) {
+                try { quota.refresh() } catch(_: AccessDenied) { /* All Free counters fail closed. */ }
+                delay(15_000)
+            }
         }
     }
+    val remaining=operation?.let(snapshot::remaining)
+    val feature=operation?.let { stringResource(when(it) {
+        Operation.COMPRESS -> R.string.home_compress
+        Operation.RESIZE -> R.string.home_resize
+        Operation.CONVERT -> R.string.home_convert
+    }) }
+    val text=when {
+        plan==EntitlementState.Premium -> stringResource(R.string.quota_unlimited)
+        snapshot.unavailable -> stringResource(R.string.quota_unavailable)
+        snapshot.remaining==null -> stringResource(R.string.quota_loading)
+        operation==null -> stringResource(R.string.quota_all_remaining,snapshot.remaining ?: 0,snapshot.resizeRemaining ?: 0,snapshot.convertRemaining ?: 0)
+        remaining==0 && !busy -> stringResource(R.string.quota_feature_exhausted,feature ?: "")
+        remaining==0 && busy -> stringResource(R.string.processing)
+        else -> stringResource(R.string.quota_feature_remaining,feature ?: "",remaining ?: 0)
+    }
     Column(Modifier.fillMaxWidth().testTag("quotaIndicator").semantics { liveRegion=LiveRegionMode.Polite }) {
-        Text(stringResource(when {
-            plan==EntitlementState.Premium -> R.string.quota_unlimited
-            snapshot.unavailable -> R.string.quota_unavailable
-            snapshot.remaining==null -> R.string.quota_loading
-            snapshot.remaining==0 && !busy -> R.string.quota_exhausted
-            snapshot.remaining==0 && busy -> R.string.processing
-            else -> R.string.quota_remaining
-        }, snapshot.remaining ?: 0))
+        Text(text)
         if(plan==EntitlementState.Free) TextButton(onUpgrade,enabled=!busy,modifier=Modifier.heightIn(min=48.dp).testTag("upgrade")) { Text(stringResource(R.string.explore_premium)) }
     }
 }

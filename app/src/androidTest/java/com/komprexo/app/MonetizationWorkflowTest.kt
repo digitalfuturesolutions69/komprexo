@@ -117,23 +117,83 @@ class MonetizationWorkflowTest {
         assertNotNull(single.state.value.result);assertTrue(multi.state.value.outputs.isEmpty())
         assertEquals(Restriction.BUSY,multi.state.value.restriction);assertEquals(1,store.ledger.used)
     }
-    @Test fun resizeRemainsUnlimitedAfterQuotaExhaustion() {
+    @Test fun resizeHasSeparateQuotaAfterCompressionExhaustion() {
         runBlocking { repeat(5) { val r=quota.reserve(Operation.COMPRESS,1);quota.settle(r,0);quota.release(r) } }
-        selectMulti("RESIZE");processMulti();assertEquals(1,multi.state.value.outputs.size);assertEquals(5,store.ledger.used)
+        selectMulti("RESIZE");processMulti();assertEquals(1,multi.state.value.outputs.size);assertEquals(5,store.ledger.used);assertEquals(1,store.ledger.resizeUsed)
         assertNull(multi.state.value.outputs.single().targetBytes)
     }
-    @Test fun convertRemainsUnlimitedAfterQuotaExhaustion() {
+    @Test fun convertHasSeparateQuotaAfterCompressionExhaustion() {
         runBlocking { repeat(5) { val r=quota.reserve(Operation.COMPRESS,1);quota.settle(r,0);quota.release(r) } }
-        selectMulti("CONVERT");processMulti();assertEquals(1,multi.state.value.outputs.size);assertEquals(5,store.ledger.used)
+        selectMulti("CONVERT");processMulti();assertEquals(1,multi.state.value.outputs.size);assertEquals(5,store.ledger.used);assertEquals(1,store.ledger.convertUsed)
         assertEquals(OutputFormat.PNG,multi.state.value.outputs.single().format)
     }
-    @Test fun batchResizeTwoImagesDoesNotCharge() {
-        selectMulti("RESIZE",2);processMulti();assertEquals(2,multi.state.value.outputs.size);assertEquals(0,store.ledger.used)
+    @Test fun batchResizeChargesOnlyResize() {
+        selectMulti("RESIZE",2);processMulti();assertEquals(2,multi.state.value.outputs.size);assertEquals(0,store.ledger.used);assertEquals(2,store.ledger.resizeUsed);assertEquals(0,store.ledger.convertUsed)
         compose.onNodeWithTag("phase2Save").assertIsDisplayed();compose.onNodeWithTag("phase2Share").assertIsDisplayed()
     }
-    @Test fun batchConvertTwoImagesDoesNotCharge() {
-        selectMulti("CONVERT",2);processMulti();assertEquals(2,multi.state.value.outputs.size);assertEquals(0,store.ledger.used)
+    @Test fun batchConvertChargesOnlyConvert() {
+        selectMulti("CONVERT",2);processMulti();assertEquals(2,multi.state.value.outputs.size);assertEquals(0,store.ledger.used);assertEquals(2,store.ledger.convertUsed);assertEquals(0,store.ledger.resizeUsed)
         assertTrue(multi.state.value.outputs.all { it.format==OutputFormat.PNG })
+    }
+    private fun exhaustFeature(workflow: String, operation: Operation) {
+        selectMulti(workflow)
+        repeat(5) { index ->
+            main { multi.edit(multi.state.value.settings.copy(format=if(index%2==0) OutputFormat.PNG else OutputFormat.WEBP)) }
+            // Settings and action may be below the newly added quota indicator in the compact viewport.
+            if(multi.state.value.outputs.isNotEmpty()) compose.onNodeWithTag("phase2List").performScrollToNode(hasTestTag("phase2Start"))
+            processMulti()
+            assertEquals(index+1,store.ledger.used(operation));assertEquals(1,multi.state.value.outputs.size)
+        }
+        val source=multi.state.value.selection.single().source!!.file
+        val result=multi.state.value.outputs.single().file
+        if(multi.state.value.outputs.isNotEmpty()) compose.onNodeWithTag("phase2List").performScrollToNode(hasTestTag("phase2Start"));processMulti()
+        compose.onNodeWithTag("purchasePremium").assertIsNotEnabled()
+        compose.onNodeWithTag("dismissPremium").performClick()
+        assertTrue(source.exists());assertTrue(result.exists());assertEquals(5,store.ledger.used(operation))
+        compose.onNodeWithTag("phase2Save").assertIsDisplayed();compose.onNodeWithTag("phase2Share").assertIsDisplayed()
+        assertEquals(0,store.ledger.used)
+    }
+    @Test fun resizeFiveSuccessfulImagesThenUpgradePreservesOutput() { exhaustFeature("RESIZE",Operation.RESIZE) }
+    @Test fun convertFiveSuccessfulImagesThenUpgradePreservesOutput() { exhaustFeature("CONVERT",Operation.CONVERT) }
+    @Test fun resizeAndConvertShareSingleBatchCounterPerFeature() {
+        selectMulti("RESIZE",2);processMulti();assertEquals(2,store.ledger.resizeUsed)
+        main { multi.remove(multi.state.value.selection.last().id);multi.setMultiple(false) }
+        if(multi.state.value.outputs.isNotEmpty()) compose.onNodeWithTag("phase2List").performScrollToNode(hasTestTag("phase2Start"));processMulti();assertEquals(3,store.ledger.resizeUsed)
+        assertEquals(0,store.ledger.used);assertEquals(0,store.ledger.convertUsed)
+        compose.onNodeWithTag("homeNavigation").performClick();compose.onNodeWithTag("homeCONVERT").performScrollTo().performClick()
+        compose.onNodeWithTag("confirmSwitch").performClick()
+        main { multi.select(listOf(gallery("stream"))); }
+        compose.waitUntil(30000) { multi.state.value.selection.size==1 && !multi.state.value.busy }
+        processMulti();assertEquals(1,store.ledger.convertUsed);assertEquals(3,store.ledger.resizeUsed)
+    }
+    @Test fun resizeEncodingFormatChargesOnceAndCompressionResizeChargesCompressionOnly() {
+        selectedSingle();main { single.compress(200*1024,OutputFormat.WEBP,resize=ResizeSpec.Percent(50)) }
+        compose.waitUntil(60000) { single.state.value.result!=null && !single.state.value.busy }
+        assertEquals(1,store.ledger.used);assertEquals(0,store.ledger.resizeUsed);assertEquals(0,store.ledger.convertUsed)
+        compose.onNodeWithTag("homeNavigation").performClick();selectMulti("RESIZE")
+        main { multi.edit(multi.state.value.settings.copy(format=OutputFormat.WEBP,resizeChoice=ResizeChoice.PERCENT,percent="50")) }
+        processMulti();assertEquals(1,store.ledger.resizeUsed);assertEquals(1,store.ledger.used);assertEquals(0,store.ledger.convertUsed)
+    }
+    @Test fun partialBatchConvertChargesOnlyAcceptedSuccess() {
+        selectMulti("CONVERT",2,listOf("stream","heif"));processMulti()
+        assertEquals(1,multi.state.value.outputs.size);assertEquals(1,multi.state.value.progress!!.failed)
+        assertEquals(1,store.ledger.convertUsed);assertEquals(0,store.ledger.used);assertEquals(0,store.ledger.resizeUsed)
+    }
+    @Test fun failedResizeAndImmediateCancellationDoNotCharge() {
+        selectMulti("RESIZE")
+        main { multi.edit(multi.state.value.settings.copy(resizeChoice=ResizeChoice.CUSTOM,width="9999",height="9999"));multi.start() }
+        compose.waitUntil(30000) { !multi.state.value.busy }
+        assertTrue(multi.state.value.outputs.isEmpty());assertEquals(0,store.ledger.resizeUsed)
+        main { multi.edit(multi.state.value.settings.copy(resizeChoice=ResizeChoice.ORIGINAL));multi.start();multi.cancel() }
+        compose.waitUntil(30000) { !multi.state.value.busy }
+        assertEquals(0,store.ledger.resizeUsed);assertEquals(0,store.ledger.reserved)
+    }
+    @Test fun homeQuotaIndicatorShowsThreeIndependentAllowances() {
+        runBlocking {
+            val resize=quota.reserve(Operation.RESIZE,1);quota.settle(resize,0);quota.release(resize)
+            val convert=quota.reserve(Operation.CONVERT,2);quota.settle(convert,0);quota.settle(convert,1);quota.release(convert)
+        }
+        compose.onNodeWithText("Free today — Compress 5/5 · Resize 4/5 · Convert 3/5.").assertIsDisplayed()
     }
     @Test fun oversizedBatchInvitationPreservesSelectionAndSettings() {
         selectMulti("BATCH",1)

@@ -105,7 +105,7 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit, onUpgrade: ()->Unit =
                 Button({ if(batch) picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) else single.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) },enabled=!state.busy,
                     modifier=Modifier.fillMaxWidth().heightIn(min=48.dp).testTag("phase2Select")) { Text(stringResource(if(batch) R.string.select_images else R.string.select_image)) }
                 Text(stringResource(R.string.selection_count,state.selection.size,if(batch) MAX_BATCH_IMAGES else 1),modifier=Modifier.testTag("selectionCount"))
-                if(compression) QuotaIndicator(state.busy,model.quota,onUpgrade)
+                QuotaIndicator(state.busy,model.quota,when(state.workflow) { Workflow.BATCH -> com.komprexo.app.access.Operation.COMPRESS; Workflow.RESIZE -> com.komprexo.app.access.Operation.RESIZE; Workflow.CONVERT -> com.komprexo.app.access.Operation.CONVERT },onUpgrade)
                 if(!compression) {
                     Row {
                         val batchLabel=stringResource(R.string.batch_operation)

@@ -65,10 +65,10 @@ jobs:
           api-level: ${{ matrix.api }}
           arch: x86_64
           profile: pixel_2
-          # Match physical framebuffer to wm geometry; API23 otherwise letterboxes rotated captures.
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim -camera-back none -skin 720x1280 -dpi-device 360
+          pre-emulator-launch-script: python3 scripts/configure-compact-emulator.py
           disable-animations: true
           script: |
+            adb shell wm size
             adb shell wm size 720x1280
             adb shell wm density 360
             # The runner executes each line in a separate shell. Retain the test status.

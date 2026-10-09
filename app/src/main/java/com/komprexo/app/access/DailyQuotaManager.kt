@@ -16,22 +16,43 @@ data class QuotaLedger(
     val day: Long = Long.MIN_VALUE, val highWaterMillis: Long = Long.MIN_VALUE,
     val used: Int = 0, val reservation: String = "", val reserved: Int = 0,
     val settled: Set<String> = emptySet(),
+    val resizeUsed: Int = 0, val convertUsed: Int = 0,
+    val operation: Operation = Operation.COMPRESS,
 ) {
+    fun used(operation: Operation) = when (operation) {
+        Operation.COMPRESS -> used
+        Operation.RESIZE -> resizeUsed
+        Operation.CONVERT -> convertUsed
+    }
+    fun accepted(operation: Operation) = when (operation) {
+        Operation.COMPRESS -> copy(used = used + 1)
+        Operation.RESIZE -> copy(resizeUsed = resizeUsed + 1)
+        Operation.CONVERT -> copy(convertUsed = convertUsed + 1)
+    }
     fun at(clock: Clock): QuotaLedger {
         val now = clock.millis()
         val localDay = LocalDate.now(clock).toEpochDay()
         val reset = localDay > day && now >= highWaterMillis
-        return copy(day = if (reset) localDay else day, highWaterMillis = maxOf(now, highWaterMillis), used = if (reset) 0 else used)
+        return copy(day = if (reset) localDay else day, highWaterMillis = maxOf(now, highWaterMillis), used = if (reset) 0 else used,
+            resizeUsed = if (reset) 0 else resizeUsed, convertUsed = if (reset) 0 else convertUsed)
     }
     fun checked(): QuotaLedger {
-        require(used in 0..FeatureAccessPolicy.DAILY_FREE && reserved in 0..FeatureAccessPolicy.DAILY_FREE && used + reserved <= FeatureAccessPolicy.DAILY_FREE)
+        require(Operation.entries.all { used(it) in 0..FeatureAccessPolicy.DAILY_FREE })
+        require(reserved in 0..FeatureAccessPolicy.DAILY_FREE && used(operation) + reserved <= FeatureAccessPolicy.DAILY_FREE)
         require(settled.size <= FeatureAccessPolicy.DAILY_FREE && (reservation.isNotEmpty() || (reserved == 0 && settled.isEmpty())))
         return this
     }
 }
 interface QuotaStore { suspend fun update(change: (QuotaLedger) -> QuotaLedger): QuotaLedger }
-data class QuotaSnapshot(val remaining: Int? = null, val unavailable: Boolean = false)
-data class QuotaReservation(val id: String, val charged: Boolean, val count: Int)
+data class QuotaSnapshot(val remaining: Int? = null, val unavailable: Boolean = false,
+    val resizeRemaining: Int? = null, val convertRemaining: Int? = null) {
+    fun remaining(operation: Operation) = when(operation) {
+        Operation.COMPRESS -> remaining
+        Operation.RESIZE -> resizeRemaining
+        Operation.CONVERT -> convertRemaining
+    }
+}
+data class QuotaReservation(val id: String, val charged: Boolean, val count: Int, val operation: Operation)
 
 /** One process-wide instance. Reservations prevent concurrent work across all screens.
  * Durable settlement precedes output publication. Startup releases uncommitted reservations. */
@@ -48,14 +69,16 @@ class DailyQuotaManager(private val store: QuotaStore, private val provider: Ent
     private suspend fun update(change: (QuotaLedger) -> QuotaLedger): QuotaLedger {
         try {
             val ledger = store.update { old -> change(old.checked().at(clock())).checked() }
-            mutable.value = QuotaSnapshot((FeatureAccessPolicy.DAILY_FREE - ledger.used - ledger.reserved).coerceAtLeast(0))
+            fun remaining(operation: Operation) = FeatureAccessPolicy.DAILY_FREE - ledger.used(operation) -
+                if (ledger.operation == operation) ledger.reserved else 0
+            mutable.value = QuotaSnapshot(remaining(Operation.COMPRESS), resizeRemaining = remaining(Operation.RESIZE), convertRemaining = remaining(Operation.CONVERT))
             return ledger
         } catch (e: kotlinx.coroutines.CancellationException) { throw e }
           catch (_: Exception) { mutable.value = QuotaSnapshot(unavailable = true); throw AccessDenied(Restriction.QUOTA_UNAVAILABLE) }
     }
     private suspend fun initialize() {
         if (!initialized) {
-            update { it.copy(reservation = "", reserved = 0, settled = emptySet()) }
+            update { it.copy(reservation = "", reserved = 0, settled = emptySet(), operation = Operation.COMPRESS) }
             initialized = true
         }
     }
@@ -69,17 +92,17 @@ class DailyQuotaManager(private val store: QuotaStore, private val provider: Ent
                     if (active != null) throw AccessDenied(Restriction.BUSY)
                     val plan = entitlement.value
                     FeatureAccessPolicy.check(plan, count, preset)
-                    val charged = operation == Operation.COMPRESS && plan == EntitlementState.Free
-                    val reservation = QuotaReservation(UUID.randomUUID().toString(), charged, count)
-                    // Unlimited transforms/Premium do not require a readable compression ledger.
+                    val charged = plan == EntitlementState.Free
+                    val reservation = QuotaReservation(UUID.randomUUID().toString(), charged, count, operation)
+                    // Only verified Premium policy (debug testing for now) bypasses daily counters.
                     if (charged) {
                         initialize()
                         var denied = false
                         update { ledger ->
-                            if (ledger.reservation.isNotEmpty() || ledger.used + count > FeatureAccessPolicy.DAILY_FREE) {
+                            if (ledger.reservation.isNotEmpty() || ledger.used(operation) + count > FeatureAccessPolicy.DAILY_FREE) {
                                 denied = true
                                 ledger
-                            } else ledger.copy(reservation = reservation.id, reserved = count, settled = emptySet())
+                            } else ledger.copy(reservation = reservation.id, reserved = count, settled = emptySet(), operation = operation)
                         }
                         if (denied) throw AccessDenied(Restriction.DAILY_QUOTA)
                     }
@@ -107,7 +130,8 @@ class DailyQuotaManager(private val store: QuotaStore, private val provider: Ent
             else {
                 check(ledger.reserved > 0)
                 accepted = true
-                ledger.copy(used = ledger.used + 1, reserved = ledger.reserved - 1, settled = ledger.settled + slot.toString())
+                check(ledger.operation == reservation.operation)
+                ledger.accepted(reservation.operation).copy(reserved = ledger.reserved - 1, settled = ledger.settled + slot.toString())
             }
         }
         if (accepted) acceptedSlots.add(slot)
@@ -118,10 +142,10 @@ class DailyQuotaManager(private val store: QuotaStore, private val provider: Ent
             if (active == reservation) {
                 try {
                     if (reservation.charged) update { ledger ->
-                        if (ledger.reservation == reservation.id) ledger.copy(reservation = "", reserved = 0, settled = emptySet()) else ledger
+                        if (ledger.reservation == reservation.id) ledger.copy(reservation = "", reserved = 0, settled = emptySet(), operation = Operation.COMPRESS) else ledger
                     }
                 } catch(e: AccessDenied) {
-                    // Retry journal recovery before any future charge; transforms remain available.
+                    // Retry journal recovery before future processing; accepted exports remain available.
                     initialized = false
                     throw e
                 } finally { active = null; acceptedSlots.clear() }

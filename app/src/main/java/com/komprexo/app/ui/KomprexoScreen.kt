@@ -100,7 +100,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
             Column(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = { picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, enabled = !state.busy, modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp)) { Text(stringResource(R.string.select_image)) }
                 Text(stringResource(R.string.selection_count, if(state.source != null) 1 else 0, 1))
-                QuotaIndicator(state.busy,model.quota,onUpgrade)
+                QuotaIndicator(state.busy,model.quota,com.komprexo.app.access.Operation.COMPRESS,onUpgrade)
                 state.restriction?.takeIf { !it.invitesUpgrade() }?.let { Text(stringResource(restrictionLabel(it)),color=MaterialTheme.colorScheme.error) }
                 state.error?.let { Text(stringResource(errorString(it)), color = MaterialTheme.colorScheme.error) }
                 if (state.saved) Text(stringResource(R.string.saved))
