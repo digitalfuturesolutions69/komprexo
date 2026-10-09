@@ -2,6 +2,14 @@
 
 Complete owner report and historical CI investigation: [docs/PHASE4A_VALIDATION.md](docs/PHASE4A_VALIDATION.md). Accepted Phase3 evidence: [docs/PHASE3_VALIDATION.md](docs/PHASE3_VALIDATION.md).
 
+## Latest verified delivery gate — 55bf8acdc88811793bdd3ea82f96691c78a14038
+
+[Run37932392813](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37932392813): all6jobs PASS. Downloaded reports verify171JVM/0failures/0ignored and157instrumentation/0failures/0skips on each API23/26/28/36. API36 diagnostics157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. Browser45/45,Python8/8,lint0errors/20warnings;wrapper/compile/security/runtime audit PASS. Local and remote HEAD matched;working tree clean.
+
+Downloaded CI APK14,157,346bytes;SHA256 `9651d311525fd4cb1f3948fd151d815206f7c1265421f7291dd394f3ac75cd67`;ZIP/inner APK CRC checks PASS;apksigner exit0,v1/v2 PASS (debug only). Packagecom.komprexo.app,version0.4.0(2),min23/target36/compile36,labelKomprexo. Artifact `komprexo-debug-55bf8acdc88811793bdd3ea82f96691c78a14038`,ZIP13,225,744bytes,uploaded/not expired at verification,retention14days: [artifact11616252949](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37932392813/artifacts/11616252949).
+
+Final baseline file inventory corrected to126created/16modified/1removed (143paths): actual system-inset sampling adds Screenshots.kt to modified files. This documentation correction changes no application or test inputs. Its final SHA/run/artifact are independently verified and reported in the accompanying delivery response. Real payment/legal/publication/physical-device limitations remain unchanged.
+
 ## Latest accepted implementation — 7ccad67f63402a0044a4b477b66713d861d43a1d
 
 Run [37931374086](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37931374086): **all six jobs PASS**. API23/26/28/36 each finished157tests,0failures/0skips. Downloaded API36 HTML and streamed diagnostics confirm157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. System Default diagnostics confirm expected=en,actual=en,overrideEmpty=true,focused=true. JVM report171/0failures/0ignored; CI lint0errors/20warnings; static45browser/8Python checks PASS. Debug/release compilation, trusted wrapper, dependency audit99 and security checks PASS. No tests, thresholds or checks disabled.

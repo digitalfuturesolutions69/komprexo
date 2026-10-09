@@ -2,6 +2,14 @@
 
 Prepared 9 October 2026 Asia/Jakarta. Repository digitalfuturesolutions69/komprexo; work; accepted baseline 15266a239352cdf64ea37752a0f02fbf8d7de836. Local/remote matched baseline before edits; baseline existed, no previous Phase 4A implementation. Original evidence archived in PHASE3_VALIDATION.md.
 
+## Latest verified delivery gate — 55bf8acdc88811793bdd3ea82f96691c78a14038
+
+[Run37932392813](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37932392813): all6jobs PASS. Downloaded reports verify171JVM/0failures/0ignored and157instrumentation/0failures/0skips on each API23/26/28/36. API36 diagnostics157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. Browser45/45,Python8/8,lint0errors/20warnings;wrapper/compile/security/runtime audit PASS. Local and remote HEAD matched;working tree clean.
+
+Downloaded CI APK14,157,346bytes;SHA256 `9651d311525fd4cb1f3948fd151d815206f7c1265421f7291dd394f3ac75cd67`;ZIP/inner APK CRC checks PASS;apksigner exit0,v1/v2 PASS (debug only). Packagecom.komprexo.app,version0.4.0(2),min23/target36/compile36,labelKomprexo. Artifact `komprexo-debug-55bf8acdc88811793bdd3ea82f96691c78a14038`,ZIP13,225,744bytes,uploaded/not expired at verification,retention14days: [artifact11616252949](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37932392813/artifacts/11616252949).
+
+Final baseline file inventory corrected to126created/16modified/1removed (143paths): actual system-inset sampling adds Screenshots.kt to modified files. This documentation correction changes no application or test inputs. Its final SHA/run/artifact are independently verified and reported in the accompanying delivery response. Real payment/legal/publication/physical-device limitations remain unchanged.
+
 ## Latest accepted implementation — 7ccad67f63402a0044a4b477b66713d861d43a1d
 
 Run [37931374086](https://github.com/digitalfuturesolutions69/komprexo/actions/runs/37931374086): **all six jobs PASS**. API23/26/28/36 each finished157tests,0failures/0skips. Downloaded API36 HTML and streamed diagnostics confirm157START/157FINISH/0FAIL/0STALLED/0LOCALE_TIMEOUT. System Default diagnostics confirm expected=en,actual=en,overrideEmpty=true,focused=true. JVM report171/0failures/0ignored; CI lint0errors/20warnings; static45browser/8Python checks PASS. Debug/release compilation, trusted wrapper, dependency audit99 and security checks PASS. No tests, thresholds or checks disabled.
@@ -74,7 +82,7 @@ API26 report HTML confirms157tests/0failures/0ignored; CI JVM HTML confirms171te
 
 The final report-bearing commit also includes a late-callback transport guard; after timeout/cancellation an old ProductDetails callback cannot replace fresh cached details. Its full local Gradle rerun passes171tests/lint/debug APK/instrumentation APK/release compilation/dependency export/security. Final CI is checked independently at delivery.
 
-Baseline delta at delivery:126created,15modified,1removed files: native Billing/Settings/locale/icon/assets/tests, branding/content, static-source/tests, audits/legal/Play docs, build/workflow/security tools, README/validation. Removed only obsolete drawable launcher replaced by mipmap resources. Original engine/storage/quota-manager files remain unchanged. Exact file list is the final Git commit diff against the accepted baseline.
+Baseline delta at delivery:126created,16modified,1removed files: native Billing/Settings/locale/icon/assets/tests, branding/content, static-source/tests, audits/legal/Play docs, build/workflow/security tools, README/validation. Removed only obsolete drawable launcher replaced by mipmap resources. Original engine/storage/quota-manager files remain unchanged. Exact file list is the final Git commit diff against the accepted baseline.
 
 ## CI investigation and corrections
 
@@ -118,7 +126,7 @@ The report-only delivery commit runs the unchanged full workflow again. Its exac
 | STARTING COMMIT | 15266a239352cdf64ea37752a0f02fbf8d7de836, confirmed accepted baseline |
 | FINAL COMMIT | Delivery report commit: exact SHA supplied in accompanying response; validated implementation SHA above |
 | LOCAL = REMOTE / WORKING TREE | Authorized push verified equal; clean before report update; delivery checked again after push |
-| FILES CREATED / MODIFIED | 126created,15modified,1obsolete launcher removed; exact baseline file list below |
+| FILES CREATED / MODIFIED | 126created,16modified,1obsolete launcher removed; exact baseline file list below |
 
 ## Owner delivery fields — GOOGLE PLAY BILLING
 
@@ -226,6 +234,7 @@ M	VALIDATION.md
 M	app/build.gradle
 A	app/src/androidTest/java/com/komprexo/app/BillingCompatibilityTest.kt
 A	app/src/androidTest/java/com/komprexo/app/SafeTestProgressListener.kt
+M	app/src/androidTest/java/com/komprexo/app/Screenshots.kt
 A	app/src/androidTest/java/com/komprexo/app/SettingsLocaleTest.kt
 M	app/src/debug/java/com/komprexo/app/access/EntitlementProviderFactory.kt
 A	app/src/debug/res/values-es/strings.xml
