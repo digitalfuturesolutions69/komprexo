@@ -31,6 +31,7 @@ import org.junit.Assert.*
 /** Real responsive dialog and navigation UI; no image-processing behavior is replaced. */
 class UiStabilizationTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
+    @get:Rule val testName = org.junit.rules.TestName()
     private fun model(): Phase2ViewModel {
         lateinit var value: Phase2ViewModel
         compose.activityRule.scenario.onActivity { value = ViewModelProvider(it)[Phase2ViewModel::class.java] }
@@ -56,6 +57,7 @@ class UiStabilizationTest {
         compose.onNodeWithTag("settingsDone").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
     }
     private fun visibleChoicesDoNotOverlap() {
+        captureEvidence("phase25-layout-${testName.methodName}")
         val choices = compose.onAllNodes(isSelectable()).fetchSemanticsNodes().map { it.boundsInRoot }.filter { it.width > 0 && it.height > 0 }
         assertTrue("At least one choice must be visible", choices.isNotEmpty())
         for (i in choices.indices) for (j in i+1 until choices.size) {
@@ -72,11 +74,12 @@ class UiStabilizationTest {
                 node.config[SemanticsActions.GetTextLayoutResult].action?.invoke(layouts)
                 layouts.forEach { layout ->
                     assertEquals("Large-font coverage must reach dialog text",2f,layout.layoutInput.density.fontScale,0.001f)
-                    // Paragraph metrics are fractional pixels; layout sizes are integer pixels.
-                    val widthOverflow=layout.multiParagraph.width-layout.size.width
-                    val heightOverflow=layout.multiParagraph.height-layout.size.height
-                    assertTrue("Visible label clipped: ${layout.layoutInput.text}; overflow=$widthOverflow x $heightOverflow",widthOverflow<=1f && heightOverflow<=1f)
-                    for(line in 0 until layout.lineCount) assertFalse("Label must not be ellipsized",layout.isLineEllipsized(line))
+                    // Paragraph width includes unused layout space; inspect painted line bounds.
+                    for(line in 0 until layout.lineCount) {
+                        assertFalse("Label must not be ellipsized",layout.isLineEllipsized(line))
+                        assertTrue("Painted text clipped: ${layout.layoutInput.text}; line=${layout.getLineLeft(line)}..${layout.getLineRight(line)}, size=${layout.size}",
+                            layout.getLineLeft(line)>=-1f && layout.getLineRight(line)<=layout.size.width+1f && layout.getLineBottom(line)<=layout.size.height+1f)
+                    }
                 }
             }
         }

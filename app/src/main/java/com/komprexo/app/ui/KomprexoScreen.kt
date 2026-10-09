@@ -128,7 +128,7 @@ fun KomprexoScreen(model: CompressionViewModel = viewModel(), onHome: (() -> Uni
                         state.originalPreview?.let { image -> Image(image.asImageBitmap(), stringResource(R.string.original), Modifier.fillMaxWidth().height(96.dp)) }
                     }
                     TextButton(onClick = { presetDialog = true }, enabled = !state.busy, modifier = Modifier.heightIn(min = 48.dp)) { Text(stringResource(R.string.smart_presets)) }
-                    Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium)
+                    Text(stringResource(R.string.maximum_size), style = MaterialTheme.typography.titleMedium, modifier = Modifier.fillMaxWidth())
                     FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         presets.forEach { value -> ChoiceChip(target == value, { target = value }, enabled = !state.busy, label = { Text(if (value >= 1024 * 1024) "${value / (1024 * 1024)} MB" else "${value / 1024} KB") }, modifier = Modifier.heightIn(min = 48.dp)) }
                         ChoiceChip(target == 0L, { target = 0L }, enabled = !state.busy, label = { Text(stringResource(R.string.custom)) }, modifier = Modifier.heightIn(min = 48.dp))

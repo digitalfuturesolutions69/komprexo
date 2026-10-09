@@ -83,7 +83,7 @@ fun ResponsiveSettingsDialog(title: String, onDismiss: () -> Unit, onConfirm: ()
                 Column(Modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     Column(Modifier.weight(1f, fill = false).fillMaxWidth().verticalScroll(rememberScrollState())
                         .testTag("settingsScroll").padding(horizontal = 8.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                        Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.semantics { heading() })
+                        Text(title, style = MaterialTheme.typography.titleLarge, modifier = Modifier.fillMaxWidth().semantics { heading() })
                         content()
                     }
                     HorizontalDivider()

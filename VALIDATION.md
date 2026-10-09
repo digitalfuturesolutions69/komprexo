@@ -65,9 +65,10 @@ text. It now checks fully visible text in the active scroll viewport. Controls u
 content-height selectable surfaces with radio semantics, wrapping labels and padding.
 Dialog inherits parent density/theme configuration explicitly; separate Android
 windows otherwise replace synthetic font/theme overrides used in tests. UI tests
-assert that dialog text actually uses 2.0 font scale. Text clipping checks allow
-at most one physical pixel of fractional paragraph/integer layout rounding, and
-reject ellipsis and larger overflow. Dialog status/navigation inset areas have explicit contrasting backgrounds,
+assert that dialog text actually uses 2.0 font scale. Text clipping checks inspect painted line bounds, not paragraph layout width
+(which includes unused constraint space). They allow at most one physical pixel
+of fractional/integer rounding and reject ellipsis or painted bounds outside
+the text box. Dialog/section headings explicitly occupy the available width. Dialog status/navigation inset areas have explicit contrasting backgrounds,
 including transparent edge-to-edge bars on API 35+. The emulator action runs script lines in separate shells. Tests and evidence copy
 now share one shell command that preserves and returns the actual Gradle exit
 status, so failed tests retain screenshots and still fail CI.

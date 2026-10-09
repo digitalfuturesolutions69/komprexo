@@ -25,7 +25,7 @@ fun presetLabel(preset: Preset): Int = when(preset) {
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun PresetChoices(settings: EditableSettings, enabled: Boolean, choices: List<Preset> = Preset.entries, change: (EditableSettings)->Unit) {
-    Text(stringResource(R.string.smart_presets),style=MaterialTheme.typography.titleMedium)
+    Text(stringResource(R.string.smart_presets),style=MaterialTheme.typography.titleMedium,modifier=Modifier.fillMaxWidth())
     FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         choices.forEach { preset -> ChoiceChip(settings.preset==preset,{ change(settings.apply(preset)) },enabled=enabled,
             label={ Text(stringResource(presetLabel(preset))) },modifier=Modifier.heightIn(min=48.dp)) }
@@ -35,7 +35,7 @@ fun PresetChoices(settings: EditableSettings, enabled: Boolean, choices: List<Pr
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TargetControls(settings: EditableSettings, enabled: Boolean, change: (EditableSettings)->Unit) {
-    Text(stringResource(R.string.maximum_size),style=MaterialTheme.typography.titleMedium)
+    Text(stringResource(R.string.maximum_size),style=MaterialTheme.typography.titleMedium,modifier=Modifier.fillMaxWidth())
     FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         listOf(100,200,500,1024,2048).forEach { size -> ChoiceChip(!settings.customTarget && settings.targetKiB==size.toString(),
             { change(settings.copy(targetKiB=size.toString(),customTarget=false)) },enabled=enabled,label={ Text(if(size>=1024) "${size/1024} MB" else "$size KB") },modifier=Modifier.heightIn(min=48.dp)) }
@@ -46,7 +46,7 @@ fun TargetControls(settings: EditableSettings, enabled: Boolean, change: (Editab
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun FormatControls(settings: EditableSettings, enabled: Boolean, allowAuto: Boolean, alpha: Boolean, change: (EditableSettings)->Unit) {
-    Text(stringResource(R.string.output_format),style=MaterialTheme.typography.titleMedium)
+    Text(stringResource(R.string.output_format),style=MaterialTheme.typography.titleMedium,modifier=Modifier.fillMaxWidth())
     FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         OutputFormat.entries.filter { allowAuto || it!=OutputFormat.AUTO }.forEach { format -> ChoiceChip(settings.format==format,
             { change(settings.copy(format=format,allowAlphaRemoval=false)) },enabled=enabled,label={ Text(if(format==OutputFormat.AUTO) stringResource(R.string.auto_recommended) else format.name) },modifier=Modifier.heightIn(min=48.dp)) }
@@ -69,7 +69,7 @@ fun AlphaConsent(settings: EditableSettings, enabled: Boolean, change: (Editable
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ResizeControls(settings: EditableSettings, enabled: Boolean, change: (EditableSettings)->Unit) {
-    Text(stringResource(R.string.resize_dimensions),style=MaterialTheme.typography.titleMedium)
+    Text(stringResource(R.string.resize_dimensions),style=MaterialTheme.typography.titleMedium,modifier=Modifier.fillMaxWidth())
     FlowRow(horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         ChoiceChip(settings.resizeChoice==ResizeChoice.ORIGINAL,{ change(settings.copy(resizeChoice=ResizeChoice.ORIGINAL)) },enabled=enabled,
             label={ Text(stringResource(R.string.keep_dimensions)) },modifier=Modifier.heightIn(min=48.dp))
