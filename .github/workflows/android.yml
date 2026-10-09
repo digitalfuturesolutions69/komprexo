@@ -65,6 +65,8 @@ jobs:
           api-level: ${{ matrix.api }}
           arch: x86_64
           profile: pixel_2
+          # Official software renderer; Vulkan is disabled after verified color-buffer/frame stalls.
+          emulator-options: -no-window -gpu swiftshader -feature -Vulkan -noaudio -no-boot-anim -camera-back none
           pre-emulator-launch-script: python3 scripts/configure-compact-emulator.py
           disable-animations: true
           script: |

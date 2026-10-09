@@ -53,12 +53,25 @@ class SettingsLocaleTest {
         val expected=if(tag.isEmpty()) ConfigurationCompat.getLocales(android.content.res.Resources.getSystem().configuration)[0]!!.toLanguageTag()
             else java.util.Locale.forLanguageTag(tag).toLanguageTag()
         main { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tag)) }
-        // Configuration can update before Android replaces the Activity. Do not install
-        // test content or scroll against the old viewport during that transition.
-        compose.waitUntil(20000) {
-            ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.toLanguageTag()==expected &&
-                (effective==expected || compose.activity!==previous) &&
-                compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+        // A real language change must finish recreation. A native same-language
+        // regional/default change need not replace the Activity. Assert the stored
+        // override separately; effective system locales can include regional fallback.
+        try {
+            compose.waitUntil(20000) {
+                ConfigurationCompat.getLocales(compose.activity.resources.configuration)[0]?.let { actual ->
+                    val wanted=java.util.Locale.forLanguageTag(expected)
+                    actual.language==wanted.language && (wanted.country.isEmpty() || actual.country==wanted.country)
+                }==true && AppCompatDelegate.getApplicationLocales().toLanguageTags()==tag &&
+                    (java.util.Locale.forLanguageTag(effective ?: expected).language==java.util.Locale.forLanguageTag(expected).language || compose.activity!==previous) &&
+                    compose.activity.lifecycle.currentState==Lifecycle.State.RESUMED
+            }
+        } catch(error: androidx.compose.ui.test.ComposeTimeoutException) {
+            android.util.Log.i("KomprexoTest","event=LOCALE_TIMEOUT api="+android.os.Build.VERSION.SDK_INT+
+                " requested="+tag+" expected="+expected+" before="+effective+
+                " actual="+ConfigurationCompat.getLocales(compose.activity.resources.configuration).toLanguageTags()+
+                " stored="+AppCompatDelegate.getApplicationLocales().toLanguageTags()+
+                " replaced="+(compose.activity!==previous)+" lifecycle="+compose.activity.lifecycle.currentState)
+            throw error
         }
         compose.waitForIdle()
     }
@@ -140,10 +153,13 @@ class SettingsLocaleTest {
             val d=LocalDensity.current
             CompositionLocalProvider(LocalDensity provides Density(d.density,2f)) { KomprexoApp() }
         } }
+        compose.waitForIdle()
         try {
             settings();compose.onNodeWithTag("languageSettings").performScrollTo().assertHeightIsAtLeast(48.dp)
             compose.onNodeWithTag("legal_premium").performScrollTo().assertHeightIsAtLeast(48.dp)
-            compose.onNodeWithTag("contactSupport").performScrollTo().assertIsDisplayed().assertHeightIsAtLeast(48.dp)
+            compose.onNodeWithTag("contactSupport").performScrollTo()
+            compose.waitForIdle()
+            compose.onNodeWithTag("contactSupport").assertIsDisplayed().assertHeightIsAtLeast(48.dp)
         } catch(error:Throwable) {
             runCatching { captureEvidence("phase4-layout-failure-"+tag) }
             throw error

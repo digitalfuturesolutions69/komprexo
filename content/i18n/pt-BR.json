@@ -89,7 +89,7 @@
   "error_busy": "Outra operação está ativa. Aguarde ou cancele.",
   "error_alpha_confirmation": "JPEG não preserva transparência. Confirme o fundo branco ou escolha PNG/WebP.",
   "error_output_large": "A saída excede o limite de segurança de 32 MiB. Use dimensões menores ou outro formato.",
-  "tool_settings": "Configurações",
+  "tool_settings": "Ajustes",
   "successful_results": "Resultados bem-sucedidos",
   "failed_images": "Imagens com falha",
   "cancelled_images": "Imagens canceladas",
