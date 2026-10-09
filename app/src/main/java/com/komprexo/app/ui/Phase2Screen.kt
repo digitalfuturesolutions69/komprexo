@@ -84,7 +84,7 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
             FlowRow(Modifier.fillMaxWidth().navigationBarsPadding().imePadding().padding(horizontal=16.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(8.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
                 if(state.busy) OutlinedButton(model::cancel,modifier=Modifier.heightIn(min=48.dp).testTag("phase2Cancel")) { Text(stringResource(R.string.cancel)) }
                 else {
-                    Button(model::start,enabled=state.selection.isNotEmpty() && (batch || state.selection.first().source!=null),modifier=Modifier.heightIn(min=48.dp).testTag("phase2Start")) { Text(stringResource(R.string.process_images)) }
+                    if(state.outputs.isEmpty()) Button(model::start,enabled=state.selection.isNotEmpty() && (batch || state.selection.first().source!=null),modifier=Modifier.heightIn(min=48.dp).testTag("phase2Start")) { Text(stringResource(R.string.process_images)) }
                     if(state.outputs.isNotEmpty()) {
                         Button({ if(batch) {
                             try { folder.launch(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)) }
@@ -127,6 +127,8 @@ fun Phase2Screen(model: Phase2ViewModel, onHome: ()->Unit) {
                             ResizeChoice.CUSTOM -> "${state.settings.width.ifBlank { "—" }} × ${state.settings.height.ifBlank { "—" }} · "+stringResource(if(state.settings.lockAspect) R.string.aspect_lock else R.string.custom_dimensions)
                         })
                         OutlinedButton({ showSettings=true },enabled=!state.busy,modifier=Modifier.heightIn(min=48.dp).testTag("toolSettings")) { Text(stringResource(R.string.tool_settings)) }
+                        if(state.outputs.isNotEmpty() && !state.busy) Button(model::start,
+                            modifier=Modifier.heightIn(min=48.dp).testTag("phase2Start")) { Text(stringResource(R.string.process_images)) }
                     }
                 }
                 if(state.settings.format==OutputFormat.JPEG && state.selection.any { it.thumbnail?.hasAlpha()==true })

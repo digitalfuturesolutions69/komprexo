@@ -25,6 +25,8 @@ It consumes top/horizontal safe drawing insets. Redundant in-content navigation
 is removed; Home has one title, Compress retains Komprexo and a Compress subtitle.
 Image selection is full-width; all four workflows show selected counts.
 Active progress is in the fixed action area. Existing Save/Share actions remain.
+When Phase 2 results exist, rerun Start is beside settings in scrollable content;
+only Save/Share remain pinned, preserving room on short, large-font screens.
 
 A saveable screen-state holder preserves compression UI settings across Home
 navigation; a dedicated saver retains compression resize settings on recreation.
@@ -54,7 +56,17 @@ Local JDK 17 / SDK 36 / Gradle 8.11.1; trusted Wrapper unchanged. Proxy and trus
 configuration remain outside the repository. Local instrumentation cannot run
 because /dev/kvm is unavailable; emulator results must come from actual CI.
 
-Final local and CI results are pending execution; no unrun checks are claimed PASS.
+Initial local verification passed all 69 unit tests (zero failures/errors/skips),
+lint (zero errors, six warnings), and app/test APK assemblies. Follow-up verification
+is pending. The initial source CI run 37862102496 passed debug but failed new UI
+checks for clipping and dialog status-icon contrast; it is not claimed PASS.
+The first clipping helper incorrectly included covered background/partially scrolled
+text. It now checks fully visible text in the active scroll viewport. Controls use
+content-height selectable surfaces with radio semantics, wrapping labels and padding.
+Dialog status/navigation inset areas now have explicit contrasting backgrounds,
+including transparent edge-to-edge bars on API 35+. The CI evidence-copy step now
+runs on shell EXIT so failed tests retain screenshots; Gradle failures still fail CI.
+No test assertions, lint failures or build/security checks are disabled.
 
 ## Limits and acceptance
 

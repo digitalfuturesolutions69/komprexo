@@ -4,6 +4,12 @@ import android.view.WindowManager
 import android.os.Build
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -49,10 +55,21 @@ fun ResponsiveSettingsDialog(title: String, onDismiss: () -> Unit, onConfirm: ()
                 val bars = WindowInsetsControllerCompat(window, window.decorView)
                 bars.isAppearanceLightStatusBars = !dark
                 bars.isAppearanceLightNavigationBars = !dark && Build.VERSION.SDK_INT >= 26
-                window.statusBarColor = android.graphics.Color.TRANSPARENT
+                window.statusBarColor = if(dark) android.graphics.Color.rgb(27,27,27) else android.graphics.Color.rgb(245,245,245)
                 window.navigationBarColor = if(dark || Build.VERSION.SDK_INT < 26) android.graphics.Color.rgb(27,27,27)
                     else android.graphics.Color.rgb(245,245,245)
             }
+        }
+        val density=LocalDensity.current
+        val statusHeight=WindowInsets.statusBars.getTop(density).toFloat()
+        val navigationHeight=WindowInsets.navigationBars.getBottom(density).toFloat()
+        val statusBackground=if(dark) Color(0xff1b1b1b) else Color(0xfff5f5f5)
+        val navigationBackground=if(dark || Build.VERSION.SDK_INT < 26) Color(0xff1b1b1b) else Color(0xfff5f5f5)
+        Box(Modifier.fillMaxSize()) {
+        // API 35+ draws transparent system bars: explicitly paint their inset areas.
+        Canvas(Modifier.matchParentSize()) {
+            drawRect(statusBackground,size=Size(size.width,statusHeight))
+            drawRect(navigationBackground,topLeft=Offset(0f,size.height-navigationHeight),size=Size(size.width,navigationHeight))
         }
         BoxWithConstraints(Modifier.fillMaxSize().safeDrawingPadding().imePadding().padding(12.dp),
             contentAlignment = androidx.compose.ui.Alignment.Center) {
@@ -72,6 +89,7 @@ fun ResponsiveSettingsDialog(title: String, onDismiss: () -> Unit, onConfirm: ()
                     }
                 }
             }
+        }
         }
     }
 }
@@ -96,15 +114,23 @@ fun WorkflowTopBar(title: String, enabled: Boolean = true, onHome: (() -> Unit)?
 }
 
 @Composable
-fun ChoiceChip(selected: Boolean, onClick: () -> Unit, label: @Composable () -> Unit, enabled: Boolean = true, modifier: Modifier = Modifier) {
+fun ChoiceChip(selected: Boolean, onClick: () -> Unit, label: @Composable () -> Unit,
+    modifier: Modifier = Modifier, enabled: Boolean = true) {
     val checkColor=MaterialTheme.colorScheme.primary
-    FilterChip(selected, onClick, enabled = enabled, modifier = modifier.heightIn(min = 48.dp),
-        label = label, leadingIcon = if (selected) ({
-            Canvas(Modifier.size(18.dp).clearAndSetSemantics {}) {
+    Surface(modifier=modifier.heightIn(min=48.dp).selectable(selected,onClick=onClick,enabled=enabled,role=Role.RadioButton),
+        shape=MaterialTheme.shapes.small,
+        color=if(selected) MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.surface,
+        contentColor=if(enabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(alpha=0.38f),
+        border=BorderStroke(1.dp,if(selected) checkColor else MaterialTheme.colorScheme.outline)) {
+        Row(Modifier.padding(horizontal=12.dp,vertical=8.dp),horizontalArrangement=Arrangement.spacedBy(8.dp),
+            verticalAlignment=androidx.compose.ui.Alignment.CenterVertically) {
+            if(selected) Canvas(Modifier.size(18.dp).clearAndSetSemantics {}) {
                 drawLine(checkColor,Offset(size.width * 0.15f,size.height * 0.5f),Offset(size.width * 0.4f,size.height * 0.75f),size.width * 0.12f,StrokeCap.Round)
                 drawLine(checkColor,Offset(size.width * 0.4f,size.height * 0.75f),Offset(size.width * 0.85f,size.height * 0.2f),size.width * 0.12f,StrokeCap.Round)
             }
-        }) else null)
+            ProvideTextStyle(MaterialTheme.typography.labelLarge) { label() }
+        }
+    }
 }
 
 // UI-only saver: keep editable compression resize controls across recreation/navigation.

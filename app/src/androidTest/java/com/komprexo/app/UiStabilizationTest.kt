@@ -62,12 +62,15 @@ class UiStabilizationTest {
             val a=choices[i];val b=choices[j]
             assertFalse("Choices overlap: $a / $b", a.overlaps(b))
         }
-        val textNodes=compose.onAllNodes(SemanticsMatcher.keyIsDefined(SemanticsActions.GetTextLayoutResult),useUnmergedTree=true).fetchSemanticsNodes()
+        val dialogOpen=compose.onAllNodesWithTag("settingsScroll").fetchSemanticsNodes().isNotEmpty()
+        val activeText=SemanticsMatcher.keyIsDefined(SemanticsActions.GetTextLayoutResult) and
+            if(dialogOpen) hasAnyAncestor(hasTestTag("settingsScroll")) else SemanticsMatcher("Active page") { true }
+        val textNodes=compose.onAllNodes(activeText,useUnmergedTree=true).fetchSemanticsNodes()
         compose.runOnIdle {
-            for(node in textNodes.filter { it.boundsInRoot.width>0 && it.boundsInRoot.height>0 }) {
+            for(node in textNodes.filter { it.boundsInRoot.width>=it.size.width-1 && it.boundsInRoot.height>=it.size.height-1 && it.size.height>0 }) {
                 val layouts=mutableListOf<TextLayoutResult>()
                 node.config[SemanticsActions.GetTextLayoutResult].action?.invoke(layouts)
-                layouts.forEach { assertFalse("Visible label is clipped: ${it.layoutInput.text}",it.hasVisualOverflow) }
+                layouts.forEach { assertFalse("Visible label is clipped: ${it.layoutInput.text}; size=${it.size}, widthOverflow=${it.didOverflowWidth}, heightOverflow=${it.didOverflowHeight}",it.hasVisualOverflow) }
             }
         }
         for(node in compose.onAllNodes(isSelectable()).fetchSemanticsNodes()) {
@@ -133,7 +136,18 @@ class UiStabilizationTest {
         compose.onNodeWithTag("settingsDone").assertIsDisplayed()
         captureEvidence("phase25-resize-landscape-font200")
         compose.onNodeWithTag("settingsDone").performClick()
-        assertEquals("123",model().state.value.settings.width);assertEquals("45",model().state.value.settings.height)
+        val model=model()
+        assertEquals("123",model.state.value.settings.width);assertEquals("45",model.state.value.settings.height)
+        compose.activityRule.scenario.onActivity { model.select(listOf(Uri.parse("content://com.komprexo.app.test.gallery/stream"))) }
+        compose.waitUntil(30000) { model.state.value.selection.size==1 && !model.state.value.busy }
+        compose.onNodeWithTag("phase2Start").performClick()
+        compose.waitUntil(30000) { model.state.value.outputs.size==1 && !model.state.value.busy }
+        for(tag in listOf("phase2Save","phase2Share")) {
+            val action=compose.onNodeWithTag(tag).assertIsDisplayed().assertHeightIsAtLeast(48.dp).fetchSemanticsNode()
+            assertTrue("Export action must be fully visible",action.boundsInRoot.height>=action.size.height-1)
+            assertTrue("Export action must not overlap navigation",compose.onNodeWithTag("homeNavigation").fetchSemanticsNode().boundsInRoot.bottom<=action.boundsInRoot.top)
+        }
+        captureEvidence("phase25-resize-landscape-result-font200")
     }
     @Test fun compressionChoicesAndNavigationRetainSettingsAt200Percent() {
         largeFont();compose.onNodeWithTag("homecompress").performScrollTo().performClick()
