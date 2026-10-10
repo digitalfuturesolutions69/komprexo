@@ -1,0 +1,101 @@
+{
+  "billing": {
+    "automatic_initialization": "Explicitly constructed by MainActivity.onCreate -> BillingServices.initialize for ALL users, including Free; refresh at launch/onResume and callbacks. No separate Billing auto-init provider; default constructor has logger/TransportRuntime initialization path.",
+    "relevant_data_types": "Product ID/details/price, owning purchase state, purchase token, package/version and service-result diagnostics. Exact serialized diagnostic fields/IDs UNKNOWN.",
+    "data_leaves_device": "Play service IPC and SDK CCT Transport.send path supported by code/bytecode. Actual runtime payloads/endpoints/receipts UNKNOWN; no packet capture.",
+    "possible_recipients": "Google Play service; SDK default CCT backend. Google server onward recipients/roles UNKNOWN.",
+    "processing_purposes": "App: price, purchase, acknowledgment, restore and current ownership. SDK logger: service events; vendor purposes beyond code intent UNKNOWN.",
+    "collection_and_sharing": "Checkout is optional, startup checking is not gated on buying. Do not classify all SDK collection optional. Payment-card exception only for inaccessible provider-direct financial fields; ownership/diagnostics require separate assessment.",
+    "encryption_and_deletion": "Local token digest/timestamps in Keystore AES-GCM lease; raw token transient app memory. SDK CCT HTTPS path visible, but all traffic encryption/SDK or server deletion UNKNOWN.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Vendor field/purpose/recipient/optional-ID/retention/deletion statement for9.1.0; runtime Free-startup and purchase flows; current Console classifications."
+  },
+  "transport": {
+    "automatic_initialization": "Billing default logger calls TransportRuntime.initialize; manifests register backend discovery/job service/alarm receiver, not an app-start ContentProvider. Transport-api contains API abstractions; backend activates when selected by runtime.",
+    "relevant_data_types": "Serialized SDK events, event timestamps/uptime/retry counts; CCT decorate code can read API/model/hardware/device/product/OS build/manufacturer/fingerprint/locale/country/SIM operator/app build/timezone/network type. Actual event payload values UNKNOWN.",
+    "data_leaves_device": "CCT backend has HTTP POST/output-stream/gzip encoding and default HTTPS endpoint path. Transport-api alone does not send. Which events actually leave device requires runtime verification.",
+    "possible_recipients": "Default Google CCT backend; actual redirected/region endpoints and downstream recipients UNKNOWN.",
+    "processing_purposes": "Queue, decorate, schedule and deliver Billing service diagnostics; vendor use of received data UNKNOWN.",
+    "collection_and_sharing": "If user/device data leaves through SDK, Play collection applies even without app HTTP code; sharing exemption requires substantiated recipient role or exception.",
+    "encryption_and_deletion": "SQLite event payload queue has no application-added encryption. Default event cleanup age604800000ms (7days) and cleanup/delete routines seen in3.1.8 bytecode; NOT guaranteed timed deletion, not server retention. HTTPS default does not prove every runtime transfer is encrypted.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Actual events, destination/redirects, identifiers, provider role, server retention/deletion and whether per-device queue exists or cleanup runs; transport-api3.0 differs in function from runtime/backend3.1.8."
+  },
+  "gms": {
+    "automatic_initialization": "Base declares GoogleApiActivity/version metadata; inspected location/places/tasks manifests are recorded individually. No direct app location client call; library presence alone does not establish activation.",
+    "relevant_data_types": "Capability to support service/task/location APIs; app requests no location permission. Any use by Billing or Play services/process/network-derived location UNKNOWN.",
+    "data_leaves_device": "Actual data flows for these included components UNKNOWN, not inferred from location/base/task names.",
+    "possible_recipients": "Google Play services if invoked; actual recipients/fields UNKNOWN.",
+    "processing_purposes": "Transitive Billing dependencies support Google API/service compatibility; exact invoked location/places purpose UNKNOWN.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "No artifact-specific vendor retention promise. Local data follows host app/platform storage; full-device/SDK security not established.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Vendor confirms invoked APIs, identifiers/location/inference, recipients, purposes, retention/deletion. Absence of app location permission is not proof of no Google network inference."
+  },
+  "encoders": {
+    "automatic_initialization": "Serialization helpers invoked by transport; no Firebase app-init/Analytics/Crashlytics component found in the resolved graph.",
+    "relevant_data_types": "Caller-provided JSON/protobuf data, including diagnostic queue serialization; encoder package name alone does not imply analytics.",
+    "data_leaves_device": "Encoding alone does not transmit; transport caller may send serialized data.",
+    "possible_recipients": "Caller transport; any off-device recipient is determined by caller.",
+    "processing_purposes": "Serialize transport data; not an independently configured Firebase Analytics/Crashlytics integration.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "No artifact-specific vendor retention promise. Local data follows host app/platform storage; full-device/SDK security not established.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Exact serialized Billing payload schema/fields and transport processing; do not treat Firebase encoders as Analytics merely because of group name."
+  },
+  "emoji": {
+    "automatic_initialization": "Merged androidx.startup provider registers EmojiCompatInitializer. Default font-loader behavior may query an installed system/downloadable-font provider; artifact inclusion alone does not prove a font request occurred.",
+    "relevant_data_types": "Emoji/font metadata and possible provider-query context; provider-dependent device/network handling UNKNOWN.",
+    "data_leaves_device": "No explicit app photo upload/emoji telemetry; font provider may fetch resources independently. Runtime/provider transmission UNKNOWN.",
+    "possible_recipients": "Installed font provider/Android framework; any provider backend UNKNOWN.",
+    "processing_purposes": "Render emoji/text; actual provider diagnostics/retention UNKNOWN.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "No artifact-specific vendor retention promise. Local data follows host app/platform storage; full-device/SDK security not established.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Verify installed provider and requests on representative API23/26/28/36 devices; external provider behavior is not settled by app source."
+  },
+  "datastore": {
+    "automatic_initialization": "No assertion from a package name. See artifact components and final merged-manifest initializer list; calls depend on app/framework usage.",
+    "relevant_data_types": "Feature/day counters, local clock high-watermark, UUID reservation, settled slot numbers, primary operation; no photo IDs/history or account ID.",
+    "data_leaves_device": "No off-device transmission established for current app use by source inspection; not a blanket runtime no-network certification.",
+    "possible_recipients": "Local app/Android framework in inspected uses; other SDK/OS behavior requires runtime evidence.",
+    "processing_purposes": "Persist and serialize concurrent Free quota settlement across restart; three separate counters.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "Private app DataStore, backup disabled, no custom data encryption. Reset clears daily counts when guarded day advances; prefs/journal persist until replacement/data clear/uninstall. Not all values erase at midnight.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Full library/platform runtime behavior not certified; app persistence/reservations are covered by existing unit/instrumentation tests."
+  },
+  "exif": {
+    "automatic_initialization": "No assertion from a package name. See artifact components and final merged-manifest initializer list; calls depend on app/framework usage.",
+    "relevant_data_types": "Selected image orientation/format/dimensions; temporary original may include personal EXIF.",
+    "data_leaves_device": "No off-device transmission established for current app use by source inspection; not a blanket runtime no-network certification.",
+    "possible_recipients": "Local app/Android framework in inspected uses; other SDK/OS behavior requires runtime evidence.",
+    "processing_purposes": "Inspect/normalize selected images locally; outputs are re-encoded, not source overwritten.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "Temporary import follows ImageStorage cleanup; no special photo encryption; exported copies receiver-controlled.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Confirm new or provider-dependent codec flows through regression; no app metadata-upload endpoint found, not a global SDK audit exemption."
+  },
+  "startup": {
+    "automatic_initialization": "Merged provider registers ProcessLifecycleInitializer, EmojiCompatInitializer and ProfileInstallerInitializer. Runtime profile installer operates from provider initialization; records in each manifest.",
+    "relevant_data_types": "Lifecycle state and local app execution/compilation profiles; Emoji font provider covered separately.",
+    "data_leaves_device": "No off-device transmission established for current app use by source inspection; not a blanket runtime no-network certification.",
+    "possible_recipients": "Local app/Android framework in inspected uses; other SDK/OS behavior requires runtime evidence.",
+    "processing_purposes": "Initialize AndroidX services and optimize compilation; no configured app analytics endpoint.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "Platform/profile files have OS lifecycle and app data rules; no claimed precise retention or cloud deletion.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Platform-specific execution/profile/font-provider behavior, not proof of analytics transmission."
+  },
+  "utility": {
+    "automatic_initialization": "No assertion from a package name. See artifact components and final merged-manifest initializer list; calls depend on app/framework usage.",
+    "relevant_data_types": "Current app usage is local UI/lifecycle/serialization/concurrency utilities; no app-declared photo/account upload through this component. Unused library capabilities not comprehensively proven absent.",
+    "data_leaves_device": "No off-device transmission established for current app use by source inspection; not a blanket runtime no-network certification.",
+    "possible_recipients": "Local app/Android framework in inspected uses; other SDK/OS behavior requires runtime evidence.",
+    "processing_purposes": "Support the native UI, lifecycle, compatibility and local processing implementation.",
+    "collection_and_sharing": "On-device-only processing is outside Play collection scope; scope does not exempt other SDK transmissions. No global zero-collection/sharing answer.",
+    "encryption_and_deletion": "No artifact-specific vendor retention promise. Local data follows host app/platform storage; full-device/SDK security not established.",
+    "confidence_level": "HIGH exact version/manifest/digest evidence; SOURCE-CODE SUPPORTED for app usage; UNKNOWN complete vendor/runtime flows.",
+    "unresolved_questions": "Verify device/provider-dependent behavior and any vendor processing not established by static inspection."
+  }
+}

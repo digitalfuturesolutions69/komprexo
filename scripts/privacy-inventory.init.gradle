@@ -1,0 +1,25 @@
+// Documentation-only audit. Does not alter dependencies, packaging or app behavior.
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+import org.gradle.api.artifacts.result.ResolvedDependencyResult
+allprojects { p ->
+    p.afterEvaluate {
+        if (p.path == ':app') {
+            p.tasks.register('privacyResolvedGraph') {
+                doLast {
+                    def cfg = p.configurations.releaseRuntimeClasspath
+                    def edges = []
+                    cfg.incoming.resolutionResult.allComponents.each { component ->
+                        component.dependencies.each { dependency ->
+                            if (dependency instanceof ResolvedDependencyResult && dependency.selected.id instanceof ModuleComponentIdentifier) {
+                                edges.add([from: component.id.displayName, to: dependency.selected.id.displayName])
+                            }
+                        }
+                    }
+                    def folder = new File(p.buildDir, 'reports/privacy-inventory')
+                    folder.mkdirs()
+                    new File(folder, 'graph.json').text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(edges.unique().sort { a,b -> (a.from + a.to) <=> (b.from + b.to) }))
+                }
+            }
+        }
+    }
+}

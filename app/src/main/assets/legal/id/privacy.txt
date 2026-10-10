@@ -18,7 +18,7 @@ Aplikasi menyimpan hitungan harian per fitur, informasi proses yang belum selesa
 
 # Pembelian dan layanan Google
 
-Google Play menangani pembayaran dan rinciannya. Komprexo memakai informasi pembelian untuk mengaktifkan, memulihkan dan memeriksa Premium. Aplikasi tidak menyimpan data kartu atau riwayat pesanan. Catatan kepemilikan lokal yang dilindungi mendukung Premium offline hingga 24 jam setelah pemeriksaan berhasil. Catatan kedaluwarsa atau tidak valid dihapus saat pemeriksaan berikutnya. Pembelian dan pemeriksaan ulang memerlukan internet. Pemrosesan gambar sendiri tetap bekerja offline.
+Google Play menangani pembayaran dan rinciannya. Komprexo memakai informasi pembelian untuk mengaktifkan, memulihkan dan memeriksa Premium. Aplikasi tidak menyimpan data kartu atau riwayat pesanan. Catatan kepemilikan lokal yang dilindungi mendukung Premium offline hingga 24 jam setelah pemeriksaan berhasil. Catatan kedaluwarsa atau tidak valid dihapus saat pemeriksaan berikutnya. Pembelian dan pemeriksaan ulang memerlukan internet. Pemrosesan gambar sendiri tetap bekerja offline. Komprexo memulai koneksi dan pemeriksaan pembelian Google Play saat aplikasi dibuka atau kembali aktif, termasuk bagi pengguna Gratis yang belum memulai pembelian. Pemeriksaan ini dan perangkat lunak Google dapat menggunakan internet. Membeli Premium bersifat opsional; aktivitas layanan Google tidak baru dimulai setelah pembayaran.
 
 # Diagnostik pihak ketiga
 

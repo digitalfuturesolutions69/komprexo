@@ -1,0 +1,2922 @@
+[
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.activity:activity-ktx:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.activity:activity:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.compose.runtime:runtime-saveable:1.8.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.activity:activity-compose:1.10.1",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.activity:activity-ktx:1.10.1",
+    "to": "androidx.activity:activity-compose:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity-ktx:1.10.1",
+    "to": "androidx.activity:activity:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity-ktx:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity-ktx:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity-ktx:1.10.1",
+    "to": "androidx.savedstate:savedstate-ktx:1.3.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.activity:activity-compose:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.activity:activity-ktx:1.10.1"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.core:core-viewtree:1.0.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.profileinstaller:profileinstaller:1.4.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "androidx.tracing:tracing:1.2.0"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.activity:activity:1.10.1",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.annotation:annotation-experimental:1.4.1",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.annotation:annotation-jvm:1.9.1",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.annotation:annotation:1.9.1",
+    "to": "androidx.annotation:annotation-jvm:1.9.1"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.appcompat:appcompat:1.8.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.vectordrawable:vectordrawable-animated:1.1.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "androidx.vectordrawable:vectordrawable:1.1.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.appcompat:appcompat-resources:1.8.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.activity:activity:1.10.1"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.appcompat:appcompat-resources:1.8.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.cursoradapter:cursoradapter:1.0.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.drawerlayout:drawerlayout:1.0.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.emoji2:emoji2-views-helper:1.4.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.emoji2:emoji2:1.4.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.fragment:fragment:1.5.4"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.profileinstaller:profileinstaller:1.4.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.resourceinspection:resourceinspection-annotation:1.0.1"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.appcompat:appcompat:1.8.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.arch.core:core-common:2.2.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.arch.core:core-runtime:2.2.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.arch.core:core-runtime:2.2.0",
+    "to": "androidx.arch.core:core-common:2.2.0"
+  },
+  {
+    "from": "androidx.autofill:autofill:1.0.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.collection:collection-jvm:1.5.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.collection:collection-jvm:1.5.0",
+    "to": "androidx.collection:collection-ktx:1.5.0"
+  },
+  {
+    "from": "androidx.collection:collection-jvm:1.5.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.collection:collection-ktx:1.5.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.collection:collection:1.5.0",
+    "to": "androidx.collection:collection-jvm:1.5.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.animation:animation-core:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.foundation:foundation-layout:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.animation:animation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.compose.animation:animation-core:1.8.0",
+    "to": "androidx.compose.animation:animation-core-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.animation:animation:1.8.0",
+    "to": "androidx.compose.animation:animation-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.animation:animation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.foundation:foundation-layout:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "androidx.emoji2:emoji2:1.4.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.animation:animation-core:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.foundation:foundation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation-layout:1.8.0",
+    "to": "androidx.compose.foundation:foundation-layout-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.foundation:foundation:1.8.0",
+    "to": "androidx.compose.foundation:foundation-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.activity:activity-compose:1.10.1"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.animation:animation-core:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.foundation:foundation-layout:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.foundation:foundation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.material:material-icons-core:1.7.8"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.material:material-ripple:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.compose.material3:material3-android:1.3.2",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20"
+  },
+  {
+    "from": "androidx.compose.material3:material3:1.3.2",
+    "to": "androidx.compose.material3:material3-android:1.3.2"
+  },
+  {
+    "from": "androidx.compose.material:material-icons-core-android:1.7.8",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material:material-icons-core-android:1.7.8",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20"
+  },
+  {
+    "from": "androidx.compose.material:material-icons-core-android:1.7.8",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.material:material-icons-core:1.7.8",
+    "to": "androidx.compose.material:material-icons-core-android:1.7.8"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "androidx.compose.animation:animation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "androidx.compose.foundation:foundation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.material:material-ripple:1.8.0",
+    "to": "androidx.compose.material:material-ripple-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime-saveable:1.8.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-saveable-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-saveable-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-saveable-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-saveable-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime-saveable:1.8.0",
+    "to": "androidx.compose.runtime:runtime-saveable-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.runtime:runtime:1.8.0",
+    "to": "androidx.compose.runtime:runtime-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.activity:activity-ktx:1.10.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.autofill:autofill:1.0.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.foundation:foundation:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime-saveable:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.customview:customview-poolingcontainer:1.0.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.emoji2:emoji2:1.4.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.profileinstaller:profileinstaller:1.4.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "androidx.savedstate:savedstate-ktx:1.3.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.compose.ui:ui-android:1.8.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-geometry:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "androidx.graphics:graphics-path:1.0.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-graphics:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime-saveable:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "androidx.emoji2:emoji2:1.4.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text-android:1.8.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.compose.ui:ui-text:1.8.0",
+    "to": "androidx.compose.ui:ui-text-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-tooling-preview:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.collection:collection-ktx:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-unit:1.8.0",
+    "to": "androidx.compose.ui:ui-unit-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util-android:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.compose.ui:ui-util:1.8.0",
+    "to": "androidx.compose.ui:ui-util-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose.ui:ui:1.8.0",
+    "to": "androidx.compose.ui:ui-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.animation:animation-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.animation:animation-core-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.animation:animation-core:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.animation:animation:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.foundation:foundation-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.foundation:foundation-layout-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.foundation:foundation-layout:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.foundation:foundation:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material3:material3-android:1.3.2"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material3:material3:1.3.2"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material:material-icons-core-android:1.7.8"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material:material-icons-core:1.7.8"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material:material-ripple-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.material:material-ripple:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.runtime:runtime-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.runtime:runtime-saveable-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.runtime:runtime-saveable:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-geometry-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-geometry:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-graphics-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-graphics:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-text-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-text:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-tooling-preview-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-unit-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-unit:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-util-android:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui-util:1.8.0"
+  },
+  {
+    "from": "androidx.compose:compose-bom:2025.04.01",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.concurrent:concurrent-futures:1.1.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.concurrent:concurrent-futures:1.1.0",
+    "to": "com.google.guava:listenablefuture:1.0"
+  },
+  {
+    "from": "androidx.core:core-ktx:1.16.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.core:core-ktx:1.16.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.core:core-ktx:1.16.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.core:core-viewtree:1.0.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.concurrent:concurrent-futures:1.1.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.core:core-viewtree:1.0.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.interpolator:interpolator:1.0.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.tracing:tracing:1.2.0"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "androidx.versionedparcelable:versionedparcelable:1.1.1"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.core:core:1.16.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.cursoradapter:cursoradapter:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.customview:customview-poolingcontainer:1.0.0",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.customview:customview-poolingcontainer:1.0.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.customview:customview:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.customview:customview:1.0.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "com.squareup.okio:okio:3.4.0"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.datastore:datastore-android:1.1.7",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.22"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-android:1.1.7",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "com.squareup.okio:okio:3.4.0"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio-jvm:1.1.7",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.datastore:datastore-core-okio:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio-jvm:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-core:1.1.7",
+    "to": "androidx.datastore:datastore-core-android:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-android:1.1.7",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "com.squareup.okio:okio:3.4.0"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core-android:1.1.7",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-core:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core-android:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-proto:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore-core-okio:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-core:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-external-protobuf:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences-proto:1.1.7",
+    "to": "androidx.datastore:datastore:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore-preferences:1.1.7",
+    "to": "androidx.datastore:datastore-preferences-android:1.1.7"
+  },
+  {
+    "from": "androidx.datastore:datastore:1.1.7",
+    "to": "androidx.datastore:datastore-android:1.1.7"
+  },
+  {
+    "from": "androidx.drawerlayout:drawerlayout:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.drawerlayout:drawerlayout:1.0.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.drawerlayout:drawerlayout:1.0.0",
+    "to": "androidx.customview:customview:1.0.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2-views-helper:1.4.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2-views-helper:1.4.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2-views-helper:1.4.0",
+    "to": "androidx.emoji2:emoji2:1.4.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.emoji2:emoji2-views-helper:1.4.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.emoji2:emoji2:1.4.0",
+    "to": "androidx.startup:startup-runtime:1.1.1"
+  },
+  {
+    "from": "androidx.exifinterface:exifinterface:1.4.1",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.exifinterface:exifinterface:1.4.1",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.activity:activity:1.10.1"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.annotation:annotation-experimental:1.4.1"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.loader:loader:1.0.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "androidx.viewpager:viewpager:1.0.0"
+  },
+  {
+    "from": "androidx.fragment:fragment:1.5.4",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.graphics:graphics-path:1.0.1",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.graphics:graphics-path:1.0.1",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.interpolator:interpolator:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-java8:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common-jvm:2.9.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-common:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-jvm:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.arch.core:core-common:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.arch.core:core-runtime:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata-core:2.9.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.arch.core:core-common:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.arch.core:core-runtime:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-livedata:2.9.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "androidx.startup:startup-runtime:1.1.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-process:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.arch.core:core-common:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.arch.core:core-runtime:2.2.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.core:core-viewtree:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "androidx.profileinstaller:profileinstaller:1.4.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-android:2.9.0",
+    "to": "org.jspecify:jspecify:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose-android:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-runtime:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-android:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.core:core-viewtree:1.0.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.compose.runtime:runtime:1.8.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.compose.ui:ui:1.8.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common-java8:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata-core:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-process:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-runtime:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.0"
+  },
+  {
+    "from": "androidx.lifecycle:lifecycle-viewmodel:2.9.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-android:2.9.0"
+  },
+  {
+    "from": "androidx.loader:loader:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.loader:loader:1.0.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.loader:loader:1.0.0",
+    "to": "androidx.lifecycle:lifecycle-livedata:2.9.0"
+  },
+  {
+    "from": "androidx.loader:loader:1.0.0",
+    "to": "androidx.lifecycle:lifecycle-viewmodel:2.9.0"
+  },
+  {
+    "from": "androidx.profileinstaller:profileinstaller:1.4.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.profileinstaller:profileinstaller:1.4.0",
+    "to": "androidx.concurrent:concurrent-futures:1.1.0"
+  },
+  {
+    "from": "androidx.profileinstaller:profileinstaller:1.4.0",
+    "to": "androidx.startup:startup-runtime:1.1.1"
+  },
+  {
+    "from": "androidx.profileinstaller:profileinstaller:1.4.0",
+    "to": "com.google.guava:listenablefuture:1.0"
+  },
+  {
+    "from": "androidx.resourceinspection:resourceinspection-annotation:1.0.1",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "androidx.core:core-viewtree:1.0.0"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "androidx.lifecycle:lifecycle-common:2.9.0"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "androidx.savedstate:savedstate-ktx:1.3.0"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-android:1.3.0",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-ktx:1.3.0",
+    "to": "androidx.savedstate:savedstate:1.3.0"
+  },
+  {
+    "from": "androidx.savedstate:savedstate-ktx:1.3.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "androidx.savedstate:savedstate:1.3.0",
+    "to": "androidx.savedstate:savedstate-android:1.3.0"
+  },
+  {
+    "from": "androidx.startup:startup-runtime:1.1.1",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.startup:startup-runtime:1.1.1",
+    "to": "androidx.tracing:tracing:1.2.0"
+  },
+  {
+    "from": "androidx.tracing:tracing:1.2.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable-animated:1.1.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable-animated:1.1.0",
+    "to": "androidx.interpolator:interpolator:1.0.0"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable-animated:1.1.0",
+    "to": "androidx.vectordrawable:vectordrawable:1.1.0"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable:1.1.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable:1.1.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.vectordrawable:vectordrawable:1.1.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "androidx.viewpager:viewpager:1.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "androidx.viewpager:viewpager:1.0.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "androidx.viewpager:viewpager:1.0.0",
+    "to": "androidx.customview:customview:1.0.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "androidx.activity:activity:1.10.1"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.datatransport:transport-api:3.0.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.datatransport:transport-backend-cct:3.1.8"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.datatransport:transport-runtime:3.1.8"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.gms:play-services-base:18.5.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.gms:play-services-basement:18.9.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.gms:play-services-location:19.0.0"
+  },
+  {
+    "from": "com.android.billingclient:billing:9.1.0",
+    "to": "com.google.android.gms:play-services-tasks:18.2.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-api:3.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-backend-cct:3.1.8",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-backend-cct:3.1.8",
+    "to": "com.google.android.datatransport:transport-api:3.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-backend-cct:3.1.8",
+    "to": "com.google.android.datatransport:transport-runtime:3.1.8"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-backend-cct:3.1.8",
+    "to": "com.google.firebase:firebase-encoders-json:18.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-backend-cct:3.1.8",
+    "to": "com.google.firebase:firebase-encoders:17.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-runtime:3.1.8",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-runtime:3.1.8",
+    "to": "com.google.android.datatransport:transport-api:3.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-runtime:3.1.8",
+    "to": "com.google.firebase:firebase-encoders-proto:16.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-runtime:3.1.8",
+    "to": "com.google.firebase:firebase-encoders:17.0.0"
+  },
+  {
+    "from": "com.google.android.datatransport:transport-runtime:3.1.8",
+    "to": "javax.inject:javax.inject:1"
+  },
+  {
+    "from": "com.google.android.gms:play-services-base:18.5.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-base:18.5.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-base:18.5.0",
+    "to": "androidx.fragment:fragment:1.5.4"
+  },
+  {
+    "from": "com.google.android.gms:play-services-base:18.5.0",
+    "to": "com.google.android.gms:play-services-basement:18.9.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-base:18.5.0",
+    "to": "com.google.android.gms:play-services-tasks:18.2.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-basement:18.9.0",
+    "to": "androidx.collection:collection:1.5.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-basement:18.9.0",
+    "to": "androidx.core:core:1.16.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-basement:18.9.0",
+    "to": "androidx.fragment:fragment:1.5.4"
+  },
+  {
+    "from": "com.google.android.gms:play-services-location:19.0.0",
+    "to": "com.google.android.gms:play-services-base:18.5.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-location:19.0.0",
+    "to": "com.google.android.gms:play-services-basement:18.9.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-location:19.0.0",
+    "to": "com.google.android.gms:play-services-places-placereport:17.0.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-location:19.0.0",
+    "to": "com.google.android.gms:play-services-tasks:18.2.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-places-placereport:17.0.0",
+    "to": "com.google.android.gms:play-services-basement:18.9.0"
+  },
+  {
+    "from": "com.google.android.gms:play-services-tasks:18.2.0",
+    "to": "com.google.android.gms:play-services-basement:18.9.0"
+  },
+  {
+    "from": "com.google.firebase:firebase-encoders-json:18.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.google.firebase:firebase-encoders-json:18.0.0",
+    "to": "com.google.firebase:firebase-encoders:17.0.0"
+  },
+  {
+    "from": "com.google.firebase:firebase-encoders-proto:16.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.google.firebase:firebase-encoders-proto:16.0.0",
+    "to": "com.google.firebase:firebase-encoders:17.0.0"
+  },
+  {
+    "from": "com.google.firebase:firebase-encoders:17.0.0",
+    "to": "androidx.annotation:annotation:1.9.1"
+  },
+  {
+    "from": "com.squareup.okio:okio-jvm:3.4.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0"
+  },
+  {
+    "from": "com.squareup.okio:okio:3.4.0",
+    "to": "com.squareup.okio:okio-jvm:3.4.0"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.9.22",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.22",
+    "to": "org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.9.22"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.22",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-common:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0"
+  },
+  {
+    "from": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20",
+    "to": "org.jetbrains:annotations:23.0.0"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2",
+    "to": "org.jetbrains:annotations:23.0.0"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-serialization-bom:1.7.3",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.3"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-serialization-bom:1.7.3",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.3",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.3",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-bom:1.7.3"
+  },
+  {
+    "from": "org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3",
+    "to": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.3"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.activity:activity-compose:1.10.1"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.appcompat:appcompat:1.8.0"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.compose.material3:material3:1.3.2"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.compose.ui:ui-tooling-preview:1.8.0"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.compose:compose-bom:2025.04.01"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.core:core-ktx:1.16.0"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.datastore:datastore-preferences:1.1.7"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.exifinterface:exifinterface:1.4.1"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.lifecycle:lifecycle-runtime-compose:2.9.0"
+  },
+  {
+    "from": "project :app",
+    "to": "androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0"
+  },
+  {
+    "from": "project :app",
+    "to": "com.android.billingclient:billing:9.1.0"
+  },
+  {
+    "from": "project :app",
+    "to": "org.jetbrains.kotlin:kotlin-stdlib:2.1.20"
+  },
+  {
+    "from": "project :app",
+    "to": "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2"
+  }
+]

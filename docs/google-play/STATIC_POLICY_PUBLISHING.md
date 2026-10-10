@@ -67,3 +67,8 @@ No prior approved public site exists now; current drafts are **not** rollback ca
 - [configure-pages action inputs](https://github.com/actions/configure-pages/blob/v5/action.yml): automatic enablement defaults false, unnecessary for this generator.
 
 No Pages activation, deployment, domain configuration, Console submission, app release, merge, AdMob or backend was performed. Readiness means locally/CI validated preparation; public legal approval and actual deployment are pending.
+
+
+## FASE 4A.4A additional publication hold
+
+[Owner publication decision](../legal/OWNER_PUBLICATION_DECISION.md) is **BLOCKED — SPECIFIC EVIDENCE REQUIRED.** Read the SDK, Data Safety, identity, mailbox and qualified-review gaps before using the deployment or rollback procedure above. A passing build or prepared Pages archive is not approval to activate hosting, publish drafts or set an effective date. This phase leaves the deployment template inactive and all settings unchanged.

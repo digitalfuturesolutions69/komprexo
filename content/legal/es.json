@@ -19,7 +19,7 @@
     ],
     [
       "Compras y servicios de Google",
-      "Google Play gestiona el pago y sus detalles. Komprexo usa información de compras para activar, restaurar y comprobar Premium. No guarda tarjetas ni un historial de pedidos. Un registro local protegido permite Premium sin conexión durante un máximo de 24 horas tras una comprobación correcta. Los registros vencidos o inválidos se eliminan al comprobarlos de nuevo. Comprar y renovar la comprobación requiere internet. El procesamiento de imágenes funciona sin conexión."
+      "Google Play gestiona el pago y sus detalles. Komprexo usa información de compras para activar, restaurar y comprobar Premium. No guarda tarjetas ni un historial de pedidos. Un registro local protegido permite Premium sin conexión durante un máximo de 24 horas tras una comprobación correcta. Los registros vencidos o inválidos se eliminan al comprobarlos de nuevo. Comprar y renovar la comprobación requiere internet. El procesamiento de imágenes funciona sin conexión. Komprexo inicia la conexión y las comprobaciones de compras con Google Play al abrirse o volver a estar activa, también para usuarios Gratis que no han iniciado una compra. Estas comprobaciones y el software de Google pueden usar internet. Comprar Premium es opcional; la actividad de los servicios de Google no comienza únicamente después del pago."
     ],
     [
       "Diagnósticos de terceros",

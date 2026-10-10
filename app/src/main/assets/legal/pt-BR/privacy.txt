@@ -18,7 +18,7 @@ Contagens diárias por função, informações de operações inacabadas e idiom
 
 # Compras e serviços Google
 
-Google Play cuida do pagamento e seus detalhes. Komprexo usa informações de compra para ativar, restaurar e verificar Premium. Não guarda cartões nem histórico de pedidos. Um registro local protegido permite Premium offline por até 24 horas após verificação bem-sucedida. Registros vencidos ou inválidos são removidos na próxima verificação. Compras e novas verificações precisam de internet. O processamento de imagens funciona offline.
+Google Play cuida do pagamento e seus detalhes. Komprexo usa informações de compra para ativar, restaurar e verificar Premium. Não guarda cartões nem histórico de pedidos. Um registro local protegido permite Premium offline por até 24 horas após verificação bem-sucedida. Registros vencidos ou inválidos são removidos na próxima verificação. Compras e novas verificações precisam de internet. O processamento de imagens funciona offline. O Komprexo inicia a conexão e as verificações de compras com o Google Play ao abrir ou voltar a ficar ativo, inclusive para usuários Grátis que não iniciaram uma compra. Essas verificações e o software do Google podem usar a internet. Comprar Premium é opcional; a atividade dos serviços do Google não começa apenas após o pagamento.
 
 # Diagnósticos de terceiros
 

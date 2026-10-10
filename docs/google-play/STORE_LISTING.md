@@ -8,7 +8,7 @@ Title (8): Komprexo
 
 Short (59): Compress, resize and convert photos on your Android device.
 
-Full (3895):
+Full (3896):
 
 General image utility for adults aged 18 and older. No age verification; this audience statement does not guarantee that Play blocks minors.
 
@@ -30,7 +30,9 @@ Quality, output dimensions and achievable file size depend on the image, target 
 
 Languages: Indonesian, English, Spanish, Brazilian Portuguese and Hindi; System Default. Offline policies and licenses are available in Settings.
 
-Digital Future Solutions is the public developer name of Komprexo. The legal operator is the individual registered and verified in Google Play Console under a Personal account in Indonesia. The public name does not identify a separate company. Official support and privacy contact: komprexo.support@gmail.com.
+Public developer: Digital Future Solutions. Legal operator: verified individual, Personal Google Play account, Indonesia. The display name does not establish a separate company. Support/privacy: komprexo.support@gmail.com.
+
+When opened or resumed, Google Play checks may use internet, including for Free users.
 
 ## id
 
@@ -38,7 +40,7 @@ Title (8): Komprexo
 
 Short (63): Kompres, resize dan convert foto langsung di perangkat Android.
 
-Full (3990):
+Full (3993):
 
 Utilitas gambar umum untuk dewasa 18 tahun ke atas. Tanpa verifikasi usia; pernyataan audiens ini tidak menjamin Play memblokir anak di bawah umur.
 
@@ -60,7 +62,9 @@ Kualitas, dimensi dan ukuran hasil bergantung pada gambar, target serta memori p
 
 Bahasa Indonesia, Inggris, Spanyol, Portugis Brasil dan Hindi; Default Sistem. Kebijakan dan lisensi tersedia offline di Pengaturan.
 
-Digital Future Solutions adalah nama pengembang publik Komprexo. Operator legal adalah individu yang terdaftar dan terverifikasi di Google Play Console melalui akun Personal di Indonesia. Nama publik ini tidak menunjukkan perusahaan yang terpisah. Kontak resmi dukungan dan privasi: komprexo.support@gmail.com.
+Pengembang publik: Digital Future Solutions. Operator legal: individu terverifikasi, akun Google Play Personal, Indonesia. Nama publik tidak menunjukkan perusahaan terpisah. Dukungan/privasi: komprexo.support@gmail.com.
+
+Saat dibuka atau aktif lagi, Google Play dapat memakai internet, juga untuk pengguna Gratis.
 
 ## es
 
@@ -68,7 +72,7 @@ Title (8): Komprexo
 
 Short (67): Comprime, redimensiona y convierte fotos en tu dispositivo Android.
 
-Full (3867):
+Full (3897):
 
 Herramienta general de imágenes para adultos de 18 años o más. Sin verificación de edad; esta declaración no garantiza que Play bloquee a menores.
 
@@ -90,7 +94,9 @@ Calidad, dimensiones y tamaño posible dependen de imagen, objetivo y memoria. F
 
 Indonesio, inglés, español, portugués de Brasil e hindi; idioma del sistema. Políticas y licencias sin conexión en Ajustes.
 
-Digital Future Solutions es el nombre público del desarrollador de Komprexo. El operador legal es la persona registrada y verificada en Google Play Console con una cuenta Personal en Indonesia. El nombre público no identifica una empresa independiente. Contacto oficial de soporte y privacidad: komprexo.support@gmail.com.
+Desarrollador público: Digital Future Solutions. Operador legal: persona verificada, cuenta Personal de Google Play, Indonesia. El nombre público no identifica una empresa separada. Soporte/privacidad: komprexo.support@gmail.com.
+
+Al abrirse o volver a estar activa, las comprobaciones de Google Play pueden usar internet, también para usuarios Gratis.
 
 ## pt-BR
 
@@ -98,7 +104,7 @@ Title (8): Komprexo
 
 Short (67): Comprima, redimensione e converta fotos no seu dispositivo Android.
 
-Full (3619):
+Full (3658):
 
 Ferramenta geral de imagens para adultos com 18 anos ou mais. Sem verificação de idade; esta declaração não garante que o Play bloqueie menores.
 
@@ -120,7 +126,9 @@ Qualidade, dimensões e tamanho possível dependem da imagem, meta e memória. C
 
 Indonésio, inglês, espanhol, português do Brasil e hindi; idioma do sistema. Políticas e licenças offline em Ajustes.
 
-Digital Future Solutions é o nome público do desenvolvedor do Komprexo. O operador legal é a pessoa cadastrada e verificada no Google Play Console com uma conta Personal na Indonésia. O nome público não identifica uma empresa separada. Contato oficial de suporte e privacidade: komprexo.support@gmail.com.
+Desenvolvedor público: Digital Future Solutions. Operador legal: pessoa verificada, conta Personal do Google Play, Indonésia. O nome público não identifica uma empresa separada. Suporte/privacidade: komprexo.support@gmail.com.
+
+Ao abrir ou voltar a ficar ativo, verificações do Google Play podem usar a internet, inclusive para usuários Grátis.
 
 ## hi
 
@@ -128,7 +136,7 @@ Title (8): Komprexo
 
 Short (59): अपने Android पर फ़ोटो कंप्रेस करें, आकार और फ़ॉर्मेट बदलें।
 
-Full (3382):
+Full (3413):
 
 18 वर्ष और उससे अधिक आयु के वयस्कों के लिए सामान्य चित्र उपयोगिता। आयु सत्यापन नहीं; यह बयान Play द्वारा नाबालिगों को रोकने की गारंटी नहीं देता।
 
@@ -150,7 +158,9 @@ Google Play और उसका सॉफ़्टवेयर अपनी न�
 
 इंडोनेशियाई, अंग्रेज़ी, स्पेनिश, ब्राज़ीली पुर्तगाली और हिन्दी; सिस्टम भाषा। नीतियाँ और लाइसेंस सेटिंग्स में ऑफ़लाइन हैं।
 
-Digital Future Solutions, Komprexo के डेवलपर का सार्वजनिक नाम है। कानूनी संचालक वह व्यक्ति है जो इंडोनेशिया में Personal खाते के साथ Google Play Console में पंजीकृत और सत्यापित है। सार्वजनिक नाम किसी अलग कंपनी की पहचान नहीं है। आधिकारिक सहायता और गोपनीयता संपर्क: komprexo.support@gmail.com।
+सार्वजनिक डेवलपर: Digital Future Solutions। कानूनी संचालक: सत्यापित व्यक्ति, Google Play का Personal खाता, इंडोनेशिया। सार्वजनिक नाम किसी अलग कंपनी की पहचान नहीं है। सहायता/गोपनीयता: komprexo.support@gmail.com.
+
+ऐप खुलने या फिर सक्रिय होने पर Google Play की जाँच इंटरनेट का उपयोग कर सकती है, मुफ़्त उपयोगकर्ताओं के लिए भी।
 
 ## Assets and owner checklist
 

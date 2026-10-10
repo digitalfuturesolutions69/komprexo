@@ -1,5 +1,9 @@
 # Komprexo validation
 
+## FASE 4A.4A — evidence-based privacy gap closure
+
+Current review: [docs/PHASE4A4A_VALIDATION.md](docs/PHASE4A4A_VALIDATION.md). [SDK inventory](docs/google-play/SDK_PRIVACY_REVIEW.md), [Data Safety worksheet](docs/google-play/DATA_SAFETY_FINAL_REVIEW.md) and [owner publication decision](docs/legal/OWNER_PUBLICATION_DECISION.md) distinguish source, vendor and runtime evidence. Google Play startup checks for Free users are now disclosed in all five Privacy/Store versions. Publication readiness is **BLOCKED — SPECIFIC EVIDENCE REQUIRED**; no hosting or release activated. Local tests and final exact-commit CI evidence are reported separately. Earlier phases below are historical.
+
 ## FASE 4A.4 — final legal review and free Pages readiness
 
 Current review: [docs/PHASE4A4_VALIDATION.md](docs/PHASE4A4_VALIDATION.md). [Final legal approval checklist](docs/legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback procedure](docs/google-play/STATIC_POLICY_PUBLISHING.md) retain all owner gates. Five-language Privacy now discloses planned GitHub Pages IP logging; SDK classifications remain unresolved. Free built-in /komprexo/ hosting needs no custom domain. Pages remains inactive/unpublished, policies DRAFT and effective date unset. Exact final SHA, synchronization and actual CI results accompany delivery. Earlier phases below are historical.

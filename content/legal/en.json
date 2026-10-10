@@ -19,7 +19,7 @@
     ],
     [
       "Purchases and Google services",
-      "Google Play handles checkout and payment details. Komprexo uses purchase information to activate, restore and check Premium. It does not store card details or a purchase-order history. A protected local ownership record supports up to 24 hours of offline Premium after a successful check. Expired or invalid records are removed when next checked. Purchases and renewed ownership checks need internet. Image processing itself works offline."
+      "Google Play handles checkout and payment details. Komprexo uses purchase information to activate, restore and check Premium. It does not store card details or a purchase-order history. A protected local ownership record supports up to 24 hours of offline Premium after a successful check. Expired or invalid records are removed when next checked. Purchases and renewed ownership checks need internet. Image processing itself works offline. Komprexo starts Google Play connection and purchase checks when the app opens or becomes active, including for Free users who have not started a purchase. These checks and Google software may use the internet. Buying Premium is optional; Google service activity does not begin only after checkout."
     ],
     [
       "Third-party diagnostics",

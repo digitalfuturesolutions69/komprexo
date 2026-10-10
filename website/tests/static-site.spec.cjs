@@ -120,3 +120,20 @@ for (const language of languages) {
     await expect(page.locator('main .draft')).toContainText('OWNER ACTION REQUIRED');
   });
 }
+
+// A static policy visit must not quietly add third-party collection requests.
+for (const language of languages) {
+  test(language + ' all static pages request only project-local resources', async ({ page }, testInfo) => {
+    const base = new URL(testInfo.project.use.baseURL);
+    const unexpected = [];
+    page.on('request', request => {
+      const url = new URL(request.url());
+      if (url.origin !== base.origin || !url.pathname.startsWith(base.pathname)) unexpected.push(request.url());
+    });
+    for (const route of ['', 'privacy/', 'terms/', 'premium/', 'support/', 'about/']) {
+      await page.goto(language + '/' + route, { waitUntil: 'networkidle' });
+      expect(await page.locator('script, iframe, form').count()).toBe(0);
+    }
+    expect(unexpected).toEqual([]);
+  });
+}

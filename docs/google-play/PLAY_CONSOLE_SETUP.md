@@ -15,3 +15,5 @@
 11. Review signing, policy/SDK/licensing, URLs, prelaunch/accessibility, native speaker/legal/trademark/physical-device results. Separate release approval still mandatory.
 
 See [checklist](PLAY_CONSOLE_CHECKLIST.md), [listing](STORE_LISTING.md), [audit](DATA_SAFETY_AUDIT.md), [site preparation](STATIC_POLICY_PUBLISHING.md).
+
+FASE4A.4A source review: Personal/IAP monetization requires public full-address display under current Google guidance; public display name does not replace verified legal name. Owner must inspect current verified/public fields and actual regions privately. No fields changed here. [Evidence](OFFICIAL_PRIVACY_EVIDENCE.md), [Data Safety review](DATA_SAFETY_FINAL_REVIEW.md), [owner publication decision](../legal/OWNER_PUBLICATION_DECISION.md).

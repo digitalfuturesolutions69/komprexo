@@ -124,6 +124,46 @@ class Phase4Assets(unittest.TestCase):
                          'not publicly deployed yet'):
             self.assertIn(required,english)
 
+    def test_release_sdk_inventory_preserves_all_artifacts_and_evidence_boundaries(self):
+        inventory=json.loads((ROOT/'docs/google-play/SDK_PRIVACY_INVENTORY.json').read_text())
+        licenses=json.loads((ROOT/'docs/legal/RUNTIME_DEPENDENCIES.json').read_text())
+        self.assertEqual({x['coordinate'] for x in licenses},{x['artifact'] for x in inventory})
+        self.assertEqual(len(inventory),len({x['artifact'] for x in inventory}))
+        required={'artifact','resolved_version','why_included','automatic_initialization',
+            'introduced_permissions_and_components','relevant_data_types','data_leaves_device',
+            'possible_recipients','processing_purposes','collection_and_sharing','encryption_and_deletion',
+            'evidence_sources','confidence_level','unresolved_questions'}
+        by_license={x['coordinate']:x for x in licenses}
+        for row in inventory:
+            with self.subTest(artifact=row['artifact']):
+                self.assertTrue(required<=set(row))
+                self.assertTrue(all(row[key] for key in required))
+                self.assertEqual(row['artifact'].split(':')[-1],row['resolved_version'])
+                self.assertEqual(by_license[row['artifact']]['pom_sha256'],row['pom_sha256'])
+                self.assertRegex(row['artifact_sha256'],r'^[a-f0-9]{64}$')
+                self.assertIn('UNKNOWN',row['confidence_level'])
+        text=json.dumps(inventory)
+        self.assertNotIn('/tmp/',text);self.assertNotIn('/home/',text)
+        edges=json.loads((ROOT/'docs/google-play/RELEASE_DEPENDENCY_EDGES.json').read_text())
+        for row in inventory:self.assertTrue(any(e['to']==row['artifact'] for e in edges))
+        decision=(ROOT/'docs/legal/OWNER_PUBLICATION_DECISION.md').read_text()
+        self.assertIn('**BLOCKED — SPECIFIC EVIDENCE REQUIRED.**',decision)
+
+    def test_free_startup_google_checks_are_disclosed_without_all_offline_claim(self):
+        labels={'en':'Free','id':'Gratis','es':'Gratis','pt-BR':'Grátis','hi':'मुफ़्त'}
+        listings=json.loads((ROOT/'content/store-listing.json').read_text())
+        for locale,label in labels.items():
+            with self.subTest(locale=locale):
+                data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+                purchases=data['privacy'][4][1]
+                self.assertIn('Google Play',purchases);self.assertIn(label,purchases)
+                self.assertIn('24',purchases)
+                self.assertIn(label,listings[locale]['full'].split('\n\n')[-1])
+        english=json.loads((ROOT/'content/legal/en.json').read_text())['privacy'][4][1]
+        for fact in ('when the app opens or becomes active','Free users who have not started a purchase',
+                     'may use the internet','does not begin only after checkout'):
+            self.assertIn(fact,english)
+
     def test_store_listing_limits_and_contact(self):
         listings=json.loads((ROOT/'content/store-listing.json').read_text())
         self.assertEqual(set(LOCALES),set(listings))

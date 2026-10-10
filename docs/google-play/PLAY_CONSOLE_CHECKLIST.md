@@ -25,3 +25,5 @@
 Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE 4B follows automatically.
 
 Final publication gates: [legal approval checklist](../legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback](STATIC_POLICY_PUBLISHING.md). No domain purchase or additional hosting is required.
+
+FASE4A.4A: [owner decision](../legal/OWNER_PUBLICATION_DECISION.md) is **BLOCKED — SPECIFIC EVIDENCE REQUIRED**; [Data Safety proposed answers](DATA_SAFETY_FINAL_REVIEW.md) remain HOLD for material SDK questions. Google requires Personal verified legal name/country/email, and full address when monetized. Inspect current Console/regions privately; do not evade necessary public disclosure or copy personal details into source. [Official sources](OFFICIAL_PRIVACY_EVIDENCE.md).
