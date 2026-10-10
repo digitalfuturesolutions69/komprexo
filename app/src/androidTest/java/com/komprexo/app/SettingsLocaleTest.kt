@@ -102,7 +102,18 @@ class SettingsLocaleTest {
         }
         compose.waitForIdle()
     }
-    private fun settings() { compose.onNodeWithTag("homeSettings").performScrollTo().performClick() }
+    private fun settings() {
+        // Startup/resume Billing callbacks can replace a short loading label with
+        // a multi-line unavailable message. Await that real state before testing
+        // scroll geometry; Compose idleness alone does not await SDK callbacks.
+        compose.waitUntil(60000) {
+            val state = BillingServices.controller.ui.value
+            !state.busy && state.status != BillingStatus.LOADING && focusedWindow()
+        }
+        compose.waitForIdle()
+        compose.onNodeWithTag("homeSettings").performScrollTo().performClick()
+        compose.waitForIdle()
+    }
     private fun render(tag:String) {
         locale(tag);settings();compose.onNodeWithTag("languageSettings").performScrollTo().performClick()
         compose.onNodeWithTag("locale_"+tag).performScrollTo().assertTextContains("✓",substring=true)
@@ -204,7 +215,12 @@ class SettingsLocaleTest {
     @Test fun hindiCompactFont200() { large("hi",false) }
     @Test fun legalNavigationReturnsWithoutResettingWork() {
         settings();compose.onNodeWithTag("legal_terms").performScrollTo().performClick()
+        // Espresso key injection does not synchronize with the Compose effect
+        // that enables the document BackHandler after the click.
+        compose.waitForIdle()
+        compose.onAllNodesWithText("OWNER ACTION REQUIRED",substring=true).onFirst().assertExists()
         androidx.test.espresso.Espresso.pressBack()
+        compose.waitForIdle()
         compose.onNodeWithTag("languageSettings").performScrollTo().assertIsDisplayed()
         compose.onNodeWithTag("homeNavigation").performClick()
         compose.onNodeWithTag("homecompress").assertExists()
