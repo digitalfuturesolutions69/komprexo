@@ -14,7 +14,7 @@ class MainActivityTest {
     @Test fun launchCreatesComposeHostWithKomprexoIdentity() {
         Robolectric.buildActivity(MainActivity::class.java).use { controller ->
             val activity = controller.setup().get()
-            assertEquals("com.komprexo.app",activity.packageName)
+            assertEquals("com.digitalfuturesolutions.komprexo",activity.packageName)
             assertEquals("Komprexo",activity.getString(R.string.app_name))
             assertTrue(activity.findViewById<ViewGroup>(android.R.id.content).childCount > 0)
         }

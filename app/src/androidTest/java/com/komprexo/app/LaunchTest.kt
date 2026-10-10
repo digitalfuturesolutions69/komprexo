@@ -19,6 +19,21 @@ class LaunchTest {
         compose.onNodeWithText("Komprexo").assertIsDisplayed()
         compose.onNodeWithText("Compress image").assertIsNotEnabled()
     }
+    @Test fun approvedApplicationIdentityAndPrivateShareProvider() {
+        val context = compose.activity
+        val approvedId = "com.digitalfuturesolutions.komprexo"
+        org.junit.Assert.assertEquals(approvedId, context.packageName)
+        org.junit.Assert.assertEquals(approvedId, BuildConfig.APPLICATION_ID)
+        val provider = context.packageManager.resolveContentProvider("$approvedId.files", 0)
+        org.junit.Assert.assertNotNull(provider)
+        org.junit.Assert.assertEquals(approvedId, provider!!.packageName)
+        org.junit.Assert.assertFalse(provider.exported)
+        org.junit.Assert.assertTrue(provider.grantUriPermissions)
+        val permission = context.packageManager.getPermissionInfo("$approvedId.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION", 0)
+        org.junit.Assert.assertEquals(approvedId, permission.packageName)
+        org.junit.Assert.assertEquals(android.content.pm.PermissionInfo.PROTECTION_SIGNATURE,
+            permission.protectionLevel and android.content.pm.PermissionInfo.PROTECTION_MASK_BASE)
+    }
     @Test fun customSizeRejectsInvalidInput() {
         compose.onNodeWithText("Custom").performScrollTo().performClick()
         compose.onNodeWithText("Maximum size in KB").performTextInput("0")

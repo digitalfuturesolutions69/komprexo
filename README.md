@@ -18,7 +18,7 @@ concurrency, recovery and offline enforcement limitations.
 
 JDK 17, checked-in Gradle Wrapper 8.11.1, AGP 8.9.2, Kotlin 2.1.20.
 Android min API 23; compile/target API 36. Set ANDROID_HOME to your SDK.
-Application ID `com.komprexo.app` is provisional pending final owner approval.
+Application ID `com.digitalfuturesolutions.komprexo` is owner-approved in FASE 4A.4B. Kotlin namespace remains `com.komprexo.app`. This is a different Android application identity from previous debug builds; it does not update their private data or purchase association. No publication or Play Console changes are authorized.
 
 ```sh
 ./gradlew :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin :app:auditRuntimeDependencies

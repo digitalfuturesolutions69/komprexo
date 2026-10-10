@@ -10,9 +10,13 @@ manifest = ET.parse(root/'app/src/main/AndroidManifest.xml').getroot()
 assert {p.get(ns+'name') for p in manifest.findall('uses-permission')} == {'com.android.vending.BILLING'}
 merged = root/'app/build/intermediates/merged_manifests/release/processReleaseManifest/AndroidManifest.xml'
 assert merged.exists(), 'Compile release manifest first'
+merged_root = ET.parse(merged).getroot()
+assert merged_root.get('package') == 'com.digitalfuturesolutions.komprexo'
+merged_provider = merged_root.find("application/provider[@"+ns+"name='androidx.core.content.FileProvider']")
+assert merged_provider is not None and merged_provider.get(ns+'authorities') == 'com.digitalfuturesolutions.komprexo.files'
 permissions = {p.get(ns+'name') for p in ET.parse(merged).getroot().findall('uses-permission')}
 assert permissions == {'com.android.vending.BILLING','android.permission.INTERNET',
-    'android.permission.ACCESS_NETWORK_STATE','com.komprexo.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'}, permissions
+    'android.permission.ACCESS_NETWORK_STATE','com.digitalfuturesolutions.komprexo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'}, permissions
 app = manifest.find('application')
 assert app.get(ns+'allowBackup') == 'false'
 provider = app.find('provider')

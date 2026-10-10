@@ -1,5 +1,9 @@
 # Komprexo validation
 
+## FASE 4A.4B — approved application identity
+
+Current application ID: **com.digitalfuturesolutions.komprexo**; Kotlin namespace remains com.komprexo.app. [Migration and validation](docs/PHASE4A4B_VALIDATION.md) explains separate-install/private-data/Play implications. All FASE 4A.4A SDK/privacy/legal/Data Safety evidence remains preserved; its old identity references describe the audited baseline. Publication remains blocked and unauthorized. Exact final CI/APK evidence accompanies delivery.
+
 ## FASE 4A.4A — evidence-based privacy gap closure
 
 Current review: [docs/PHASE4A4A_VALIDATION.md](docs/PHASE4A4A_VALIDATION.md). [SDK inventory](docs/google-play/SDK_PRIVACY_REVIEW.md), [Data Safety worksheet](docs/google-play/DATA_SAFETY_FINAL_REVIEW.md) and [owner publication decision](docs/legal/OWNER_PUBLICATION_DECISION.md) distinguish source, vendor and runtime evidence. Google Play startup checks for Free users are now disclosed in all five Privacy/Store versions. Publication readiness is **BLOCKED — SPECIFIC EVIDENCE REQUIRED**; no hosting or release activated. Local tests and final exact-commit CI evidence are reported separately. Earlier phases below are historical.

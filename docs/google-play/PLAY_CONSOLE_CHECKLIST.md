@@ -2,7 +2,7 @@
 
 | Item | Status/owner action |
 |---|---|
-| Package/version | com.komprexo.app/0.4.0(2), publication approval required |
+| Package/version | com.digitalfuturesolutions.komprexo/0.4.0(2), publication approval required |
 | Lifetime Billing source | Implemented, no consumption/subscriptions/custom checkout |
 | Product/base BUY/regions/IDR49,000 | OWNER ACTION REQUIRED; activation unverified |
 | Public developer / account / operator | Digital Future Solutions / Personal / verified individual in Indonesia, owner-confirmed; no Console change performed |

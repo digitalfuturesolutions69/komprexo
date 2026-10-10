@@ -7,8 +7,8 @@ android {
     namespace 'com.komprexo.app'
     compileSdk 36
     defaultConfig {
-        // Proposed ID: final owner approval required before publication.
-        applicationId 'com.komprexo.app'
+        // Application ID approved by the owner in FASE 4A.4B.
+        applicationId 'com.digitalfuturesolutions.komprexo'
         minSdk 23
         targetSdk 36
         versionCode 2
