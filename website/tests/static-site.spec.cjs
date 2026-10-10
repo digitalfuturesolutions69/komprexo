@@ -104,3 +104,19 @@ for (const language of languages) {
     }
   });
 }
+
+// Hosting privacy link must remain external even beneath the project prefix.
+for (const language of languages) {
+  test(language + ' planned hosting disclosure and privacy link', async ({ page }) => {
+    await page.goto(language + '/privacy/');
+    const url = 'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement';
+    const link = page.locator('main a[href="' + url + '"]');
+    await expect(link).toHaveCount(1);
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(await link.evaluate(e => e.href)).toBe(url);
+    const paragraph = page.locator('main section p').filter({ has: page.locator('a[href="' + url + '"]') });
+    await expect(paragraph).toContainText('GitHub Pages');
+    await expect(paragraph).toContainText('IP');
+    await expect(page.locator('main .draft')).toContainText('OWNER ACTION REQUIRED');
+  });
+}

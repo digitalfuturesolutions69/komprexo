@@ -30,6 +30,8 @@ def rich(text):
     safe = escape(text)
     safe = re.sub(r'https://support\.google\.com/googleplay/answer/\d+',
                   lambda m: f'<a href="{m[0]}" rel="noopener noreferrer">{m[0]}</a>', safe)
+    safe = safe.replace('https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement',
+                        '<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a>')
     return safe.replace('komprexo.support@gmail.com',
                         '<a href="mailto:komprexo.support@gmail.com">komprexo.support@gmail.com</a>')
 

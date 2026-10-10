@@ -13,13 +13,15 @@
 | Languages | id/en/es/pt-BR/hi; native-speaker/physical accessibility review |
 | Policies | DRAFT; public identity and adult 18+launch audience confirmed; Indonesian jurisdiction proposed subject to mandatory consumer/privacy law; required disclosures/final approval/effective date pending |
 | Support | komprexo.support@gmail.com prepared; Console entry owner action |
-| Privacy URL | Proposed Pages only, not public |
+| Privacy URL | https://digitalfuturesolutions69.github.io/komprexo/privacy/ planned only, not public |
 | Data Safety | Source/99-artifact audit; SDK vendor fields/retention confirmation pending |
 | Ads | No now; re-audit before future authorized AdMob |
 | Audience/rating | Prepared18 and over only declaration in TARGET_AUDIENCE_DECLARATION.md; NOT SUBMITTED. No age verification/automatic Play block claimed; independent rating questionnaire and local child-law review required |
 | App access | No login; Free quotas/optional purchase |
 | Listing/assets | Five drafts/icon/specification; approved screenshots/feature graphic upload pending |
-| CI/APK | Current ../PHASE4A3_VALIDATION.md and accompanying exact-commit delivery evidence; debug validation only, not release |
-| Site/domain | GitHub Pages preparation authorized; deployment NOT authorized. komprexo.click ownership unconfirmed; no CNAME/DNS |
+| CI/APK | Current ../PHASE4A4_VALIDATION.md and accompanying exact-commit delivery evidence; debug validation only, not release |
+| Site/domain | Free GitHub Pages project URL https://digitalfuturesolutions69.github.io/komprexo/ planned; NOT activated/deployed. Custom domain NOT REQUIRED; no CNAME/DNS |
 
 Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE 4B follows automatically.
+
+Final publication gates: [legal approval checklist](../legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback](STATIC_POLICY_PUBLISHING.md). No domain purchase or additional hosting is required.

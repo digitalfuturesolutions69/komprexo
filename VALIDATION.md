@@ -1,5 +1,9 @@
 # Komprexo validation
 
+## FASE 4A.4 — final legal review and free Pages readiness
+
+Current review: [docs/PHASE4A4_VALIDATION.md](docs/PHASE4A4_VALIDATION.md). [Final legal approval checklist](docs/legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback procedure](docs/google-play/STATIC_POLICY_PUBLISHING.md) retain all owner gates. Five-language Privacy now discloses planned GitHub Pages IP logging; SDK classifications remain unresolved. Free built-in /komprexo/ hosting needs no custom domain. Pages remains inactive/unpublished, policies DRAFT and effective date unset. Exact final SHA, synchronization and actual CI results accompany delivery. Earlier phases below are historical.
+
 ## FASE 4A.3 — adult audience and legal policy drafts
 
 Current scope: [docs/PHASE4A3_VALIDATION.md](docs/PHASE4A3_VALIDATION.md). [Play audience declaration](docs/google-play/TARGET_AUDIENCE_DECLARATION.md) proposes 18 and over only for owner review, NOT SUBMITTED. General image utility intended for adults 18+, no age-verification/automatic minor block/child-compliance claim. Five-language website/offline/Store policies are synchronized; SDK classifications/final legal approval remain pending and effective date stays unset until approval/publication. Exact final SHA, CI evidence and local/remote equality are reported with delivery. No website/app publication or AdMob. Earlier phase records below are historical.

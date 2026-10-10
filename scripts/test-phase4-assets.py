@@ -97,8 +97,32 @@ class Phase4Assets(unittest.TestCase):
         for required in ('workflow_dispatch:','approved_commit:','PUBLISH KOMPREXO PAGES',
                          'needs: build','name: github-pages','--publication'):
             self.assertIn(required,text)
+        self.assertIn('persist-credentials: false',text)
+        self.assertNotIn('uses: actions/configure-pages@',text)
+        self.assertEqual(1,len(re.findall(r'pages:\s*write',text)))
+        self.assertEqual(1,len(re.findall(r'id-token:\s*write',text)))
         self.assertNotRegex(text,r'(?m)^\s+(push|pull_request):')
         self.assertFalse(list((ROOT/'website/build').rglob('CNAME')))
+
+    def test_host_privacy_disclosure_is_present_in_all_offline_and_web_policies(self):
+        url='https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement'
+        for locale in LOCALES:
+            with self.subTest(locale=locale):
+                source=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+                disclosure=source['privacy'][5][1]
+                self.assertIn('GitHub Pages',disclosure)
+                self.assertIn('IP',disclosure)
+                self.assertIn(url,disclosure)
+                offline=(ROOT/f'app/src/main/assets/legal/{locale}/privacy.txt').read_text()
+                self.assertIn(disclosure,offline)
+                html=(ROOT/f'website/build/{locale}/privacy/index.html').read_text()
+                parsed=Links();parsed.feed(html)
+                self.assertIn(url,parsed.links)
+        english=json.loads((ROOT/'content/legal/en.json').read_text())['privacy'][5][1]
+        for required in ('logs and stores','for security','not signed in',
+                         'does not upload images','not verified a site-specific retention',
+                         'not publicly deployed yet'):
+            self.assertIn(required,english)
 
     def test_store_listing_limits_and_contact(self):
         listings=json.loads((ROOT/'content/store-listing.json').read_text())

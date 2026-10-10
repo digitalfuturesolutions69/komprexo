@@ -52,3 +52,13 @@ The release inventory remains 99 artifacts. Google Billing transitively includes
 - [Android declaration of data use](https://developer.android.com/privacy-and-security/declare-data-use)
 
 Reviewed 9 October 2026. These sources inform wording and unresolved questions; no Console declaration, vendor disclosure verification, real purchase or publication was performed.
+
+## FASE 4A.4 final review and Pages readiness
+
+10 October 2026, Asia/Jakarta. Reviewed all five versions of Privacy, Terms, Premium Purchase Policy, Support and About, offline Android copies, Store listings, Premium disclosures, Data Safety audit, audience declaration and Pages template. Existing identity/adult/jurisdiction/quotas/one-time price/refund/restore/up-to-24h offline facts remain accurate to source. No public developer legal name/address was invented, no consumer rights waived and no effective date set.
+
+Verified editorial gap: planned Pages hosting logs/stores visitors' IP addresses for security according to GitHub, including signed-out visitors. Added equivalent consumer disclosure and GitHub privacy reference to en/id/es/pt-BR/hi Privacy, generated offline copies and static pages. Site-specific retention/deletion remain unverified. No image upload or app telemetry implementation was added. Native-speaker and qualified legal review remain required; automated equality does not certify legal translation.
+
+Free project hosting at https://digitalfuturesolutions69.github.io/komprexo/ supersedes custom-domain planning as a prerequisite. Read-only metadata confirms public repository/default work/Pages not active. Removed unnecessary configure-pages from the inactive template and disabled checkout credential persistence; future deployment alone has narrowly scoped Pages/OIDC write. All active workflows remain unchanged and read-only. Current DRAFT guard still blocks publication.
+
+[Final checklist](FINAL_LEGAL_APPROVAL_CHECKLIST.md) lists unresolved owner/legal/SDK/mailbox/translation/publication decisions. [Pages procedure](../google-play/STATIC_POLICY_PUBLISHING.md) defines activation/exact-commit review, deployment and approval-gated rollback through normal source commits without history rewriting. No activation, deployment, domain configuration, Play submission, release or AdMob occurred.
