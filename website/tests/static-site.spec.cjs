@@ -137,3 +137,33 @@ for (const language of languages) {
     expect(unexpected).toEqual([]);
   });
 }
+
+// The custom host publishes the English aliases at its root. Relative links
+// must also retain the historical GitHub Pages project prefix.
+test('custom-domain CNAME and all English root aliases', async ({ page, request }, testInfo) => {
+  const base = new URL(testInfo.project.use.baseURL);
+  const cname = await request.get(new URL('CNAME', base).href);
+  expect(cname.ok()).toBeTruthy();
+  expect(await cname.text()).toBe('komprexo.digitalfuturesolutions.my.id\n');
+  for (const route of ['', 'privacy/', 'terms/', 'premium/', 'support/', 'about/']) {
+    const response = await page.goto(route);
+    expect(response.ok()).toBeTruthy();
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await expect(page.locator('footer a[href="mailto:komprexo.support@gmail.com"]')).toBeVisible();
+    expect(await page.locator('a[href="mailto:support@komprexo.digitalfuturesolutions.my.id"]').count()).toBe(0);
+    if (route) await expect(page.locator('main .draft')).toContainText('OWNER ACTION REQUIRED');
+    for (const selector of ['link[rel="stylesheet"]', 'link[rel="icon"]']) {
+      const url = new URL(await page.locator(selector).getAttribute('href'), page.url());
+      expect(url.pathname.startsWith(base.pathname)).toBeTruthy();
+      expect((await request.get(url.href)).ok()).toBeTruthy();
+    }
+    for (const link of await page.locator('header a, nav.languages a, footer a').all()) {
+      const href = await link.getAttribute('href');
+      if (href.startsWith('mailto:')) continue;
+      const url = new URL(href, page.url());
+      expect(url.origin).toBe(base.origin);
+      expect(url.pathname.startsWith(base.pathname)).toBeTruthy();
+      expect((await request.get(url.href)).ok()).toBeTruthy();
+    }
+  }
+});

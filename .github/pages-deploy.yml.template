@@ -2,6 +2,9 @@
 # Do not activate, configure Pages, or run deployment without separate owner approval.
 # Resolve legal drafts, audience/effective date and all publication gates first.
 # Review exact-commit Android/static CI before activation and manual dispatch.
+# Custom domain: komprexo.digitalfuturesolutions.my.id (website/CNAME).
+# Resolve website CNAME versus mail MX/TXT conflict and verify domain/HTTPS first.
+# This template does not configure DNS, email, or Pages settings.
 name: Owner-approved Komprexo Pages publication
 on:
   workflow_dispatch:

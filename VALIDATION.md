@@ -1,3 +1,11 @@
+## FASE 4A.4C — current custom-domain preparation
+
+[Actual local validation and scoped preservation](docs/PHASE4A4C_VALIDATION.md).
+Planned host https://komprexo.digitalfuturesolutions.my.id/; CNAME review artifact prepared,
+root/project navigation retained, published Gmail unchanged. Website/mail CNAME versus
+MX/TXT conflict requires owner/provider resolution. All legal/SDK publication holds remain.
+Final exact-commit CI and synchronization are reported with delivery. NOT DEPLOYED.
+
 # Komprexo validation
 
 ## FASE 4A.4B — approved application identity

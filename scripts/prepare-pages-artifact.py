@@ -7,7 +7,8 @@ import tarfile
 ROOT = Path(__file__).resolve().parents[1]
 LOCALES = ('en', 'id', 'es', 'pt-BR', 'hi')
 ROUTES = ('', 'privacy', 'terms', 'premium', 'support', 'about')
-EXPECTED = {'.nojekyll', 'style.css', 'assets/icon.svg'} | {
+CUSTOM_DOMAIN = 'komprexo.digitalfuturesolutions.my.id'
+EXPECTED = {'.nojekyll', 'CNAME', 'style.css', 'assets/icon.svg'} | {
     str(Path(locale) / route / 'index.html')
     for locale in ('', *LOCALES) for route in ROUTES
 }
@@ -20,6 +21,8 @@ def validate_site(site, publication=False):
     files = {str(p.relative_to(site)) for p in paths if p.is_file()}
     if files != EXPECTED:
         raise ValueError(f'Unexpected Pages input: missing={sorted(EXPECTED-files)}, extra={sorted(files-EXPECTED)}')
+    if (site / 'CNAME').read_bytes() != (CUSTOM_DOMAIN + '\n').encode():
+        raise ValueError('Invalid custom-domain CNAME: expected one approved hostname')
     if publication:
         for p in paths:
             if p.suffix == '.html' and any(marker in p.read_text() for marker in ('DRAFT', 'OWNER ACTION REQUIRED')):

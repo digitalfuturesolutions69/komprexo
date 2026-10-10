@@ -8,6 +8,7 @@ import importlib.util
 import re
 import struct
 import tarfile
+import shutil
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -85,6 +86,19 @@ class Phase4Assets(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'symbolic or hard links'):
                 pages.validate_site(root)
 
+    def test_custom_domain_configuration_rejects_wrong_or_multiple_hosts(self):
+        spec=importlib.util.spec_from_file_location('pages',ROOT/'scripts/prepare-pages-artifact.py')
+        pages=importlib.util.module_from_spec(spec);spec.loader.exec_module(pages)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)/'site'
+            shutil.copytree(ROOT/'website/build',root)
+            for invalid in ('https://komprexo.digitalfuturesolutions.my.id/\n',
+                            'komprexo.digitalfuturesolutions.my.id\nother.example\n',
+                            'digitalfuturesolutions69.github.io\n', ''):
+                (root/'CNAME').write_text(invalid)
+                with self.assertRaisesRegex(ValueError,'Invalid custom-domain CNAME'):
+                    pages.validate_site(root)
+
     def test_pages_template_is_inactive_and_active_ci_cannot_deploy(self):
         template=ROOT/'.github/pages-deploy.yml.template'
         self.assertTrue(template.is_file())
@@ -102,7 +116,7 @@ class Phase4Assets(unittest.TestCase):
         self.assertEqual(1,len(re.findall(r'pages:\s*write',text)))
         self.assertEqual(1,len(re.findall(r'id-token:\s*write',text)))
         self.assertNotRegex(text,r'(?m)^\s+(push|pull_request):')
-        self.assertFalse(list((ROOT/'website/build').rglob('CNAME')))
+        self.assertEqual('komprexo.digitalfuturesolutions.my.id\n',(ROOT/'website/build/CNAME').read_text())
 
     def test_host_privacy_disclosure_is_present_in_all_offline_and_web_policies(self):
         url='https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement'
@@ -310,7 +324,7 @@ class Phase4Assets(unittest.TestCase):
                 self.assertTrue(dest.is_relative_to(output.resolve()),href)
                 if dest.is_dir():dest=dest/'index.html'
                 self.assertTrue(dest.exists(),(path,href))
-        self.assertFalse(list(output.rglob('CNAME')))
+        self.assertEqual('komprexo.digitalfuturesolutions.my.id\n',(output/'CNAME').read_text())
         self.assertTrue((output/'.nojekyll').exists())
 
 if __name__=='__main__':unittest.main(verbosity=2)

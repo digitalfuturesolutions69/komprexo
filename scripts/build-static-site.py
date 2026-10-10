@@ -1,4 +1,4 @@
-"""Dependency-free Pages-compatible generation. No deployment or CNAME."""
+"""Dependency-free Pages-compatible generation. No deployment; custom-domain configuration is preparation only."""
 from pathlib import Path
 import json
 import re
@@ -88,4 +88,5 @@ shutil.copy(ROOT / 'website/style.css', OUT / 'style.css')
 (OUT / 'assets').mkdir()
 shutil.copy(ROOT / 'artwork/icon.svg', OUT / 'assets/icon.svg')
 (OUT / '.nojekyll').write_text('')
+shutil.copy(ROOT / 'website/CNAME', OUT / 'CNAME')
 print('Static build: 30 localized pages + 6 English root aliases. NOT DEPLOYED.')
