@@ -1,3 +1,12 @@
+## FASE 4A.4D — current Rumahweb preparation
+
+[Actual scoped validation](docs/PHASE4A4D_VALIDATION.md) and
+[current deployment/DNS/privacy/contact holds](docs/google-play/RUMAHWEB_STATIC_DEPLOYMENT.md).
+Five-language static root ZIP/checksum/manifest; no CNAME or Pages deployment target.
+Local171JVM/19Python/142browser PASS; final exact-commit CI reported with delivery.
+Rumahweb IP, live SSL, mailbox and legal/SDK publication gates remain unresolved.
+NOT UPLOADED / NOT DEPLOYED. Previous phase records below remain historical.
+
 ## FASE 4A.4C — current custom-domain preparation
 
 [Actual local validation and scoped preservation](docs/PHASE4A4C_VALIDATION.md).

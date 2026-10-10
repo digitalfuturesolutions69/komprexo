@@ -1,3 +1,10 @@
+# SUPERSEDED HOSTING PLAN — HISTORICAL RECORD
+
+FASE 4A.4D supersedes this GitHub Pages/CNAME plan with Rumahweb shared hosting.
+Do not execute the historical Pages or CNAME instructions below.
+Current procedure: [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md).
+Previous host privacy evidence is historical, not evidence about Rumahweb.
+
 # Free GitHub Pages readiness — NOT ACTIVATED / NOT DEPLOYED
 
 FASE 4A.4, prepared 10 October 2026 (Asia/Jakarta). This procedure is for a **future separately authorized publication**, not permission to execute it now. Final legal gates: [approval checklist](../legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md). Effective date is unset until final approval and actual publication.

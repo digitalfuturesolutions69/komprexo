@@ -1,3 +1,9 @@
+> FASE 4A.4D hosting scope update: historical GitHub hosting evidence below applies
+> only to the superseded Pages plan. Current planned host is Rumahweb shared hosting;
+> provider-specific logging, recipients, retention/deletion and security are UNKNOWN.
+> See [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md). Original
+> Android SDK evidence and unresolved Data Safety findings below remain preserved.
+
 # Data-flow matrix — FASE 4A.4A
 
 10 October 2026 (Asia/Jakarta). App `com.komprexo.app`, expected baseline a09ad3c733f2f2211ec9cefc6b9ca2557fba2a57; code unchanged. Matrix separates app source, SDK capability, vendor rules and actual runtime observation. No real purchase/network capture performed.

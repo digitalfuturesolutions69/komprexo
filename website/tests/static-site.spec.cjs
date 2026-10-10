@@ -105,18 +105,13 @@ for (const language of languages) {
   });
 }
 
-// Hosting privacy link must remain external even beneath the project prefix.
+// Hosting disclosures distinguish planned provider from unverified practices.
 for (const language of languages) {
   test(language + ' planned hosting disclosure and privacy link', async ({ page }) => {
     await page.goto(language + '/privacy/');
-    const url = 'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement';
-    const link = page.locator('main a[href="' + url + '"]');
-    await expect(link).toHaveCount(1);
-    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    expect(await link.evaluate(e => e.href)).toBe(url);
-    const paragraph = page.locator('main section p').filter({ has: page.locator('a[href="' + url + '"]') });
-    await expect(paragraph).toContainText('GitHub Pages');
-    await expect(paragraph).toContainText('IP');
+    await expect(page.locator('main')).toContainText('Rumahweb');
+    await expect(page.locator('main')).toContainText('IP');
+    await expect(page.locator('main')).not.toContainText('GitHub Pages');
     await expect(page.locator('main .draft')).toContainText('OWNER ACTION REQUIRED');
   });
 }
@@ -140,11 +135,10 @@ for (const language of languages) {
 
 // The custom host publishes the English aliases at its root. Relative links
 // must also retain the historical GitHub Pages project prefix.
-test('custom-domain CNAME and all English root aliases', async ({ page, request }, testInfo) => {
+test('Rumahweb root aliases exclude Pages configuration', async ({ page, request }, testInfo) => {
   const base = new URL(testInfo.project.use.baseURL);
   const cname = await request.get(new URL('CNAME', base).href);
-  expect(cname.ok()).toBeTruthy();
-  expect(await cname.text()).toBe('komprexo.digitalfuturesolutions.my.id\n');
+  expect(cname.status()).toBe(404);
   for (const route of ['', 'privacy/', 'terms/', 'premium/', 'support/', 'about/']) {
     const response = await page.goto(route);
     expect(response.ok()).toBeTruthy();

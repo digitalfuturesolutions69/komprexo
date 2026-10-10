@@ -8,6 +8,9 @@ import importlib.util
 import re
 import struct
 import tarfile
+import zipfile
+import hashlib
+import os
 import shutil
 import tempfile
 import unittest
@@ -64,40 +67,57 @@ class Phase4Assets(unittest.TestCase):
         self.assertIn('Mandatory consumer rights',english['terms'][-2][1])
         self.assertIn('not an effective date',english['draft'])
 
-    def test_pages_archive_is_only_public_static_files_and_cannot_publish_drafts(self):
-        spec=importlib.util.spec_from_file_location('pages',ROOT/'scripts/prepare-pages-artifact.py')
-        pages=importlib.util.module_from_spec(spec);spec.loader.exec_module(pages)
-        archive=ROOT/'website/pages-preview/pages-artifact.tar.gz'
-        with tarfile.open(archive) as tar:
-            self.assertEqual(pages.EXPECTED,{m.name for m in tar.getmembers()})
-            for m in tar.getmembers():
-                self.assertTrue(m.isfile(),m.name)
-                self.assertEqual((ROOT/'website/build'/m.name).read_bytes(),tar.extractfile(m).read())
+    def test_static_zip_is_only_public_files_and_cannot_publish_drafts(self):
+        spec=importlib.util.spec_from_file_location('static',ROOT/'scripts/prepare-static-artifact.py')
+        static=importlib.util.module_from_spec(spec);spec.loader.exec_module(static)
+        archive=ROOT/'website/deployment/komprexo-static.zip'
+        manifest=json.loads((archive.parent/'manifest.json').read_text())
+        with zipfile.ZipFile(archive) as z:
+            self.assertIsNone(z.testzip())
+            self.assertEqual(static.EXPECTED,set(z.namelist()))
+            self.assertIn('index.html',z.namelist())
+            self.assertEqual(static.EXPECTED,{r['path'] for r in manifest['files']})
+            for row in manifest['files']:
+                data=z.read(row['path'])
+                self.assertEqual((ROOT/'website/build'/row['path']).read_bytes(),data)
+                self.assertEqual(len(data),row['bytes'])
+                self.assertEqual(hashlib.sha256(data).hexdigest(),row['sha256'])
+                self.assertFalse(Path(row['path']).is_absolute())
+                self.assertNotIn('..',Path(row['path']).parts)
+        checksum=(archive.parent/'komprexo-static.zip.sha256').read_text()
+        self.assertEqual(hashlib.sha256(archive.read_bytes()).hexdigest()+'  komprexo-static.zip\n',checksum)
         with self.assertRaisesRegex(ValueError,'Publication blocked'):
-            pages.validate_site(ROOT/'website/build',publication=True)
-        # Reject accidental private files or symlinks before packaging them.
-        with tempfile.TemporaryDirectory() as directory:
-            root=Path(directory)
-            (root/'private.env').write_text('fixture only')
-            with self.assertRaisesRegex(ValueError,'Unexpected Pages input'):
-                pages.validate_site(root)
-            (root/'private.env').unlink()
-            (root/'linked').symlink_to(ROOT/'website/build/style.css')
-            with self.assertRaisesRegex(ValueError,'symbolic or hard links'):
-                pages.validate_site(root)
+            static.validate_site(ROOT/'website/build',publication=True)
 
-    def test_custom_domain_configuration_rejects_wrong_or_multiple_hosts(self):
-        spec=importlib.util.spec_from_file_location('pages',ROOT/'scripts/prepare-pages-artifact.py')
-        pages=importlib.util.module_from_spec(spec);spec.loader.exec_module(pages)
+    def test_static_archive_rejects_nonpublic_inputs_and_links(self):
+        spec=importlib.util.spec_from_file_location('static',ROOT/'scripts/prepare-static-artifact.py')
+        static=importlib.util.module_from_spec(spec);spec.loader.exec_module(static)
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)/'site'
             shutil.copytree(ROOT/'website/build',root)
-            for invalid in ('https://komprexo.digitalfuturesolutions.my.id/\n',
-                            'komprexo.digitalfuturesolutions.my.id\nother.example\n',
-                            'digitalfuturesolutions69.github.io\n', ''):
-                (root/'CNAME').write_text(invalid)
-                with self.assertRaisesRegex(ValueError,'Invalid custom-domain CNAME'):
-                    pages.validate_site(root)
+            for name in ('CNAME','.nojekyll','private.env','debug.log','app.apk','key.pem'):
+                (root/name).write_text('fixture only')
+                with self.assertRaisesRegex(ValueError,'Unexpected static input'):
+                    static.validate_site(root)
+                (root/name).unlink()
+            (root/'linked').symlink_to(ROOT/'website/build/style.css')
+            with self.assertRaisesRegex(ValueError,'symbolic or hard links'):
+                static.validate_site(root)
+            (root/'linked').unlink()
+            os.link(root/'style.css',root/'hardlinked')
+            with self.assertRaisesRegex(ValueError,'symbolic or hard links'):
+                static.validate_site(root)
+
+    def test_static_zip_is_reproducible_and_has_no_nested_root(self):
+        spec=importlib.util.spec_from_file_location('static',ROOT/'scripts/prepare-static-artifact.py')
+        static=importlib.util.module_from_spec(spec);spec.loader.exec_module(static)
+        with tempfile.TemporaryDirectory() as directory:
+            archive=static.prepare(ROOT/'website/build',Path(directory)/'output')
+            self.assertEqual((ROOT/'website/deployment/komprexo-static.zip').read_bytes(),archive.read_bytes())
+            with zipfile.ZipFile(archive) as z:
+                z.extractall(Path(directory)/'public_html/komprexo')
+            self.assertTrue((Path(directory)/'public_html/komprexo/index.html').is_file())
+            self.assertFalse((Path(directory)/'public_html/komprexo/website').exists())
 
     def test_pages_template_is_inactive_and_active_ci_cannot_deploy(self):
         template=ROOT/'.github/pages-deploy.yml.template'
@@ -116,26 +136,28 @@ class Phase4Assets(unittest.TestCase):
         self.assertEqual(1,len(re.findall(r'pages:\s*write',text)))
         self.assertEqual(1,len(re.findall(r'id-token:\s*write',text)))
         self.assertNotRegex(text,r'(?m)^\s+(push|pull_request):')
-        self.assertEqual('komprexo.digitalfuturesolutions.my.id\n',(ROOT/'website/build/CNAME').read_text())
+        self.assertIn('SUPERSEDED / RETIRED',text)
+        self.assertFalse((ROOT/'website/build/CNAME').exists())
+        workflow=(ROOT/'.github/workflows/android.yml').read_text()
+        self.assertIn('prepare-static-artifact.py',workflow)
+        self.assertNotIn('prepare-pages-artifact.py',workflow)
 
     def test_host_privacy_disclosure_is_present_in_all_offline_and_web_policies(self):
-        url='https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement'
         for locale in LOCALES:
             with self.subTest(locale=locale):
                 source=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
                 disclosure=source['privacy'][5][1]
-                self.assertIn('GitHub Pages',disclosure)
+                self.assertIn('Rumahweb',disclosure)
                 self.assertIn('IP',disclosure)
-                self.assertIn(url,disclosure)
+                self.assertIn('OWNER ACTION REQUIRED',disclosure)
+                self.assertNotIn('GitHub',disclosure)
                 offline=(ROOT/f'app/src/main/assets/legal/{locale}/privacy.txt').read_text()
                 self.assertIn(disclosure,offline)
                 html=(ROOT/f'website/build/{locale}/privacy/index.html').read_text()
-                parsed=Links();parsed.feed(html)
-                self.assertIn(url,parsed.links)
+                self.assertIn('Rumahweb',html)
         english=json.loads((ROOT/'content/legal/en.json').read_text())['privacy'][5][1]
-        for required in ('logs and stores','for security','not signed in',
-                         'does not upload images','not verified a site-specific retention',
-                         'not publicly deployed yet'):
+        for required in ('not verified','retention','deletion','security practices',
+                         'does not upload images','not publicly deployed yet'):
             self.assertIn(required,english)
 
     def test_release_sdk_inventory_preserves_all_artifacts_and_evidence_boundaries(self):
@@ -324,7 +346,7 @@ class Phase4Assets(unittest.TestCase):
                 self.assertTrue(dest.is_relative_to(output.resolve()),href)
                 if dest.is_dir():dest=dest/'index.html'
                 self.assertTrue(dest.exists(),(path,href))
-        self.assertEqual('komprexo.digitalfuturesolutions.my.id\n',(output/'CNAME').read_text())
-        self.assertTrue((output/'.nojekyll').exists())
+        self.assertFalse((output/'CNAME').exists())
+        self.assertFalse((output/'.nojekyll').exists())
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -1,3 +1,10 @@
+# SUPERSEDED HOSTING PLAN — HISTORICAL RECORD
+
+FASE 4A.4D supersedes this GitHub Pages/CNAME plan with Rumahweb shared hosting.
+Do not execute the historical Pages or CNAME instructions below.
+Current procedure: [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md).
+Previous host privacy evidence is historical, not evidence about Rumahweb.
+
 # FASE 4A.4C — Custom domain preparation, NOT PUBLICATION
 
 Prepared 10 October 2026. Approved planned host: `komprexo.digitalfuturesolutions.my.id`.

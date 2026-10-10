@@ -15,3 +15,5 @@ playwright-report/
 test-results/
 website/pages-preview/
 __pycache__/
+
+website/deployment/

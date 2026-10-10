@@ -1,4 +1,4 @@
-"""Dependency-free Pages-compatible generation. No deployment; custom-domain configuration is preparation only."""
+"""Dependency-free static generation for Rumahweb root hosting. No deployment."""
 from pathlib import Path
 import json
 import re
@@ -30,8 +30,6 @@ def rich(text):
     safe = escape(text)
     safe = re.sub(r'https://support\.google\.com/googleplay/answer/\d+',
                   lambda m: f'<a href="{m[0]}" rel="noopener noreferrer">{m[0]}</a>', safe)
-    safe = safe.replace('https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement',
-                        '<a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a>')
     return safe.replace('komprexo.support@gmail.com',
                         '<a href="mailto:komprexo.support@gmail.com">komprexo.support@gmail.com</a>')
 
@@ -87,6 +85,5 @@ for locale in NAMES:
 shutil.copy(ROOT / 'website/style.css', OUT / 'style.css')
 (OUT / 'assets').mkdir()
 shutil.copy(ROOT / 'artwork/icon.svg', OUT / 'assets/icon.svg')
-(OUT / '.nojekyll').write_text('')
-shutil.copy(ROOT / 'website/CNAME', OUT / 'CNAME')
+
 print('Static build: 30 localized pages + 6 English root aliases. NOT DEPLOYED.')

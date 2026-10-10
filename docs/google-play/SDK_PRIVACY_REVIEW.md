@@ -1,3 +1,9 @@
+> FASE 4A.4D hosting scope update: historical GitHub hosting evidence below applies
+> only to the superseded Pages plan. Current planned host is Rumahweb shared hosting;
+> provider-specific logging, recipients, retention/deletion and security are UNKNOWN.
+> See [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md). Original
+> Android SDK evidence and unresolved Data Safety findings below remain preserved.
+
 # Release SDK privacy inventory — FASE 4A.4A
 
 10 October 2026 (Asia/Jakarta). **Static evidence, DRAFT; no vendor/runtime certification.** Fresh Gradle releaseRuntimeClasspath resolution contains 99 artifacts, identical coordinates to the previous license inventory. BOMs/platform constraints are visible in the resolved graph but are not executable artifacts. Desugar 2.1.5 is a separate core-library build dependency, not counted in 99 runtime artifacts. Test/Debug-only Robolectric/Espresso/Compose test dependencies are excluded from release inventory.

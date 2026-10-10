@@ -1,3 +1,4 @@
+# HISTORICAL / SUPERSEDED: use prepare-static-artifact.py for Rumahweb.
 """Create a private, reviewable Pages-compatible archive; never deploy anything."""
 from pathlib import Path
 import argparse

@@ -1,3 +1,9 @@
+> FASE 4A.4D hosting scope update: historical GitHub hosting evidence below applies
+> only to the superseded Pages plan. Current planned host is Rumahweb shared hosting;
+> provider-specific logging, recipients, retention/deletion and security are UNKNOWN.
+> See [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md). Original
+> Android SDK evidence and unresolved Data Safety findings below remain preserved.
+
 # Data Safety final owner review — FASE 4A.4A
 
 10 October 2026 (Asia/Jakarta). **DRAFT / NOT SUBMITTED / BLOCKED — SPECIFIC EVIDENCE REQUIRED.** This is a proposed-response evidence worksheet, not a completed form or compliance certification. Official definitions: [evidence register G4/G5/G6](OFFICIAL_PRIVACY_EVIDENCE.md). Exact 99-component inventory: [SDK review](SDK_PRIVACY_REVIEW.md), [records](SDK_PRIVACY_INVENTORY.json). Actual flows: [matrix](DATA_FLOW_MATRIX.md).

@@ -20,7 +20,7 @@
 | App access | No login; Free quotas/optional purchase |
 | Listing/assets | Five drafts/icon/specification; approved screenshots/feature graphic upload pending |
 | CI/APK | Current ../PHASE4A4_VALIDATION.md and accompanying exact-commit delivery evidence; debug validation only, not release |
-| Site/domain | Free GitHub Pages custom host https://komprexo.digitalfuturesolutions.my.id/ planned; NOT activated/deployed. CNAME artifact prepared; DNS unchanged. Website/mail conflict requires owner/provider decision; see CUSTOM_DOMAIN_PREPARATION.md |
+| Site/domain | Rumahweb shared hosting https://komprexo.digitalfuturesolutions.my.id/ planned; NOT deployed. Root ZIP prepared, no CNAME. Future A record IP requires provider verification; DNS/mail unchanged; see RUMAHWEB_STATIC_DEPLOYMENT.md |
 
 Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE 4B follows automatically.
 

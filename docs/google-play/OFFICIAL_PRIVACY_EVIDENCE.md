@@ -1,3 +1,9 @@
+> FASE 4A.4D hosting scope update: historical GitHub hosting evidence below applies
+> only to the superseded Pages plan. Current planned host is Rumahweb shared hosting;
+> provider-specific logging, recipients, retention/deletion and security are UNKNOWN.
+> See [RUMAHWEB_STATIC_DEPLOYMENT.md](RUMAHWEB_STATIC_DEPLOYMENT.md). Original
+> Android SDK evidence and unresolved Data Safety findings below remain preserved.
+
 # Official evidence register — FASE 4A.4A
 
 Access date for every row: **10 October 2026 (Asia/Jakarta)**. Statements below are concise paraphrases of the primary pages actually reviewed, not legal advice or an assertion that Google endorsed Komprexo. URLs are authoritative evidence; changing policies require recheck before launch. General Google policy is not a Billing 9.1.0-specific diagnostic schema.

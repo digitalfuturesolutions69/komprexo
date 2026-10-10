@@ -1,3 +1,8 @@
+> FASE 4A.4D: publication remains BLOCKED. Hosting preparation now targets Rumahweb;
+> prior GitHub-specific conclusions below are historical and do not establish Rumahweb
+> practices. Provider evidence/configuration and live hosting tests are required.
+> See [current procedure](../google-play/RUMAHWEB_STATIC_DEPLOYMENT.md).
+
 # Owner publication decision — FASE 4A.4A
 
 Prepared 10 October 2026 (Asia/Jakarta). Repository digitalfuturesolutions69/komprexo, branch work; expected baseline a09ad3c733f2f2211ec9cefc6b9ca2557fba2a57 verified locally and remotely before edits. Application ID com.komprexo.app unchanged. This evidence package closes inspectable technical/editorial gaps; it does not approve publication or certify law/SDK behavior.
