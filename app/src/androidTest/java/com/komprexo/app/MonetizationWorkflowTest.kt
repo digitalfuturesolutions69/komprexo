@@ -19,13 +19,18 @@ import com.komprexo.app.compression.*
 import com.komprexo.app.processing.*
 import com.komprexo.app.ui.*
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.Assert.*
 
 /** Free production policy over real Gallery URIs and native engines; separate journal per test. */
+@OptIn(ExperimentalTestApi::class, ExperimentalCoroutinesApi::class)
 class MonetizationWorkflowTest {
-    @get:Rule val compose=createAndroidComposeRule<MainActivity>()
+    // The default unconfined test dispatcher can resume recomposition on the worker
+    // that publishes engine progress. Queue it on the UI-driven test clock instead.
+    @get:Rule val compose=createAndroidComposeRule<MainActivity>(effectContext=StandardTestDispatcher())
     private lateinit var quota: DailyQuotaManager
     private lateinit var single: CompressionViewModel
     private lateinit var multi: Phase2ViewModel

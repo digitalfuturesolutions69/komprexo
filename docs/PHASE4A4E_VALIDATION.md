@@ -65,3 +65,27 @@ professional translation/legal approval, deployment/DNS/publication claimed.
 No SDK/Billing/quota/processing/application-ID/package behavior changes, Business,
 AdMob/backend/database/login, other-project mutations, merge or release.
 Stop after4A.4E; passing CI is technical acceptance only, public readiness remains BLOCKED.
+
+## First exact-commit CI failure and verified test-only correction
+
+Implementation89e416b8ee737b34d952dc5d68219691acf20b11, run38205872601:
+5/6jobsPASS; API36completed158tests with1failure in doubleTapConsumesOneCredit,
+0skips/0stalls/0locale timeouts. API23/26/28each158PASS; JVM171PASS; lint0errors/
+20warnings; Python23/browser152PASS; all99release artifact/POM/classes hashes match.
+
+Failure is CalledFromWrongThreadException, expectedmain/callingDefaultDispatcher-worker-2.
+Downloaded stack runs through Compose test ApplyingContinuationInterceptor and
+TestMonotonicFrameClock after a legitimate background StateFlow progress publication,
+not a duplicate-credit assertion. Exact1.8.0 official sources confirm default
+UnconfinedTestDispatcher and Android MainTestClockImpl uses runOnUiThread. The
+MonetizationWorkflowTest rule now uses StandardTestDispatcher(effectContext) so
+recomposition queues onto the UI-driven test clock. All methods/assertions/timeouts,
+real fixtures/engines and UI remain; no catches, skips, weakening or production edits.
+
+Source evidence fetched12October2026 from official Maven:
+https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-test-junit4-android/1.8.0/ui-test-junit4-android-1.8.0-sources.jar
+https://dl.google.com/dl/android/maven2/androidx/compose/ui/ui-test-android/1.8.0/ui-test-android-1.8.0-sources.jar
+Relevant files:AndroidComposeTestRule.android.kt,ComposeUiTest.android.kt,
+MainTestClockImpl.android.kt. This test-only scheduler fix uses an existing transitive
+test dependency; no SDK dependency/version change. New final SHA reruns all six jobs;
+actual delivery records its outcome, not an unexplained rerun of the failed commit.
