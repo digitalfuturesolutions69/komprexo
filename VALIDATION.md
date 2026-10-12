@@ -1,3 +1,14 @@
+## FASE4A.4E — current legal/privacy readiness
+
+[Actual validation](docs/PHASE4A4E_VALIDATION.md),
+[evidence review](docs/google-play/PHASE4A4E_EVIDENCE_REVIEW.md) and
+[prioritized publication gates](docs/legal/PHASE4A4E_PUBLICATION_READINESS.md).
+Local23Python/152browserPASS; current local Android toolchain unavailable, exact-final
+CI results reported with delivery. Explicit five-language5/5/5/2/20quota/charging copy,
+no production behavior/SDK change, no Business implementation. Review ZIP only;
+publication/Data Safety/hosting/vendor/legal/native/Console holds remain BLOCKED.
+Previous phase validation below is historical.
+
 ## FASE 4A.4D — current Rumahweb preparation
 
 [Actual scoped validation](docs/PHASE4A4D_VALIDATION.md) and

@@ -1,3 +1,12 @@
+## FASE4A.4E current decision — BLOCKED
+
+[Prioritized website/Play gates and responsibilities](PHASE4A4E_PUBLICATION_READINESS.md).
+Owner confirms account verification completed; do not repeat it. AndroidPrint Closed
+Testing is separate from Komprexo. Quota disclosures now explicit in five languages;
+no SDK/behavior change or unverified category closure. Original decision/evidence below
+preserved as historical. Current provider is Rumahweb, public Gmail unchanged, DRAFT
+and effective-date holds retained. No publication/deployment/Console authorization.
+
 > FASE 4A.4D: publication remains BLOCKED. Hosting preparation now targets Rumahweb;
 > prior GitHub-specific conclusions below are historical and do not establish Rumahweb
 > practices. Provider evidence/configuration and live hosting tests are required.

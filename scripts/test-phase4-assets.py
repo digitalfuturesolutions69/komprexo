@@ -1,6 +1,7 @@
 """Meaningful source/export/link/localization regression checks; Python stdlib only."""
 from collections import Counter
 from html.parser import HTMLParser
+from html import escape
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 import json
@@ -48,6 +49,87 @@ class Links(HTMLParser):
         if tag in ('script','iframe','form'):self.scripts.append(tag)
 
 class Phase4Assets(unittest.TestCase):
+    def test_phase4e_quota_policy_is_explicit_and_synchronized(self):
+        days={'en':'local calendar day','id':'hari kalender lokal','es':'día natural local',
+              'pt-BR':'dia de calendário local','hi':'स्थानीय कैलेंडर दिन'}
+        independent={'en':'independent','id':'tersendiri','es':'independiente',
+                     'pt-BR':'independente','hi':'अलग'}
+        primary={'en':'primary feature','id':'fitur utama','es':'función principal',
+                 'pt-BR':'função principal','hi':'मुख्य सुविधा'}
+        features={'en':('Compression','Resize','Convert'),'id':('Kompresi','Resize','Konversi'),
+                  'es':('Compresión','Redimensionado','Conversión'),
+                  'pt-BR':('Compressão','Redimensionamento','Conversão'),
+                  'hi':('संपीड़न','आकार','रूपांतरण')}
+        listings=json.loads((ROOT/'content/store-listing.json').read_text())
+        for locale in LOCALES:
+            with self.subTest(locale=locale):
+                legal=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+                rule=legal['terms'][1][1]
+                self.assertEqual(['5','5','5','2','20'],re.findall(r'\b\d+\b',rule))
+                for token in (days[locale],independent[locale],primary[locale],*features[locale]):
+                    self.assertIn(token,rule)
+                self.assertTrue(legal['privacy'][3][1].startswith(rule))
+                self.assertTrue(legal['premium'][1][1].endswith(rule))
+                store_rule=listings[locale]['full'].split('\n\n')[2]
+                self.assertEqual(['5','5','5','2','20'],re.findall(r'\b\d+\b',store_rule))
+                self.assertIn(days[locale],store_rule)
+                self.assertIn(primary[locale],store_rule)
+                for page in ('privacy','terms','premium'):
+                    offline=(ROOT/f'app/src/main/assets/legal/{locale}/{page}.txt').read_text()
+                    self.assertIn(rule,offline)
+                    self.assertIn(escape(rule),(ROOT/f'website/build/{locale}/{page}/index.html').read_text())
+                ui=json.loads((ROOT/f'content/i18n/{locale}.json').read_text())
+                self.assertIn(days[locale],ui['free_plan_summary'])
+                self.assertEqual(['0','5','2'],re.findall(r'\d+',ui['free_plan_summary']))
+                self.assertEqual(3,ui['quota_all_remaining'].count('/5'))
+
+    def test_phase4e_no_business_claims_and_required_privacy_facts_remain(self):
+        for locale in LOCALES:
+            legal=json.loads((ROOT/f'content/legal/{locale}.json').read_text())
+            listings=json.loads((ROOT/'content/store-listing.json').read_text())[locale]
+            ui=json.loads((ROOT/f'content/i18n/{locale}.json').read_text())
+            text=json.dumps([legal,listings,ui],ensure_ascii=False)
+            self.assertNotRegex(text,r'(?i)\bBusiness\b|99[.,]000|\b100\s*(?:images|gambar|चित्र)')
+            self.assertNotIn('support@komprexo.digitalfuturesolutions.my.id',text)
+            for page in ('privacy','terms','premium','support','about'):
+                self.assertIn('komprexo.support@gmail.com',' '.join(x[1] for x in legal[page]))
+            self.assertIn('24',legal['privacy'][4][1])
+            self.assertIn('Google Play',legal['privacy'][4][1])
+            self.assertIn('Rumahweb',legal['privacy'][5][1])
+            self.assertIn('OWNER ACTION REQUIRED',legal['privacy'][5][1])
+            self.assertIn('24',legal['privacy'][2][1])
+            self.assertIn('2479637',' '.join(x[1] for x in legal['premium']))
+
+    def test_phase4e_public_secret_scan_does_not_expose_values(self):
+        spec=importlib.util.spec_from_file_location('scan',ROOT/'scripts/check-public-artifact.py')
+        scan=importlib.util.module_from_spec(spec);spec.loader.exec_module(scan)
+        scan.audit(ROOT/'website/deployment')
+        marker=b'-----BEGIN PRIVATE KEY-----'
+        with self.assertRaisesRegex(ValueError,'private-key.*value omitted') as error:
+            scan.scan_public_bytes([('index.html',marker)])
+        self.assertNotIn(marker.decode(),str(error.exception))
+        with tempfile.TemporaryDirectory() as directory:
+            output=Path(directory)/'output';shutil.copytree(ROOT/'website/deployment',output)
+            (output/'komprexo-static.zip.sha256').write_text('incorrect fixture checksum')
+            with self.assertRaisesRegex(ValueError,'ZIP checksum mismatch'):
+                scan.audit(output)
+
+    def test_phase4e_release_inventory_verifier_rejects_same_version_byte_drift(self):
+        spec=importlib.util.spec_from_file_location('sdk',ROOT/'scripts/verify-sdk-inventory.py')
+        sdk=importlib.util.module_from_spec(spec);spec.loader.exec_module(sdk)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);artifact=root/'fixture.aar';pom=root/'fixture.pom'
+            pom.write_bytes(b'public fixture pom')
+            with zipfile.ZipFile(artifact,'w') as z:z.writestr('classes.jar',b'public bytecode fixture')
+            inventory=[{'artifact':'fixture:utility:1','artifact_sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),
+                        'pom_sha256':hashlib.sha256(pom.read_bytes()).hexdigest(),
+                        'classes_jar_sha256':hashlib.sha256(b'public bytecode fixture').hexdigest()}]
+            rows=[{'coordinate':'fixture:utility:1','artifact':str(artifact),'pom':'fixture.pom'}]
+            self.assertEqual(1,sdk.verify(inventory,rows,root))
+            with zipfile.ZipFile(artifact,'w') as z:z.writestr('classes.jar',b'changed bytecode fixture')
+            with self.assertRaisesRegex(ValueError,'artifact hash drift'):
+                sdk.verify(inventory,rows,root)
+
     def test_owner_identity_and_proposed_law_in_five_languages(self):
         for locale in LOCALES:
             data=json.loads((ROOT/f'content/legal/{locale}.json').read_text())

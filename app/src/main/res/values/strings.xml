@@ -114,7 +114,7 @@
     <string name="free_batch_limit">Free allows 2 images per batch. Premium supports up to 20. Your selection and settings are preserved.</string>
     <string name="premium_preset_notice">This Smart Preset requires Premium. Basic presets and custom settings remain available.</string>
     <string name="processing_busy">Another image operation is in progress. Please wait.</string>
-    <string name="free_plan_summary">Free · Rp0 · 5 successful images per day for EACH feature: Compress, Resize and Convert · 2 images per batch.</string>
+    <string name="free_plan_summary">Free · Rp0 · 5 successful images per local calendar day for EACH feature: Compress, Resize and Convert · 2 images per batch.</string>
     <string name="batch_operation">Batch operation</string>
     <string name="preset_premium_label">%1$s · Premium</string>
     <string name="quota_all_remaining">Free today — Compress %1$d/5 · Resize %2$d/5 · Convert %3$d/5.</string>

@@ -8,13 +8,13 @@ Title (8): Komprexo
 
 Short (59): Compress, resize and convert photos on your Android device.
 
-Full (3896):
+Full (3869):
 
 General image utility for adults aged 18 and older. No age verification; this audience statement does not guarantee that Play blocks minors.
 
 Compress photos to a maximum file-size target, resize without upscaling, or convert JPEG, PNG and supported WebP. Process batches sequentially. Smart Presets are editable starting points. Compare before and after, save copies or share results. Originals remain unchanged. Image processing is on your Android device; it does not require photo uploads to Komprexo or an app account.
 
-Compression: 5 successful images per local day. Resize: 5. Convert: 5. These are three separate quotas. Single and batch operations share the quota of their feature. Free batches allow at most 2 images. Failed operations and unused cancelled credits are not charged; successful results completed before cancellation count. Internal resizing or encoding within a tool charges only the primary feature once. Save and Share do not use credits.
+Free per local calendar day: Compression 5 successful images; Resize 5; Convert 5. Independent local counters; single and batch share each feature’s quota. Free batch max 2. Failed images and unused cancelled reservations use no credits; accepted results stay counted. Internal work charges the primary feature once. Save/Share are unmetered. Premium: no daily quotas, batch max 20 within technical safety limits.
 
 Premium is one non-consumable purchase through Google Play. The upgrade is not used up after processing. It is not a subscription and has no recurring charges. Intended Indonesian price: Rp49.000. The actual price, currency and applicable checkout terms are shown by Google Play before payment. Availability depends on Play configuration and eligibility.
 
@@ -40,13 +40,13 @@ Title (8): Komprexo
 
 Short (63): Kompres, resize dan convert foto langsung di perangkat Android.
 
-Full (3993):
+Full (3981):
 
 Utilitas gambar umum untuk dewasa 18 tahun ke atas. Tanpa verifikasi usia; pernyataan audiens ini tidak menjamin Play memblokir anak di bawah umur.
 
 Kompres foto sesuai batas ukuran file, ubah ukuran tanpa memperbesar, atau konversi JPEG, PNG dan WebP yang didukung. Batch diproses berurutan. Smart Presets dapat diedit. Bandingkan sebelum dan sesudah, simpan salinan atau bagikan hasil. Gambar asli tidak diubah. Pemrosesan dilakukan di Android; tidak memerlukan unggah foto ke Komprexo atau akun aplikasi.
 
-Kompresi: 5 gambar berhasil per hari lokal. Resize: 5. Convert: 5. Ketiganya memiliki kuota terpisah. Proses satu gambar dan batch berbagi kuota fiturnya. Batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota; hasil yang berhasil sebelum pembatalan tetap dihitung. Resize atau encoding internal hanya mengenakan kuota fitur utama sekali. Simpan dan Bagikan tidak menggunakan kredit.
+Free per hari kalender lokal: Kompresi 5 gambar berhasil; Resize 5; Convert 5. Kuota lokal terpisah; satu gambar dan batch berbagi kuota fitur. Batch Free maksimal 2. Gambar gagal dan reservasi batal yang belum dipakai tidak mengurangi kredit; hasil diterima tetap dihitung. Proses internal menghitung fitur utama sekali. Save/Share tanpa kredit. Premium: tanpa kuota harian, batch maksimal 20 sesuai batas keselamatan teknis.
 
 Premium adalah satu pembelian non-konsumsi melalui Google Play. Hak peningkatan tidak habis setelah memproses gambar. Bukan langganan dan tanpa biaya berulang. Harga yang ditujukan untuk Indonesia: Rp49.000. Harga, mata uang dan ketentuan pembayaran sebenarnya ditampilkan Google Play sebelum membayar. Ketersediaan bergantung pada konfigurasi Play dan kelayakan.
 
@@ -72,13 +72,13 @@ Title (8): Komprexo
 
 Short (67): Comprime, redimensiona y convierte fotos en tu dispositivo Android.
 
-Full (3897):
+Full (3907):
 
 Herramienta general de imágenes para adultos de 18 años o más. Sin verificación de edad; esta declaración no garantiza que Play bloquee a menores.
 
 Comprime fotos con un tamaño máximo, redimensiona sin ampliar o convierte JPEG, PNG y WebP compatible. Los lotes se procesan en orden. Los ajustes inteligentes son editables. Compara antes y después, guarda copias o comparte resultados. Los originales no cambian. Todo se procesa en Android, sin subir fotos a Komprexo ni crear una cuenta.
 
-Compresión: 5 imágenes correctas por día local. Redimensionar: 5. Convertir: 5. Son tres cuotas separadas. Las operaciones individuales y por lotes comparten la cuota de su función. Gratis permite hasta 2 imágenes por lote. Los fallos y créditos de cancelación no utilizados no se cobran; los resultados completados antes de cancelar cuentan. Las transformaciones internas cobran una sola vez a la función principal. Guardar y Compartir no usan créditos.
+Free por día natural local: Compresión 5 imágenes correctas; Redimensionado 5; Conversión 5. Contadores locales independientes; una imagen y lotes comparten la cuota de su función. Lote Free máximo 2. Fallos y reservas sin usar al cancelar no consumen créditos; resultados aceptados cuentan. El trabajo interno cobra la función principal una vez. Guardar/Compartir no consumen créditos. Premium: sin cuota diaria, lotes máximo 20 con límites técnicos de seguridad.
 
 Premium es una compra única no consumible mediante Google Play. No se agota al procesar imágenes. No es una suscripción ni tiene cargos recurrentes. Precio previsto en Indonesia: Rp49.000. Google Play muestra el precio real, moneda y condiciones antes de pagar. La disponibilidad depende de la configuración y elegibilidad de Play.
 
@@ -104,13 +104,13 @@ Title (8): Komprexo
 
 Short (67): Comprima, redimensione e converta fotos no seu dispositivo Android.
 
-Full (3658):
+Full (3716):
 
 Ferramenta geral de imagens para adultos com 18 anos ou mais. Sem verificação de idade; esta declaração não garante que o Play bloqueie menores.
 
 Comprima fotos com tamanho máximo, redimensione sem ampliar ou converta JPEG, PNG e WebP compatível. Lotes são processados em sequência. Ajustes inteligentes podem ser editados. Compare antes e depois, salve cópias ou compartilhe resultados. Originais não mudam. O processamento ocorre no Android, sem enviar fotos a Komprexo nem criar conta.
 
-Compressão: 5 imagens bem-sucedidas por dia local. Redimensionar: 5. Converter: 5. São três cotas separadas. Individual e lote compartilham a cota da função. Grátis permite até 2 imagens por lote. Falhas e créditos cancelados não usados não são cobrados; resultados concluídos antes de cancelar contam. Transformações internas cobram apenas uma vez da função principal. Salvar e Compartilhar não usam créditos.
+Free por dia de calendário local: Compressão 5 imagens bem-sucedidas; Redimensionamento 5; Conversão 5. Contadores locais independentes; uma imagem e lotes compartilham a cota da função. Lote Free máximo 2. Falhas e reservas não usadas ao cancelar não consomem créditos; resultados aceitos contam. Trabalho interno cobra a função principal uma vez. Salvar/Compartilhar não consomem créditos. Premium: sem cota diária, lotes máximo 20 com limites técnicos de segurança.
 
 Premium é uma compra única não consumível pelo Google Play. Não se esgota ao processar imagens. Não é assinatura e não tem cobrança recorrente. Preço pretendido na Indonésia: Rp49.000. Google Play mostra preço real, moeda e condições antes do pagamento. Disponibilidade depende da configuração e elegibilidade do Play.
 
@@ -136,13 +136,13 @@ Title (8): Komprexo
 
 Short (59): अपने Android पर फ़ोटो कंप्रेस करें, आकार और फ़ॉर्मेट बदलें।
 
-Full (3413):
+Full (3767):
 
 18 वर्ष और उससे अधिक आयु के वयस्कों के लिए सामान्य चित्र उपयोगिता। आयु सत्यापन नहीं; यह बयान Play द्वारा नाबालिगों को रोकने की गारंटी नहीं देता।
 
 फोटो को अधिकतम फ़ाइल आकार तक संपीड़ित करें, बिना बड़ा किए आकार बदलें या JPEG, PNG और समर्थित WebP में बदलें। बैच क्रम से चलता है। Smart Presets संपादन योग्य हैं। पहले और बाद की तुलना करें, प्रतियाँ सहेजें या परिणाम साझा करें। मूल नहीं बदलते। प्रक्रिया Android पर होती है; Komprexo पर फोटो अपलोड या ऐप खाता जरूरी नहीं है।
 
-संपीड़न: स्थानीय दिन में 5 सफल चित्र। आकार बदलना: 5। रूपांतरण: 5। तीन अलग कोटा हैं। एकल और बैच प्रक्रिया अपनी सुविधा का कोटा साझा करते हैं। मुफ़्त बैच में अधिकतम 2 चित्र। विफल प्रक्रिया और रद्द किए गए अप्रयुक्त क्रेडिट नहीं कटते; रद्द करने से पहले पूरे सफल परिणाम गिने जाते हैं। अंदरूनी आकार या प्रारूप बदलाव केवल मुख्य सुविधा का कोटा एक बार लेते हैं। सहेजना और साझा करना क्रेडिट नहीं लेते।
+Free में स्थानीय कैलेंडर दिन के अनुसार सफलतापूर्वक संसाधित 5 संपीड़न चित्र, 5 आकार बदलने वाले चित्र और 5 रूपांतरण चित्र मिलते हैं। हर सुविधा का अलग दैनिक कोटा है। एकल चित्र और बैच कार्य अपनी सुविधा का वही कोटा साझा करते हैं। Free बैच में अधिकतम 2 चित्र हैं। असफल चित्र और रद्द करते समय अप्रयुक्त आरक्षण क्रेडिट नहीं लेते। सफलतापूर्वक स्वीकार किए गए परिणाम गिने जाते हैं, जिनमें रद्द करने से पहले स्वीकार किए गए परिणाम भी शामिल हैं। एक कार्यप्रवाह के भीतर के रूपांतरण केवल मुख्य सुविधा को एक बार गिनते हैं; दोहरा शुल्क नहीं लगता। सहेजना और साझा करना क्रेडिट नहीं लेते। कोटा जानकारी आपके डिवाइस पर स्थानीय रूप से रखी जाती है। Premium में इन तीन सुविधाओं का दैनिक कोटा नहीं है और मौजूदा तकनीकी सुरक्षा सीमाओं के अधीन प्रति बैच अधिकतम 20 चित्र हैं।
 
 Premium Google Play से एक गैर-उपभोज्य खरीद है। चित्र संसाधित करने से सुविधा खत्म नहीं होती। यह सदस्यता नहीं है और बार-बार शुल्क नहीं है। इंडोनेशिया का लक्षित मूल्य: Rp49.000। भुगतान से पहले Google Play वास्तविक मूल्य, मुद्रा और शर्तें दिखाता है। उपलब्धता Play विन्यास और पात्रता पर निर्भर है।
 
@@ -170,9 +170,13 @@ Store icon artwork/play-store-icon-512.png: actual512x512 RGBA32-bit opaque unma
 
 Screenshot plan: real Android Home/free three counters, compression before/after target/dimensions, batch settings/count, resize dimensions, convert format, Premium real Play localized price only after configured, language/settings/offline policies. At least2 phone screenshots per listing,320–3840px accepted current Play size range, longest dimension≤2×shortest; use high-resolution portrait/landscape real captures with no personal photos/payment IDs, and recommended16:9/9:16 at least1080px assets for eligibility where applicable. Do not use mock transactions as real payment evidence. CI compact screenshots are test evidence, not automatically approved Store marketing assets.
 
-Public developer: Digital Future Solutions. Legal operator: the individual registered and verified in Google Play Console with a Personal account in Indonesia; the display name is not a separate company. Official support/privacy contact: komprexo.support@gmail.com (owner manually configures). No residential address or personal contact details are included. Review legally required public operator disclosures with the owner before publication. Privacy URL **PLACEHOLDER — NOT LIVE**: proposed https://digitalfuturesolutions69.github.io/komprexo/privacy/ only after legal approval and authorized publication.
+Public developer: Digital Future Solutions. Legal operator: the individual registered and verified in Google Play Console with a Personal account in Indonesia; the display name is not a separate company. Official support/privacy contact: komprexo.support@gmail.com (owner manually configures). No residential address or personal contact details are included. Review legally required public operator disclosures with the owner before publication. Privacy URL **PLACEHOLDER — NOT LIVE**: proposed https://komprexo.digitalfuturesolutions.my.id/privacy/ only after legal approval and authorized publication.
 
 Owner-confirmed intended launch audience: adults aged18andolder; general image utility, not marketed to children. Proposed target-age selection:18 and over only, for owner review, not submitted. No in-app age verification is implemented and this declaration does not guarantee that Play blocks minors. Review the separate Restrict Minor Access option and applicable age/child-protection laws without claiming compliance or an enabled restriction. Complete the independent content-rating questionnaire from actual content; 18+ marketing audience is not an assigned mature-content rating. See TARGET_AUDIENCE_DECLARATION.md. Current ads declaration No, no-login app access, Billing/transport Data Safety classifications and mandatory consumer/privacy rights still need accurate owner review. Effective date will be set only after final approval and actual publication. Review five-language translations and final assets; policies remain DRAFT.
+
+Owner confirms developer account identity verification is completed. AndroidPrint Closed Testing is for a separate application; it does not establish Komprexo testing or production eligibility. Komprexo-specific Console/track/product/Data Safety/public-disclosure checks remain owner actions. No private identity/address copied or Console setting inspected.
+
+Business is a future proposal only, not implemented or purchasable in Komprexo. Current Premium batch limit remains20; no Business product or100-image limit is approved here.
 
 Official reference: https://support.google.com/googleplay/android-developer/answer/9866151
 Text limit reference: https://support.google.com/googleplay/android-developer/answer/9859152

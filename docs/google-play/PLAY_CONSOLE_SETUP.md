@@ -1,3 +1,11 @@
+# FASE4A.4E clarification
+
+Google Play account identity verification is completed per owner; do not repeat it.
+The older setup checklist below is a reference, not evidence Komprexo steps occurred.
+AndroidPrint Closed Testing does not establish Komprexo testing/release eligibility.
+Only Komprexo-specific product/track/signing/testing/form/public-disclosure checks remain;
+no Console access/mutation in this phase. Review [current gates](../legal/PHASE4A4E_PUBLICATION_READINESS.md).
+
 # Owner-only Play Console setup — NOT executed
 
 9 October 2026 Asia/Jakarta. Product activation/eligibility/payment testing/publication unverified. No account changes.

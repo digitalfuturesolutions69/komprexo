@@ -14,7 +14,7 @@ The app keeps temporary input, output and preview files in private app storage. 
 
 # Local quotas and preferences
 
-The app keeps daily feature counts, information about unfinished operations and your language preference locally. These records are not an image history. Counts reset according to the daily quota rules. Preferences remain until changed or removed. Clearing app data or uninstalling removes private app files and records; it does not delete exported files or Google purchase records. App backup is disabled.
+Free allows 5 successfully processed Compression images, 5 Resize images and 5 Convert images per local calendar day. Each feature has its own independent quota. Single-image and batch operations share their feature’s quota. Free batches allow at most 2 images. Failed images and unused cancelled reservations do not consume credits. Successfully accepted results remain counted, including those accepted before cancellation. Internal transformations within a workflow charge the primary feature once, without double charging. Save and Share do not consume credits. Quota information is kept locally on your device. Premium has no daily quota for these three features and allows up to 20 images per batch, subject to existing technical safety limits. The app keeps daily feature counts, information about unfinished operations and your language preference locally. These records are not an image history. Counts reset according to the daily quota rules. Preferences remain until changed or removed. Clearing app data or uninstalling removes private app files and records; it does not delete exported files or Google purchase records. App backup is disabled.
 
 # Purchases and Google services
 

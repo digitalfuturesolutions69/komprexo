@@ -15,7 +15,7 @@
     ],
     [
       "Kuota dan preferensi lokal",
-      "Aplikasi menyimpan hitungan harian per fitur, informasi proses yang belum selesai dan pilihan bahasa secara lokal. Catatan ini bukan riwayat gambar. Hitungan direset sesuai aturan kuota harian. Preferensi tersimpan hingga diubah atau dihapus. Menghapus data aplikasi atau mencopot aplikasi menghapus file dan catatan privat; tindakan ini tidak menghapus file ekspor atau catatan pembelian Google. Pencadangan aplikasi dinonaktifkan."
+      "Free memungkinkan 5 gambar Kompresi, 5 gambar Resize dan 5 gambar Konversi yang berhasil diproses per hari kalender lokal. Setiap fitur memiliki kuota harian tersendiri. Operasi satu gambar dan batch berbagi kuota fitur masing-masing. Batch Free maksimal 2 gambar. Gambar gagal dan reservasi yang belum digunakan saat pembatalan tidak mengurangi kredit. Hasil yang berhasil diterima tetap dihitung, termasuk hasil yang diterima sebelum pembatalan. Transformasi internal dalam satu alur hanya menghitung fitur utama sekali, tanpa penghitungan ganda. Save dan Share tidak mengurangi kredit. Informasi kuota disimpan secara lokal di perangkat Anda. Premium tidak memiliki kuota harian untuk ketiga fitur dan mendukung maksimal 20 gambar per batch, dengan batas keselamatan teknis yang berlaku. Aplikasi menyimpan hitungan harian per fitur, informasi proses yang belum selesai dan pilihan bahasa secara lokal. Catatan ini bukan riwayat gambar. Hitungan direset sesuai aturan kuota harian. Preferensi tersimpan hingga diubah atau dihapus. Menghapus data aplikasi atau mencopot aplikasi menghapus file dan catatan privat; tindakan ini tidak menghapus file ekspor atau catatan pembelian Google. Pencadangan aplikasi dinonaktifkan."
     ],
     [
       "Pembelian dan layanan Google",
@@ -45,7 +45,7 @@
     ],
     [
       "Kuota Gratis",
-      "Kompresi: 5 gambar berhasil per hari lokal. Resize: 5. Convert: 5. Ketiganya memiliki kuota terpisah. Proses satu gambar dan batch berbagi kuota fiturnya. Batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota; hasil yang berhasil sebelum pembatalan tetap dihitung. Resize atau encoding internal hanya mengenakan kuota fitur utama sekali. Simpan dan Bagikan tidak menggunakan kredit."
+      "Free memungkinkan 5 gambar Kompresi, 5 gambar Resize dan 5 gambar Konversi yang berhasil diproses per hari kalender lokal. Setiap fitur memiliki kuota harian tersendiri. Operasi satu gambar dan batch berbagi kuota fitur masing-masing. Batch Free maksimal 2 gambar. Gambar gagal dan reservasi yang belum digunakan saat pembatalan tidak mengurangi kredit. Hasil yang berhasil diterima tetap dihitung, termasuk hasil yang diterima sebelum pembatalan. Transformasi internal dalam satu alur hanya menghitung fitur utama sekali, tanpa penghitungan ganda. Save dan Share tidak mengurangi kredit. Informasi kuota disimpan secara lokal di perangkat Anda. Premium tidak memiliki kuota harian untuk ketiga fitur dan mendukung maksimal 20 gambar per batch, dengan batas keselamatan teknis yang berlaku."
     ],
     [
       "Premium dan batas teknis",
@@ -71,7 +71,7 @@
     ],
     [
       "Manfaat dan batas Gratis",
-      "Premium menyediakan Kompresi, Resize dan Convert tanpa batas harian, semua Smart Presets dan batch hingga 20 gambar, dalam batas keselamatan teknis. Gratis memiliki tiga kuota terpisah: 5 gambar Kompresi berhasil/hari, 5 Resize dan 5 Convert. Proses satu gambar dan batch berbagi kuota fitur; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Transformasi internal mengenakan kuota fitur utama sekali; Simpan dan Bagikan tidak dikenakan kuota. Versi saat ini tidak memiliki iklan."
+      "Premium mencakup semua Smart Presets. Versi saat ini tidak memiliki iklan. Free memungkinkan 5 gambar Kompresi, 5 gambar Resize dan 5 gambar Konversi yang berhasil diproses per hari kalender lokal. Setiap fitur memiliki kuota harian tersendiri. Operasi satu gambar dan batch berbagi kuota fitur masing-masing. Batch Free maksimal 2 gambar. Gambar gagal dan reservasi yang belum digunakan saat pembatalan tidak mengurangi kredit. Hasil yang berhasil diterima tetap dihitung, termasuk hasil yang diterima sebelum pembatalan. Transformasi internal dalam satu alur hanya menghitung fitur utama sekali, tanpa penghitungan ganda. Save dan Share tidak mengurangi kredit. Informasi kuota disimpan secara lokal di perangkat Anda. Premium tidak memiliki kuota harian untuk ketiga fitur dan mendukung maksimal 20 gambar per batch, dengan batas keselamatan teknis yang berlaku."
     ],
     [
       "Aktivasi, pemulihan dan pemeriksaan offline",

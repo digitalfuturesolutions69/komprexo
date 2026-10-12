@@ -6,7 +6,7 @@ Digital Future Solutions adalah nama pengembang publik Komprexo. Operator legal 
 
 # Manfaat dan batas Gratis
 
-Premium menyediakan Kompresi, Resize dan Convert tanpa batas harian, semua Smart Presets dan batch hingga 20 gambar, dalam batas keselamatan teknis. Gratis memiliki tiga kuota terpisah: 5 gambar Kompresi berhasil/hari, 5 Resize dan 5 Convert. Proses satu gambar dan batch berbagi kuota fitur; batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota. Transformasi internal mengenakan kuota fitur utama sekali; Simpan dan Bagikan tidak dikenakan kuota. Versi saat ini tidak memiliki iklan.
+Premium mencakup semua Smart Presets. Versi saat ini tidak memiliki iklan. Free memungkinkan 5 gambar Kompresi, 5 gambar Resize dan 5 gambar Konversi yang berhasil diproses per hari kalender lokal. Setiap fitur memiliki kuota harian tersendiri. Operasi satu gambar dan batch berbagi kuota fitur masing-masing. Batch Free maksimal 2 gambar. Gambar gagal dan reservasi yang belum digunakan saat pembatalan tidak mengurangi kredit. Hasil yang berhasil diterima tetap dihitung, termasuk hasil yang diterima sebelum pembatalan. Transformasi internal dalam satu alur hanya menghitung fitur utama sekali, tanpa penghitungan ganda. Save dan Share tidak mengurangi kredit. Informasi kuota disimpan secara lokal di perangkat Anda. Premium tidak memiliki kuota harian untuk ketiga fitur dan mendukung maksimal 20 gambar per batch, dengan batas keselamatan teknis yang berlaku.
 
 # Aktivasi, pemulihan dan pemeriksaan offline
 

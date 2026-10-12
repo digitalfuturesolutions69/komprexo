@@ -114,7 +114,7 @@
     <string name="free_batch_limit">मुफ़्त में प्रति बैच 2 चित्र हैं। Premium में 20 तक हैं। चयन और सेटिंग सुरक्षित हैं।</string>
     <string name="premium_preset_notice">इस स्मार्ट प्रीसेट के लिए Premium चाहिए। मूल प्रीसेट और कस्टम सेटिंग उपलब्ध हैं।</string>
     <string name="processing_busy">दूसरी चित्र प्रक्रिया चल रही है। प्रतीक्षा करें।</string>
-    <string name="free_plan_summary">मुफ़्त · IDR 0 · प्रत्येक सुविधा के लिए प्रतिदिन 5 सफल चित्र: संपीड़न, आकार बदलना और रूपांतरण · प्रति बैच 2 चित्र।</string>
+    <string name="free_plan_summary">मुफ़्त · IDR 0 · प्रत्येक सुविधा के लिए स्थानीय कैलेंडर दिन के अनुसार 5 सफल चित्र: संपीड़न, आकार बदलना और रूपांतरण · प्रति बैच 2 चित्र।</string>
     <string name="batch_operation">बैच प्रक्रिया</string>
     <string name="preset_premium_label">%1$s · Premium</string>
     <string name="quota_all_remaining">आज मुफ़्त — संपीड़न %1$d/5 · आकार बदलें %2$d/5 · रूपांतरण %3$d/5।</string>

@@ -114,7 +114,7 @@
   "free_batch_limit": "Grátis permite 2 imagens por lote. Premium permite até 20. Sua seleção e configurações são preservadas.",
   "premium_preset_notice": "Esta predefinição requer Premium. Predefinições básicas e opções personalizadas continuam disponíveis.",
   "processing_busy": "Outra operação de imagem está em andamento. Aguarde.",
-  "free_plan_summary": "Grátis · IDR 0 · 5 imagens bem-sucedidas por dia PARA CADA função: Comprimir, Redimensionar e Converter · 2 por lote.",
+  "free_plan_summary": "Grátis · IDR 0 · 5 imagens bem-sucedidas por dia de calendário local PARA CADA função: Comprimir, Redimensionar e Converter · 2 por lote.",
   "batch_operation": "Operação em lote",
   "preset_premium_label": "%1$s · Premium",
   "quota_all_remaining": "Grátis hoje — Comprimir %1$d/5 · Redimensionar %2$d/5 · Converter %3$d/5.",

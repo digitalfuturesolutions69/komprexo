@@ -1,3 +1,13 @@
+## Current FASE4A.4E review —12 October2026
+
+[Evidence classes, scoped source findings and category closure requirements](PHASE4A4E_EVIDENCE_REVIEW.md).
+All original artifact/bytecode/vendor evidence below is preserved. No new exact SDK
+payload/role/retention guidance or real packet/payment evidence was obtained; HOLD
+categories remain HOLD. SDK_PRIVACY_INVENTORY.json is reviewed and unchanged.
+[Prioritized owner publication gates](../legal/PHASE4A4E_PUBLICATION_READINESS.md).
+Owner confirms account identity verification completed; only Komprexo-specific Console,
+public disclosures and actual release/testing requirements remain to be reviewed.
+
 > FASE 4A.4D hosting scope update: historical GitHub hosting evidence below applies
 > only to the superseded Pages plan. Current planned host is Rumahweb shared hosting;
 > provider-specific logging, recipients, retention/deletion and security are UNKNOWN.

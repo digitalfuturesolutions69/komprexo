@@ -6,7 +6,7 @@ Digital Future Solutions is the public developer name of Komprexo. The legal ope
 
 # Free quotas
 
-Compression: 5 successful images per local day. Resize: 5. Convert: 5. These are three separate quotas. Single and batch operations share the quota of their feature. Free batches allow at most 2 images. Failed operations and unused cancelled credits are not charged; successful results completed before cancellation count. Internal resizing or encoding within a tool charges only the primary feature once. Save and Share do not use credits.
+Free allows 5 successfully processed Compression images, 5 Resize images and 5 Convert images per local calendar day. Each feature has its own independent quota. Single-image and batch operations share their feature’s quota. Free batches allow at most 2 images. Failed images and unused cancelled reservations do not consume credits. Successfully accepted results remain counted, including those accepted before cancellation. Internal transformations within a workflow charge the primary feature once, without double charging. Save and Share do not consume credits. Quota information is kept locally on your device. Premium has no daily quota for these three features and allows up to 20 images per batch, subject to existing technical safety limits.
 
 # Premium and technical limits
 

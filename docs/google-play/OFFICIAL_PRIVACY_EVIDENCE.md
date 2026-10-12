@@ -38,3 +38,11 @@ Indonesia is the operator country and intended IDR price country. Five UI langua
 ## Evidence requests not answered by these pages
 
 Billing 9.1.0 diagnostic schema, exact transmitted values/identifiers, CCT/Play destination/region/redirects, vendor purposes/roles/optional controls, downstream sharing, all-transfer encryption, server retention/deletion, support mailbox actual practice and current owner Console configuration remain UNKNOWN. Ask vendor/owner using the verification plan in DATA_SAFETY_FINAL_REVIEW.md. No Gmail/Console inspection, vendor message, packet capture, submission or publication was performed.
+
+## FASE4A.4E recheck —12 October2026 (Asia/Jakarta)
+
+[Current scoped primary-source review](PHASE4A4E_EVIDENCE_REVIEW.md) records re-access
+of G4 Data Safety, G2 Billing security and R1 Rumahweb general customer privacy policy.
+R1 does not establish Unlimited S/Komprexo visitor-log retention/deletion/security.
+Original dated sources above remain traceable; no historical GitHub fact is treated
+as Rumahweb evidence and no source is relabeled as real runtime observation.

@@ -6,7 +6,7 @@ Digital Future Solutions adalah nama pengembang publik Komprexo. Operator legal 
 
 # Kuota Gratis
 
-Kompresi: 5 gambar berhasil per hari lokal. Resize: 5. Convert: 5. Ketiganya memiliki kuota terpisah. Proses satu gambar dan batch berbagi kuota fiturnya. Batch Gratis maksimal 2 gambar. Proses gagal dan kredit pembatalan yang belum digunakan tidak dikenakan kuota; hasil yang berhasil sebelum pembatalan tetap dihitung. Resize atau encoding internal hanya mengenakan kuota fitur utama sekali. Simpan dan Bagikan tidak menggunakan kredit.
+Free memungkinkan 5 gambar Kompresi, 5 gambar Resize dan 5 gambar Konversi yang berhasil diproses per hari kalender lokal. Setiap fitur memiliki kuota harian tersendiri. Operasi satu gambar dan batch berbagi kuota fitur masing-masing. Batch Free maksimal 2 gambar. Gambar gagal dan reservasi yang belum digunakan saat pembatalan tidak mengurangi kredit. Hasil yang berhasil diterima tetap dihitung, termasuk hasil yang diterima sebelum pembatalan. Transformasi internal dalam satu alur hanya menghitung fitur utama sekali, tanpa penghitungan ganda. Save dan Share tidak mengurangi kredit. Informasi kuota disimpan secara lokal di perangkat Anda. Premium tidak memiliki kuota harian untuk ketiga fitur dan mendukung maksimal 20 gambar per batch, dengan batas keselamatan teknis yang berlaku.
 
 # Premium dan batas teknis
 

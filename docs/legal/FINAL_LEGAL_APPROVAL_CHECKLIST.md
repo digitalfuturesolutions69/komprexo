@@ -1,3 +1,19 @@
+# Current FASE4A.4E approval checklist
+
+Use [prioritized current publication gates](PHASE4A4E_PUBLICATION_READINESS.md) and
+[current evidence review](../google-play/PHASE4A4E_EVIDENCE_REVIEW.md).
+Owner account identity verification completed; review required public fields privately,
+not repeat verification. Komprexo testing/eligibility is separate from AndroidPrint.
+Current planned host is Rumahweb, not GitHub Pages; general provider policy is not
+site-specific log/retention/HTTPS proof. Public Gmail unchanged, DRAFT/effective date
+and material SDK/Console/legal/native/provider/request-operation gates remain BLOCKED.
+No code change, hosting/publication or Console action is authorized here.
+
+## Historical FASE4A.4 checklist retained for traceability
+
+The older Pages-specific hosting procedure below is superseded; do not execute it.
+Current deployment/rollback: [Rumahweb procedure](../google-play/RUMAHWEB_STATIC_DEPLOYMENT.md).
+
 # Final legal approval checklist — FASE 4A.4
 
 Prepared 10 October 2026 (Asia/Jakarta). **DRAFT / NOT APPROVED FOR PUBLICATION.** Preparation date is not an effective date. This checklist records evidence and decisions; it is not legal certification or a completed Play declaration.

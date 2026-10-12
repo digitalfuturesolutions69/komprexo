@@ -25,7 +25,9 @@ jobs:
       - name: Test, lint, and assemble debug APK
         run: ./gradlew --no-daemon :app:compileDebugKotlin :app:compileDebugUnitTestKotlin :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :app:assembleDebugAndroidTest :app:compileReleaseKotlin :app:auditRuntimeDependencies
       - name: Verify release Billing isolation and audited permissions/dependencies
-        run: python3 scripts/check-phase4-security.py
+        run: |
+          python3 scripts/check-phase4-security.py
+          python3 scripts/verify-sdk-inventory.py
       - uses: actions/upload-artifact@v4
         with:
           name: komprexo-debug-${{ github.sha }}
@@ -96,9 +98,12 @@ jobs:
       - name: Build static source and validate assets/locales/legal/internal links
         run: |
           python3 scripts/generate-legal-assets.py
+          python3 scripts/generate-locales.py
+          python3 scripts/generate-store-listing.py
           python3 scripts/build-static-site.py
           python3 scripts/prepare-static-artifact.py
           python3 scripts/test-phase4-assets.py
+          python3 scripts/check-public-artifact.py
       - name: Install browser test dependencies
         working-directory: website
         run: |

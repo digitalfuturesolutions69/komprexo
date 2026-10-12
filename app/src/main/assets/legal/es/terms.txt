@@ -6,7 +6,7 @@ Digital Future Solutions es el nombre público del desarrollador de Komprexo. El
 
 # Cuotas gratuitas
 
-Compresión: 5 imágenes correctas por día local. Redimensionar: 5. Convertir: 5. Son tres cuotas separadas. Las operaciones individuales y por lotes comparten la cuota de su función. Gratis permite hasta 2 imágenes por lote. Los fallos y créditos de cancelación no utilizados no se cobran; los resultados completados antes de cancelar cuentan. Las transformaciones internas cobran una sola vez a la función principal. Guardar y Compartir no usan créditos.
+Free permite 5 imágenes de Compresión, 5 de Redimensionado y 5 de Conversión procesadas correctamente por día natural local. Cada función tiene su propia cuota independiente. Las operaciones individuales y por lotes comparten la cuota de su función. Los lotes Free admiten como máximo 2 imágenes. Las imágenes fallidas y las reservas no utilizadas al cancelar no consumen créditos. Los resultados aceptados correctamente siguen contando, incluidos los aceptados antes de cancelar. Las transformaciones internas de un flujo cobran una sola vez la función principal, sin doble cobro. Guardar y Compartir no consumen créditos. Las cuotas se guardan localmente en su dispositivo. Premium no tiene cuota diaria para estas tres funciones y admite hasta 20 imágenes por lote, sujeto a los límites técnicos de seguridad existentes.
 
 # Premium y límites técnicos
 

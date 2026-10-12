@@ -61,3 +61,13 @@ Published support remains komprexo.support@gmail.com; professional mailbox is pe
 Current target: existing Rumahweb Unlimited S shared hosting, cPanel root public_html/komprexo.
 Generate review ZIP/checksum/manifest with python3 scripts/prepare-static-artifact.py after static build.
 No uploads, DNS/email changes or public legal publication. Gmail remains current support.
+
+## FASE4A.4E — legal/privacy evidence finalization
+
+[Prioritized publication gates](docs/legal/PHASE4A4E_PUBLICATION_READINESS.md) and
+[evidence/category review](docs/google-play/PHASE4A4E_EVIDENCE_REVIEW.md).
+Five-language Privacy/Terms/Premium and Store drafts explicitly state local5/5/5
+quotas,2Free/20Premium batches, acceptance/cancellation/primary-workflow charging
+and unmetered Save/Share. Application behavior unchanged; DRAFT/publication HOLD.
+Owner account verification completed; AndroidPrint testing does not qualify Komprexo.
+Business remains a future proposal, no new product/features. Current Gmail retained.

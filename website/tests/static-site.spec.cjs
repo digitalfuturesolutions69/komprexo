@@ -161,3 +161,16 @@ test('Rumahweb root aliases exclude Pages configuration', async ({ page, request
     }
   }
 });
+
+for (const language of languages) {
+  test(language + ' explicit quota rules agree across three policy pages', async ({ page }) => {
+    const legal = JSON.parse(fs.readFileSync(path.join(__dirname, '../../content/legal', language + '.json'), 'utf8'));
+    const rule = legal.terms[1][1];
+    expect(rule.match(/\b\d+\b/g)).toEqual(['5', '5', '5', '2', '20']);
+    for (const route of ['privacy', 'terms', 'premium']) {
+      await page.goto(language + '/' + route + '/');
+      await expect(page.locator('main section p').filter({ hasText: rule })).toHaveCount(1);
+      await expect(page.locator('main .draft')).toContainText('OWNER ACTION REQUIRED');
+    }
+  });
+}

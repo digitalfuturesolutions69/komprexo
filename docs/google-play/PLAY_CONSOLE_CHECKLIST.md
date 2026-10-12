@@ -24,6 +24,16 @@
 
 Technical/payment/legal/publication acceptance are separate. No merge/release/AdMob/FASE 4B follows automatically.
 
-Final publication gates: [legal approval checklist](../legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback](STATIC_POLICY_PUBLISHING.md). No domain purchase or additional hosting is required.
+Final publication gates: [legal approval checklist](../legal/FINAL_LEGAL_APPROVAL_CHECKLIST.md) and [deployment/rollback](RUMAHWEB_STATIC_DEPLOYMENT.md). No domain purchase or additional hosting is required.
 
 FASE4A.4A: [owner decision](../legal/OWNER_PUBLICATION_DECISION.md) is **BLOCKED — SPECIFIC EVIDENCE REQUIRED**; [Data Safety proposed answers](DATA_SAFETY_FINAL_REVIEW.md) remain HOLD for material SDK questions. Google requires Personal verified legal name/country/email, and full address when monetized. Inspect current Console/regions privately; do not evade necessary public disclosure or copy personal details into source. [Official sources](OFFICIAL_PRIVACY_EVIDENCE.md).
+
+## FASE4A.4E account/app distinction
+
+Owner confirms Google Play account exists and identity verification is completed.
+Do not require repeating that account process. Privately review required monetized
+Personal public fields against those verified records without inventing private identity.
+AndroidPrint Closed Testing is another app; it proves no Komprexo track/tester/production
+eligibility. Inspect only Komprexo-specific current requirements with separate scope.
+[Publication gates](../legal/PHASE4A4E_PUBLICATION_READINESS.md) remain BLOCKED;
+Data Safety not completed/submitted. Business is future proposal, not a current product.

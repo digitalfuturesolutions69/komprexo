@@ -8,7 +8,7 @@ Digital Future Solutions is the public developer name of Komprexo. The legal ope
 
 # Benefits and Free limits
 
-Premium offers unlimited daily Compression, Resize and Convert, all Smart Presets and batches up to 20 images, within technical safety limits. Free has three separate quotas: 5 successful Compression images/day, 5 Resize and 5 Convert. Single and batch share their feature quota; Free batches allow 2 images. Failed operations and unused cancelled credits are not charged. Internal transformations charge the primary feature once; Save and Share are unmetered. There are no ads in the current version.
+Premium includes all Smart Presets. There are no ads in the current version. Free allows 5 successfully processed Compression images, 5 Resize images and 5 Convert images per local calendar day. Each feature has its own independent quota. Single-image and batch operations share their feature’s quota. Free batches allow at most 2 images. Failed images and unused cancelled reservations do not consume credits. Successfully accepted results remain counted, including those accepted before cancellation. Internal transformations within a workflow charge the primary feature once, without double charging. Save and Share do not consume credits. Quota information is kept locally on your device. Premium has no daily quota for these three features and allows up to 20 images per batch, subject to existing technical safety limits.
 
 # Activation, restore and offline checks
 

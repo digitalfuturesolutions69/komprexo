@@ -6,7 +6,7 @@ Digital Future Solutions é o nome público do desenvolvedor do Komprexo. O oper
 
 # Benefícios e limites grátis
 
-Premium oferece Compressão, Redimensionar e Converter sem limite diário, todos os ajustes inteligentes e lotes de até 20 imagens, dentro de limites técnicos. Grátis tem três cotas separadas: 5 imagens bem-sucedidas/dia para Compressão, 5 para Redimensionar e 5 para Converter. Individual e lote compartilham a cota; Grátis permite 2 por lote. Falhas e créditos cancelados não usados não são cobrados. Transformações internas cobram uma vez da função principal; Salvar e Compartilhar não usam cota. Não há anúncios nesta versão.
+Premium inclui todos os Smart Presets. A versão atual não tem anúncios. Free permite 5 imagens de Compressão, 5 de Redimensionamento e 5 de Conversão processadas com sucesso por dia de calendário local. Cada função tem sua própria cota independente. Operações individuais e em lote compartilham a cota da função. Lotes Free permitem no máximo 2 imagens. Imagens com falha e reservas não utilizadas ao cancelar não consomem créditos. Resultados aceitos com sucesso continuam contabilizados, inclusive os aceitos antes do cancelamento. Transformações internas de um fluxo cobram a função principal uma única vez, sem cobrança dupla. Salvar e Compartilhar não consomem créditos. As cotas ficam armazenadas localmente no dispositivo. Premium não tem cota diária para estas três funções e permite até 20 imagens por lote, sujeito aos limites técnicos de segurança existentes.
 
 # Ativação, restauração e offline
 

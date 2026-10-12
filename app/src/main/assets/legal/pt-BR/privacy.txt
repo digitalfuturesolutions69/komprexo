@@ -14,7 +14,7 @@ Entradas, resultados e prévias temporárias ficam no armazenamento privado. Os 
 
 # Cotas e preferências locais
 
-Contagens diárias por função, informações de operações inacabadas e idioma ficam no dispositivo. Não são um histórico de imagens. As contagens são reiniciadas conforme as regras diárias. Preferências permanecem até alteração ou remoção. Limpar dados ou desinstalar remove arquivos e registros privados; não apaga arquivos exportados nem compras registradas pelo Google. O backup do aplicativo está desativado.
+Free permite 5 imagens de Compressão, 5 de Redimensionamento e 5 de Conversão processadas com sucesso por dia de calendário local. Cada função tem sua própria cota independente. Operações individuais e em lote compartilham a cota da função. Lotes Free permitem no máximo 2 imagens. Imagens com falha e reservas não utilizadas ao cancelar não consomem créditos. Resultados aceitos com sucesso continuam contabilizados, inclusive os aceitos antes do cancelamento. Transformações internas de um fluxo cobram a função principal uma única vez, sem cobrança dupla. Salvar e Compartilhar não consomem créditos. As cotas ficam armazenadas localmente no dispositivo. Premium não tem cota diária para estas três funções e permite até 20 imagens por lote, sujeito aos limites técnicos de segurança existentes. Contagens diárias por função, informações de operações inacabadas e idioma ficam no dispositivo. Não são um histórico de imagens. As contagens são reiniciadas conforme as regras diárias. Preferências permanecem até alteração ou remoção. Limpar dados ou desinstalar remove arquivos e registros privados; não apaga arquivos exportados nem compras registradas pelo Google. O backup do aplicativo está desativado.
 
 # Compras e serviços Google
 
