@@ -89,3 +89,16 @@ Relevant files:AndroidComposeTestRule.android.kt,ComposeUiTest.android.kt,
 MainTestClockImpl.android.kt. This test-only scheduler fix uses an existing transitive
 test dependency; no SDK dependency/version change. New final SHA reruns all six jobs;
 actual delivery records its outcome, not an unexplained rerun of the failed commit.
+
+## Dispatcher approach rejected; narrower final test-clock control
+
+Correction6190d40439ed4cce376dbf4218f55293e60d55c1/run38206898005 exposed
+MonetizationWorkflow layout/lifecycle failures on API26/28 with class-wide StandardTestDispatcher.
+That approach is withdrawn; no failed assertions are skipped/swallowed. Default rule
+restored. Only doubleTapConsumesOneCredit synchronizes the virtual UI clock while
+real background work finishes:waitForIdle before, autoAdvance=false during both
+unchanged requests/model completion, restoretrue in finally, waitForIdle after.
+Original one-credit assertion kept; Save/Share displayed assertions added. UI stays
+mounted and real quota/engine unchanged; only test frames are controlled. All test
+methods/timeouts remain. No SDK/dependency/production code changes. Final exact-SHA
+six-job outcome reported independently; both unsuccessful attempts remain documented.

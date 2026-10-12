@@ -19,18 +19,13 @@ import com.komprexo.app.compression.*
 import com.komprexo.app.processing.*
 import com.komprexo.app.ui.*
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.Assert.*
 
 /** Free production policy over real Gallery URIs and native engines; separate journal per test. */
-@OptIn(ExperimentalTestApi::class, ExperimentalCoroutinesApi::class)
 class MonetizationWorkflowTest {
-    // The default unconfined test dispatcher can resume recomposition on the worker
-    // that publishes engine progress. Queue it on the UI-driven test clock instead.
-    @get:Rule val compose=createAndroidComposeRule<MainActivity>(effectContext=StandardTestDispatcher())
+    @get:Rule val compose=createAndroidComposeRule<MainActivity>()
     private lateinit var quota: DailyQuotaManager
     private lateinit var single: CompressionViewModel
     private lateinit var multi: Phase2ViewModel
@@ -111,9 +106,22 @@ class MonetizationWorkflowTest {
         assertEquals(0,store.ledger.used);assertEquals(0,store.ledger.reserved)
     }
     @Test fun doubleTapConsumesOneCredit() {
-        selectedSingle();main { repeat(2) { single.compress(200*1024,OutputFormat.AUTO) } }
-        compose.waitUntil(60000) { single.state.value.result!=null && !single.state.value.busy }
+        selectedSingle()
+        compose.waitForIdle()
+        // The default test frame dispatcher can resume on the engine's progress worker.
+        // Keep virtual frames paused until real background work settles, then render
+        // and verify the resulting UI. Production dispatchers and processing are untouched.
+        compose.mainClock.autoAdvance=false
+        try {
+            main { repeat(2) { single.compress(200*1024,OutputFormat.AUTO) } }
+            compose.waitUntil(60000) { single.state.value.result!=null && !single.state.value.busy }
+        } finally {
+            compose.mainClock.autoAdvance=true
+        }
+        compose.waitForIdle()
         assertEquals(1,store.ledger.used)
+        compose.onNodeWithTag("saveAction").assertIsDisplayed()
+        compose.onNodeWithTag("shareAction").assertIsDisplayed()
     }
     @Test fun simultaneousViewModelsCannotBypassQuota() {
         selectedSingle();compose.onNodeWithTag("homeNavigation").performClick();selectMulti("BATCH",2)
